@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=17 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://ck853pil14fgj" path="res://assets/Erik/player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
 [ext_resource type="Texture2D" uid="uid://cnjhxs0iluaa1" path="res://assets/Erik/Idle.png" id="2_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://dsg60byl2rdxl" path="res://assets/Erik/JumpFall.png" id="3_606se"]
 [ext_resource type="Texture2D" uid="uid://dhn673t4rqpnd" path="res://assets/Erik/Run1.png" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://dgto6squ1tq1x" path="res://assets/Erik/Run2.png" id="4_ivps1"]
+[ext_resource type="Texture2D" uid="uid://cajdjn41nybmo" path="res://assets/Erik/JumpMid.png" id="4_u1c27"]
 [ext_resource type="Texture2D" uid="uid://bl3pi56mgt58d" path="res://assets/Erik/Run3.png" id="5_urp6f"]
 [ext_resource type="Texture2D" uid="uid://crduodaqt8j8t" path="res://assets/Erik/Run4.png" id="6_bwjto"]
+[ext_resource type="Texture2D" uid="uid://c5gyi5ykjynps" path="res://assets/Erik/JumpUp.png" id="6_op7ga"]
 [ext_resource type="Texture2D" uid="uid://dm66lanwiajx5" path="res://assets/Erik/Run5.png" id="7_606se"]
 [ext_resource type="Texture2D" uid="uid://cban25l1hn18f" path="res://assets/Erik/Run6.png" id="8_u1c27"]
 [ext_resource type="Texture2D" uid="uid://cqaxyjs6ruu55" path="res://assets/Erik/Run7.png" id="9_op7ga"]
@@ -15,10 +19,42 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_bwjto")
+}],
+"loop": true,
+"name": &"Fall_Full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_606se")
+}],
+"loop": true,
+"name": &"Fall_Low",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u1c27")
+}],
+"loop": true,
+"name": &"Fall_Mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_n7ghd")
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_op7ga")
+}],
+"loop": true,
+"name": &"Raise",
 "speed": 5.0
 }, {
 "frames": [{
@@ -52,9 +88,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(109, 134)
+size = Vector2(107.143, 128.571)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -62,5 +99,6 @@ sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(0.714282, 8.94069e-06)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i3pqv")
