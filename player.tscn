@@ -1,12 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=21 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://ck853pil14fgj" path="res://assets/Erik/player.gd" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
 [ext_resource type="Texture2D" uid="uid://cnjhxs0iluaa1" path="res://assets/Erik/Idle.png" id="2_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://cpqy355f1f3cr" path="res://assets/Erik/Climb1.png" id="2_q13i1"]
 [ext_resource type="Texture2D" uid="uid://dsg60byl2rdxl" path="res://assets/Erik/JumpFall.png" id="3_606se"]
 [ext_resource type="Texture2D" uid="uid://dhn673t4rqpnd" path="res://assets/Erik/Run1.png" id="3_nvl01"]
+[ext_resource type="Texture2D" uid="uid://1rk86w6n30dp" path="res://assets/Erik/Climb2.png" id="3_pylmc"]
 [ext_resource type="Texture2D" uid="uid://dgto6squ1tq1x" path="res://assets/Erik/Run2.png" id="4_ivps1"]
+[ext_resource type="Texture2D" uid="uid://lntx7l56npt4" path="res://assets/Erik/Climb3.png" id="4_pbfsw"]
 [ext_resource type="Texture2D" uid="uid://cajdjn41nybmo" path="res://assets/Erik/JumpMid.png" id="4_u1c27"]
+[ext_resource type="Texture2D" uid="uid://bu6mflru267xc" path="res://assets/Erik/Climb4.png" id="5_5tmop"]
 [ext_resource type="Texture2D" uid="uid://bl3pi56mgt58d" path="res://assets/Erik/Run3.png" id="5_urp6f"]
 [ext_resource type="Texture2D" uid="uid://crduodaqt8j8t" path="res://assets/Erik/Run4.png" id="6_bwjto"]
 [ext_resource type="Texture2D" uid="uid://c5gyi5ykjynps" path="res://assets/Erik/JumpUp.png" id="6_op7ga"]
@@ -17,6 +21,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5tmop")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_bwjto")
@@ -100,5 +121,4 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714282, 8.94069e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i3pqv")
