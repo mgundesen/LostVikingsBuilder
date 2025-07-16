@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=4 uid="uid://c6st53ijcsi3s"]
+
+[ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://player.tscn" id="1_memhf"]
+[ext_resource type="Texture2D" uid="uid://c00xhmev3ibct" path="res://assets/obstacle.png" id="2_0tbyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tbyp"]
+size = Vector2(747, 20)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
+texture = ExtResource("2_0tbyp")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_a0jw4"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1p5oe")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_memhf")]
+position = Vector2(154, 78)
+scale = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(206, 309)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(377, 8)
+shape = SubResource("RectangleShape2D_0tbyp")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAABgAAAAAAAAAAAABABgAAAAAAAAAAAACABgAAAAAAAAAAAADABgAAAAAAAAAAAAEABgAAAAAAAAAAAAFABgAAAAAAAAAAAAGABgAAAAAAAAAAAAHABgAAAAAAAAAAAAIABgAAAAAAAAAAAAJABgAAAAAAAAAAAAKABgAAAAAAAAAAAALABgAAAAAAAAAAAAMABgAAAAAAAAAAAANABgAAAAAAAAAAAAOABgAAAAAAAAAAAAPABgAAAAAAAAAAAAQABcAAAAAAAAAAAARABcAAAAAAAAAAAASABcAAAAAAAAAAAATABcAAAAAAAAAAAAUABcAAAAAAAAAAAAVABcAAAAAAAAAAAAWABcAAAAAAAAAAAAXABcAAAAAAAAAAAAYABgAAAAAAAAAAAAZABgAAAAAAAAAAAAaABgAAAAAAAAAAAAbABgAAAAAAAAAAAAcABgAAAAAAAAAAAAdABgAAAAAAAAAAAAeABgAAAAAAAAAAAAfABgAAAAAAAAAAAAgABgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_a0jw4")
+use_kinematic_bodies = true
