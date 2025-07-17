@@ -111,7 +111,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(107.143, 128.571)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.65, 0.65)
 script = ExtResource("1_sweqy")
 
