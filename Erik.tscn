@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://iobfo8uqlxcw"]
 
-[ext_resource type="Script" uid="uid://ck853pil14fgj" path="res://assets/Erik/player.gd" id="1_sweqy"]
+[ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
 [ext_resource type="Texture2D" uid="uid://cnjhxs0iluaa1" path="res://assets/Erik/Idle.png" id="2_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://cpqy355f1f3cr" path="res://assets/Erik/Climb1.png" id="2_q13i1"]
@@ -111,9 +111,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(107.143, 128.571)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Erik" type="CharacterBody2D"]
 scale = Vector2(0.65, 0.65)
-script = ExtResource("1_sweqy")
+script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
