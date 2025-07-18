@@ -1,8 +1,7 @@
-One way platform
 Hud
 Damage
 Fall damage
-Elevator
+Elevator (Extend one way platform?)
 Fix ladder bounds
 Olaf Sheild
 Balerog
