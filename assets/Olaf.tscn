@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=19 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://8o86u5hngc8" path="res://assets/Olaf/fall.png" id="7_6nmr2"]
 [ext_resource type="Texture2D" uid="uid://cajdjn41nybmo" path="res://assets/Erik/JumpMid.png" id="7_mnunu"]
 [ext_resource type="Texture2D" uid="uid://ypiqqgkwreas" path="res://assets/Olaf/idle.png" id="8_bj7vi"]
-[ext_resource type="Texture2D" uid="uid://c5gyi5ykjynps" path="res://assets/Erik/JumpUp.png" id="9_v5e05"]
 [ext_resource type="Texture2D" uid="uid://d2tnhv20mjx5b" path="res://assets/Olaf/Walk1.png" id="10_y1odb"]
 [ext_resource type="Texture2D" uid="uid://b80vux4egqva3" path="res://assets/Olaf/Walk2.png" id="11_hyes4"]
 [ext_resource type="Texture2D" uid="uid://bd0kgn2rdmb61" path="res://assets/Olaf/Walk3.png" id="12_8ng53"]
@@ -71,7 +70,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_v5e05")
+"texture": ExtResource("7_6nmr2")
 }],
 "loop": true,
 "name": &"Raise",

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=10 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="2_0tbyp"]
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://ladder.tscn" id="3_1p5oe"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf.tscn" id="5_5i074"]
+[ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tbyp"]
 size = Vector2(747, 20)
@@ -30,7 +31,7 @@ sources/2 = SubResource("TileSetAtlasSource_1p5oe")
 [node name="Node2D" type="Node2D"]
 
 [node name="Test" type="CharacterBody2D" parent="."]
-position = Vector2(273, 211)
+position = Vector2(-333, 150)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test"]
@@ -58,3 +59,6 @@ position = Vector2(126, 509)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(222, 504)
+
+[node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
+position = Vector2(785, 602)

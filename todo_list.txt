@@ -1,7 +1,10 @@
-Olaf
-Spring
 One way platform
-Ui
+Hud
 Damage
 Fall damage
+Elevator
 Fix ladder bounds
+Olaf Sheild
+Balerog
+Increased spring power high speed
+Erik jump air decreased gravity

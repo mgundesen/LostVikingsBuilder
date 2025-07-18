@@ -3,6 +3,7 @@ class_name PlayerBase
 
 const STOP_FORCE = 8000
 const JUMP_SPEED = 550
+const SPRING_FORCE = 850
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -12,6 +13,9 @@ var ladderPos = 0
 
 # Control active interface
 var controlActive = false
+
+# Control apply spring jump
+var springJump = false
 
 enum State {Free, Ladder}
 var state = State.Free
@@ -64,9 +68,14 @@ func applyPhysics(xInput, triggerJump, delta):
 
 	# Vertical movement code. Apply gravity.
 	velocity.y += gravity * delta
-
+	
+	
 	# Move based on the velocity and snap to the ground.
 	move_and_slide()
+
+	if springJump:
+		springJump = false
+		velocity.y = -SPRING_FORCE
 
 	if triggerJump:
 		velocity.y = -JUMP_SPEED
