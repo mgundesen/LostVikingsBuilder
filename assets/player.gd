@@ -1,15 +1,17 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-signal collided
-
 const STOP_FORCE = 8000
 const JUMP_SPEED = 550
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Ladder interface
 var ladderAllowed = false
 var ladderPos = 0
+
+# Control active interface
+var controlActive = false
 
 enum State {Free, Ladder}
 var state = State.Free
@@ -73,9 +75,14 @@ func applyPhysics(xInput, triggerJump, delta):
 			velocity.y *= jumpMultiplier
 
 func _physics_process(delta):
-	var yInput = Input.get_axis(&"Up", &"Down")
-	var xInput = Input.get_axis(&"Left", &"Right")
-	var triggerJump = allowJump()
+	var yInput = 0
+	var xInput = 0
+	var triggerJump = false
+	if(controlActive):
+		yInput = Input.get_axis(&"Up", &"Down")
+		xInput = Input.get_axis(&"Left", &"Right")
+		triggerJump = allowJump()
+	
 	if ladderAllowed and abs(yInput) > 0:
 		state = State.Ladder
 		velocity = Vector2.ZERO

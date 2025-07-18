@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
-[ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://olaf.gd" id="1_yuhhw"]
+[ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
 [ext_resource type="Texture2D" uid="uid://be23rfk1cbe3d" path="res://assets/Olaf/climb2.png" id="2_yuhhw"]
 [ext_resource type="Texture2D" uid="uid://bto8c8nxiph85" path="res://assets/Olaf/climb3.png" id="3_6nmr2"]
 [ext_resource type="Texture2D" uid="uid://co4yyw8afc1dk" path="res://assets/Olaf/climb4.png" id="4_k72uy"]
@@ -115,7 +115,7 @@ script = ExtResource("1_yuhhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Walk"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714282, 8.94069e-06)

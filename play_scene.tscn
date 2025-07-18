@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
-[ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://Erik.tscn" id="1_memhf"]
+[ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="2_0tbyp"]
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://ladder.tscn" id="3_1p5oe"]
-[ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://Olaf.tscn" id="5_5i074"]
+[ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf.tscn" id="5_5i074"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tbyp"]
 size = Vector2(747, 20)
@@ -50,6 +50,7 @@ position = Vector2(507, 368)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 script = ExtResource("1_a0jw4")
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]

@@ -1,6 +1,17 @@
 extends Node2D
 
+var currentPlayer = 0
+const playerCount = 2
+
 func _process(delta):
-	var node = get_node("../Erik")
-	if node:
-		position = get_node("../Erik").position
+	if Input.is_action_just_pressed(&"SwapLeft"):
+		currentPlayer += 1
+		currentPlayer %= playerCount
+	
+	var players = [get_node("../Erik"), get_node("../Olaf")]
+	for i in range(2):
+		var player = players[i]
+		if player:
+			player.set("controlActive", i == currentPlayer)
+			if(i == currentPlayer):
+				position = player.position
