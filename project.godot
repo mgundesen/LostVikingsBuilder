@@ -14,6 +14,10 @@ config/name="PuzzlePlatformer"
 run/main_scene="uid://c6st53ijcsi3s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+PlayerUtil="*res://player_util.gd"
+
 [display]
 
 window/size/viewport_width=800

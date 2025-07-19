@@ -8,7 +8,7 @@ func _process(delta):
 		currentPlayer += 1
 		currentPlayer %= playerCount
 	
-	var players = [get_node("../Erik"), get_node("../Olaf")]
+	var players = PlayerUtil.getPlayers()
 	for i in range(2):
 		var player = players[i]
 		if player:
