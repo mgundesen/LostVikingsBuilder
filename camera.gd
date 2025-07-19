@@ -15,3 +15,4 @@ func _process(delta):
 			player.set("controlActive", i == currentPlayer)
 			if(i == currentPlayer):
 				position = player.position
+				position.y -= 40 # offset for the HUD
