@@ -51,7 +51,7 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Idle")
 
 func stopForce():
-	return STOP_FORCE * (1.0 if is_on_floor() else 0.5)
+	return STOP_FORCE * (1.0 if is_on_floor() else 0.07)
 
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
