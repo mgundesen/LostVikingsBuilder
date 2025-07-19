@@ -17,6 +17,8 @@ var controlActive = false
 # Control apply spring jump
 var springJump = false
 
+var playerHealth = 3
+
 enum State {Free, Ladder}
 var state = State.Free
 

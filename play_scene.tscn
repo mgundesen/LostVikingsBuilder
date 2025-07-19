@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf.tscn" id="5_5i074"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="7_k2wtv"]
-[ext_resource type="Texture2D" uid="uid://b4tvpkyoe3hfw" path="res://assets/HUD/Hud.png" id="8_0sylv"]
+[ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -57,9 +57,4 @@ position = Vector2(785, 602)
 [node name="Test2" parent="." instance=ExtResource("7_k2wtv")]
 position = Vector2(704, 385)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(400, 77)
-scale = Vector2(0.97, 0.97)
-texture = ExtResource("8_0sylv")
+[node name="HUD" parent="." instance=ExtResource("8_0sylv")]
