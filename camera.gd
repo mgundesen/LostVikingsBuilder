@@ -3,7 +3,7 @@ extends Node2D
 var currentPlayer = 0
 const playerCount = 2
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(&"SwapLeft"):
 		currentPlayer += 1
 		currentPlayer %= playerCount
