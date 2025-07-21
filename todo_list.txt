@@ -1,6 +1,7 @@
-Balerog
-Elevator (Extend one way platform?)
 Fix ladder bounds
+Elevator (Extend one way platform?)
 Olaf Sheild
 Increased spring power high speed
 Erik jump air decreased gravity
+Balerog moves
+Erik moves

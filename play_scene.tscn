@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=12 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="7_k2wtv"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
+[ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -23,8 +24,8 @@ texture_region_size = Vector2i(23, 23)
 
 [sub_resource type="TileSet" id="TileSet_a0jw4"]
 tile_size = Vector2i(23, 23)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 sources/2 = SubResource("TileSetAtlasSource_1p5oe")
 
 [node name="Node2D" type="Node2D"]
@@ -58,3 +59,6 @@ position = Vector2(785, 602)
 position = Vector2(704, 385)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
+
+[node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
+position = Vector2(357, 501)

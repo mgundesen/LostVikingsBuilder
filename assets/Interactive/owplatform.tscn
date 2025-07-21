@@ -6,8 +6,8 @@
 size = Vector2(178.75, 12.5)
 
 [node name="owplatform" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
