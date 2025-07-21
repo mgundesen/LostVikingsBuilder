@@ -1,8 +1,6 @@
-Damage
-Fall damage
+Balerog
 Elevator (Extend one way platform?)
 Fix ladder bounds
 Olaf Sheild
-Balerog
 Increased spring power high speed
 Erik jump air decreased gravity

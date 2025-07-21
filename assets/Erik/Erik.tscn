@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=31 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -16,8 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://c5gyi5ykjynps" path="res://assets/Erik/JumpUp.png" id="6_op7ga"]
 [ext_resource type="Texture2D" uid="uid://dm66lanwiajx5" path="res://assets/Erik/Run5.png" id="7_606se"]
 [ext_resource type="Texture2D" uid="uid://cban25l1hn18f" path="res://assets/Erik/Run6.png" id="8_u1c27"]
+[ext_resource type="Texture2D" uid="uid://bm207aqg1g12i" path="res://assets/Erik/FallStun1.png" id="9_a4oje"]
 [ext_resource type="Texture2D" uid="uid://cqaxyjs6ruu55" path="res://assets/Erik/Run7.png" id="9_op7ga"]
 [ext_resource type="Texture2D" uid="uid://bsy2n77ubddbi" path="res://assets/Erik/Run8.png" id="10_q13i1"]
+[ext_resource type="Texture2D" uid="uid://cwsq103afup14" path="res://assets/Erik/FallStun2.png" id="10_xv5rm"]
+[ext_resource type="Texture2D" uid="uid://dwxlve3k7pthx" path="res://assets/Erik/FallStun3.png" id="11_m1cot"]
+[ext_resource type="Texture2D" uid="uid://cas2r2f2kr8em" path="res://assets/Erik/FallStun4.png" id="12_m085p"]
+[ext_resource type="Texture2D" uid="uid://bfuf6m48m4331" path="res://assets/Erik/FallStun5.png" id="13_fvvbg"]
+[ext_resource type="Texture2D" uid="uid://dx5yu64aiywlg" path="res://assets/Erik/FallStun6.png" id="14_60iu1"]
+[ext_resource type="Texture2D" uid="uid://e0n1cm0f0y6w" path="res://assets/Erik/FallStun7.png" id="15_eo8xh"]
+[ext_resource type="Texture2D" uid="uid://c2r3i0h7x0vfa" path="res://assets/Erik/FallStun8.png" id="16_bflci"]
+[ext_resource type="Texture2D" uid="uid://dlcvj2r2w68qu" path="res://assets/Erik/FallStun9.png" id="17_1r8tb"]
+[ext_resource type="Texture2D" uid="uid://drk814hjy4pia" path="res://assets/Erik/FallStun10.png" id="18_fdd60"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -60,6 +70,41 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall_Mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_a4oje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xv5rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m1cot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m085p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fvvbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_60iu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_eo8xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bflci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1r8tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fdd60")
+}],
+"loop": true,
+"name": &"Fall_Stun",
 "speed": 5.0
 }, {
 "frames": [{
@@ -117,8 +162,13 @@ script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Idle"
+animation = &"Fall_Stun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714282, 8.94069e-06)
 shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

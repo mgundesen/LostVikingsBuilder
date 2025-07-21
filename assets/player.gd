@@ -4,6 +4,7 @@ class_name PlayerBase
 const STOP_FORCE = 8000
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
+const FALL_DAMAGE_LIMIT = 850
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -19,7 +20,7 @@ var springJump = false
 
 var playerHealth = 3
 
-enum State {Free, Ladder}
+enum State {Free, Stunned, Ladder}
 var state = State.Free
 
 func walkForce():
@@ -34,14 +35,17 @@ func allowJump():
 func decideAnimation(yInput, vel):
 	if abs(vel.x) > 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-
-	if state == State.Ladder:
+	if state == State.Stunned:
+		$AnimatedSprite2D.play("Fall_Stun")
+	elif state == State.Ladder:
 		if abs(yInput) > 0:
 			$AnimatedSprite2D.play("Climb")
 		else:
 			$AnimatedSprite2D.pause()
 	elif !is_on_floor():
-		if vel.y > 2:
+		if vel.y > FALL_DAMAGE_LIMIT: # this should maybe be delta indifferent
+			$AnimatedSprite2D.play("Fall_Full")
+		elif vel.y > 2:
 			$AnimatedSprite2D.play("Fall_Low")
 		elif vel.y < 2:
 			$AnimatedSprite2D.play("Raise")
@@ -71,9 +75,15 @@ func applyPhysics(xInput, triggerJump, delta):
 	# Vertical movement code. Apply gravity.
 	velocity.y += gravity * delta
 	
-	
+	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
 	# Move based on the velocity and snap to the ground.
 	move_and_slide()
+	for i in get_slide_collision_count():
+		# fix some collision are ok
+		if canTakeFallDamage:
+			playerHealth -= 1
+			state = State.Stunned
+			$StunTimer.start(2)
 
 	if springJump:
 		springJump = false
@@ -102,10 +112,14 @@ func _physics_process(delta):
 			state = State.Free
 		if triggerJump:
 			state = State.Free
-	
+				
 	if state == State.Free:
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:
 		position.x = ladderPos
 		position.y += yInput * 2
 	decideAnimation(yInput, velocity)
+	#print(velocity.y)
+
+func _on_stun_timer_timeout() -> void:
+	state = State.Free

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=29 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -9,13 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://8o86u5hngc8" path="res://assets/Olaf/fall.png" id="7_6nmr2"]
 [ext_resource type="Texture2D" uid="uid://cajdjn41nybmo" path="res://assets/Erik/JumpMid.png" id="7_mnunu"]
 [ext_resource type="Texture2D" uid="uid://ypiqqgkwreas" path="res://assets/Olaf/idle.png" id="8_bj7vi"]
+[ext_resource type="Texture2D" uid="uid://dkaqmffnoc6yj" path="res://assets/Olaf/FallStun1.png" id="9_jap4e"]
+[ext_resource type="Texture2D" uid="uid://b3shpsymcxwfe" path="res://assets/Olaf/FallStun2.png" id="10_77588"]
 [ext_resource type="Texture2D" uid="uid://d2tnhv20mjx5b" path="res://assets/Olaf/Walk1.png" id="10_y1odb"]
+[ext_resource type="Texture2D" uid="uid://1av7ei510qn0" path="res://assets/Olaf/FallStun3.png" id="11_ene20"]
 [ext_resource type="Texture2D" uid="uid://b80vux4egqva3" path="res://assets/Olaf/Walk2.png" id="11_hyes4"]
 [ext_resource type="Texture2D" uid="uid://bd0kgn2rdmb61" path="res://assets/Olaf/Walk3.png" id="12_8ng53"]
+[ext_resource type="Texture2D" uid="uid://ctihgf3ybhqgi" path="res://assets/Olaf/FallStun4.png" id="12_hq4xx"]
+[ext_resource type="Texture2D" uid="uid://brlbqsj7y677b" path="res://assets/Olaf/FallStun5.png" id="13_3dn4f"]
 [ext_resource type="Texture2D" uid="uid://bjoohaw2xa5f2" path="res://assets/Olaf/Walk4.png" id="13_y3ehv"]
+[ext_resource type="Texture2D" uid="uid://dh508skxefqws" path="res://assets/Olaf/FallStun6.png" id="14_oggk0"]
 [ext_resource type="Texture2D" uid="uid://bw2optfk3g5xr" path="res://assets/Olaf/Walk5.png" id="14_qwh1y"]
+[ext_resource type="Texture2D" uid="uid://b5i0ko0fx0cqu" path="res://assets/Olaf/FallStun7.png" id="15_6ls3k"]
 [ext_resource type="Texture2D" uid="uid://u0dw787d6m7l" path="res://assets/Olaf/Walk6.png" id="15_t5dee"]
+[ext_resource type="Texture2D" uid="uid://6hbtu1gjjchn" path="res://assets/Olaf/FallStun8.png" id="16_a6ga6"]
 [ext_resource type="Texture2D" uid="uid://dm0ujak4jckiv" path="res://assets/Olaf/Walk7.png" id="16_ci8v8"]
+[ext_resource type="Texture2D" uid="uid://buf6ggthi6b8x" path="res://assets/Olaf/FallStun9.png" id="17_tnx42"]
+[ext_resource type="Texture2D" uid="uid://chlsoe78soqd2" path="res://assets/Olaf/FallStun10.png" id="18_bo61s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -58,6 +68,41 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall_Mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jap4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_77588")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ene20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hq4xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3dn4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oggk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6ls3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_a6ga6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tnx42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bo61s")
+}],
+"loop": true,
+"name": &"Fall_Stun",
 "speed": 5.0
 }, {
 "frames": [{
@@ -114,8 +159,13 @@ script = ExtResource("1_yuhhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Idle"
+animation = &"Fall_Stun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714282, 8.94069e-06)
 shape = SubResource("RectangleShape2D_yfthr")
+
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
