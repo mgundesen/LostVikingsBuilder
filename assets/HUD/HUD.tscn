@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn35ca1qeyuc1"]
+[gd_scene load_steps=7 format=3 uid="uid://bn35ca1qeyuc1"]
 
 [ext_resource type="Texture2D" uid="uid://b4tvpkyoe3hfw" path="res://assets/HUD/Hud.png" id="1_0n44s"]
 [ext_resource type="Script" uid="uid://ckmkro8a1b2cw" path="res://assets/HUD/hud.gd" id="1_1qsk2"]
 [ext_resource type="Texture2D" uid="uid://w1ic7poyyu3p" path="res://assets/HUD/health.png" id="2_te87y"]
+[ext_resource type="Texture2D" uid="uid://mcvs28xy63d2" path="res://assets/HUD/Erik_Enabled.png" id="4_e1il4"]
+[ext_resource type="Texture2D" uid="uid://berl3o68s2l8o" path="res://assets/HUD/Balerog_Enabled.png" id="5_8rpq3"]
+[ext_resource type="Texture2D" uid="uid://cinqqfn8jbd6h" path="res://assets/HUD/Olaf_Enabled.png" id="6_3x7ij"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1qsk2")
@@ -47,3 +50,18 @@ texture = ExtResource("2_te87y")
 [node name="H3_3" type="Sprite2D" parent="."]
 position = Vector2(553.5, 141.5)
 texture = ExtResource("2_te87y")
+
+[node name="Active_1" type="Sprite2D" parent="."]
+position = Vector2(97, 94)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("4_e1il4")
+
+[node name="Active_2" type="Sprite2D" parent="."]
+position = Vector2(322, 94)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("5_8rpq3")
+
+[node name="Active_3" type="Sprite2D" parent="."]
+position = Vector2(545, 90)
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("6_3x7ij")
