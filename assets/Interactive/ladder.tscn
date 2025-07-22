@@ -3,22 +3,24 @@
 [ext_resource type="Script" uid="uid://cn230xp0lqm2h" path="res://assets/Interactive/ladder.gd" id="1_lqhsa"]
 [ext_resource type="Texture2D" uid="uid://fs8coptcf2og" path="res://assets/Interactive/ladder.png" id="1_s54ic"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j01k"]
-size = Vector2(2000, 8547)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hgow"]
+size = Vector2(24, 136)
 
 [node name="Ladder" type="Area2D"]
-scale = Vector2(0.014, 0.014)
+texture_repeat = 2
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_lqhsa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(73, 62)
-texture = ExtResource("1_s54ic")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(71.4285, 0)
-shape = SubResource("RectangleShape2D_1j01k")
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_8hgow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_s54ic")
+region_enabled = true
+region_rect = Rect2(0, 0, 88, 137)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

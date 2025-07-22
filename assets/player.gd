@@ -10,7 +10,8 @@ const FALL_DAMAGE_LIMIT = 850
 
 # Ladder interface
 var ladderAllowed = false
-var ladderPos = 0
+var ladderPos = Vector2()
+var ladderHeight = 0
 
 # Control active interface
 var controlActive = false
@@ -95,6 +96,23 @@ func applyPhysics(xInput, triggerJump, delta):
 			const jumpMultiplier = 1.15
 			velocity.y *= jumpMultiplier
 
+func ladderTop():
+	return ladderPos.y - ladderHeight / 2 - $CollisionShape2D.shape.size.y/2 * scale.y
+
+func ladderBottom():
+	return ladderPos.y + ladderHeight / 2 - $CollisionShape2D.shape.size.y/2 * scale.y
+
+func validLadderInput(yInput):
+	if !ladderAllowed or abs(yInput) < 0.1:
+		return false
+	if yInput < 0: #Going up
+		if position.y < ladderTop():
+			return false
+	if yInput > 0: #Going down
+		if position.y > ladderBottom():
+			return false
+	return true
+
 func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
@@ -104,22 +122,21 @@ func _physics_process(delta):
 		xInput = Input.get_axis(&"Left", &"Right")
 		triggerJump = allowJump()
 	
-	if ladderAllowed and abs(yInput) > 0:
+	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
 		state = State.Ladder
 		velocity = Vector2.ZERO
 	elif state == State.Ladder and abs(yInput) < 0.1:
-		if abs(xInput) > 0:
-			state = State.Free
-		if triggerJump:
+		if abs(xInput) > 0 or triggerJump:
 			state = State.Free
 				
 	if state == State.Free:
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:
-		position.x = ladderPos
+		position.x = ladderPos.x
 		position.y += yInput * 2
+		if position.y < ladderTop() or position.y > ladderBottom():
+			state = State.Free
 	decideAnimation(yInput, velocity)
-	#print(velocity.y)
 
 func _on_stun_timer_timeout() -> void:
 	state = State.Free

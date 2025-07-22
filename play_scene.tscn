@@ -36,10 +36,12 @@ tile_set = SubResource("TileSet_a0jw4")
 use_kinematic_bodies = true
 
 [node name="Ladder" parent="." instance=ExtResource("3_1p5oe")]
-position = Vector2(321, 490)
+position = Vector2(322, 484)
+ladderHeight = 130
 
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
 position = Vector2(507, 368)
+ladderHeight = 350
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -56,9 +58,9 @@ position = Vector2(222, 504)
 position = Vector2(785, 602)
 
 [node name="Test2" parent="." instance=ExtResource("7_k2wtv")]
-position = Vector2(704, 385)
+position = Vector2(229, 432)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(357, 501)
+position = Vector2(447, 507)

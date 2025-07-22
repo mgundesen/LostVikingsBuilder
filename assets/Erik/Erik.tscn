@@ -154,7 +154,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(107.143, 128.571)
+size = Vector2(107.143, 130)
 
 [node name="Erik" type="CharacterBody2D"]
 scale = Vector2(0.65, 0.65)

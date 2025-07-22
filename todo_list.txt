@@ -1,4 +1,3 @@
-Fix ladder bounds
 Elevator (Extend one way platform?)
 Olaf Sheild
 Increased spring power high speed
