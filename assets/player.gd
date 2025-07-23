@@ -13,15 +13,18 @@ var ladderAllowed = false
 var ladderPos = Vector2()
 var ladderHeight = 0
 
+# Kill interface
+var killShock = false
+
 # Control active interface
 var controlActive = false
 
 # Control apply spring jump
 var springJump = false
 
-var playerHealth = 1
+var playerHealth = 3
 
-enum State {Free, Ladder, FallStun, FallDeath, Dead}
+enum State {Free, Ladder, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
 
 func walkForce():
@@ -40,6 +43,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Death_Fall")
 	elif state == State.FallStun:
 		$AnimatedSprite2D.play("Fall_Stun")
+	elif state == State.ShockDeath:
+		$AnimatedSprite2D.play("Death_Shock")
 	elif state == State.Ladder:
 		if abs(yInput) > 0:
 			$AnimatedSprite2D.play("Climb")
@@ -134,6 +139,10 @@ func _physics_process(delta):
 		yInput = Input.get_axis(&"Up", &"Down")
 		xInput = Input.get_axis(&"Left", &"Right")
 		triggerJump = allowJump()
+		
+	if killShock:
+		killShock = false
+		takeDamage(State.ShockDeath, State.ShockDeath, 4)
 	
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
 		state = State.Ladder

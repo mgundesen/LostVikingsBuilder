@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=32 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -18,8 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bf8v0gjjnluma" path="res://assets/Balerog/fall_death5.png" id="10_v7l3f"]
 [ext_resource type="Texture2D" uid="uid://3enmxp010pkl" path="res://assets/Balerog/fall_death6.png" id="11_b758r"]
 [ext_resource type="Texture2D" uid="uid://1a1ksywip3qo" path="res://assets/Balerog/FallStun9.png" id="11_l6qba"]
+[ext_resource type="Texture2D" uid="uid://brv5cqduf6xon" path="res://assets/Balerog/kill_electric1.png" id="12_u6icq"]
 [ext_resource type="Texture2D" uid="uid://dk0xn1rp66wu4" path="res://assets/Balerog/Idle.png" id="12_v7l3f"]
 [ext_resource type="Texture2D" uid="uid://b0a8m8pit4hla" path="res://assets/Balerog/Walk1.png" id="13_b758r"]
+[ext_resource type="Texture2D" uid="uid://7glf1b08w22r" path="res://assets/Balerog/kill_electric2.png" id="13_l6qba"]
 [ext_resource type="Texture2D" uid="uid://dosf38vgr8q2p" path="res://assets/Balerog/Walk2.png" id="14_p5kk6"]
 [ext_resource type="Texture2D" uid="uid://ddcgqi0op4bkb" path="res://assets/Balerog/Walk3.png" id="15_ymnis"]
 [ext_resource type="Texture2D" uid="uid://bgumvuuq7yo24" path="res://assets/Balerog/Walk4.png" id="16_be8u7"]
@@ -68,6 +70,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_u6icq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l6qba")
+}],
+"loop": true,
+"name": &"Death_Shock",
 "speed": 5.0
 }, {
 "frames": [{

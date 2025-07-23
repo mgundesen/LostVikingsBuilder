@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=39 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -27,7 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://cwsq103afup14" path="res://assets/Erik/FallStun2.png" id="10_xv5rm"]
 [ext_resource type="Texture2D" uid="uid://crn408tr0dg1c" path="res://assets/Erik/fall_death6.png" id="11_lxe57"]
 [ext_resource type="Texture2D" uid="uid://dwxlve3k7pthx" path="res://assets/Erik/FallStun3.png" id="11_m1cot"]
+[ext_resource type="Texture2D" uid="uid://dbplcxydyeat6" path="res://assets/Erik/kill_electric1.png" id="12_1r8tb"]
 [ext_resource type="Texture2D" uid="uid://cas2r2f2kr8em" path="res://assets/Erik/FallStun4.png" id="12_m085p"]
+[ext_resource type="Texture2D" uid="uid://cj4tqi4172eqj" path="res://assets/Erik/kill_electric2.png" id="13_fdd60"]
 [ext_resource type="Texture2D" uid="uid://bfuf6m48m4331" path="res://assets/Erik/FallStun5.png" id="13_fvvbg"]
 [ext_resource type="Texture2D" uid="uid://dx5yu64aiywlg" path="res://assets/Erik/FallStun6.png" id="14_60iu1"]
 [ext_resource type="Texture2D" uid="uid://e0n1cm0f0y6w" path="res://assets/Erik/FallStun7.png" id="15_eo8xh"]
@@ -75,6 +77,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_1r8tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fdd60")
+}],
+"loop": true,
+"name": &"Death_Shock",
 "speed": 5.0
 }, {
 "frames": [{

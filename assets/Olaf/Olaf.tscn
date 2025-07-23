@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=37 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -21,8 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://1av7ei510qn0" path="res://assets/Olaf/FallStun3.png" id="11_ene20"]
 [ext_resource type="Texture2D" uid="uid://b80vux4egqva3" path="res://assets/Olaf/Walk2.png" id="11_hyes4"]
 [ext_resource type="Texture2D" uid="uid://bd0kgn2rdmb61" path="res://assets/Olaf/Walk3.png" id="12_8ng53"]
+[ext_resource type="Texture2D" uid="uid://deenwa71m7o0t" path="res://assets/Olaf/kill_electric1.png" id="12_a2k5v"]
 [ext_resource type="Texture2D" uid="uid://ctihgf3ybhqgi" path="res://assets/Olaf/FallStun4.png" id="12_hq4xx"]
 [ext_resource type="Texture2D" uid="uid://brlbqsj7y677b" path="res://assets/Olaf/FallStun5.png" id="13_3dn4f"]
+[ext_resource type="Texture2D" uid="uid://d0f6wcfm0vsnx" path="res://assets/Olaf/kill_electric2.png" id="13_f1dc3"]
 [ext_resource type="Texture2D" uid="uid://bjoohaw2xa5f2" path="res://assets/Olaf/Walk4.png" id="13_y3ehv"]
 [ext_resource type="Texture2D" uid="uid://dh508skxefqws" path="res://assets/Olaf/FallStun6.png" id="14_oggk0"]
 [ext_resource type="Texture2D" uid="uid://bw2optfk3g5xr" path="res://assets/Olaf/Walk5.png" id="14_qwh1y"]
@@ -73,6 +75,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_a2k5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f1dc3")
+}],
+"loop": true,
+"name": &"Death_Shock",
 "speed": 5.0
 }, {
 "frames": [{
