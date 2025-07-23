@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://djef72qqb0nk7"]
-
-[ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="1_fw2hx"]
+[gd_scene load_steps=2 format=3 uid="uid://djef72qqb0nk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfc7h"]
-size = Vector2(178.75, 12.5)
+size = Vector2(137, 5)
 
 [node name="owplatform" type="CharacterBody2D"]
 collision_layer = 7
@@ -11,11 +9,6 @@ collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(94.125, -8.25)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_dfc7h")
 one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(93.5, -7.5)
-scale = Vector2(4.02174, 0.326087)
-texture = ExtResource("1_fw2hx")

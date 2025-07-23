@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=11 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="3_1p5oe"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf.tscn" id="5_5i074"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
-[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="7_k2wtv"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 
@@ -52,13 +51,11 @@ script = ExtResource("1_a0jw4")
 position = Vector2(126, 509)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(222, 504)
+position = Vector2(224, 505)
+scale = Vector2(0.68, 0.68)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(785, 602)
-
-[node name="Test2" parent="." instance=ExtResource("7_k2wtv")]
-position = Vector2(229, 432)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 

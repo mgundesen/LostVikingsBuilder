@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://blj26f4u3g80s"]
+[gd_scene load_steps=5 format=3 uid="uid://blj26f4u3g80s"]
 
 [ext_resource type="Script" uid="uid://cn230xp0lqm2h" path="res://assets/Interactive/ladder.gd" id="1_lqhsa"]
 [ext_resource type="Texture2D" uid="uid://fs8coptcf2og" path="res://assets/Interactive/ladder.png" id="1_s54ic"]
+[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="3_8winw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hgow"]
 size = Vector2(24, 136)
@@ -12,15 +13,18 @@ collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_lqhsa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_8hgow")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_s54ic")
 region_enabled = true
 region_rect = Rect2(0, 0, 88, 137)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_8hgow")
+
+[node name="owplatform" parent="." instance=ExtResource("3_8winw")]
+scale = Vector2(0.6, 0.6)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

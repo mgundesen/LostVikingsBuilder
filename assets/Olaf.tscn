@@ -158,11 +158,11 @@ collision_mask = 2
 script = ExtResource("1_yuhhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.714282, 8.94069e-06)
 shape = SubResource("RectangleShape2D_yfthr")
 
 [node name="StunTimer" type="Timer" parent="."]
