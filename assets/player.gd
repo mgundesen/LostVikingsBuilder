@@ -79,12 +79,12 @@ func applyPhysics(xInput, triggerJump, delta):
 	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
 	# Move based on the velocity and snap to the ground.
 	move_and_slide()
-	for i in get_slide_collision_count():
+	if get_slide_collision_count() > 0:
 		# fix some collision are ok
-		if canTakeFallDamage:
+		if canTakeFallDamage and is_on_floor():
 			playerHealth -= 1
 			state = State.Stunned
-			$StunTimer.start(2)
+			await get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
 
 	if springJump:
 		springJump = false
@@ -137,6 +137,3 @@ func _physics_process(delta):
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
 	decideAnimation(yInput, velocity)
-
-func _on_stun_timer_timeout() -> void:
-	state = State.Free

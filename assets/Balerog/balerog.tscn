@@ -147,6 +147,3 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.33333, -1.33333)
 shape = SubResource("RectangleShape2D_osywc")
-
-[node name="StunTimer" type="Timer" parent="."]
-one_shot = true
