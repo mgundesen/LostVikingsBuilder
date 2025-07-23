@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://drf6bcs41yduw"]
+
+[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="1_i3xrd"]
+[ext_resource type="Script" uid="uid://d08ksfx40ry5g" path="res://assets/Interactive/moving_platform.gd" id="1_orbks"]
+[ext_resource type="Texture2D" uid="uid://t5vmlcau6epu" path="res://assets/Interactive/platform2.png" id="3_orbks"]
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_orbks")
+
+[node name="owplatform" parent="." instance=ExtResource("1_i3xrd")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.26498e-06, 33)
+scale = Vector2(1.0303, 1.03226)
+texture = ExtResource("3_orbks")
