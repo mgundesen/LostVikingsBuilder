@@ -40,8 +40,8 @@ position = Vector2(322, 484)
 ladderHeight = 130
 
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
-position = Vector2(507, 368)
-ladderHeight = 350
+position = Vector2(510, 321)
+ladderHeight = 475
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -56,7 +56,7 @@ position = Vector2(224, 505)
 scale = Vector2(0.68, 0.68)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(785, 602)
+position = Vector2(782, 575)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 

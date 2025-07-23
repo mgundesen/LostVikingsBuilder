@@ -19,9 +19,9 @@ var controlActive = false
 # Control apply spring jump
 var springJump = false
 
-var playerHealth = 3
+var playerHealth = 1
 
-enum State {Free, Stunned, Ladder}
+enum State {Free, Ladder, FallStun, FallDeath, Dead}
 var state = State.Free
 
 func walkForce():
@@ -36,7 +36,9 @@ func allowJump():
 func decideAnimation(yInput, vel):
 	if abs(vel.x) > 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	if state == State.Stunned:
+	if state == State.FallDeath:
+		$AnimatedSprite2D.play("Death_Fall")
+	elif state == State.FallStun:
 		$AnimatedSprite2D.play("Fall_Stun")
 	elif state == State.Ladder:
 		if abs(yInput) > 0:
@@ -60,6 +62,19 @@ func decideAnimation(yInput, vel):
 func stopForce():
 	return STOP_FORCE * (1.0 if is_on_floor() else 0.07)
 
+func killPlayer():
+	state = State.Dead
+	visible = false
+
+func takeDamage(amount, stunState, deathState):
+	playerHealth -= amount
+	if playerHealth > 0:
+		state = stunState
+		get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+	else:
+		state = deathState
+		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
+
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
 	var appliedWalk = walkForce()
@@ -82,9 +97,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	if get_slide_collision_count() > 0:
 		# fix some collision are ok
 		if canTakeFallDamage and is_on_floor():
-			playerHealth -= 1
-			state = State.Stunned
-			await get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+			takeDamage(1, State.FallStun, State.FallDeath)
 
 	if springJump:
 		springJump = false

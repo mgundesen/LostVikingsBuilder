@@ -1,17 +1,23 @@
-[gd_scene load_steps=29 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=35 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
 [ext_resource type="Texture2D" uid="uid://be23rfk1cbe3d" path="res://assets/Olaf/climb2.png" id="2_yuhhw"]
 [ext_resource type="Texture2D" uid="uid://bto8c8nxiph85" path="res://assets/Olaf/climb3.png" id="3_6nmr2"]
 [ext_resource type="Texture2D" uid="uid://co4yyw8afc1dk" path="res://assets/Olaf/climb4.png" id="4_k72uy"]
+[ext_resource type="Texture2D" uid="uid://chv0r6c1a64q2" path="res://assets/Olaf/fall_death1.png" id="6_6ls3k"]
 [ext_resource type="Texture2D" uid="uid://3jsb6v248te6" path="res://assets/Olaf/fall_full.png" id="6_yuhhw"]
 [ext_resource type="Texture2D" uid="uid://8o86u5hngc8" path="res://assets/Olaf/fall.png" id="7_6nmr2"]
+[ext_resource type="Texture2D" uid="uid://doix6dsoh00w1" path="res://assets/Olaf/fall_death2.png" id="7_a6ga6"]
 [ext_resource type="Texture2D" uid="uid://cajdjn41nybmo" path="res://assets/Erik/JumpMid.png" id="7_mnunu"]
 [ext_resource type="Texture2D" uid="uid://ypiqqgkwreas" path="res://assets/Olaf/idle.png" id="8_bj7vi"]
+[ext_resource type="Texture2D" uid="uid://cukf25an741hg" path="res://assets/Olaf/fall_death3.png" id="8_tnx42"]
+[ext_resource type="Texture2D" uid="uid://bpca1eq1yibbg" path="res://assets/Olaf/fall_death4.png" id="9_bo61s"]
 [ext_resource type="Texture2D" uid="uid://dkaqmffnoc6yj" path="res://assets/Olaf/FallStun1.png" id="9_jap4e"]
 [ext_resource type="Texture2D" uid="uid://b3shpsymcxwfe" path="res://assets/Olaf/FallStun2.png" id="10_77588"]
+[ext_resource type="Texture2D" uid="uid://bd75ky2qxnpwo" path="res://assets/Olaf/fall_death5.png" id="10_nqpdq"]
 [ext_resource type="Texture2D" uid="uid://d2tnhv20mjx5b" path="res://assets/Olaf/Walk1.png" id="10_y1odb"]
+[ext_resource type="Texture2D" uid="uid://cue2cd3y2bdh8" path="res://assets/Olaf/fall_death6.png" id="11_2p4m7"]
 [ext_resource type="Texture2D" uid="uid://1av7ei510qn0" path="res://assets/Olaf/FallStun3.png" id="11_ene20"]
 [ext_resource type="Texture2D" uid="uid://b80vux4egqva3" path="res://assets/Olaf/Walk2.png" id="11_hyes4"]
 [ext_resource type="Texture2D" uid="uid://bd0kgn2rdmb61" path="res://assets/Olaf/Walk3.png" id="12_8ng53"]
@@ -44,6 +50,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"Climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6ls3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a6ga6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tnx42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bo61s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nqpdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2p4m7")
+}],
+"loop": true,
+"name": &"Death_Fall",
 "speed": 5.0
 }, {
 "frames": [{

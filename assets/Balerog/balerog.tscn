@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=30 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -6,11 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://dcyhlgwhp737m" path="res://assets/Balerog/Climb3.png" id="3_y3h5n"]
 [ext_resource type="Texture2D" uid="uid://c8pc414gubtsj" path="res://assets/Balerog/Climb4.png" id="4_e0xdl"]
 [ext_resource type="Texture2D" uid="uid://cai6voy6sq0b1" path="res://assets/Balerog/FallFull.png" id="5_7m84x"]
+[ext_resource type="Texture2D" uid="uid://36lkvvboeen0" path="res://assets/Balerog/fall_death1.png" id="6_5qwga"]
 [ext_resource type="Texture2D" uid="uid://iggf0uwoo62w" path="res://assets/Balerog/Fall.png" id="6_18opp"]
+[ext_resource type="Texture2D" uid="uid://1oho863k720l" path="res://assets/Balerog/fall_death2.png" id="7_c4pdt"]
 [ext_resource type="Texture2D" uid="uid://drj254etexj6c" path="res://assets/Balerog/FallStun1.png" id="7_kv5qj"]
 [ext_resource type="Texture2D" uid="uid://b8jy1owxuyvi8" path="res://assets/Balerog/FallStun2.png" id="8_5qwga"]
+[ext_resource type="Texture2D" uid="uid://dyqheb7i0eno6" path="res://assets/Balerog/fall_death3.png" id="8_u6icq"]
 [ext_resource type="Texture2D" uid="uid://bidcb00cmu8cf" path="res://assets/Balerog/FallStun3.png" id="9_c4pdt"]
+[ext_resource type="Texture2D" uid="uid://df5eo2rlm26yh" path="res://assets/Balerog/fall_death4.png" id="9_l6qba"]
 [ext_resource type="Texture2D" uid="uid://dtp0kbds4l8qt" path="res://assets/Balerog/FallStun8.png" id="10_u6icq"]
+[ext_resource type="Texture2D" uid="uid://bf8v0gjjnluma" path="res://assets/Balerog/fall_death5.png" id="10_v7l3f"]
+[ext_resource type="Texture2D" uid="uid://3enmxp010pkl" path="res://assets/Balerog/fall_death6.png" id="11_b758r"]
 [ext_resource type="Texture2D" uid="uid://1a1ksywip3qo" path="res://assets/Balerog/FallStun9.png" id="11_l6qba"]
 [ext_resource type="Texture2D" uid="uid://dk0xn1rp66wu4" path="res://assets/Balerog/Idle.png" id="12_v7l3f"]
 [ext_resource type="Texture2D" uid="uid://b0a8m8pit4hla" path="res://assets/Balerog/Walk1.png" id="13_b758r"]
@@ -39,6 +45,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"Climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5qwga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c4pdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u6icq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l6qba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v7l3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b758r")
+}],
+"loop": true,
+"name": &"Death_Fall",
 "speed": 5.0
 }, {
 "frames": [{
