@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm60ftvu8lgtr"]
+
+[ext_resource type="Script" uid="uid://bhm3wlnlj7mwb" path="res://elevator.gd" id="1_w2jbm"]
+[ext_resource type="Texture2D" uid="uid://b1nu7gomi8njg" path="res://assets/Interactive/elevator.png" id="2_a0opg"]
+[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="3_bwp46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kb07"]
+size = Vector2(30, 20)
+
+[node name="Elevator" type="Node2D"]
+scale = Vector2(0.65, 0.65)
+script = ExtResource("1_w2jbm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.61539)
+texture = ExtResource("2_a0opg")
+
+[node name="owplatform" parent="." instance=ExtResource("3_bwp46")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="AllowedElevator" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6kb07")

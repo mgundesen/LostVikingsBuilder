@@ -1,6 +1,14 @@
-Elevator (Extend one way platform?)
+Shooter
 Olaf Sheild
-Increased spring power high speed
-Erik jump air decreased gravity
 Balerog moves
 Erik moves
+Items
+Buttons
+Increased spring power high speed
+Erik jump air decreased gravity
+Elevator attached graphics
+
+Bugs:
+Balerog ladder top climb
+1 pixel of movement from elevator
+Stacked momentum from elevator on erik jump
