@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjrhbqtapfjs1"]
+
+[ext_resource type="Texture2D" uid="uid://da372p7drah02" path="res://assets/Enemies/Shooter.png" id="1_defnb"]
+[ext_resource type="Script" uid="uid://ctv6odgqao4uf" path="res://assets/Enemies/shooter.gd" id="1_vcmvc"]
+
+[node name="Shooter" type="Area2D"]
+scale = Vector2(0.65, 0.65)
+script = ExtResource("1_vcmvc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("1_defnb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

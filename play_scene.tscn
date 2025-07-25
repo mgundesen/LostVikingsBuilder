@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="3_rfwu7"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="5_5i074"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
-[ext_resource type="PackedScene" uid="uid://dg2s23o5cgjgt" path="res://assets/Interactive/bullet.tscn" id="6_7pwae"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
+[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_ck0hd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -58,10 +58,6 @@ ladderHeight = 130
 position = Vector2(510, 321)
 ladderHeight = 475
 
-[node name="Bullet" parent="." instance=ExtResource("6_7pwae")]
-position = Vector2(889, 426)
-scale = Vector2(0.65, 0.65)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
@@ -81,3 +77,7 @@ position = Vector2(782, 575)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
 position = Vector2(447, 507)
+
+[node name="Shooter" parent="." instance=ExtResource("13_ck0hd")]
+position = Vector2(1145, 362)
+flip = true

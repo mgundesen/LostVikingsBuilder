@@ -76,6 +76,7 @@ func stopForce():
 func killPlayer():
 	state = State.Dead
 	visible = false
+	position = Vector2(-100000, -100000) # Move the hitboxes away
 	
 func stunTime(state):
 	if state == State.FallStun:
