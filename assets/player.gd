@@ -17,6 +17,9 @@ var ladderHeight = 0
 # Kill interface
 var killShock = false
 
+# Hit interface
+var gotHit = false
+
 # Control active interface
 var controlActive = false
 
@@ -25,7 +28,7 @@ var springJump = false
 
 var playerHealth = 3
 
-enum State {Free, Ladder, FallStun, FallDeath, ShockDeath, Dead}
+enum State {Free, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
 
 func walkForce():
@@ -46,6 +49,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Fall_Stun")
 	elif state == State.ShockDeath:
 		$AnimatedSprite2D.play("Death_Shock")
+	elif state == State.HitStun:
+		$AnimatedSprite2D.play("Hit")
 	elif state == State.Ladder:
 		if abs(yInput) > 0:
 			$AnimatedSprite2D.play("Climb")
@@ -71,12 +76,18 @@ func stopForce():
 func killPlayer():
 	state = State.Dead
 	visible = false
+	
+func stunTime(state):
+	if state == State.FallStun:
+		return 2.0
+	else:
+		return 0.7
 
-func takeDamage(amount, stunState, deathState):
+func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
 	if playerHealth > 0:
 		state = stunState
-		get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+		get_tree().create_timer(stunTime(state)).timeout.connect(func(): state = State.Free)
 	else:
 		state = deathState
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
@@ -103,7 +114,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	if get_slide_collision_count() > 0:
 		# fix some collision are ok
 		if canTakeFallDamage and is_on_floor():
-			takeDamage(1, State.FallStun, State.FallDeath)
+			takeDamage(State.FallStun, State.FallDeath)
 
 	if springJump:
 		springJump = false
@@ -140,7 +151,12 @@ func _physics_process(delta):
 		yInput = Input.get_axis(&"Up", &"Down")
 		xInput = Input.get_axis(&"Left", &"Right")
 		triggerJump = allowJump()
-		
+	
+	if gotHit:
+		gotHit = false
+		velocity.y = 0
+		takeDamage(State.HitStun, State.ShockDeath)
+	
 	if killShock:
 		killShock = false
 		takeDamage(State.ShockDeath, State.ShockDeath, 4)
@@ -152,6 +168,10 @@ func _physics_process(delta):
 		if abs(xInput) > 0 or triggerJump:
 			state = State.Free
 				
+	if state == State.HitStun:
+		velocity.x = -40
+		velocity.y += gravity * delta
+		move_and_slide()
 	if state == State.Free:
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=15 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="3_rfwu7"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="5_5i074"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
+[ext_resource type="PackedScene" uid="uid://dg2s23o5cgjgt" path="res://assets/Interactive/bullet.tscn" id="6_7pwae"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 
@@ -56,6 +57,10 @@ ladderHeight = 130
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
 position = Vector2(510, 321)
 ladderHeight = 475
+
+[node name="Bullet" parent="." instance=ExtResource("6_7pwae")]
+position = Vector2(889, 426)
+scale = Vector2(0.65, 0.65)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true

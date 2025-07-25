@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=38 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dm0ujak4jckiv" path="res://assets/Olaf/Walk7.png" id="16_ci8v8"]
 [ext_resource type="Texture2D" uid="uid://buf6ggthi6b8x" path="res://assets/Olaf/FallStun9.png" id="17_tnx42"]
 [ext_resource type="Texture2D" uid="uid://chlsoe78soqd2" path="res://assets/Olaf/FallStun10.png" id="18_bo61s"]
+[ext_resource type="Texture2D" uid="uid://btslan6llojne" path="res://assets/Olaf/hit.png" id="27_f1dc3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -149,6 +150,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("27_f1dc3")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_bj7vi")
 }],
 "loop": true,
@@ -202,7 +211,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Idle"
+animation = &"Hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yfthr")

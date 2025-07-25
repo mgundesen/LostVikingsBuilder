@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=40 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://c2r3i0h7x0vfa" path="res://assets/Erik/FallStun8.png" id="16_bflci"]
 [ext_resource type="Texture2D" uid="uid://dlcvj2r2w68qu" path="res://assets/Erik/FallStun9.png" id="17_1r8tb"]
 [ext_resource type="Texture2D" uid="uid://drk814hjy4pia" path="res://assets/Erik/FallStun10.png" id="18_fdd60"]
+[ext_resource type="Texture2D" uid="uid://c0eytk00xn22u" path="res://assets/Erik/hit.png" id="27_fdd60"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -151,6 +152,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("27_fdd60")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_n7ghd")
 }],
 "loop": true,
@@ -204,7 +213,7 @@ script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Idle"
+animation = &"Hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.714282, 8.94069e-06)
