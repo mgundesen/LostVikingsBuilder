@@ -5,6 +5,7 @@ const STOP_FORCE = 8000
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
+const CLIMB_SPEED = 3
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -155,7 +156,7 @@ func _physics_process(delta):
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:
 		position.x = ladderPos.x
-		position.y += yInput * 2
+		position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
 	decideAnimation(yInput, velocity)
