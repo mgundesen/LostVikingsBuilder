@@ -1,4 +1,4 @@
-extends "res://assets/player.gd"
+extends "res://player.gd"
 
 const WALK_FORCE = 1050
 const WALK_MAX_SPEED = 350

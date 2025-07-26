@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm60ftvu8lgtr"]
 
-[ext_resource type="Script" uid="uid://bhm3wlnlj7mwb" path="res://elevator.gd" id="1_w2jbm"]
+[ext_resource type="Script" uid="uid://bhm3wlnlj7mwb" path="res://assets/Interactive/elevator.gd" id="1_w2jbm"]
 [ext_resource type="Texture2D" uid="uid://b1nu7gomi8njg" path="res://assets/Interactive/elevator.png" id="2_a0opg"]
 [ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="3_bwp46"]
 
