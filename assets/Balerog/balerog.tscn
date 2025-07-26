@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=51 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -42,6 +42,12 @@
 [ext_resource type="Texture2D" uid="uid://dx60gomfhnq44" path="res://assets/Balerog/arrow10.png" id="32_fr3as"]
 [ext_resource type="Texture2D" uid="uid://s82t1gdgr45x" path="res://assets/Balerog/arrow11.png" id="33_gyjhu"]
 [ext_resource type="Texture2D" uid="uid://bj7hkdgduqcn1" path="res://assets/Balerog/arrow12.png" id="34_4q5u8"]
+[ext_resource type="Texture2D" uid="uid://bqtskmy836a7b" path="res://assets/Balerog/sword1.png" id="35_a4c30"]
+[ext_resource type="Texture2D" uid="uid://d2jfh2eb0jok5" path="res://assets/Balerog/sword2.png" id="36_vgmq6"]
+[ext_resource type="Texture2D" uid="uid://cas4qlhqqxjgk" path="res://assets/Balerog/sword3.png" id="37_mav3b"]
+[ext_resource type="Texture2D" uid="uid://ci4xnadbup2bd" path="res://assets/Balerog/sword4.png" id="38_y7aal"]
+[ext_resource type="Texture2D" uid="uid://c40mt3u7cjlde" path="res://assets/Balerog/sword5.png" id="39_mav3b"]
+[ext_resource type="Texture2D" uid="uid://cb84hjbc72eha" path="res://assets/Balerog/sword6.png" id="40_y7aal"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x56gs"]
 animations = [{
@@ -207,6 +213,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("35_a4c30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_vgmq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_mav3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_y7aal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_mav3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_y7aal")
+}],
+"loop": true,
+"name": &"Swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("13_b758r")
 }, {
 "duration": 1.0,
@@ -246,7 +275,7 @@ script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Shoot"
+animation = &"Swing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

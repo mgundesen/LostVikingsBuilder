@@ -22,13 +22,19 @@ func walkSpeed():
 
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
-	if state == State.AttackMove2:
-			$AnimatedSprite2D.play("Shoot", 2.3)
+	if state == State.AttackMove:
+		$AnimatedSprite2D.play("Swing", 2.3)
+	elif state == State.AttackMove2:
+		$AnimatedSprite2D.play("Shoot", 2.3)
 	else:
 		super.decideAnimation(yInput, vel)
 
 func _physics_process(delta):
 	if controlActive and state == State.Free and is_on_floor():
+		if Input.is_action_just_pressed(&"B"):
+			velocity.x = 0
+			state = State.AttackMove
+			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 		if Input.is_action_just_pressed(&"Y"):
 			velocity.x = 0
 			state = State.AttackMove2

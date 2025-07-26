@@ -28,7 +28,7 @@ var springJump = false
 
 var playerHealth = 3
 
-enum State {Free, AttackMove2, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
+enum State {Free, AttackMove, AttackMove2, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -36,6 +36,8 @@ var direction = FacingDirection.Right
 func stateWithPhysics():
 	match state:
 		State.Free:
+			return true
+		State.AttackMove:
 			return true
 		State.AttackMove2:
 			return true
