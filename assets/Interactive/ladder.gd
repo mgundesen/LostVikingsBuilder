@@ -8,9 +8,11 @@ func _ready():
 	$owplatform.position.y = -ladderHeight/2
 
 func _on_body_entered(body: Node2D) -> void:
-	body.set("ladderAllowed", true)
-	body.set("ladderPos", position)
-	body.set("ladderHeight", ladderHeight)
+	if body is PlayerBase:
+		body.set("ladderAllowed", true)
+		body.set("ladderPos", position)
+		body.set("ladderHeight", ladderHeight)
 
 func _on_body_exited(body: Node2D) -> void:
-	body.set("ladderAllowed", false)
+	if body is PlayerBase:
+		body.set("ladderAllowed", false)

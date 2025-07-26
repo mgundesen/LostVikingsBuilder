@@ -70,13 +70,13 @@ position = Vector2(126, 509)
 position = Vector2(224, 505)
 scale = Vector2(0.68, 0.68)
 
+[node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
+position = Vector2(447, 507)
+
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 575)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
-
-[node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(447, 507)
 
 [node name="Shooter" parent="." instance=ExtResource("13_ck0hd")]
 position = Vector2(1145, 362)

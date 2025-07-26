@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="3_8winw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hgow"]
+resource_local_to_scene = true
 size = Vector2(24, 136)
 
 [node name="Ladder" type="Area2D"]

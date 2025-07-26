@@ -8,7 +8,6 @@ Erik jump air decreased gravity
 Elevator attached graphics
 
 Bugs:
-Balerog ladder top climb
 1 pixel of movement from elevator
 Stacked momentum from elevator on erik jump
-Ladder sometimes extends hitbox up?
+Some ladder heights still gives issues at top
