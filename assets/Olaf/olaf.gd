@@ -29,15 +29,14 @@ func _physics_process(delta):
 		updateSheildCollision()
 	
 	var sheildPos = abs($Sheild/front/CollisionShape2D.position.x)
-	if velocity.x > 0:
+	if direction == FacingDirection.Right:
 		$Sheild/front/CollisionShape2D.position.x = sheildPos
-	elif velocity.x < 0:
+	else:
 		$Sheild/front/CollisionShape2D.position.x = -sheildPos
 	super._physics_process(delta)
 
 func decideAnimation(yInput, vel):
-	if abs(vel.x) > 0:
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if raisedSheild and state == State.Free:
 		if !is_on_floor():
 			$AnimatedSprite2D.play("Fall_Sheild")

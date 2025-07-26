@@ -30,6 +30,8 @@ var playerHealth = 3
 
 enum State {Free, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
+enum FacingDirection {Left, Right}
+var direction = FacingDirection.Right
 
 func walkForce():
 	return 0
@@ -41,8 +43,7 @@ func allowJump():
 	return false
 
 func decideAnimation(yInput, vel):
-	if abs(vel.x) > 0:
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if state == State.FallDeath:
 		$AnimatedSprite2D.play("Death_Fall")
 	elif state == State.FallStun:
@@ -184,4 +185,9 @@ func _physics_process(delta):
 		position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
+			
+	if velocity.x > 0:
+		direction = FacingDirection.Right
+	elif velocity.x < 0:
+		direction = FacingDirection.Left
 	decideAnimation(yInput, velocity)
