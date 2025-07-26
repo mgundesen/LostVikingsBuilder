@@ -177,7 +177,7 @@ func _physics_process(delta):
 		velocity.x = -40
 		velocity.y += gravity * delta
 		move_and_slide()
-	if state == State.Free:
+	if state == State.Free or state == State.FallStun:
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:
 		position.x = ladderPos.x
