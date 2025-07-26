@@ -24,7 +24,7 @@ func maybeLimitFall():
 		velocity.y = clamp(velocity.y, -10000, SHEILD_FALL_SPEED)
 
 func _physics_process(delta):
-	if controlActive and Input.is_action_just_pressed(&"Jump") and state == State.Free:
+	if controlActive and Input.is_action_just_pressed(&"B") and state == State.Free:
 		raisedSheild = !raisedSheild
 		updateSheildCollision()
 	

@@ -10,4 +10,4 @@ func walkSpeed():
 	return WALK_MAX_SPEED
 
 func allowJump():
-	return Input.is_action_just_pressed(&"Jump") and (is_on_floor() or state == State.Ladder)
+	return Input.is_action_just_pressed(&"B") and (is_on_floor() or state == State.Ladder)
