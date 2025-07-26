@@ -44,6 +44,15 @@ func stateWithPhysics():
 		_:
 			return false
 
+func stateWithInput():
+	match state:
+		State.Free:
+			return true
+		State.Ladder:
+			return true
+		_:
+			return false
+
 func walkForce():
 	return 0
 	
@@ -164,7 +173,7 @@ func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
 	var triggerJump = false
-	if controlActive:
+	if controlActive and stateWithInput():
 		yInput = Input.get_axis(&"Up", &"Down")
 		xInput = Input.get_axis(&"Left", &"Right")
 		triggerJump = allowJump()
