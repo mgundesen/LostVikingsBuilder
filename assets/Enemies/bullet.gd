@@ -9,4 +9,7 @@ func _process(_delta):
 		if body is PlayerBase:
 			body.set("gotHit", true)
 			queue_free()
+		else:
+			queue_free()
+			
 	

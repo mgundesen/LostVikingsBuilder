@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=51 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -33,8 +33,20 @@
 [ext_resource type="Texture2D" uid="uid://6hbtu1gjjchn" path="res://assets/Olaf/FallStun8.png" id="16_a6ga6"]
 [ext_resource type="Texture2D" uid="uid://dm0ujak4jckiv" path="res://assets/Olaf/Walk7.png" id="16_ci8v8"]
 [ext_resource type="Texture2D" uid="uid://buf6ggthi6b8x" path="res://assets/Olaf/FallStun9.png" id="17_tnx42"]
+[ext_resource type="Texture2D" uid="uid://bu1s80mrvdkvp" path="res://assets/Olaf/float1.png" id="17_vvvox"]
 [ext_resource type="Texture2D" uid="uid://chlsoe78soqd2" path="res://assets/Olaf/FallStun10.png" id="18_bo61s"]
+[ext_resource type="Texture2D" uid="uid://b2n328xycup6p" path="res://assets/Olaf/float2.png" id="18_ivdgf"]
 [ext_resource type="Texture2D" uid="uid://btslan6llojne" path="res://assets/Olaf/hit.png" id="27_f1dc3"]
+[ext_resource type="Texture2D" uid="uid://sekka0mt5cs7" path="res://assets/Olaf/idle_sheild.png" id="29_ajvgq"]
+[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="36_umgyw"]
+[ext_resource type="Texture2D" uid="uid://chagii10dnlw" path="res://assets/Olaf/Walk_Sheild1.png" id="37_8826t"]
+[ext_resource type="Texture2D" uid="uid://bc5vstvqyedhm" path="res://assets/Olaf/Walk_Sheild2.png" id="38_g4mp4"]
+[ext_resource type="Texture2D" uid="uid://57gfebw8gl57" path="res://assets/Olaf/Walk_Sheild3.png" id="39_vvvox"]
+[ext_resource type="Texture2D" uid="uid://vl34qclhisly" path="res://assets/Olaf/Walk_Sheild4.png" id="40_ivdgf"]
+[ext_resource type="Texture2D" uid="uid://dnbfa2riaoham" path="res://assets/Olaf/Walk_Sheild5.png" id="41_vs8ea"]
+[ext_resource type="Texture2D" uid="uid://c6a5smmsqspgd" path="res://assets/Olaf/Walk_Sheild6.png" id="42_1opws"]
+[ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
+[ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -115,6 +127,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("17_vvvox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ivdgf")
+}],
+"loop": true,
+"name": &"Fall_Sheild",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_jap4e")
 }, {
 "duration": 1.0,
@@ -166,6 +189,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("29_ajvgq")
+}],
+"loop": true,
+"name": &"Idle_Sheild",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_6nmr2")
 }],
 "loop": true,
@@ -197,10 +228,42 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_8826t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_g4mp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_vvvox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ivdgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_vs8ea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1opws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wi2ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_lpcfc")
+}],
+"loop": true,
+"name": &"Walk_Sheild",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
 size = Vector2(107.143, 128.571)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umgyw"]
+size = Vector2(11.4286, 158.571)
 
 [node name="Olaf" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
@@ -211,7 +274,22 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Hit"
+animation = &"Fall_Sheild"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yfthr")
+
+[node name="Sheild" type="Node2D" parent="."]
+position = Vector2(-2.85714, -68.5714)
+
+[node name="top" parent="Sheild" instance=ExtResource("36_umgyw")]
+position = Vector2(-2.38419e-07, -7.62939e-06)
+
+[node name="front" type="CharacterBody2D" parent="Sheild"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sheild/front"]
+position = Vector2(62, 70)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_umgyw")

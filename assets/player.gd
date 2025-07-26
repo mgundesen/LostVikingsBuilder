@@ -73,6 +73,9 @@ func decideAnimation(yInput, vel):
 func stopForce():
 	return STOP_FORCE * (1.0 if is_on_floor() else 0.07)
 
+func maybeLimitFall():
+	return
+
 func killPlayer():
 	state = State.Dead
 	visible = false
@@ -108,6 +111,7 @@ func applyPhysics(xInput, triggerJump, delta):
 
 	# Vertical movement code. Apply gravity.
 	velocity.y += gravity * delta
+	maybeLimitFall()
 	
 	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
 	# Move based on the velocity and snap to the ground.
@@ -148,7 +152,7 @@ func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
 	var triggerJump = false
-	if(controlActive):
+	if controlActive:
 		yInput = Input.get_axis(&"Up", &"Down")
 		xInput = Input.get_axis(&"Left", &"Right")
 		triggerJump = allowJump()
