@@ -28,10 +28,21 @@ var springJump = false
 
 var playerHealth = 3
 
-enum State {Free, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
+enum State {Free, AttackMove2, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
+
+func stateWithPhysics():
+	match state:
+		State.Free:
+			return true
+		State.AttackMove2:
+			return true
+		State.FallStun:
+			return true
+		_:
+			return false
 
 func walkForce():
 	return 0
@@ -178,7 +189,7 @@ func _physics_process(delta):
 		velocity.x = -40
 		velocity.y += gravity * delta
 		move_and_slide()
-	if state == State.Free or state == State.FallStun:
+	if stateWithPhysics():
 		applyPhysics(xInput, triggerJump, delta)
 	elif state == State.Ladder:
 		position.x = ladderPos.x

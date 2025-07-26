@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=45 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -30,6 +30,18 @@
 [ext_resource type="Texture2D" uid="uid://bnm0hqj6dlbbd" path="res://assets/Balerog/Walk7.png" id="19_awpe3"]
 [ext_resource type="Texture2D" uid="uid://bi7c26fcn84ba" path="res://assets/Balerog/Walk8.png" id="20_qjibl"]
 [ext_resource type="Texture2D" uid="uid://ruurjf0vphel" path="res://assets/Balerog/hit.png" id="21_l6qba"]
+[ext_resource type="Texture2D" uid="uid://cphfkwjfva8u3" path="res://assets/Balerog/arrow1.png" id="23_481qt"]
+[ext_resource type="Texture2D" uid="uid://bdaayjj4ql1hj" path="res://assets/Balerog/arrow2.png" id="24_glqjx"]
+[ext_resource type="Texture2D" uid="uid://c6yrd0xwik60u" path="res://assets/Balerog/arrow3.png" id="25_0ytw7"]
+[ext_resource type="Texture2D" uid="uid://nd78cwackkb8" path="res://assets/Balerog/arrow4.png" id="26_hgxwe"]
+[ext_resource type="Texture2D" uid="uid://bgdwytxg4wvyh" path="res://assets/Balerog/arrow5.png" id="27_a4c30"]
+[ext_resource type="Texture2D" uid="uid://cgo78te5h1noa" path="res://assets/Balerog/arrow6.png" id="28_vgmq6"]
+[ext_resource type="Texture2D" uid="uid://c26mhsfq4qpxt" path="res://assets/Balerog/arrow7.png" id="29_mav3b"]
+[ext_resource type="Texture2D" uid="uid://q3k8qrb13cny" path="res://assets/Balerog/arrow8.png" id="30_y7aal"]
+[ext_resource type="Texture2D" uid="uid://wdp3pvh5qynd" path="res://assets/Balerog/arrow9.png" id="31_hn21e"]
+[ext_resource type="Texture2D" uid="uid://dx60gomfhnq44" path="res://assets/Balerog/arrow10.png" id="32_fr3as"]
+[ext_resource type="Texture2D" uid="uid://s82t1gdgr45x" path="res://assets/Balerog/arrow11.png" id="33_gyjhu"]
+[ext_resource type="Texture2D" uid="uid://bj7hkdgduqcn1" path="res://assets/Balerog/arrow12.png" id="34_4q5u8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x56gs"]
 animations = [{
@@ -154,6 +166,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("23_481qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_glqjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0ytw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hgxwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_a4c30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_vgmq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_mav3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_y7aal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_hn21e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fr3as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_gyjhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4q5u8")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("13_b758r")
 }, {
 "duration": 1.0,
@@ -193,7 +246,7 @@ script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Hit"
+animation = &"Shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")
