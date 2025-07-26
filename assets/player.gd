@@ -78,7 +78,7 @@ func killPlayer():
 	visible = false
 	position = Vector2(-100000, -100000) # Move the hitboxes away
 	
-func stunTime(state):
+func stunTime():
 	if state == State.FallStun:
 		return 2.0
 	else:
@@ -88,7 +88,7 @@ func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
 	if playerHealth > 0:
 		state = stunState
-		get_tree().create_timer(stunTime(state)).timeout.connect(func(): state = State.Free)
+		get_tree().create_timer(stunTime()).timeout.connect(func(): state = State.Free)
 	else:
 		state = deathState
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
@@ -128,10 +128,10 @@ func applyPhysics(xInput, triggerJump, delta):
 			velocity.y *= jumpMultiplier
 
 func ladderTop():
-	return ladderPos.y - ladderHeight / 2 - $CollisionShape2D.shape.size.y/2 * scale.y
+	return ladderPos.y - ladderHeight / 2.0 - $CollisionShape2D.shape.size.y / 2.0 * scale.y
 
 func ladderBottom():
-	return ladderPos.y + ladderHeight / 2 - $CollisionShape2D.shape.size.y/2 * scale.y
+	return ladderPos.y + ladderHeight / 2.0 - $CollisionShape2D.shape.size.y / 2.0 * scale.y
 
 func validLadderInput(yInput):
 	if !ladderAllowed or abs(yInput) < 0.1:
