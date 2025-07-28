@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=16 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_ck0hd"]
+[ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="13_vlmgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -81,3 +82,6 @@ position = Vector2(782, 575)
 [node name="Shooter" parent="." instance=ExtResource("13_ck0hd")]
 position = Vector2(1145, 362)
 flip = true
+
+[node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
+position = Vector2(544, 508)

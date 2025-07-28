@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://itw3hjx6thsd"]
+
+[ext_resource type="Script" uid="uid://c6tm8kuw6ux64" path="res://assets/Enemies/AlienShooter/alien_shooter.gd" id="1_escer"]
+[ext_resource type="Texture2D" uid="uid://c5qg7nolmvi60" path="res://assets/Enemies/AlienShooter/attack.png" id="1_mj686"]
+[ext_resource type="Texture2D" uid="uid://1pvviwsjyats" path="res://assets/Enemies/AlienShooter/attack2.png" id="2_6snvm"]
+[ext_resource type="Texture2D" uid="uid://b15trxvdn0wfm" path="res://assets/Enemies/AlienShooter/idle.png" id="2_escer"]
+[ext_resource type="Texture2D" uid="uid://4xmjao0vo0ux" path="res://assets/Enemies/AlienShooter/walk2.png" id="3_6snvm"]
+[ext_resource type="Texture2D" uid="uid://c1r7b042cdlhq" path="res://assets/Enemies/AlienShooter/walk3.png" id="4_peamy"]
+[ext_resource type="Texture2D" uid="uid://dkqq4ic4pgije" path="res://assets/Enemies/AlienShooter/walk4.png" id="5_5fejw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v5mr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6snvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_mj686")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_escer")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_escer")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6snvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_peamy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5fejw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck1l7"]
+size = Vector2(109, 115)
+
+[node name="AlienShooter" type="Area2D"]
+scale = Vector2(0.72, 0.72)
+script = ExtResource("1_escer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7v5mr")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_ck1l7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
