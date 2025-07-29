@@ -52,6 +52,8 @@ size = Vector2(109, 115)
 
 [node name="AlienShooter" type="Area2D"]
 scale = Vector2(0.72, 0.72)
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_escer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -62,4 +64,5 @@ animation = &"attack"
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_ck1l7")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=52 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://c6a5smmsqspgd" path="res://assets/Olaf/Walk_Sheild6.png" id="42_1opws"]
 [ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
+[ext_resource type="Script" uid="uid://dimyryoxjp285" path="res://assets/Olaf/sheild.gd" id="47_ivdgf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -279,16 +280,17 @@ animation = &"Fall_Sheild"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yfthr")
 
-[node name="Sheild" type="Node2D" parent="."]
+[node name="Shield" type="Node2D" parent="."]
 position = Vector2(-2.85714, -68.5714)
 
-[node name="top" parent="Sheild" instance=ExtResource("36_umgyw")]
+[node name="top" parent="Shield" instance=ExtResource("36_umgyw")]
 position = Vector2(-2.38419e-07, -7.62939e-06)
 
-[node name="front" type="CharacterBody2D" parent="Sheild"]
+[node name="front" type="CharacterBody2D" parent="Shield"]
 collision_layer = 8
 collision_mask = 8
+script = ExtResource("47_ivdgf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sheild/front"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/front"]
 position = Vector2(62, 70)
 shape = SubResource("RectangleShape2D_umgyw")

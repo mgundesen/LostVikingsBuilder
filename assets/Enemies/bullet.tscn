@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvlyvqms5kh0e" path="res://assets/Enemies/bullet.png" id="2_mpcgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auku8"]
-size = Vector2(54, 12)
+size = Vector2(20, 12)
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 15
@@ -15,4 +15,5 @@ script = ExtResource("1_1ij3g")
 texture = ExtResource("2_mpcgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_auku8")

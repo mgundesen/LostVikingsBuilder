@@ -7,8 +7,8 @@ const SHEILD_FALL_SPEED = 150
 var raisedSheild = false
 
 func updateSheildCollision():
-	$Sheild/front/CollisionShape2D.disabled = raisedSheild
-	$Sheild/top/CollisionShape2D.disabled = !raisedSheild
+	$Shield/front/CollisionShape2D.disabled = raisedSheild
+	$Shield/top/CollisionShape2D.disabled = !raisedSheild
 
 func _ready():
 	updateSheildCollision()
@@ -28,11 +28,11 @@ func _physics_process(delta):
 		raisedSheild = !raisedSheild
 		updateSheildCollision()
 	
-	var sheildPos = abs($Sheild/front/CollisionShape2D.position.x)
+	var sheildPos = abs($Shield/front/CollisionShape2D.position.x)
 	if direction == FacingDirection.Right:
-		$Sheild/front/CollisionShape2D.position.x = sheildPos
+		$Shield/front/CollisionShape2D.position.x = sheildPos
 	else:
-		$Sheild/front/CollisionShape2D.position.x = -sheildPos
+		$Shield/front/CollisionShape2D.position.x = -sheildPos
 	super._physics_process(delta)
 
 func decideAnimation(yInput, vel):

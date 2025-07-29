@@ -1,8 +1,8 @@
-Balerog moves
-Erik moves
 Items
 Buttons
+Erik moves
 Increased spring power high speed
+Enemy death animation
 Erik jump air decreased gravity
 Elevator attached graphics
 

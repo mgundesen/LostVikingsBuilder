@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cu3moy7y1nvla" path="res://assets/Balerog/arrow.gd" id="1_givh5"]
 [ext_resource type="Texture2D" uid="uid://brt0xoqk6oqod" path="res://assets/Balerog/arrow.png" id="2_fqk75"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xox1t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_givh5"]
 size = Vector2(60, 18)
 
-[node name="Arrow" type="CharacterBody2D"]
+[node name="Area2D" type="Area2D"]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_givh5")
@@ -15,4 +15,7 @@ script = ExtResource("1_givh5")
 texture = ExtResource("2_fqk75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xox1t")
+shape = SubResource("RectangleShape2D_givh5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

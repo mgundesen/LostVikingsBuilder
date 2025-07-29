@@ -1,4 +1,4 @@
-extends ShooterBase
+extends Area2D
 
 @export var flip = false
 
@@ -8,4 +8,4 @@ func _ready():
 		$Sprite2D.flip_h = true
 
 func _on_timer_timeout() -> void:
-	fire(flip)
+	EnemyUtil.fire(self, flip)

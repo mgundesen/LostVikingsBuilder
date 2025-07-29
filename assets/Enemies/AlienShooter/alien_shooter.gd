@@ -1,4 +1,4 @@
-extends ShooterBase
+extends Enemy
 
 enum State{idle, walk, attack}
 var state = State.idle
@@ -8,17 +8,13 @@ func _ready():
 	idleCycle()
 
 func closeToPlayer():
-	var players = PlayerUtil.getPlayers()
-	for player in players:
-		if position.distance_to(player.position) < 80:
-			return true
-	return false
+	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
 	
 func shouldAttack():
 	if closeToPlayer():
 		state = State.attack
 		$AnimatedSprite2D.set_frame_and_progress(0,0)
-		fire(flip, -30)
+		get_tree().create_timer(0.3).timeout.connect(func(): EnemyUtil.fire(self, flip, -30))
 		get_tree().create_timer(0.8).timeout.connect(func(): idleCycle())
 		return true
 	return false
@@ -45,7 +41,14 @@ func _process(_delta):
 	elif state == State.attack:
 		$AnimatedSprite2D.play("attack", 0.7)
 
-
 func _on_body_entered(body: Node2D) -> void:
-	if body is not PlayerBase:
+	if body is PlayerBase or body is Shield:
+		pass
+	else:
 		flip = !flip
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Hitbox:
+		# play death animation
+		queue_free()
+	
