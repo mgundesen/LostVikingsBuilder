@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://s5015fvq7hsn"]
+
+[ext_resource type="Texture2D" uid="uid://w1ic7poyyu3p" path="res://assets/HUD/health.png" id="1_uj4u6"]
+[ext_resource type="Texture2D" uid="uid://mcvs28xy63d2" path="res://assets/HUD/Erik_Enabled.png" id="2_q3ncx"]
+[ext_resource type="Texture2D" uid="uid://berl3o68s2l8o" path="res://assets/HUD/Balerog_Enabled.png" id="3_rqxmm"]
+[ext_resource type="Texture2D" uid="uid://cinqqfn8jbd6h" path="res://assets/HUD/Olaf_Enabled.png" id="4_3c7u2"]
+
+[node name="PlayerStatus" type="Node2D"]
+
+[node name="H1_1" type="Sprite2D" parent="."]
+position = Vector2(58, 141)
+texture = ExtResource("1_uj4u6")
+
+[node name="H1_2" type="Sprite2D" parent="."]
+position = Vector2(83, 141)
+texture = ExtResource("1_uj4u6")
+
+[node name="H1_3" type="Sprite2D" parent="."]
+position = Vector2(106, 141)
+texture = ExtResource("1_uj4u6")
+
+[node name="H2_1" type="Sprite2D" parent="."]
+position = Vector2(282.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="H2_2" type="Sprite2D" parent="."]
+position = Vector2(307.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="H2_3" type="Sprite2D" parent="."]
+position = Vector2(330.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="H3_1" type="Sprite2D" parent="."]
+position = Vector2(505.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="H3_2" type="Sprite2D" parent="."]
+position = Vector2(530.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="H3_3" type="Sprite2D" parent="."]
+position = Vector2(553.5, 141.5)
+texture = ExtResource("1_uj4u6")
+
+[node name="Active_1" type="Sprite2D" parent="."]
+position = Vector2(97, 94)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("2_q3ncx")
+
+[node name="Active_2" type="Sprite2D" parent="."]
+position = Vector2(322, 94)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("3_rqxmm")
+
+[node name="Active_3" type="Sprite2D" parent="."]
+position = Vector2(545, 90)
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("4_3c7u2")
