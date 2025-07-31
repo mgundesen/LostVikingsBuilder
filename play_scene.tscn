@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=17 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_ck0hd"]
 [ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="13_vlmgp"]
+[ext_resource type="PackedScene" uid="uid://b14lf3fl3qx4a" path="res://assets/HUD/pause.tscn" id="14_vlmgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -85,3 +86,5 @@ flip = true
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
 position = Vector2(555, 508)
+
+[node name="Pause" parent="." instance=ExtResource("14_vlmgp")]
