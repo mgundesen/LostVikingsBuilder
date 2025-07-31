@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr73talwr0hy"]
+
+[ext_resource type="Script" uid="uid://dxldsvaskk0cg" path="res://assets/HUD/item_control.gd" id="1_kpyil"]
+[ext_resource type="Texture2D" uid="uid://tsj5xn8ddexg" path="res://assets/HUD/item_select1.png" id="2_wclcd"]
+[ext_resource type="Texture2D" uid="uid://cnm4udl34tfq4" path="res://assets/HUD/item_select2.png" id="3_pq146"]
+[ext_resource type="Texture2D" uid="uid://cvxkccu5gvsxy" path="res://assets/HUD/item_select3.png" id="4_php8w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgt43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wclcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pq146")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_php8w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ItemShow" type="Node2D"]
+script = ExtResource("1_kpyil")
+
+[node name="Player1" type="AnimatedSprite2D" parent="."]
+position = Vector2(174, 74)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_wgt43")
+
+[node name="Player2" type="AnimatedSprite2D" parent="."]
+position = Vector2(401, 74)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_wgt43")
+
+[node name="Player3" type="AnimatedSprite2D" parent="."]
+position = Vector2(628, 74)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_wgt43")
