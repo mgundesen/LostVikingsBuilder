@@ -205,7 +205,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(107.143, 130)
+size = Vector2(89.2308, 130)
 
 [node name="Erik" type="CharacterBody2D"]
 scale = Vector2(0.65, 0.65)
@@ -213,8 +213,8 @@ script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Hit"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.714282, 8.94069e-06)
+position = Vector2(-1.83399e-07, 0)
 shape = SubResource("RectangleShape2D_i3pqv")

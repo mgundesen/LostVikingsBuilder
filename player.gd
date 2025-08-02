@@ -111,11 +111,16 @@ func stunTime():
 	else:
 		return 0.7
 
+func setState(targetState):
+	if(state == State.FallDeath or state == State.ShockDeath):
+		return
+	state = targetState
+
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
 	if playerHealth > 0:
 		state = stunState
-		get_tree().create_timer(stunTime()).timeout.connect(func(): state = State.Free)
+		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free))
 	else:
 		state = deathState
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
@@ -196,6 +201,8 @@ func _physics_process(delta):
 	elif state == State.Ladder and abs(yInput) < 0.1:
 		if abs(xInput) > 0 or triggerJump:
 			state = State.Free
+	if springJump:
+		state = State.Free
 				
 	if state == State.HitStun:
 		velocity.x = -40

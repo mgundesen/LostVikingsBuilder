@@ -261,7 +261,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
-size = Vector2(107.143, 128.571)
+size = Vector2(91.4286, 128.571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umgyw"]
 size = Vector2(11.4286, 158.571)
@@ -275,9 +275,11 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Fall_Sheild"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.40598e-06, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yfthr")
 
 [node name="Shield" type="Node2D" parent="."]
