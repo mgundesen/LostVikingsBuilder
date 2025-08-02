@@ -1,4 +1,4 @@
-extends Area2D
+extends KillArea
 
-func _on_body_entered(body: Node2D) -> void:
-	body.set("killShock", true)
+func _process(delta_):
+	$AnimatedSprite2D.play("default")
