@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bulfsssw4vnng"]
+
+[ext_resource type="Script" uid="uid://br03k7tk8ooku" path="res://assets/Items/item.gd" id="1_4g65m"]
+[ext_resource type="PackedScene" uid="uid://clp5506dpe1m3" path="res://assets/Items/item_sprite.tscn" id="2_4g65m"]
+[ext_resource type="Texture2D" uid="uid://q10qohi6cvu8" path="res://assets/Items/food_raddish.png" id="3_7kcf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g65m"]
+size = Vector2(45, 40)
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_4g65m")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4g65m")
+
+[node name="ItemSprite" parent="Area" instance=ExtResource("2_4g65m")]
+texture = ExtResource("3_7kcf7")

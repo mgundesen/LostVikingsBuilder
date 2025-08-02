@@ -7,9 +7,11 @@ var basePos = [Vector2(0,0), Vector2(0,0), Vector2(0,0)]
 const offset = [Vector2(0,0),Vector2(50,0),Vector2(0,50),Vector2(50,50)] 
 
 func _ready():
-	basePos[0] = $Player1.position
-	basePos[1] = $Player2.position
-	basePos[2] = $Player3.position
+	basePos[0] = $Player1/Image.position
+	basePos[1] = $Player2/Image.position
+	basePos[2] = $Player3/Image.position
+	
+	$Player1/ItemSprite2.call("setIcon",2)
 
 func pause(pauseType):
 	get_tree().paused = !get_tree().paused
@@ -19,10 +21,27 @@ func pause(pauseType):
 		type = PauseType.None
 		
 func nodeForIndex(index):
-	var path = "Player{index}".format({"index": index+1})
+	var path = "Player{index}/Image".format({"index": index+1})
 	return get_node(path)
 
+func nodeForItem(index, itemIndex):
+	var path = "Player{index}/ItemSprite{itemIndex}".format({"index": index+1, "itemIndex": itemIndex+1})
+	return get_node(path)
+	
+func drawItems():
+	var playerIndex = 0
+	for player in PlayerUtil.getPlayers():
+		var itemIndex = 0
+		var items = player.get("items")
+		for item in items:
+			var node = nodeForItem(playerIndex, itemIndex)
+			node.call("setIcon", item)
+			itemIndex+=1
+		playerIndex+=1
+		
 func _process(_delta):
+	drawItems()
+	
 	if Input.is_action_just_pressed(&"Select"):
 		pause(PauseType.Item)
 	

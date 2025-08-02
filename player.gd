@@ -28,6 +28,7 @@ var springJump = false
 
 var playerHealth = 3
 var itemSlot =  0
+var items = [0,0,0,0]
 
 enum State {Free, AttackMove, AttackMove2, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free

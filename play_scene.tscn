@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=19 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="3_1p5oe"]
 [ext_resource type="PackedScene" uid="uid://drf6bcs41yduw" path="res://assets/Interactive/moving_platform.tscn" id="3_5xdee"]
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="3_rfwu7"]
+[ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="4_mntja"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="5_5i074"]
 [ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/barrier.tscn" id="6_5hyrw"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
@@ -84,13 +85,17 @@ scale = Vector2(0.68, 0.68)
 position = Vector2(447, 507)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(782, 575)
+position = Vector2(782, 569)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
 [node name="Shooter" parent="." instance=ExtResource("13_ck0hd")]
 position = Vector2(1145, 362)
 flip = true
+
+[node name="Item" parent="." instance=ExtResource("4_mntja")]
+position = Vector2(612, 388)
+itemID = 2
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
 position = Vector2(555, 508)

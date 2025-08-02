@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clp5506dpe1m3"]
+
+[ext_resource type="Script" uid="uid://dllt4m8xxumk5" path="res://assets/Items/itemsprite.gd" id="1_p0uim"]
+
+[node name="ItemSprite" type="Sprite2D"]
+scale = Vector2(0.65, 0.65)
+script = ExtResource("1_p0uim")
