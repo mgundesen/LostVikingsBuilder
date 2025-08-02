@@ -26,16 +26,16 @@ animations = [{
 script = ExtResource("1_kpyil")
 
 [node name="Player1" type="AnimatedSprite2D" parent="."]
-position = Vector2(174, 74)
+position = Vector2(174, 72)
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_wgt43")
 
 [node name="Player2" type="AnimatedSprite2D" parent="."]
-position = Vector2(401, 74)
+position = Vector2(401, 72)
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_wgt43")
 
 [node name="Player3" type="AnimatedSprite2D" parent="."]
-position = Vector2(628, 74)
+position = Vector2(628, 72)
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_wgt43")

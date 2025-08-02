@@ -8,52 +8,52 @@
 [node name="PlayerStatus" type="Node2D"]
 
 [node name="H1_1" type="Sprite2D" parent="."]
-position = Vector2(58, 141)
+position = Vector2(58, 139)
 texture = ExtResource("1_uj4u6")
 
 [node name="H1_2" type="Sprite2D" parent="."]
-position = Vector2(83, 141)
+position = Vector2(83, 139)
 texture = ExtResource("1_uj4u6")
 
 [node name="H1_3" type="Sprite2D" parent="."]
-position = Vector2(106, 141)
+position = Vector2(106, 139)
 texture = ExtResource("1_uj4u6")
 
 [node name="H2_1" type="Sprite2D" parent="."]
-position = Vector2(282.5, 141.5)
+position = Vector2(282.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="H2_2" type="Sprite2D" parent="."]
-position = Vector2(307.5, 141.5)
+position = Vector2(307.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="H2_3" type="Sprite2D" parent="."]
-position = Vector2(330.5, 141.5)
+position = Vector2(330.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="H3_1" type="Sprite2D" parent="."]
-position = Vector2(505.5, 141.5)
+position = Vector2(505.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="H3_2" type="Sprite2D" parent="."]
-position = Vector2(530.5, 141.5)
+position = Vector2(530.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="H3_3" type="Sprite2D" parent="."]
-position = Vector2(553.5, 141.5)
+position = Vector2(553.5, 139.5)
 texture = ExtResource("1_uj4u6")
 
 [node name="Active_1" type="Sprite2D" parent="."]
-position = Vector2(97, 94)
+position = Vector2(97, 92)
 scale = Vector2(0.915, 0.915)
 texture = ExtResource("2_q3ncx")
 
 [node name="Active_2" type="Sprite2D" parent="."]
-position = Vector2(322, 94)
+position = Vector2(322, 92)
 scale = Vector2(0.915, 0.915)
 texture = ExtResource("3_rqxmm")
 
 [node name="Active_3" type="Sprite2D" parent="."]
-position = Vector2(545, 90)
+position = Vector2(545, 88)
 scale = Vector2(0.765, 0.765)
 texture = ExtResource("4_3c7u2")

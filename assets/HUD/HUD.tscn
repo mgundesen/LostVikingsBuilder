@@ -10,7 +10,7 @@
 process_mode = 3
 
 [node name="Main" type="Sprite2D" parent="."]
-position = Vector2(400, 77)
+position = Vector2(400, 75)
 scale = Vector2(0.97, 0.97)
 texture = ExtResource("1_0n44s")
 
