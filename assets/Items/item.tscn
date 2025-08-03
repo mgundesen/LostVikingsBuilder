@@ -18,3 +18,5 @@ shape = SubResource("RectangleShape2D_4g65m")
 
 [node name="ItemSprite" parent="Area" instance=ExtResource("2_4g65m")]
 texture = ExtResource("3_7kcf7")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

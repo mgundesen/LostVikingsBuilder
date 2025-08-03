@@ -95,7 +95,7 @@ flip = true
 
 [node name="Item" parent="." instance=ExtResource("4_mntja")]
 position = Vector2(612, 388)
-itemID = 2
+itemID = 1
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
 position = Vector2(555, 508)

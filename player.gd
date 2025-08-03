@@ -35,6 +35,27 @@ var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
 
+func addItem(id):
+	for index in range(4):
+		if items[index] == 0:
+			items[index] = id
+			if items[itemSlot] == 0:
+				itemSlot = index
+			return true
+	return false
+
+func useItem():
+	match items[itemSlot]:
+		ItemUtil.Item.none:
+			return
+		ItemUtil.Item.raddish:
+			if playerHealth < 3:
+				playerHealth += 1
+				items[itemSlot] = ItemUtil.Item.none
+		ItemUtil.Item.bomb:
+			return
+
+
 func stateWithPhysics():
 	match state:
 		State.Free:
@@ -103,6 +124,8 @@ func maybeLimitFall():
 
 func killPlayer():
 	state = State.Dead
+	for i in range(4):
+		items[i] = ItemUtil.Item.none
 	visible = false
 	position = Vector2(-100000, -100000) # Move the hitboxes away
 	
@@ -182,10 +205,13 @@ func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
 	var triggerJump = false
-	if controlActive and stateWithInput():
-		yInput = Input.get_axis(&"Up", &"Down")
-		xInput = Input.get_axis(&"Left", &"Right")
-		triggerJump = allowJump()
+	if controlActive:
+		if stateWithInput():
+			yInput = Input.get_axis(&"Up", &"Down")
+			xInput = Input.get_axis(&"Left", &"Right")
+			triggerJump = allowJump()
+		if Input.is_action_just_pressed(&"X"):
+			useItem()
 	
 	if gotHit:
 		gotHit = false
