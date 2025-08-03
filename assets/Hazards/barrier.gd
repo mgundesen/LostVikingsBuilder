@@ -1,6 +1,6 @@
 extends KillArea
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if enabled:
 		$AnimatedSprite2D.play("default")
 	else:

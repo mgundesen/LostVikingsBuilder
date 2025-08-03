@@ -6,11 +6,11 @@ func getPlayers():
 				   get_node("/root/Node2D/Olaf")]
 	return players
 
-func closeToPlayer(position, distance, searchDir = Vector2(0,0)):
+func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
-		if position.distance_to(player.position) < distance:
+		if sourcePosition.distance_to(player.position) < distance:
 			if searchDir.length() > 0:
-				if abs((player.position-position).angle_to(searchDir)) < PI/2:
+				if abs((player.position-sourcePosition).angle_to(searchDir)) < PI/2:
 					return true
 			else:
 				return true
