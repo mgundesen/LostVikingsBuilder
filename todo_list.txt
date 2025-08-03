@@ -9,4 +9,3 @@ Extended tile map
 Bugs:
 1 pixel of movement from elevator
 Stacked momentum from elevator on erik jump
-Some ladder heights still gives issues at top

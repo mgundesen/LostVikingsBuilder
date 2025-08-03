@@ -5,7 +5,7 @@ extends Area2D
 func _ready():
 	$CollisionShape2D.shape.size.y = ladderHeight + 1
 	$Sprite2D.region_rect.size.y = ladderHeight
-	$owplatform.position.y = -ladderHeight/2
+	$owplatform.position.y = -ladderHeight/2.0
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase:
