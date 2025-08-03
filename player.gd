@@ -7,6 +7,8 @@ const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
 const CLIMB_SPEED = 3
 
+var bombScene = load("res://assets/Interactive/bomb.tscn")
+
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Ladder interface
@@ -53,6 +55,9 @@ func useItem():
 				playerHealth += 1
 				items[itemSlot] = ItemUtil.Item.none
 		ItemUtil.Item.bomb:
+			var bomb = bombScene.instantiate()
+			owner.add_child(bomb)
+			bomb.transform = transform
 			return
 
 
