@@ -1,4 +1,4 @@
 extends KillArea
 
-func _process(delta_):
+func _process(_delta):
 	$AnimatedSprite2D.play("default")
