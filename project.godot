@@ -22,8 +22,8 @@ ItemUtil="*res://item_util.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=1000
+window/size/viewport_height=800
 
 [input]
 

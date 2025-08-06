@@ -8,6 +8,8 @@
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
+scale = Vector2(1.25, 1.25)
+transform = Transform2D(1.25, 0, 0, 1.25, 0, 0)
 
 [node name="Main" type="Sprite2D" parent="."]
 position = Vector2(400, 75)

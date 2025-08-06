@@ -27,6 +27,7 @@ animations = [{
 size = Vector2(56, 55)
 
 [node name="Button" type="Area2D"]
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_bshj7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -34,5 +35,4 @@ sprite_frames = SubResource("SpriteFrames_2o4lg")
 animation = &"pressed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_pt8ho")
