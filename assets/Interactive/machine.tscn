@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw28rbseukwil"]
+
+[ext_resource type="Script" uid="uid://8n5p1s4nbas8" path="res://machine.gd" id="1_uwbxf"]
+[ext_resource type="Texture2D" uid="uid://cmh6wmc4q3dw6" path="res://assets/Interactive/machine_broken.png" id="2_h6yed"]
+[ext_resource type="Texture2D" uid="uid://vmnaawp86018" path="res://assets/Interactive/machine.png" id="3_5govn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57el8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h6yed")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5govn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n78wi"]
+size = Vector2(132, 132)
+
+[node name="Machine" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_uwbxf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_57el8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n78wi")

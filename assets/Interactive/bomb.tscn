@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6hvc1i7h1jhn"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hvc1i7h1jhn"]
 
 [ext_resource type="Script" uid="uid://dtqbi8a7pgd05" path="res://bomb.gd" id="1_g03bg"]
 [ext_resource type="Texture2D" uid="uid://dqfnyde6utk3" path="res://assets/Interactive/bomb_boom.png" id="2_14tkj"]
@@ -28,6 +28,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkydq"]
+size = Vector2(68, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g03bg"]
 size = Vector2(117, 111)
 
 [node name="Bomb" type="CharacterBody2D"]
@@ -37,8 +40,13 @@ script = ExtResource("1_g03bg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2682l")
-animation = &"boom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-3, 28)
 shape = SubResource("RectangleShape2D_wkydq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_g03bg")

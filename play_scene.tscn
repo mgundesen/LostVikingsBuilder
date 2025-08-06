@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=20 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_ck0hd"]
 [ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="13_vlmgp"]
+[ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="17_bnsmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1p5oe"]
 texture = ExtResource("2_0tbyp")
@@ -61,6 +62,9 @@ ladderHeight = 475
 position = Vector2(385.582, 492.849)
 scale = Vector2(0.65, 0.65)
 
+[node name="Machine" parent="." instance=ExtResource("17_bnsmh")]
+position = Vector2(532, 512)
+
 [node name="Barrier" parent="." instance=ExtResource("6_5hyrw")]
 position = Vector2(715, 460)
 
@@ -101,3 +105,4 @@ itemID = 2
 position = Vector2(555, 508)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
+[connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

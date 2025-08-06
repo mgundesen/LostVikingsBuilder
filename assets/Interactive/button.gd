@@ -14,4 +14,4 @@ func _process(_delta):
 	if pressed:
 		$AnimatedSprite2D.play("pressed")
 	else:
-		$AnimatedSprite2D.play("default")		
+		$AnimatedSprite2D.play("default")

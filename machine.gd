@@ -1,0 +1,17 @@
+extends Area2D
+
+class_name Machine
+
+signal activated
+
+var broken = false
+
+func destroy():
+	activated.emit()
+	broken = true
+
+func _process(_delta):
+	if broken:
+		$AnimatedSprite2D.play("broken")		
+	else:
+		$AnimatedSprite2D.play("default")		

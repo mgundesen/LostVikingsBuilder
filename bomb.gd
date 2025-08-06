@@ -7,6 +7,9 @@ var state = State.pending
 
 func explode():
 	state = State.explode
+	for area in $Area2D.get_overlapping_areas():
+		if area is Machine:
+			area.call("destroy")
 	get_tree().create_timer(0.5).timeout.connect(func(): queue_free())
 
 func _ready():
@@ -20,4 +23,3 @@ func _physics_process(delta: float):
 		$AnimatedSprite2D.play("default", 2.5)
 	else:
 		$AnimatedSprite2D.play("boom")
-		
