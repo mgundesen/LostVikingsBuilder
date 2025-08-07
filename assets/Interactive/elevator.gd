@@ -7,7 +7,7 @@ var targetIndex = 0
 
 func _ready():
 	for i in range(nodes.size()):
-		nodes[i] = nodes[i] + position
+		nodes[i] = nodes[i] * 46 + position
 
 func _process(_delta):
 	var target = nodes[targetIndex]
