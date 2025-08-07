@@ -9,7 +9,7 @@ func _ready():
 	for i in range(nodes.size()):
 		nodes[i] = nodes[i] * 46 + position
 
-func _process(_delta):
+func _physics_process(_delta):
 	var target = nodes[targetIndex]
 	if position.distance_to(target) < speed:
 		position = target
