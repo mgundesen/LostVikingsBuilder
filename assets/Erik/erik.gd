@@ -1,7 +1,7 @@
 extends "res://player.gd"
 
 const WALK_FORCE = 1050
-const WALK_MAX_SPEED = 350
+const WALK_MAX_SPEED = 370
 
 func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)

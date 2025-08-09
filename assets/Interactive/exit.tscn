@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh0fvel8krld5"]
+
+[ext_resource type="Texture2D" uid="uid://2wckgwai45is" path="res://assets/Interactive/exit.png" id="1_x0t7i"]
+[ext_resource type="Script" uid="uid://bqrpmgvk3o6pr" path="res://assets/Interactive/exit.gd" id="2_ski0u"]
+
+[node name="Exit" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_x0t7i")
+script = ExtResource("2_ski0u")

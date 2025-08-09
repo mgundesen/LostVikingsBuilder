@@ -21,6 +21,8 @@ frame_3/duration = 1.0
 size = Vector2(95, 92)
 
 [node name="Antigrav" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_dqdwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
