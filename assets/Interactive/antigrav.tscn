@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3h0ham7celc4"]
+
+[ext_resource type="Texture2D" uid="uid://drhojjrp6lqeb" path="res://assets/Interactive/antigrav1.png" id="1_bmy31"]
+[ext_resource type="Script" uid="uid://bfe365h7grtqr" path="res://assets/Interactive/antigrav.gd" id="1_dqdwv"]
+[ext_resource type="Texture2D" uid="uid://cljro7miwb2pu" path="res://assets/Interactive/antigrav2.png" id="2_dqdwv"]
+[ext_resource type="Texture2D" uid="uid://dpk85fccuxjm0" path="res://assets/Interactive/antigrav3.png" id="3_h5cmt"]
+[ext_resource type="Texture2D" uid="uid://bdbq2sv4ajux0" path="res://assets/Interactive/antigrav4.png" id="4_r5yi1"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_755wr"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_bmy31")
+frame_1/texture = ExtResource("2_dqdwv")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_h5cmt")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_r5yi1")
+frame_3/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmy31"]
+size = Vector2(95, 92)
+
+[node name="Antigrav" type="Area2D"]
+script = ExtResource("1_dqdwv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(1, 1)
+texture = SubResource("AnimatedTexture_755wr")
+region_enabled = true
+region_rect = Rect2(0, 0, 95, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500001, 0.999998)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bmy31")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

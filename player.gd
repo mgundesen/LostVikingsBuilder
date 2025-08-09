@@ -28,6 +28,8 @@ var controlActive = false
 # Control apply spring jump
 var springJump = false
 
+var inAntigrav = false
+
 var playerHealth = 3
 var itemSlot =  0
 var items = [0,0,0,0]
@@ -168,8 +170,11 @@ func applyPhysics(xInput, triggerJump, delta):
 	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
 
 	# Vertical movement code. Apply gravity.
-	velocity.y += gravity * delta
-	maybeLimitFall()
+	if inAntigrav:
+		velocity.y -= gravity * 0.1 * delta
+	else:
+		velocity.y += gravity * delta
+		maybeLimitFall()
 	
 	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
 	# Move based on the velocity and snap to the ground.

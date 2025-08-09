@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=21 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_ck0hd"]
 [ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="13_vlmgp"]
 [ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="17_bnsmh"]
+[ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -166,6 +167,11 @@ itemID = 2
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
 position = Vector2(555, 508)
+
+[node name="Antigrav" parent="." instance=ExtResource("18_totdj")]
+position = Vector2(270, 63)
+Height = 10
+Width = 4
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]
