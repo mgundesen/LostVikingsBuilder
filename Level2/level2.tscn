@@ -129,11 +129,11 @@ position = Vector2(759, 49)
 
 [node name="Ladder" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
 position = Vector2(828, 344)
-ladderHeight = 412
+ladderHeight = 8.98
 
 [node name="Ladder2" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
 position = Vector2(1611, 344)
-ladderHeight = 412
+ladderHeight = 8.98
 
 [node name="Barrier2" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
 position = Vector2(1036, 49)

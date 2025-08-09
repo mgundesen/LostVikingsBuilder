@@ -116,12 +116,12 @@ use_kinematic_bodies = true
 position = Vector2(916, 552)
 
 [node name="Ladder" parent="." instance=ExtResource("3_1p5oe")]
-position = Vector2(322, 484)
-ladderHeight = 130
+position = Vector2(322, 482)
+ladderHeight = 3.0
 
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
-position = Vector2(510, 321)
-ladderHeight = 475
+position = Vector2(510, 367)
+ladderHeight = 8.0
 
 [node name="Button" parent="." instance=ExtResource("2_vlmgp")]
 position = Vector2(385.582, 492.849)
