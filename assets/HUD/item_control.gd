@@ -20,7 +20,7 @@ func pause(pauseType):
 	else:
 		type = PauseType.None
 		
-func nodeForIndex(index):
+func selectorForIndex(index):
 	var path = "Player{index}/Image".format({"index": index+1})
 	return get_node(path)
 
@@ -45,11 +45,13 @@ func _process(_delta):
 	if Input.is_action_just_pressed(&"Select"):
 		pause(PauseType.Item)
 	
-	if type == PauseType.Item:
-		var playerIndex = 0
-		for player in PlayerUtil.getPlayers():
+	var playerIndex = 0
+	for player in PlayerUtil.getPlayers():
+		var selector = selectorForIndex(playerIndex)
+		selector.position = basePos[playerIndex] + offset[player.get("itemSlot")]
+		if type == PauseType.Item:
 			if player.get("controlActive"):
-				nodeForIndex(playerIndex).play("default")
+				selector.play("default")
 				var slot = player.get("itemSlot")
 				if Input.is_action_just_pressed(&"Right") and slot%2==0:
 					player.set("itemSlot", player.get("itemSlot")+1)
@@ -59,13 +61,8 @@ func _process(_delta):
 					player.set("itemSlot", player.get("itemSlot")-1)
 				if Input.is_action_just_pressed(&"Up") and slot>1:
 					player.set("itemSlot", player.get("itemSlot")-2)
-				
-			nodeForIndex(playerIndex).position = basePos[playerIndex] + offset[player.get("itemSlot")]
-			playerIndex+=1
-	else:
-		for i in range(3):
-			var node = nodeForIndex(i)
-			node.set_frame_and_progress(0,0)
-			node.stop()
-		type = PauseType.None
+		else:
+			selector.set_frame_and_progress(0,0)
+			selector.stop()
+		playerIndex+=1
 	

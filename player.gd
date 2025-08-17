@@ -7,7 +7,7 @@ const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
 const CLIMB_SPEED = 3
 
-var bombScene = load("res://assets/Interactive/bomb.tscn")
+var bombScene = load("res://assets/Items/bomb.tscn")
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -55,13 +55,13 @@ func useItem():
 		ItemUtil.Item.raddish:
 			if playerHealth < 3:
 				playerHealth += 1
-				items[itemSlot] = ItemUtil.Item.none
 		ItemUtil.Item.bomb:
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
 			bomb.transform = transform
-			return
-
+	
+	items[itemSlot] = ItemUtil.Item.none
+	itemSlot = (itemSlot + 1) %4
 
 func stateWithPhysics():
 	match state:
