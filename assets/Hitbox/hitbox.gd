@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Hitbox
 
-enum Type {basic, colliding, breaking}
+enum Type {all, basic, colliding, breaking}
 var type = Type.basic
 
 func despawn(time):
