@@ -4,6 +4,8 @@ enum State{idle, walk, attack}
 var state = State.idle
 @export var flip = false 
 
+var shootCooldown = 0.4
+
 func _ready():
 	idleCycle()
 
@@ -14,7 +16,7 @@ func shouldAttack():
 	if closeToPlayer():
 		state = State.attack
 		$AnimatedSprite2D.set_frame_and_progress(0,0)
-		get_tree().create_timer(0.3).timeout.connect(func(): EnemyUtil.fire(self, flip, -30))
+		get_tree().create_timer(shootCooldown).timeout.connect(func(): EnemyUtil.fire(self, flip, -30))
 		get_tree().create_timer(0.8).timeout.connect(func(): idleCycle())
 		return true
 	return false
