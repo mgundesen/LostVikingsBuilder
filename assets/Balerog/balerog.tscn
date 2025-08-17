@@ -172,21 +172,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_481qt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_glqjx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_0ytw7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_hgxwe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_a4c30")
-}, {
-"duration": 1.0,
 "texture": ExtResource("28_vgmq6")
 }, {
 "duration": 1.0,
@@ -209,6 +194,37 @@ animations = [{
 }],
 "loop": true,
 "name": &"Shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_vgmq6")
+}],
+"loop": true,
+"name": &"Shoot_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_481qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_glqjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0ytw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hgxwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_a4c30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_vgmq6")
+}],
+"loop": true,
+"name": &"Shoot_Ready",
 "speed": 5.0
 }, {
 "frames": [{
@@ -275,7 +291,7 @@ script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Swing"
+animation = &"Shoot_Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

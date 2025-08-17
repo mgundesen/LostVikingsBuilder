@@ -5,14 +5,19 @@ var arrowScene = load("res://assets/Balerog/arrow.tscn")
 const WALK_FORCE = 650
 const WALK_MAX_SPEED = 250
 
+enum AttackState {Ready, Idle, Shoot}
+var subState = AttackState.Ready
+
+const arrowOffset = 40
+
 func spawnArrow():
 	var arrow = arrowScene.instantiate()
-	var offset = -40 if direction == FacingDirection.Left else 40 # fix offset according to image?
-	arrow.position.x += offset
 	if direction == FacingDirection.Left:
 		arrow.set("speed", -arrow.get("speed"))
 	owner.add_child(arrow)
 	arrow.transform = transform
+	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset # fix offset according to image?
+	arrow.position.x += offset
 
 func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)
@@ -25,7 +30,12 @@ func decideAnimation(yInput, vel):
 	if state == State.AttackMove:
 		$AnimatedSprite2D.play("Swing", 2.3)
 	elif state == State.AttackMove2:
-		$AnimatedSprite2D.play("Shoot", 2.3)
+		if subState == AttackState.Ready:
+			$AnimatedSprite2D.play("Shoot_Ready", 2.3)
+		if subState == AttackState.Idle:
+			$AnimatedSprite2D.play("Shoot_Idle", 2.3)
+		if subState == AttackState.Shoot:
+			$AnimatedSprite2D.play("Shoot", 2.3)
 	else:
 		super.decideAnimation(yInput, vel)
 
@@ -38,7 +48,12 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(&"Y"):
 			velocity.x = 0
 			state = State.AttackMove2
-			get_tree().create_timer(0.5).timeout.connect(func(): spawnArrow())
-			get_tree().create_timer(1.0).timeout.connect(func(): state = State.Free)
+			subState = AttackState.Ready
+			get_tree().create_timer(0.5).timeout.connect(func(): subState = AttackState.Idle)
+	if state == State.AttackMove2 and subState == AttackState.Idle:
+		if !Input.is_action_pressed(&"Y"):
+			subState = AttackState.Shoot
+			spawnArrow()
+			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 			
 	super._physics_process(delta)

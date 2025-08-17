@@ -460,10 +460,10 @@ script = ExtResource("4_kfp5s")
 [node name="HUD" parent="." instance=ExtResource("5_8pdke")]
 
 [node name="Balerog" parent="." instance=ExtResource("1_5somw")]
-position = Vector2(259, 501)
+position = Vector2(263, 508)
 
 [node name="Erik" parent="." instance=ExtResource("2_fvsne")]
-position = Vector2(352, 501)
+position = Vector2(351, 510)
 
 [node name="Olaf" parent="." instance=ExtResource("6_gdm5n")]
 position = Vector2(152.592, 508.028)
