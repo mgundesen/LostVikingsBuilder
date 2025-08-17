@@ -1,15 +1,21 @@
 extends CharacterBody2D
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var hitboxScene = load("res://assets/Hitbox/hitbox.tscn")
 
 enum State{pending, explode}
 var state = State.pending
 
+func spawnHitbox():
+	var hitbox = hitboxScene.instantiate()
+	hitbox.type = Hitbox.Type.explode
+	hitbox.find_child("CollisionShape2D").shape.set_size(Vector2(100, 100)) 
+	add_child(hitbox)
+	hitbox.call("despawn", 0.5)
+
 func explode():
 	state = State.explode
-	for area in $Area2D.get_overlapping_areas():
-		if area is Machine:
-			area.call("destroy")
+	spawnHitbox()
 	get_tree().create_timer(0.5).timeout.connect(func(): queue_free())
 
 func _ready():

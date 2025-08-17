@@ -46,7 +46,5 @@ func _process(_delta):
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is PlayerBase or body is Shield:
-		pass
-	else:
+	if body is TileMapLayer:
 		flip = !flip
