@@ -27,6 +27,7 @@ func spawnHitbox():
 	hitbox.transform = transform
 	var offset = -swordOffset if direction == FacingDirection.Left else swordOffset
 	hitbox.position.x += offset
+	hitbox.call("despawn", 0.1)
 
 func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)
