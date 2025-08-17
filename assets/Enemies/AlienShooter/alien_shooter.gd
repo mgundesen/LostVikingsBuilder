@@ -42,7 +42,6 @@ func _process(_delta):
 		$AnimatedSprite2D.play("attack", 0.7)
 		
 	for area in get_overlapping_areas():
-		print(area)
 		if area is Hitbox:
 			# play death animation
 			area.queue_free()

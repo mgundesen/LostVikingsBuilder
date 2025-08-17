@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="3_rfwu7"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="4_mntja"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="5_5i074"]
-[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/barrier.tscn" id="6_5hyrw"]
+[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/Hazards/barrier.tscn" id="6_5hyrw"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]

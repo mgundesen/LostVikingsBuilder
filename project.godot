@@ -17,8 +17,8 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 PlayerUtil="*res://player_util.gd"
-EnemyUtil="*res://enemy_util.gd"
-ItemUtil="*res://item_util.gd"
+EnemyUtil="*res://assets/Enemies/enemy_util.gd"
+ItemUtil="*res://assets/Items/item_util.gd"
 
 [display]
 

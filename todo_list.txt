@@ -3,7 +3,7 @@ Increased spring power high speed
 Enemy death animation
 Erik jump air decreased gravity
 Elevator attached graphics
+Improve turnaround for olaf/balerog
 
 Bugs:
 Stacked momentum from elevator on erik jump
-Elevator movement can not be buffered

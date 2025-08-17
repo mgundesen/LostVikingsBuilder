@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="1_5somw"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="1_8inax"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="2_fvsne"]
-[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/barrier.tscn" id="2_gdm5n"]
+[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/Hazards/barrier.tscn" id="2_gdm5n"]
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="4_kfp5s"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="5_8pdke"]
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="5_gdm5n"]

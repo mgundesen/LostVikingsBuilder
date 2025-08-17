@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b14lf3fl3qx4a"]
 
-[ext_resource type="Script" uid="uid://ua8cr3kmtf0d" path="res://pause_control.gd" id="1_yogh0"]
+[ext_resource type="Script" uid="uid://ua8cr3kmtf0d" path="res://assets/HUD/pause_control.gd" id="1_yogh0"]
 [ext_resource type="Texture2D" uid="uid://frjky11aty85" path="res://assets/HUD/pause_yes.png" id="2_nbn2o"]
 [ext_resource type="Texture2D" uid="uid://xu4jcc0plaq3" path="res://assets/HUD/pause_no.png" id="3_mtun8"]
 

@@ -3,6 +3,7 @@ extends Node2D
 @export var nodes = PackedVector2Array()
 @export var speed = 3
 
+var previousTarget = 0
 var targetIndex = 0
 
 func _ready():
@@ -11,7 +12,8 @@ func _ready():
 
 func _physics_process(_delta):
 	var target = nodes[targetIndex]
-	if position.distance_to(target) < speed:
+	var atTarget = position.distance_to(target) < speed
+	if atTarget:
 		position = target
 	else:
 		position += position.direction_to(target) * speed
@@ -21,7 +23,11 @@ func _physics_process(_delta):
 	for body in $Area2D.get_overlapping_bodies():
 		if body is PlayerBase:
 			if body.get("controlActive") == true:
-				if(targetIndex > 0 and Input.is_action_just_pressed(&"Up")):
-					targetIndex -= 1
-				if(targetIndex < nodes.size() - 1 and Input.is_action_just_pressed(&"Down")):
-					targetIndex += 1
+				if targetIndex > 0 and Input.is_action_pressed(&"Up") :
+					if atTarget or previousTarget == targetIndex - 1:
+						previousTarget = targetIndex
+						targetIndex -= 1
+				if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
+					if atTarget or previousTarget == targetIndex + 1:
+						previousTarget = targetIndex
+						targetIndex += 1
