@@ -40,15 +40,16 @@ func _process(_delta):
 		$AnimatedSprite2D.play("walk")
 	elif state == State.attack:
 		$AnimatedSprite2D.play("attack", 0.7)
+		
+	for area in get_overlapping_areas():
+		print(area)
+		if area is Hitbox:
+			# play death animation
+			area.queue_free()
+			queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase or body is Shield:
 		pass
 	else:
 		flip = !flip
-
-func _on_area_entered(area: Area2D) -> void:
-	if area is Hitbox:
-		# play death animation
-		queue_free()
-	

@@ -15,7 +15,7 @@ func _process(_delta):
 		if body is PlayerBase and body.get("controlActive") == true and Input.is_action_just_pressed(&"A"):
 			buttonPress()
 	for area in get_overlapping_areas():
-		if area is Hitbox:
+		if area is Hitbox and area.type == Hitbox.Type.colliding:
 			buttonPress()
 			area.queue_free()
 			
