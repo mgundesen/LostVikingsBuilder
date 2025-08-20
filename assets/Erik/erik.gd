@@ -3,6 +3,9 @@ extends "res://player.gd"
 const WALK_FORCE = 1050
 const WALK_MAX_SPEED = 370
 
+enum Substate {bash, tumble, tumble2}
+var subState = Substate.bash
+
 func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)
 
@@ -26,18 +29,54 @@ func stateWithInput():
 
 func decideAnimation(yInput, vel):
 	if state == State.AttackMove2:
-		$AnimatedSprite2D.play("Dash", 2.1)
+		if subState == Substate.bash:
+			$AnimatedSprite2D.play("Dash", 2.1)
+		else:
+			$AnimatedSprite2D.play("Tumble", 1)
 	else:
 		super.decideAnimation(yInput, vel)
+
+func setState(targetState):
+	if state == State.AttackMove2 and (subState == Substate.tumble or subState == Substate.tumble2):
+		return
+	super.setState(targetState)
+
+func stateWithPhysics():
+	match state:
+		State.AttackMove2:
+			if subState == Substate.bash:
+				return true
+			else:
+				return false
+		_:
+			return super.stateWithPhysics()
 
 func _physics_process(delta):
 	if controlActive and state == State.Free and is_on_floor():
 		if Input.is_action_just_pressed(&"Y") and abs(velocity.x) > 200:
 			state = State.AttackMove2
-			# This can falsely lead to exiing another state!
-			get_tree().create_timer(1.2).timeout.connect(func(): state = State.Free)
+			subState = Substate.bash
+			get_tree().create_timer(1.2).timeout.connect(func(): setState(State.Free))
 	if controlActive and state == State.AttackMove2 and is_on_floor():
 		var xInput = Input.get_axis(&"Left", &"Right")
 		if xInput < 0.8 and direction == FacingDirection.Right or xInput > -0.8 and direction == FacingDirection.Left:
-			get_tree().create_timer(0.1).timeout.connect(func(): state = State.Free)
+			get_tree().create_timer(0.1).timeout.connect(func(): setState(State.Free))
+			
+	if state == State.AttackMove2 and (subState == Substate.tumble or subState == Substate.tumble2):
+		if subState == Substate.tumble:
+			velocity.x = 120 if direction == FacingDirection.Left else -120
+		else:
+			velocity.x = 0
+		velocity.y += gravity * delta
+		move_and_slide()
 	super._physics_process(delta)
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if state == State.AttackMove2 and area is Enemy:
+		spawnHitbox(50)
+		subState = Substate.tumble
+		velocity.y = -220
+		get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
+		# intentional skip of setState to allow exit
+		get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+		

@@ -1,7 +1,6 @@
 extends "res://player.gd"
 
 var arrowScene = load("res://assets/Balerog/arrow.tscn")
-var hitboxScene = load("res://assets/Hitbox/hitbox.tscn")
 
 const WALK_FORCE = 650
 const WALK_MAX_SPEED = 250
@@ -20,14 +19,6 @@ func spawnArrow():
 	arrow.transform = transform
 	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset
 	arrow.position.x += offset
-
-func spawnHitbox():
-	var hitbox = hitboxScene.instantiate()
-	owner.add_child(hitbox)
-	hitbox.transform = transform
-	var offset = -swordOffset if direction == FacingDirection.Left else swordOffset
-	hitbox.position.x += offset
-	hitbox.call("despawn", 0.1)
 
 func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)
@@ -54,7 +45,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(&"B"):
 			velocity.x = 0
 			state = State.AttackMove
-			spawnHitbox()
+			spawnHitbox(swordOffset)
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 		if Input.is_action_just_pressed(&"Y"):
 			velocity.x = 0

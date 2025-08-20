@@ -8,6 +8,7 @@ const FALL_DAMAGE_LIMIT = 850
 const CLIMB_SPEED = 3
 
 var bombScene = load("res://assets/Items/bomb.tscn")
+var hitboxScene = load("res://assets/Hitbox/hitbox.tscn")
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -47,6 +48,9 @@ func addItem(id):
 				itemSlot = index
 			return true
 	return false
+	
+func offsetDirected(offset):
+	return -offset if direction == FacingDirection.Left else offset
 
 func useItem():
 	match items[itemSlot]:
@@ -62,6 +66,16 @@ func useItem():
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
+
+func _implSpawnHitbox(offset):
+	var hitbox = hitboxScene.instantiate()
+	owner.add_child(hitbox)
+	hitbox.transform = transform
+	hitbox.position.x += offsetDirected(offset)
+	hitbox.call("despawn", 0.1)
+	
+func spawnHitbox(offset):
+	call_deferred("_implSpawnHitbox", offset)	
 
 func stateWithPhysics():
 	match state:
@@ -253,8 +267,10 @@ func _physics_process(delta):
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
 			
-	if velocity.x > 0:
-		direction = FacingDirection.Right
-	elif velocity.x < 0:
-		direction = FacingDirection.Left
+	# Do check this condition more
+	if state == State.Free:
+		if velocity.x > 0:
+			direction = FacingDirection.Right
+		elif velocity.x < 0:
+			direction = FacingDirection.Left
 	decideAnimation(yInput, velocity)
