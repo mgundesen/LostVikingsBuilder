@@ -32,7 +32,7 @@ func decideAnimation(yInput, vel):
 		if subState == Substate.bash:
 			$AnimatedSprite2D.play("Dash", 2.1)
 		else:
-			$AnimatedSprite2D.play("Tumble", 1)
+			$AnimatedSprite2D.play("Tumble", 1.3)
 	else:
 		super.decideAnimation(yInput, vel)
 

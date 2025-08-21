@@ -241,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("44_m55dc")
 }, {
-"duration": 3.0,
+"duration": 2.0,
 "texture": ExtResource("45_pxrax")
 }, {
 "duration": 1.0,
@@ -263,7 +263,16 @@ animations = [{
 "texture": ExtResource("14_60iu1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_pxrax")
+"texture": ExtResource("10_xv5rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m1cot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_eo8xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m085p")
 }],
 "loop": true,
 "name": &"Tumble",
