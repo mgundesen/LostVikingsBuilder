@@ -16,5 +16,5 @@ func _process(_delta):
 	else:
 		$AnimatedSprite2D.play("default")		
 
-	if CollisionUtil.isColliding(self, Hitbox.Type.explode):
+	if CollisionUtil.isColliding(self, [Hitbox.Type.explode]):
 		destroy()

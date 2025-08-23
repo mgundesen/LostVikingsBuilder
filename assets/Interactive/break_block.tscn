@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cspxwcerk81e7"]
+
+[ext_resource type="Script" uid="uid://bmaqwcuidfn1n" path="res://assets/Interactive/break_block.gd" id="1_smqop"]
+[ext_resource type="Texture2D" uid="uid://bgxh4obhntvw5" path="res://assets/Interactive/break_wall2.png" id="2_jq1lg"]
+[ext_resource type="Script" uid="uid://83xr2j6dowhu" path="res://assets/Interactive/block_class.gd" id="2_wh47w"]
+[ext_resource type="Texture2D" uid="uid://dqrt3yh2fva3l" path="res://assets/Interactive/break_wall.png" id="3_wh47w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh47w"]
+size = Vector2(71.4286, 62.8572)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq1lg"]
+size = Vector2(65.7143, 62.8571)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq1lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jq1lg")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wh47w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BreakBlock" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_smqop")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("2_wh47w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.21389e-06, 1.78814e-06)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_wh47w")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-4.76837e-06, -3.40598e-06)
+shape = SubResource("RectangleShape2D_jq1lg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jq1lg")

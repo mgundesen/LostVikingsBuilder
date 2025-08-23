@@ -11,5 +11,5 @@ func _on_timer_timeout() -> void:
 	EnemyUtil.fire(self, flip)
 
 func _process(_delta):
-	if CollisionUtil.isColliding(self, Hitbox.Type.explode):
+	if CollisionUtil.isColliding(self, [Hitbox.Type.explode]):
 		queue_free()

@@ -67,15 +67,16 @@ func useItem():
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
 
-func _implSpawnHitbox(offset):
+func _implSpawnHitbox(offset, type):
 	var hitbox = hitboxScene.instantiate()
+	hitbox.type = type
 	owner.add_child(hitbox)
 	hitbox.transform = transform
 	hitbox.position.x += offsetDirected(offset)
 	hitbox.call("despawn", 0.1)
 	
-func spawnHitbox(offset):
-	call_deferred("_implSpawnHitbox", offset)	
+func spawnHitbox(offset, type = Hitbox.Type.basic):
+	call_deferred("_implSpawnHitbox", offset, type)	
 
 func stateWithPhysics():
 	match state:

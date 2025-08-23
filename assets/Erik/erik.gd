@@ -72,8 +72,8 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if state == State.AttackMove2 and area is Enemy:
-		spawnHitbox(50)
+	if state == State.AttackMove2 and (area is Enemy or area is BreakBlock):
+		spawnHitbox(50, Hitbox.Type.breaking)
 		subState = Substate.tumble
 		velocity.y = -220
 		get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
