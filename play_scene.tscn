@@ -166,7 +166,6 @@ position = Vector2(782, 569)
 
 [node name="Shooter" parent="." instance=ExtResource("13_ck0hd")]
 position = Vector2(1145, 362)
-flip = true
 
 [node name="Item" parent="." instance=ExtResource("4_mntja")]
 position = Vector2(131, 421)
@@ -179,7 +178,10 @@ position = Vector2(555, 508)
 position = Vector2(76, 489)
 
 [node name="BreakBlock" parent="." instance=ExtResource("20_i36m7")]
-position = Vector2(-92, 518)
+position = Vector2(-246, 517)
+
+[node name="Spring2" parent="." instance=ExtResource("6_5uqcj")]
+position = Vector2(-98.9999, 566)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

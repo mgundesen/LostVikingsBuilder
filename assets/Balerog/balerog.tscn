@@ -281,7 +281,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osywc"]
-size = Vector2(77, 119)
+size = Vector2(77, 116.833)
 
 [node name="Balerog" type="CharacterBody2D"]
 scale = Vector2(0.75, 0.75)
@@ -290,6 +290,7 @@ collision_mask = 4
 script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.33333)
 sprite_frames = SubResource("SpriteFrames_x56gs")
 animation = &"Shoot_Idle"
 

@@ -2,9 +2,6 @@ extends "res://player.gd"
 
 var arrowScene = load("res://assets/Balerog/arrow.tscn")
 
-const WALK_FORCE = 650
-const WALK_MAX_SPEED = 250
-
 enum AttackState {Ready, Idle, Shoot}
 var subState = AttackState.Ready
 
@@ -19,12 +16,6 @@ func spawnArrow():
 	arrow.transform = transform
 	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset
 	arrow.position.x += offset
-
-func walkForce():
-	return WALK_FORCE * (1.0 if is_on_floor() else 1.2)
-
-func walkSpeed():
-	return WALK_MAX_SPEED
 
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left

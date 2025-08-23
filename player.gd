@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-const STOP_FORCE = 800
+const STOP_FORCE = 1600
+const WALK_FORCE = 650
+const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
@@ -101,10 +103,10 @@ func stateWithInput():
 			return false
 
 func walkForce():
-	return 0
+	return WALK_FORCE * (1.0 if is_on_floor() else 1.4)
 	
 func walkSpeed():
-	return 0
+	return WALK_MAX_SPEED
 
 func allowJump():
 	return false
@@ -138,9 +140,6 @@ func decideAnimation(yInput, vel):
 	else:
 		$AnimatedSprite2D.play("Idle")
 
-func stopForce():
-	return STOP_FORCE * (100 if is_on_floor() else 0.7)
-
 func maybeLimitFall():
 	return
 
@@ -171,13 +170,21 @@ func takeDamage(stunState, deathState, amount = 1):
 		state = deathState
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
 
+func stopForce():
+	# Very fast turnaround on ground
+	return STOP_FORCE * 20 if is_on_floor() else STOP_FORCE * 0.7
+
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
 	var appliedWalk = walkForce()
 	var walk = appliedWalk * xInput
 	# Slow down the player if they're not trying to move.
-	if abs(walk) < appliedWalk * 0.2 or (xInput*velocity.x < 0 and is_on_floor()):
-		# The velocity, slowed down a bit, and then reassigned.
+	var noXInput = abs(walk) < appliedWalk * 0.2
+	var oppositeInput = xInput*velocity.x < 0
+	if noXInput and is_on_floor():
+		# Enchanced stop when not giving input on the ground (Erik shenanigans)
+		velocity.x = move_toward(velocity.x, 0, stopForce() * 2 * delta)
+	elif noXInput or (oppositeInput and is_on_floor()):
 		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
 	else:
 		velocity.x += walk * delta
