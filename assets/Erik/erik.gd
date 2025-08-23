@@ -14,7 +14,7 @@ func walkSpeed():
 func stopForce():
 	if state == State.AttackMove2:
 		return STOP_FORCE * 0.05
-	return STOP_FORCE if is_on_floor() else STOP_FORCE * 0.3
+	return STOP_FORCE * 1.0 if is_on_floor() else STOP_FORCE * 0.3
 
 func allowJump():
 	return Input.is_action_just_pressed(&"B") and (is_on_floor() or state == State.Ladder)

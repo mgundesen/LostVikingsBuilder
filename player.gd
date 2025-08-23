@@ -172,7 +172,7 @@ func takeDamage(stunState, deathState, amount = 1):
 
 func stopForce():
 	# Very fast turnaround on ground
-	return STOP_FORCE * 20 if is_on_floor() else STOP_FORCE * 0.7
+	return STOP_FORCE * 20.0 if is_on_floor() else STOP_FORCE * 0.7
 
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.

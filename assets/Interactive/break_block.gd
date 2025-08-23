@@ -2,6 +2,12 @@ extends Node2D
 
 var broken = false
 
+func spawnNeighbourHitboxes():
+	CollisionUtil.spawnHitbox(get_parent(), position + Vector2(46, 0), Hitbox.Type.breaking)
+	CollisionUtil.spawnHitbox(get_parent(), position + Vector2(-46, 0), Hitbox.Type.breaking)
+	CollisionUtil.spawnHitbox(get_parent(), position + Vector2(0, 46), Hitbox.Type.breaking)
+	CollisionUtil.spawnHitbox(get_parent(), position + Vector2(0, -46), Hitbox.Type.breaking)
+
 func _process(_delta):
 	if !broken:
 		$AnimatedSprite2D.play("default")
@@ -11,4 +17,5 @@ func _process(_delta):
 	var area = $Area2D
 	if !broken and CollisionUtil.isColliding(area, [Hitbox.Type.explode, Hitbox.Type.breaking]):
 		broken = true
+		get_tree().create_timer(0.5).timeout.connect(spawnNeighbourHitboxes)
 		$CharacterBody2D.queue_free()

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="17_bnsmh"]
 [ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="18_4e3t1"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
-[ext_resource type="PackedScene" uid="uid://cspxwcerk81e7" path="res://assets/Interactive/break_block.tscn" id="20_i36m7"]
+[ext_resource type="PackedScene" uid="uid://c1ny4ndeihgsh" path="res://assets/Interactive/wall_spawner.tscn" id="21_dlnbv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -177,11 +177,12 @@ position = Vector2(555, 508)
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
 position = Vector2(75, 502)
 
-[node name="BreakBlock" parent="." instance=ExtResource("20_i36m7")]
-position = Vector2(-246, 517)
-
 [node name="Spring2" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(-98.9999, 566)
+position = Vector2(-111, 381)
+
+[node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
+position = Vector2(-216, 412)
+nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]
