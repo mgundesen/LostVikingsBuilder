@@ -71,12 +71,9 @@ func useItem():
 	itemSlot = (itemSlot + 1) %4
 
 func _implSpawnHitbox(offset, type):
-	var hitbox = hitboxScene.instantiate()
-	hitbox.type = type
-	owner.add_child(hitbox)
-	hitbox.transform = transform
-	hitbox.position.x += offsetDirected(offset)
-	hitbox.call("despawn", 0.1)
+	var hitboxPos = position
+	hitboxPos.x += offsetDirected(offset)
+	CollisionUtil.spawnHitbox(owner, hitboxPos, type)
 	
 func spawnHitbox(offset, type = Hitbox.Type.basic):
 	call_deferred("_implSpawnHitbox", offset, type)	
@@ -179,7 +176,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	var appliedWalk = walkForce()
 	var walk = appliedWalk * xInput
 	# Slow down the player if they're not trying to move.
-	if abs(walk) < appliedWalk * 0.2 or xInput*velocity.x < 0:
+	if abs(walk) < appliedWalk * 0.2 or (xInput*velocity.x < 0 and is_on_floor()):
 		# The velocity, slowed down a bit, and then reassigned.
 		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
 	else:

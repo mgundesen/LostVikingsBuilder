@@ -1,4 +1,6 @@
-extends Node
+extends Node2D
+
+var hitboxScene = load("res://assets/Hitbox/hitbox.tscn")
 
 func checkType(areaType, types):
 	if types.size() == 0:
@@ -15,3 +17,10 @@ func isColliding(areaNode, types = []):
 				area.queue_free()
 				return true
 	return false
+
+func spawnHitbox(source, pos, type):
+	var hitbox = hitboxScene.instantiate()
+	hitbox.type = type
+	source.add_child(hitbox)
+	hitbox.position = pos
+	hitbox.call("despawn", 0.1)
