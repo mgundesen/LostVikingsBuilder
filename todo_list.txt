@@ -1,8 +1,8 @@
 Enemy death animation
+Doors and keys
 Erik jump air decreased gravity
 Improve turnaround for olaf/balerog
 Increased spring power high speed
-Breakable walls
 
 Bugs:
-Stacked momentum from elevator on erik jump
+Hit in erik attack 2 state exits in a odd way
