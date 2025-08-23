@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=24 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="18_4e3t1"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
 [ext_resource type="PackedScene" uid="uid://c1ny4ndeihgsh" path="res://assets/Interactive/wall_spawner.tscn" id="21_dlnbv"]
+[ext_resource type="PackedScene" uid="uid://dr25v111m3dsu" path="res://assets/Enemies/RobotShooter/robot_shooter.tscn" id="21_u6cln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -129,7 +130,7 @@ ladderHeight = 8.0
 position = Vector2(385.582, 492.849)
 
 [node name="Machine" parent="." instance=ExtResource("17_bnsmh")]
-position = Vector2(532, 512)
+position = Vector2(2, 511)
 
 [node name="Barrier" parent="." instance=ExtResource("6_5hyrw")]
 position = Vector2(715, 460)
@@ -172,7 +173,7 @@ position = Vector2(131, 421)
 itemID = 2
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
-position = Vector2(555, 508)
+position = Vector2(1067, 372)
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
 position = Vector2(75, 502)
@@ -183,6 +184,11 @@ position = Vector2(-111, 381)
 [node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
 position = Vector2(-216, 412)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
+
+[node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
+position = Vector2(551, 511)
+collision_layer = 8
+collision_mask = 8
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

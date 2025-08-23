@@ -2,8 +2,9 @@ extends Enemy
 
 var shootCooldown = 0.4
 
-func _ready():
-	idleCycle()
+func _ready() -> void:
+	health = 2
+	hitTypes = [Hitbox.Type.breaking]
 
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
@@ -13,31 +14,20 @@ func shouldAttack():
 		state = State.attack
 		$AnimatedSprite2D.set_frame_and_progress(0,0)
 		get_tree().create_timer(shootCooldown).timeout.connect(func(): EnemyUtil.fire(self, flip, -30))
-		get_tree().create_timer(0.8).timeout.connect(func(): idleCycle())
+		get_tree().create_timer(0.8).timeout.connect(func(): setState(State.walk))
 		return true
 	return false
 
-func idleCycle():
-	state = State.idle
-	if !shouldAttack():
-		get_tree().create_timer(0.4).timeout.connect(func(): walkCycle())
-
-func walkCycle():
-	state = State.walk
-	if !shouldAttack():
-		get_tree().create_timer(0.4).timeout.connect(func(): idleCycle())
-
 func _process(delta):
-	if state == State.walk and !closeToPlayer():
-		position.x += -2 if flip else 2
+	if state == State.walk:
+		if !shouldAttack():
+			position.x += -3 if flip else 3
 
 	$AnimatedSprite2D.flip_h = flip
-	if state == State.idle:
-		$AnimatedSprite2D.play("idle")
-	elif state == State.walk:
+	if state == State.walk:
 		$AnimatedSprite2D.play("walk")
 	elif state == State.attack:
-		$AnimatedSprite2D.play("attack", 0.7)
+		$AnimatedSprite2D.play("shoot", 0.7)
 
 	super._process(delta)
 

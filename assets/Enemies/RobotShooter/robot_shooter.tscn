@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dr25v111m3dsu"]
+
+[ext_resource type="Script" uid="uid://wdmwmom3yvq7" path="res://robot_shooter.gd" id="1_6xaf7"]
+[ext_resource type="Texture2D" uid="uid://bon4mjdst4nj2" path="res://assets/Enemies/RobotShooter/shoot1.png" id="2_fvax0"]
+[ext_resource type="Texture2D" uid="uid://5bj8gl3smpqi" path="res://assets/Enemies/RobotShooter/shoot2.png" id="3_w250r"]
+[ext_resource type="Texture2D" uid="uid://hbyvr6yjet5p" path="res://assets/Enemies/RobotShooter/shoot3.png" id="4_y1jh1"]
+[ext_resource type="Texture2D" uid="uid://bqexuwpn5ridr" path="res://assets/Enemies/RobotShooter/shoot4.png" id="5_g6l5h"]
+[ext_resource type="Texture2D" uid="uid://cjfv7vw8rbt5y" path="res://assets/Enemies/RobotShooter/walk1.png" id="6_td5tj"]
+[ext_resource type="Texture2D" uid="uid://c4xgw8ws2lime" path="res://assets/Enemies/RobotShooter/walk2.png" id="7_gyqkk"]
+[ext_resource type="Texture2D" uid="uid://btpgki20uyryn" path="res://assets/Enemies/RobotShooter/walk3.png" id="8_44433"]
+[ext_resource type="Texture2D" uid="uid://dt1ktpw01u83v" path="res://assets/Enemies/RobotShooter/walk4.png" id="9_ehb0l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm6ci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fvax0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w250r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y1jh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g6l5h")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_td5tj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gyqkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_44433")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ehb0l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ayab"]
+size = Vector2(97, 110)
+
+[node name="RobotShooter" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_6xaf7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hm6ci")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_6ayab")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

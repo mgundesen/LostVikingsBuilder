@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck1l7"]
-size = Vector2(109, 115)
+size = Vector2(109, 109.722)
 
 [node name="AlienShooter" type="Area2D"]
 scale = Vector2(0.72, 0.72)
@@ -61,7 +61,8 @@ sprite_frames = SubResource("SpriteFrames_7v5mr")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2.5)
+position = Vector2(0.5, 0.694449)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ck1l7")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
