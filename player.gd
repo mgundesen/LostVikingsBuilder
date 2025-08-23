@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-const STOP_FORCE = 8000
+const STOP_FORCE = 800
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
@@ -39,6 +39,9 @@ enum State {Free, AttackMove, AttackMove2, Ladder, HitStun, FallStun, FallDeath,
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
+
+func _ready():
+	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
 
 func addItem(id):
 	for index in range(4):
@@ -139,7 +142,7 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Idle")
 
 func stopForce():
-	return STOP_FORCE * (1.0 if is_on_floor() else 0.07)
+	return STOP_FORCE * (100 if is_on_floor() else 0.7)
 
 func maybeLimitFall():
 	return
@@ -176,7 +179,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	var appliedWalk = walkForce()
 	var walk = appliedWalk * xInput
 	# Slow down the player if they're not trying to move.
-	if abs(walk) < appliedWalk * 0.2:
+	if abs(walk) < appliedWalk * 0.2 or xInput*velocity.x < 0:
 		# The velocity, slowed down a bit, and then reassigned.
 		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
 	else:

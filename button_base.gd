@@ -13,5 +13,5 @@ func _process(_delta):
 			buttonPress()
 	#for area in get_overlapping_areas():
 	#	if area is Hitbox and area.type == Hitbox.Type.colliding:
-	if CollisionUtil.isColliding(self, Hitbox.Type.colliding):
+	if CollisionUtil.isColliding(self, [Hitbox.Type.colliding]):
 		buttonPress()
