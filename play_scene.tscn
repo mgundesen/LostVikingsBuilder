@@ -175,7 +175,7 @@ itemID = 2
 position = Vector2(555, 508)
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
-position = Vector2(76, 489)
+position = Vector2(75, 502)
 
 [node name="BreakBlock" parent="." instance=ExtResource("20_i36m7")]
 position = Vector2(-246, 517)
