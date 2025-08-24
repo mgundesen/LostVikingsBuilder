@@ -156,11 +156,11 @@ Width = 4
 position = Vector2(126, 509)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(224, 505)
+position = Vector2(316, 507)
 scale = Vector2(0.68, 0.68)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(447, 507)
+position = Vector2(225, 507)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
@@ -191,6 +191,8 @@ nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 position = Vector2(551, 511)
 collision_layer = 8
 collision_mask = 8
+flip = true
+itemType = 3
 
 [node name="Keyhole" parent="." instance=ExtResource("22_u6cln")]
 position = Vector2(-126, 500)

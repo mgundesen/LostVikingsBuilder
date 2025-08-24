@@ -8,3 +8,7 @@ func _ready():
 func _on_area_body_entered(body: Node2D) -> void:
 	if body is PlayerBase and body.call("addItem", itemID):
 		queue_free()
+
+func setItem(id):
+	itemID = id
+	$Area/ItemSprite.call("setIcon", itemID)
