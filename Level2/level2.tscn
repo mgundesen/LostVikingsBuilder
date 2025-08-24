@@ -352,9 +352,11 @@ position = Vector2(909, 74)
 
 [node name="Door" parent="SceneObjects" instance=ExtResource("10_07tmh")]
 position = Vector2(575, 481)
+operationMode = 0
 
 [node name="Door2" parent="SceneObjects" instance=ExtResource("10_07tmh")]
 position = Vector2(1173.21, 483.654)
+operationMode = 0
 
 [node name="Barrier3" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
 position = Vector2(1864, 46)
@@ -421,9 +423,11 @@ ladderHeight = 9.98
 
 [node name="Door3" parent="SceneObjects" instance=ExtResource("10_07tmh")]
 position = Vector2(207, 1863)
+operationMode = 0
 
 [node name="Door4" parent="SceneObjects" instance=ExtResource("10_07tmh")]
 position = Vector2(576, 2092)
+operationMode = 0
 
 [node name="Ladder6" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
 position = Vector2(91, 2046)
@@ -462,7 +466,7 @@ script = ExtResource("4_kfp5s")
 position = Vector2(263, 508)
 
 [node name="Erik" parent="." instance=ExtResource("2_fvsne")]
-position = Vector2(1861, 1200)
+position = Vector2(380, 500)
 
 [node name="Olaf" parent="." instance=ExtResource("6_gdm5n")]
 position = Vector2(152.592, 508.028)
