@@ -45,6 +45,9 @@ var direction = FacingDirection.Right
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
 
+func offsetDirected(offset):
+	return -offset if direction == FacingDirection.Left else offset
+
 func addItem(id):
 	for index in range(4):
 		if items[index] == 0:
@@ -53,9 +56,14 @@ func addItem(id):
 				itemSlot = index
 			return true
 	return false
-	
-func offsetDirected(offset):
-	return -offset if direction == FacingDirection.Left else offset
+
+func useKey(type):
+	var areaNode = find_child("Area2D", false)
+	for area in areaNode.get_overlapping_areas():
+		if area is KeyHole and area.type == type:
+			area.call("open")
+			return true
+	return false
 
 func useItem():
 	match items[itemSlot]:
@@ -68,6 +76,15 @@ func useItem():
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
 			bomb.transform = transform
+		ItemUtil.Item.keyBlue:
+			if !useKey(ItemUtil.Keyhole.blue):
+				return
+		ItemUtil.Item.keyYellow:
+			if !useKey(ItemUtil.Keyhole.yellow):
+				return
+		ItemUtil.Item.keyRed:
+			if !useKey(ItemUtil.Keyhole.red):
+				return
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4

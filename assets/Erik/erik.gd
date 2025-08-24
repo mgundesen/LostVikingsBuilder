@@ -79,4 +79,3 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
 		# intentional skip of setState to allow exit
 		get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
-		

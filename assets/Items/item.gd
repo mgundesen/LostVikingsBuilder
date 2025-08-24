@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var itemID = 0
+@export var itemID = ItemUtil.Item.none
 
 func _ready():
 	$Area/ItemSprite.call("setIcon", itemID)
