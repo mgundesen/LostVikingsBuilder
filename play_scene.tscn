@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=27 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dr25v111m3dsu" path="res://assets/Enemies/RobotShooter/robot_shooter.tscn" id="21_u6cln"]
 [ext_resource type="PackedScene" uid="uid://bkvfnimgr3sl4" path="res://assets/Interactive/keyhole.tscn" id="22_u6cln"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
+[ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -204,6 +205,9 @@ itemID = 3
 
 [node name="Door" parent="." instance=ExtResource("23_vi0nd")]
 position = Vector2(-298, 481)
+
+[node name="Exit" parent="." instance=ExtResource("24_tixdq")]
+position = Vector2(-208, 467)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

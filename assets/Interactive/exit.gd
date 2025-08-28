@@ -7,3 +7,4 @@ func _process(_delta):
 		if player.position.distance_to(position) > 150:
 			return
 	won.emit()
+	SceneControl.nextScene()

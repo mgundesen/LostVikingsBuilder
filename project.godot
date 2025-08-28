@@ -20,6 +20,7 @@ PlayerUtil="*res://player_util.gd"
 EnemyUtil="*res://assets/Enemies/enemy_util.gd"
 ItemUtil="*res://assets/Items/item_util.gd"
 CollisionUtil="*res://collision_util.gd"
+SceneControl="*res://scene_control.gd"
 
 [display]
 
