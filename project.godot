@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PuzzlePlatformer"
-run/main_scene="uid://c6st53ijcsi3s"
+run/main_scene="uid://bbuuvtppltypr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]

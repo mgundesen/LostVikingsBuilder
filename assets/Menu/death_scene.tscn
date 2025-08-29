@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0asqyyx7d82f"]
+
+[ext_resource type="Script" uid="uid://dw6pnxiq62jrg" path="res://death_scene.gd" id="1_ltw65"]
+[ext_resource type="Texture2D" uid="uid://bvhogouyvusi3" path="res://assets/Menu/death_scene.png" id="2_7e0gq"]
+[ext_resource type="Texture2D" uid="uid://bwitgj2131tcm" path="res://assets/Menu/death_yes.png" id="3_5lgkw"]
+[ext_resource type="Texture2D" uid="uid://b5jfwlofddah6" path="res://assets/Menu/death_no.png" id="4_xk4pl"]
+
+[node name="DeathScene" type="Node2D"]
+script = ExtResource("1_ltw65")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(501, 405)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_7e0gq")
+
+[node name="Yes" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(470, 300)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_5lgkw")
+
+[node name="No" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(470, 300)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_xk4pl")

@@ -13,9 +13,13 @@ func pause(pauseType):
 		type = PauseType.None
 
 func _process(_delta):
-	if Input.is_action_just_pressed(&"Start"):
-		pause(PauseType.Regular)
-		
+	if Input.is_action_just_pressed(&"Start") or (Input.is_action_just_pressed(&"B") and type == PauseType.Regular):
+		if selectYes:
+			get_tree().paused = false
+			SceneControl.deathScene()
+		else:
+			pause(PauseType.Regular)
+	
 	$CanvasLayer.visible = type == PauseType.Regular
 	if type == PauseType.Regular:
 		$CanvasLayer/No.visible = !selectYes
