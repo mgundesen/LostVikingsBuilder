@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5y46p400ksns"]
+
+[ext_resource type="Script" uid="uid://c5wufjesfvsja" path="res://assets/HUD/textbox.gd" id="1_j08tl"]
+[ext_resource type="FontFile" uid="uid://cdqxbjqdvt7x3" path="res://assets/MooseNooks.ttf" id="1_poo6i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j08tl"]
+bg_color = Color(0.580392, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Textbox" type="CanvasLayer"]
+offset = Vector2(250, 250)
+scale = Vector2(1.4, 1.4)
+transform = Transform2D(1.4, 0, 0, 1.4, 250, 250)
+script = ExtResource("1_j08tl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 350.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j08tl")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_poo6i")
+text = "Waking up in a cell again... this is starting to feel like a tradition."
