@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Door
+
 enum State{Open, Closed, Opening, Closing}
 var state = State.Closed
 

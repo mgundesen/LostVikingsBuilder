@@ -20,7 +20,7 @@ var bColor = Color8(25, 121, 0)
 var oColor = Color8(107, 65, 33)
 
 var sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
-				{"level" : "res://Level2/level2.tscn",
+				{"level" : "res://Levels/ChanseyLevel1.tscn",
 				"text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
 						  [eColor, "Tradition? Feels more like a recurring side quest at this point."],
 						  [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],

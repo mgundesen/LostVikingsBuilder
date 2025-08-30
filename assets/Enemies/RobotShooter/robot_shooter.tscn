@@ -52,6 +52,8 @@ size = Vector2(97, 110)
 
 [node name="RobotShooter" type="Area2D"]
 scale = Vector2(0.7, 0.7)
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_6xaf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

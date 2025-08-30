@@ -279,7 +279,6 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yfthr")
 
 [node name="Shield" type="Node2D" parent="."]

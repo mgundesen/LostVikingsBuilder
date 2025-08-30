@@ -1,27 +1,27 @@
 [gd_scene load_steps=22 format=4 uid="uid://bxevj5tiq5oom"]
 
-[ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="1_5somw"]
-[ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="1_8inax"]
-[ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="2_fvsne"]
-[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/Hazards/barrier.tscn" id="2_gdm5n"]
-[ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="4_kfp5s"]
-[ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="5_8pdke"]
-[ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="5_gdm5n"]
-[ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="6_27kt3"]
-[ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="6_gdm5n"]
-[ext_resource type="PackedScene" uid="uid://dodve0otylnrn" path="res://assets/Interactive/button.tscn" id="9_mk1nh"]
-[ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="10_07tmh"]
-[ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="10_j48go"]
-[ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="11_7ci3l"]
-[ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="12_kdguh"]
-[ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="13_oan4x"]
-[ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="14_oan4x"]
-[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="15_hbdqg"]
-[ext_resource type="PackedScene" uid="uid://bcdwryut4xt1l" path="res://assets/Hazards/shock_trap.tscn" id="18_m8xyk"]
-[ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="19_m8xyk"]
+[ext_resource type="PackedScene" uid="uid://dodve0otylnrn" path="res://assets/Interactive/button.tscn" id="1_4idtp"]
+[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/Hazards/barrier.tscn" id="2_dpe6j"]
+[ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="3_m8ou3"]
+[ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="4_odihm"]
+[ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="5_vh8st"]
+[ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="6_plkcr"]
+[ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="7_ucg3d"]
+[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="8_fn86y"]
+[ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="9_hhhfn"]
+[ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="10_wqun2"]
+[ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="11_x0bbt"]
+[ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="12_04wwc"]
+[ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="13_xghi6"]
+[ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="14_vxfg6"]
+[ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="15_gvqsu"]
+[ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="16_q1qjh"]
+[ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="17_sguyg"]
+[ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="18_u5i6r"]
+[ext_resource type="PackedScene" uid="uid://bcdwryut4xt1l" path="res://assets/Hazards/shock_trap.tscn" id="19_mroeg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qtm0"]
-texture = ExtResource("1_8inax")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4idtp"]
+texture = ExtResource("18_u5i6r")
 texture_region_size = Vector2i(23, 23)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, 11.5, -11.5, -11.5, 11.5, -11.5, 11.5, 11.5)
@@ -324,129 +324,129 @@ texture_region_size = Vector2i(23, 23)
 tile_size = Vector2i(23, 23)
 physics_layer_0/collision_layer = 15
 physics_layer_0/collision_mask = 15
-sources/2 = SubResource("TileSetAtlasSource_6qtm0")
+sources/2 = SubResource("TileSetAtlasSource_4idtp")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="SceneObjects" type="Node2D" parent="."]
 
-[node name="Button2" parent="SceneObjects" instance=ExtResource("9_mk1nh")]
+[node name="Button2" parent="SceneObjects" instance=ExtResource("1_4idtp")]
 position = Vector2(1805, 90)
 
-[node name="Barrier" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(759, 49)
 
-[node name="Ladder" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(828, 344)
 ladderHeight = 8.98
 
-[node name="Ladder2" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder2" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(1611, 344)
 ladderHeight = 8.98
 
-[node name="Barrier2" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier2" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(1036, 49)
 
-[node name="Button" parent="SceneObjects" instance=ExtResource("9_mk1nh")]
+[node name="Button" parent="SceneObjects" instance=ExtResource("1_4idtp")]
 position = Vector2(909, 74)
 
-[node name="Door" parent="SceneObjects" instance=ExtResource("10_07tmh")]
+[node name="Door" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(575, 481)
 operationMode = 0
 
-[node name="Door2" parent="SceneObjects" instance=ExtResource("10_07tmh")]
+[node name="Door2" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(1173.21, 483.654)
 operationMode = 0
 
-[node name="Barrier3" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier3" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(1864, 46)
 
-[node name="Health" parent="SceneObjects" instance=ExtResource("6_27kt3")]
+[node name="Health" parent="SceneObjects" instance=ExtResource("5_vh8st")]
 position = Vector2(694, 93)
 itemID = 1
 
-[node name="Bomb" parent="SceneObjects" instance=ExtResource("6_27kt3")]
+[node name="Bomb" parent="SceneObjects" instance=ExtResource("5_vh8st")]
 position = Vector2(1947, 62)
 itemID = 2
 
-[node name="Bomb2" parent="SceneObjects" instance=ExtResource("6_27kt3")]
+[node name="Bomb2" parent="SceneObjects" instance=ExtResource("5_vh8st")]
 position = Vector2(1947, 108)
 itemID = 2
 
-[node name="Barrier4" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier4" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(2463, 965)
 
-[node name="Barrier5" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier5" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(2506, 968)
 
-[node name="Barrier6" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier6" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(2326, 1888)
 
-[node name="Button3" parent="SceneObjects" instance=ExtResource("9_mk1nh")]
+[node name="Button3" parent="SceneObjects" instance=ExtResource("1_4idtp")]
 position = Vector2(2264, 1917)
 
-[node name="Barrier7" parent="SceneObjects" instance=ExtResource("2_gdm5n")]
+[node name="Barrier7" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
 position = Vector2(1543, 1889)
 
-[node name="Machine" parent="SceneObjects" instance=ExtResource("13_oan4x")]
+[node name="Machine" parent="SceneObjects" instance=ExtResource("6_plkcr")]
 position = Vector2(1753, 1938)
 
-[node name="Ladder3" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder3" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(2115, 1218)
 ladderHeight = 6.98
 
-[node name="Elevator" parent="SceneObjects" instance=ExtResource("12_kdguh")]
+[node name="Elevator" parent="SceneObjects" instance=ExtResource("7_ucg3d")]
 position = Vector2(2668, 552)
 nodes = PackedVector2Array(0, 0, 0, 11, 0, 31)
 
-[node name="Shooter" parent="SceneObjects" instance=ExtResource("15_hbdqg")]
+[node name="Shooter" parent="SceneObjects" instance=ExtResource("8_fn86y")]
 position = Vector2(11, 777)
 
-[node name="Ladder4" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder4" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(139, 1149)
 ladderHeight = 13.98
 
-[node name="Shooter2" parent="SceneObjects" instance=ExtResource("15_hbdqg")]
+[node name="Shooter2" parent="SceneObjects" instance=ExtResource("8_fn86y")]
 position = Vector2(14, 1422)
 
-[node name="Exit" parent="SceneObjects" instance=ExtResource("10_j48go")]
+[node name="Exit" parent="SceneObjects" instance=ExtResource("9_hhhfn")]
 position = Vector2(818, 2079)
 
-[node name="Antigrav" parent="SceneObjects" instance=ExtResource("14_oan4x")]
+[node name="Antigrav" parent="SceneObjects" instance=ExtResource("10_wqun2")]
 position = Vector2(1563, 1009)
 Height = 16
 Width = 4
 
-[node name="Ladder5" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder5" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(645, 1701)
 ladderHeight = 9.98
 
-[node name="Door3" parent="SceneObjects" instance=ExtResource("10_07tmh")]
+[node name="Door3" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(207, 1863)
 operationMode = 0
 
-[node name="Door4" parent="SceneObjects" instance=ExtResource("10_07tmh")]
+[node name="Door4" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(576, 2092)
 operationMode = 0
 
-[node name="Ladder6" parent="SceneObjects" instance=ExtResource("5_gdm5n")]
+[node name="Ladder6" parent="SceneObjects" instance=ExtResource("3_m8ou3")]
 position = Vector2(91, 2046)
 ladderHeight = 4.98
 
-[node name="Shooter3" parent="SceneObjects" instance=ExtResource("15_hbdqg")]
+[node name="Shooter3" parent="SceneObjects" instance=ExtResource("8_fn86y")]
 position = Vector2(829, 1882)
 flip = true
 
-[node name="AlienShooter" parent="SceneObjects" instance=ExtResource("11_7ci3l")]
+[node name="AlienShooter" parent="SceneObjects" instance=ExtResource("11_x0bbt")]
 position = Vector2(2037, 507)
 
-[node name="AlienShooter2" parent="SceneObjects" instance=ExtResource("11_7ci3l")]
+[node name="AlienShooter2" parent="SceneObjects" instance=ExtResource("11_x0bbt")]
 position = Vector2(620.523, 1886.77)
 
-[node name="AlienShooter3" parent="SceneObjects" instance=ExtResource("11_7ci3l")]
+[node name="AlienShooter3" parent="SceneObjects" instance=ExtResource("11_x0bbt")]
 position = Vector2(279, 2113)
 
-[node name="ToggleButton" parent="SceneObjects" instance=ExtResource("19_m8xyk")]
+[node name="ToggleButton" parent="SceneObjects" instance=ExtResource("12_04wwc")]
 position = Vector2(1743, 1306)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -459,17 +459,17 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 editor_draw_limits = true
-script = ExtResource("4_kfp5s")
+script = ExtResource("13_xghi6")
 
-[node name="HUD" parent="." instance=ExtResource("5_8pdke")]
+[node name="HUD" parent="." instance=ExtResource("14_vxfg6")]
 
-[node name="Balerog" parent="." instance=ExtResource("1_5somw")]
+[node name="Balerog" parent="." instance=ExtResource("15_gvqsu")]
 position = Vector2(263, 508)
 
-[node name="Erik" parent="." instance=ExtResource("2_fvsne")]
+[node name="Erik" parent="." instance=ExtResource("16_q1qjh")]
 position = Vector2(356, 509)
 
-[node name="Olaf" parent="." instance=ExtResource("6_gdm5n")]
+[node name="Olaf" parent="." instance=ExtResource("17_sguyg")]
 position = Vector2(163, 508)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -477,7 +477,7 @@ tile_map_data = PackedByteArray("AAASACMAAgAGAAIAAAASACQAAgAGAAAAAAASACUAAgAGAAE
 tile_set = SubResource("TileSet_5somw")
 use_kinematic_bodies = true
 
-[node name="ShockTrap" parent="." instance=ExtResource("18_m8xyk")]
+[node name="ShockTrap" parent="." instance=ExtResource("19_mroeg")]
 position = Vector2(2667, 2093)
 scale = Vector2(0.9, 0.9)
 

@@ -32,5 +32,5 @@ func _process(delta):
 	super._process(delta)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
+	if body is TileMapLayer or body is Door:
 		flip = !flip
