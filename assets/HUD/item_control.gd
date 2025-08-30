@@ -1,7 +1,4 @@
 extends Node2D
-
-enum PauseType {Regular, Item, None}
-var type = PauseType.None
 	
 var basePos = [Vector2(0,0), Vector2(0,0), Vector2(0,0)]
 const offset = [Vector2(0,0),Vector2(50,0),Vector2(0,50),Vector2(50,50)] 
@@ -12,13 +9,6 @@ func _ready():
 	basePos[2] = $Player3/Image.position
 	
 	$Player1/ItemSprite2.call("setIcon",2)
-
-func pause(pauseType):
-	get_tree().paused = !get_tree().paused
-	if type == PauseType.None:
-		type = pauseType
-	else:
-		type = PauseType.None
 		
 func selectorForIndex(index):
 	var path = "Player{index}/Image".format({"index": index+1})
@@ -42,14 +32,18 @@ func drawItems():
 func _process(_delta):
 	drawItems()
 	
+	var relatedPause = SceneControl.pauseType() == SceneControl.PauseType.Item
 	if Input.is_action_just_pressed(&"Select"):
-		pause(PauseType.Item)
+		if relatedPause:
+			SceneControl.unpause()
+		else:
+			SceneControl.setPause(SceneControl.PauseType.Item)
 	
 	var playerIndex = 0
 	for player in PlayerUtil.getPlayers():
 		var selector = selectorForIndex(playerIndex)
 		selector.position = basePos[playerIndex] + offset[player.get("itemSlot")]
-		if type == PauseType.Item:
+		if relatedPause:
 			if player.get("controlActive"):
 				selector.play("default")
 				var slot = player.get("itemSlot")

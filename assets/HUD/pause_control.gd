@@ -1,27 +1,19 @@
 extends Node2D
 
-enum PauseType {Regular, Item, None}
-var type = PauseType.None
-
 var selectYes = false
 
-func pause(pauseType):
-	get_tree().paused = !get_tree().paused
-	if type == PauseType.None:
-		type = pauseType
-	else:
-		type = PauseType.None
-
 func _process(_delta):
-	if Input.is_action_just_pressed(&"Start") or (Input.is_action_just_pressed(&"B") and type == PauseType.Regular):
-		if selectYes:
-			get_tree().paused = false
-			SceneControl.deathScene()
+	var relatedPause = SceneControl.pauseType() == SceneControl.PauseType.Regular
+	if Input.is_action_just_pressed(&"Start") or (Input.is_action_just_pressed(&"B") and relatedPause):
+		if relatedPause:
+			SceneControl.unpause()
+			if selectYes:
+				SceneControl.deathScene()
 		else:
-			pause(PauseType.Regular)
+			SceneControl.setPause(SceneControl.PauseType.Regular)
 	
-	$CanvasLayer.visible = type == PauseType.Regular
-	if type == PauseType.Regular:
+	$CanvasLayer.visible = relatedPause
+	if relatedPause:
 		$CanvasLayer/No.visible = !selectYes
 		$CanvasLayer/Yes.visible = selectYes
 		if Input.is_action_just_pressed(&"Right") and selectYes:
@@ -30,5 +22,4 @@ func _process(_delta):
 			selectYes = true
 	else:
 		$CanvasLayer.visible = false
-		type = PauseType.None
 	

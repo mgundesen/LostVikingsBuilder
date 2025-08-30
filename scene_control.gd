@@ -1,5 +1,18 @@
 extends Node
 
+enum PauseType {Regular, Item, None}
+var type = PauseType.None
+
+func pauseType():
+	return type
+	
+func setPause(pauseType):
+	type = pauseType
+	get_tree().paused = !type == PauseType.None
+
+func unpause():
+	setPause(PauseType.None)
+
 var currentScene = 0
 
 var eColor = Color8(148, 0, 0)
