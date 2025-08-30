@@ -1,6 +1,6 @@
 extends Node
 
-enum PauseType {Regular, Item, None}
+enum PauseType {Regular, Item, Dialog, None}
 var type = PauseType.None
 
 func pauseType():

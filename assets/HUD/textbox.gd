@@ -4,6 +4,7 @@ var textIndex = 0
 
 func _ready():
 	updateTextbox()
+	SceneControl.setPause(SceneControl.PauseType.Dialog)
 
 func setText(color, text):
 	var stylebox = $MarginContainer/Panel.get_theme_stylebox("panel")
@@ -16,6 +17,7 @@ func updateTextbox():
 	var textInfo = SceneControl.textForScene()
 	if len(textInfo) <= textIndex:
 		visible = false
+		SceneControl.unpause()
 	else:
 		var line = textInfo[textIndex]
 		setText(line[0], line[1])
