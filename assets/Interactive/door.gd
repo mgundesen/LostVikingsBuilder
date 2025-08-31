@@ -21,6 +21,12 @@ func close():
 	state = State.Closed
 	setCollision(true)
 
+func toggle():
+	if state == State.Open:
+		close()
+	else:
+		open()
+
 func _process(_delta):
 	if operationMode == Mode.Auto:
 		var close = PlayerUtil.closeToPlayer(position, 120)

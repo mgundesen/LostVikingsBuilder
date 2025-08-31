@@ -3,8 +3,8 @@ extends CanvasLayer
 var textIndex = 0
 
 func _ready():
-	updateTextbox()
 	SceneControl.setPause(SceneControl.PauseType.Dialog)
+	updateTextbox()
 
 func setText(color, text):
 	var stylebox = $MarginContainer/Panel.get_theme_stylebox("panel")

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://t5vmlcau6epu" path="res://assets/Interactive/platform2.png" id="3_orbks"]
 
 [node name="MovingPlatform" type="Node2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_orbks")
 
 [node name="owplatform" parent="." instance=ExtResource("1_i3xrd")]
