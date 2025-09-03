@@ -14,6 +14,7 @@ func unpause():
 	setPause(PauseType.None)
 
 var currentScene = 0
+var musicEnabled = false
 
 var eColor = Color8(148, 0, 0)
 var bColor = Color8(25, 121, 0)
@@ -49,3 +50,5 @@ func textForScene():
 	else:
 		return []
 		
+func getMusicEnabled():
+	return musicEnabled
