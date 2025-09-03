@@ -8,46 +8,38 @@
 [ext_resource type="Texture2D" uid="uid://b1b8teuhpuf6" path="res://assets/Hazards/shock5.png" id="5_lfrii"]
 [ext_resource type="Texture2D" uid="uid://c33s7c4df1av6" path="res://assets/Hazards/shock6.png" id="6_m81g4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_km2cc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_4egb3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_2k7mk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xulxd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0g33q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_lfrii")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_m81g4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibbk6"]
-size = Vector2(110, 56)
+resource_local_to_scene = true
+size = Vector2(91, 46)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2k7mk"]
+frames = 6
+speed_scale = 5.0
+frame_0/texture = ExtResource("6_m81g4")
+frame_1/texture = ExtResource("1_4egb3")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("2_2k7mk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("3_xulxd")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("4_0g33q")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("5_lfrii")
+frame_5/duration = 1.0
 
 [node name="ShockTrap" type="Area2D"]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_2k7mk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_repeat = 2
-sprite_frames = SubResource("SpriteFrames_km2cc")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+texture_repeat = 2
 shape = SubResource("RectangleShape2D_ibbk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = SubResource("AnimatedTexture_2k7mk")
+region_enabled = true
+region_rect = Rect2(0, 0, 92, 46)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

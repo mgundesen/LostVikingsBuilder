@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5lvvhrlcxv1p" path="res://assets/Hitbox/hitbox.gd" id="1_d3rbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxthh"]
+resource_local_to_scene = true
 
 [node name="Hitbox" type="Area2D"]
 collision_layer = 15

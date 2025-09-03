@@ -9,7 +9,7 @@ var state = State.pending
 func spawnHitbox():
 	var hitbox = hitboxScene.instantiate()
 	hitbox.type = Hitbox.Type.explode
-	hitbox.find_child("CollisionShape2D").shape.set_size(Vector2(100, 100)) 
+	hitbox.find_child("CollisionShape2D").shape.set_size(Vector2(100, 120)) 
 	add_child(hitbox)
 	hitbox.call("despawn", 0.5)
 

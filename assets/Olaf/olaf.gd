@@ -1,6 +1,6 @@
 extends "res://player.gd"
 
-const SHEILD_FALL_SPEED = 150
+const SHEILD_FALL_SPEED = 100
 
 var raisedSheild = false
 

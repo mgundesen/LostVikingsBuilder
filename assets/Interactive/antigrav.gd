@@ -2,8 +2,7 @@ extends Area2D
 
 @export var Height = 2
 @export var Width = 2
-
-var on = false
+@export var on = false
 
 func _ready():
 	$CollisionShape2D.shape.size.x = 46*Width
