@@ -4,6 +4,15 @@ Sound effects
 Enemy death animation
 Erik jump air decreased gravity
 Increased spring power high speed
+Inflator
+Seasaw Spring
+Bubbles
+Antigrav ceiling bounce
+Runnning against a wall
+Crushers
+Pushable blocks and trigger receivers
+Circle path moving platforms
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
+Spring canceling death animation
