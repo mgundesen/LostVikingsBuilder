@@ -26,9 +26,13 @@ func _process(_delta):
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
 	
-	if CollisionUtil.isColliding(self, hitTypes):
-		health -= 1
-		if health == 0:
+	var type = CollisionUtil.isColliding(self, hitTypes)
+	if type:
+		if type == Hitbox.Type.explode:
+			health -= 3
+		else:
+			health -= 1
+		if health <= 0:
 			# play death animation
 			if itemType != ItemUtil.Item.none:
 				spawnItem()

@@ -15,8 +15,8 @@ func isColliding(areaNode, types = []):
 		if area is Hitbox:
 			if checkType(area.type, types):
 				area.queue_free()
-				return true
-	return false
+				return area.type
+	return null
 
 func spawnHitbox(source, pos, type):
 	var hitbox = hitboxScene.instantiate()
