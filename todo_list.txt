@@ -1,7 +1,8 @@
+Transfer item between characters
+Swap left on character selection
+Sound effects
 Enemy death animation
-Doors and keys
 Erik jump air decreased gravity
-Improve turnaround for olaf/balerog
 Increased spring power high speed
 
 Bugs:

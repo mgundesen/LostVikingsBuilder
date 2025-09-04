@@ -72,6 +72,8 @@ func useItem():
 		ItemUtil.Item.raddish:
 			if playerHealth < 3:
 				playerHealth += 1
+			else:
+				return
 		ItemUtil.Item.bomb:
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
