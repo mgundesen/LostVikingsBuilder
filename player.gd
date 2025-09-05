@@ -52,7 +52,8 @@ var sounds = {
 	"itemPickup": preload("res://assets/PlayerSounds/item_pickup.mp3"),
 	"itemUse": preload("res://assets/PlayerSounds/item_use.mp3"),
 	"itemUseFood": preload("res://assets/PlayerSounds/item_use_burb.mp3"),
-	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3")
+	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3"),
+	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3")
 }
 
 func play_sfx(name: String):
@@ -291,10 +292,12 @@ func _physics_process(delta):
 	if gotHit:
 		gotHit = false
 		velocity.y = 0
+		play_sfx("deathShock")
 		takeDamage(State.HitStun, State.ShockDeath)
 	
 	if killShock:
 		killShock = false
+		play_sfx("deathShock")
 		takeDamage(State.ShockDeath, State.ShockDeath, 4)
 	
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:

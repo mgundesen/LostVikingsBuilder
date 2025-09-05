@@ -15,6 +15,7 @@ func _physics_process(_delta):
 	var atTarget = position.distance_to(target) < speed
 	if atTarget:
 		position = target
+		$AudioStreamPlayer2D.stop()
 	else:
 		position += position.direction_to(target) * speed
 	# Maybe force move the player for more LV1 experience?
@@ -27,7 +28,9 @@ func _physics_process(_delta):
 					if atTarget or previousTarget == targetIndex - 1:
 						previousTarget = targetIndex
 						targetIndex -= 1
+						$AudioStreamPlayer2D.play()
 				if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
 					if atTarget or previousTarget == targetIndex + 1:
 						previousTarget = targetIndex
 						targetIndex += 1
+						$AudioStreamPlayer2D.play()

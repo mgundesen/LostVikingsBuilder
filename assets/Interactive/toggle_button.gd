@@ -4,6 +4,7 @@ var on = false
 
 func buttonPress():
 	on = !on
+	$AudioStreamPlayer2D.play()
 	super.buttonPress()
 
 func _process(delta):
