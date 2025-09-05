@@ -17,3 +17,4 @@ Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 Fix balerog fall damage
+Fix facing direction not changed on hit(moves wrong way)
