@@ -8,12 +8,16 @@ func _ready() -> void:
 
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
-	
+
+func fire():
+	$AudioStreamPlayer2D.play()
+	EnemyUtil.fire(self, flip, -30)
+
 func shouldAttack():
 	if closeToPlayer():
 		state = State.attack
 		$AnimatedSprite2D.set_frame_and_progress(0,0)
-		get_tree().create_timer(shootCooldown).timeout.connect(func(): EnemyUtil.fire(self, flip, -30))
+		get_tree().create_timer(shootCooldown).timeout.connect(fire)
 		get_tree().create_timer(0.8).timeout.connect(func(): setState(State.walk))
 		return true
 	return false

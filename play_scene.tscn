@@ -175,7 +175,7 @@ position = Vector2(131, 421)
 itemID = 2
 
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
-position = Vector2(517, 510)
+position = Vector2(906, 256)
 flip = true
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
@@ -189,7 +189,7 @@ position = Vector2(-216, 412)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
-position = Vector2(1110, 262)
+position = Vector2(441, 514)
 collision_layer = 8
 collision_mask = 8
 flip = true

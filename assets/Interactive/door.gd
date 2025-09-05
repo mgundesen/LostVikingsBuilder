@@ -8,16 +8,31 @@ var state = State.Closed
 enum Mode{Auto, Signals}
 @export var operationMode = Mode.Signals 
 
+@onready var sfx = $AudioStreamPlayer2D
+
+# Preload sound effects
+var sounds = {
+	"open": preload("res://assets/Sounds/door_open.mp3"),
+	"close": preload("res://assets/Sounds/door_close.mp3")
+}
+
+func play_sfx(name: String):
+	sfx.stream = sounds[name]
+	sfx.play()
+
+
 func setCollision(on):
 	for layer in range(4):
 		set_collision_layer_value(layer+1, on)
 		set_collision_mask_value(layer+1, on)
 
 func open():
+	play_sfx("open")
 	state = State.Open
 	setCollision(false)
 
 func close():
+	play_sfx("close")
 	state = State.Closed
 	setCollision(true)
 

@@ -16,3 +16,4 @@ Circle path moving platforms
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
+Fix balerog fall damage

@@ -14,7 +14,7 @@ func unpause():
 	setPause(PauseType.None)
 
 var currentScene = 0
-var musicEnabled = false
+var musicEnabled = true
 
 var eColor = Color8(148, 0, 0)
 var bColor = Color8(25, 121, 0)
@@ -28,7 +28,9 @@ var sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 						  [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
 						  [oColor, "At least they also left some food for us, I'm starving"],
 						  [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
-						  [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]}]
+						  [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]},
+				{"level" : "res://Levels/level2.tscn"}
+				]
 
 func nextScene():
 	currentScene += 1

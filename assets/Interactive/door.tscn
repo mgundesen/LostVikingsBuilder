@@ -55,3 +55,5 @@ sprite_frames = SubResource("SpriteFrames_k7kuw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hrrdk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

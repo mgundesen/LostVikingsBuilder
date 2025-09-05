@@ -296,3 +296,5 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

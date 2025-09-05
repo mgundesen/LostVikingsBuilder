@@ -42,6 +42,19 @@ var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
 
+
+@onready var sfx = $AudioStreamPlayer2D
+
+# Preload sound effects
+var sounds = {
+	"landing": preload("res://assets/PlayerSounds/landing.mp3"),
+	"bonk": preload("res://assets/PlayerSounds/bonk.mp3")
+}
+
+func play_sfx(name: String):
+	sfx.stream = sounds[name]
+	sfx.play()
+
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
 
@@ -223,6 +236,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	if get_slide_collision_count() > 0:
 		# fix some collision are ok
 		if canTakeFallDamage and is_on_floor():
+			play_sfx("bonk")
 			takeDamage(State.FallStun, State.FallDeath)
 
 	if springJump:
