@@ -48,7 +48,11 @@ var direction = FacingDirection.Right
 # Preload sound effects
 var sounds = {
 	"landing": preload("res://assets/PlayerSounds/landing.mp3"),
-	"bonk": preload("res://assets/PlayerSounds/bonk.mp3")
+	"bonk": preload("res://assets/PlayerSounds/bonk.mp3"),
+	"itemPickup": preload("res://assets/PlayerSounds/item_pickup.mp3"),
+	"itemUse": preload("res://assets/PlayerSounds/item_use.mp3"),
+	"itemUseFood": preload("res://assets/PlayerSounds/item_use_burb.mp3"),
+	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3")
 }
 
 func play_sfx(name: String):
@@ -62,6 +66,7 @@ func offsetDirected(offset):
 	return -offset if direction == FacingDirection.Left else offset
 
 func addItem(id):
+	play_sfx("itemPickup")
 	for index in range(4):
 		if items[index] == 0:
 			items[index] = id
@@ -79,30 +84,34 @@ func useKey(type):
 	return false
 
 func useItem():
+	var sound = "itemUse"
 	match items[itemSlot]:
 		ItemUtil.Item.none:
-			return
+			return false
 		ItemUtil.Item.raddish:
 			if playerHealth < 3:
 				playerHealth += 1
+				sound = "itemUseFood"
 			else:
-				return
+				return false
 		ItemUtil.Item.bomb:
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
 			bomb.transform = transform
 		ItemUtil.Item.keyBlue:
 			if !useKey(ItemUtil.Keyhole.blue):
-				return
+				return false
 		ItemUtil.Item.keyYellow:
 			if !useKey(ItemUtil.Keyhole.yellow):
-				return
+				return false
 		ItemUtil.Item.keyRed:
 			if !useKey(ItemUtil.Keyhole.red):
-				return
+				return false
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
+	play_sfx(sound)
+	return true
 
 func _implSpawnHitbox(offset, type):
 	var hitboxPos = position
@@ -276,7 +285,8 @@ func _physics_process(delta):
 			xInput = Input.get_axis(&"Left", &"Right")
 			triggerJump = allowJump()
 		if Input.is_action_just_pressed(&"X"):
-			useItem()
+			if !useItem():
+				play_sfx("itemFail")
 	
 	if gotHit:
 		gotHit = false
