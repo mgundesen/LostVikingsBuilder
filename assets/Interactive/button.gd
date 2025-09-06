@@ -4,7 +4,7 @@ var pressed = false
 
 func buttonPress():
 	pressed = true
-	$AudioStreamPlayer2D.play()
+	SceneControl.playSound($AudioStreamPlayer2D)
 	get_tree().create_timer(0.1).timeout.connect(func(): pressed = false)
 	super.buttonPress()
 

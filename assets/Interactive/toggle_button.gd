@@ -4,7 +4,7 @@ var on = false
 
 func buttonPress():
 	on = !on
-	$AudioStreamPlayer2D.play()
+	SceneControl.playSound($AudioStreamPlayer2D)
 	super.buttonPress()
 
 func _process(delta):

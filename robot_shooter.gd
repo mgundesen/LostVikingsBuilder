@@ -10,7 +10,7 @@ func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
 
 func fire():
-	$AudioStreamPlayer2D.play()
+	SceneControl.playSound($AudioStreamPlayer2D)
 	EnemyUtil.fire(self, flip, -30)
 
 func shouldAttack():

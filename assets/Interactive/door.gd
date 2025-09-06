@@ -18,8 +18,7 @@ const sounds = {
 
 func play_sfx(name: String):
 	sfx.stream = sounds[name]
-	sfx.play()
-
+	SceneControl.playSound(sfx)
 
 func setCollision(on):
 	for layer in range(4):

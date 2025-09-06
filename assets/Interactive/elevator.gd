@@ -28,9 +28,9 @@ func _physics_process(_delta):
 					if atTarget or previousTarget == targetIndex - 1:
 						previousTarget = targetIndex
 						targetIndex -= 1
-						$AudioStreamPlayer2D.play()
+						SceneControl.playSound($AudioStreamPlayer2D)
 				if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
 					if atTarget or previousTarget == targetIndex + 1:
 						previousTarget = targetIndex
 						targetIndex += 1
-						$AudioStreamPlayer2D.play()
+						SceneControl.playSound($AudioStreamPlayer2D)

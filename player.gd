@@ -57,7 +57,7 @@ const sounds = {
 
 func play_sfx(name: String):
 	sfx.stream = sounds[name]
-	sfx.play()
+	SceneControl.playSound(sfx)
 
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)

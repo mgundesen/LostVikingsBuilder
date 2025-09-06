@@ -15,6 +15,7 @@ func unpause():
 
 var currentScene = 0
 var musicEnabled = true
+var soundEnabled = false
 
 const eColor = Color8(148, 0, 0)
 const bColor = Color8(25, 121, 0)
@@ -54,3 +55,7 @@ func textForScene():
 		
 func getMusicEnabled():
 	return musicEnabled
+
+func playSound(node):
+	if soundEnabled:
+		node.play()
