@@ -16,8 +16,8 @@ const sounds = {
 	"close": preload("res://assets/Sounds/door_close.mp3")
 }
 
-func play_sfx(name: String):
-	sfx.stream = sounds[name]
+func play_sfx(soundName: String):
+	sfx.stream = sounds[soundName]
 	SceneControl.playSound(sfx)
 
 func setCollision(on):
@@ -43,11 +43,11 @@ func toggle():
 
 func _process(_delta):
 	if operationMode == Mode.Auto:
-		var close = PlayerUtil.closeToPlayer(position, 120)
-		if state == State.Closed and close:
+		var isClose = PlayerUtil.closeToPlayer(position, 120)
+		if state == State.Closed and isClose:
 			state = State.Opening
 			get_tree().create_timer(0.07).timeout.connect(func(): open())
-		if state == State.Open and !close:
+		if state == State.Open and !isClose:
 			state = State.Closing
 			get_tree().create_timer(0.07).timeout.connect(func(): close())
 	

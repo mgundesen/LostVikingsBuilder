@@ -1,14 +1,14 @@
 extends Node
 
 enum PauseType {Regular, Item, Dialog, None}
-var type = PauseType.None
+var pauseState = PauseType.None
 
 func pauseType():
-	return type
+	return pauseState
 	
-func setPause(pauseType):
-	type = pauseType
-	get_tree().paused = !type == PauseType.None
+func setPause(type):
+	pauseState = type
+	get_tree().paused = !pauseState == PauseType.None
 
 func unpause():
 	setPause(PauseType.None)

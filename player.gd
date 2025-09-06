@@ -55,8 +55,8 @@ const sounds = {
 	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3")
 }
 
-func play_sfx(name: String):
-	sfx.stream = sounds[name]
+func play_sfx(soundName: String):
+	sfx.stream = sounds[soundName]
 	SceneControl.playSound(sfx)
 
 func _ready():
