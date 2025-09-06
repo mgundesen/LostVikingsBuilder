@@ -9,6 +9,7 @@ var broken = false
 func destroy():
 	activated.emit()
 	broken = true
+	SceneControl.playSound($AudioStreamPlayer2D)
 
 func _process(_delta):
 	if broken:

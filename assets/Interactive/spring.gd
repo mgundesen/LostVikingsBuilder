@@ -10,5 +10,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if !appliedSpring:
 		body.set("springJump", true)
 		appliedSpring = true
+		SceneControl.playSound($AudioStreamPlayer2D)
 		get_tree().create_timer(0.07).timeout.connect(func(): unspring())
 		$AnimatedSprite2D.play("Pressed")

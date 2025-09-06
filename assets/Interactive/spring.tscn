@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://w4xevbyvrn1w"]
+[gd_scene load_steps=7 format=3 uid="uid://w4xevbyvrn1w"]
 
 [ext_resource type="Script" uid="uid://tcmi22gbm5w5" path="res://assets/Interactive/spring.gd" id="1_65xmm"]
 [ext_resource type="Texture2D" uid="uid://clij53pft5n7b" path="res://assets/Interactive/SpringDown.png" id="2_56eos"]
 [ext_resource type="Texture2D" uid="uid://f1jt8xc8hd0a" path="res://assets/Interactive/Spring.png" id="3_fntwp"]
+[ext_resource type="AudioStream" uid="uid://o2gff7gtvxq1" path="res://assets/Sounds/bounce.mp3" id="4_56eos"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uf8bb"]
 animations = [{
@@ -41,5 +42,8 @@ animation = &"Rest"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.769232, -34.75)
 shape = SubResource("RectangleShape2D_65xmm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_56eos")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
