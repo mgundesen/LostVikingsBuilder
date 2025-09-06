@@ -9,8 +9,8 @@ const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
 const CLIMB_SPEED = 3
 
-var bombScene = load("res://assets/Items/bomb.tscn")
-var hitboxScene = load("res://assets/Hitbox/hitbox.tscn")
+const bombScene = preload("res://assets/Items/bomb.tscn")
+const hitboxScene = preload("res://assets/Hitbox/hitbox.tscn")
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -42,11 +42,10 @@ var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
 
-
 @onready var sfx = $AudioStreamPlayer2D
 
 # Preload sound effects
-var sounds = {
+const sounds = {
 	"landing": preload("res://assets/PlayerSounds/landing.mp3"),
 	"bonk": preload("res://assets/PlayerSounds/bonk.mp3"),
 	"itemPickup": preload("res://assets/PlayerSounds/item_pickup.mp3"),

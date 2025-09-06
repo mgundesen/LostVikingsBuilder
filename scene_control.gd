@@ -16,21 +16,21 @@ func unpause():
 var currentScene = 0
 var musicEnabled = true
 
-var eColor = Color8(148, 0, 0)
-var bColor = Color8(25, 121, 0)
-var oColor = Color8(107, 65, 33)
+const eColor = Color8(148, 0, 0)
+const bColor = Color8(25, 121, 0)
+const oColor = Color8(107, 65, 33)
 
 var textBoxEnabled = false
-var sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
-				{"level" : "res://Levels/ChanseyLevel1.tscn",
-				"text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
-						  [eColor, "Tradition? Feels more like a recurring side quest at this point."],
-						  [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
-						  [oColor, "At least they also left some food for us, I'm starving"],
-						  [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
-						  [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]},
-				{"level" : "res://Levels/level2.tscn"}
-				]
+const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
+{"level" : "res://Levels/ChanseyLevel1.tscn",
+"text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
+		 [eColor, "Tradition? Feels more like a recurring side quest at this point."],
+		 [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
+		 [oColor, "At least they also left some food for us, I'm starving"],
+		 [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
+		 [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]},
+{"level" : "res://Levels/level2.tscn"}
+]
 
 func nextScene():
 	currentScene += 1

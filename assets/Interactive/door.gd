@@ -11,7 +11,7 @@ enum Mode{Auto, Signals}
 @onready var sfx = $AudioStreamPlayer2D
 
 # Preload sound effects
-var sounds = {
+const sounds = {
 	"open": preload("res://assets/Sounds/door_open.mp3"),
 	"close": preload("res://assets/Sounds/door_close.mp3")
 }
