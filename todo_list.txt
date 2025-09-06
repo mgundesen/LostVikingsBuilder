@@ -4,7 +4,6 @@ Enemy death animation
 Erik jump air decreased gravity
 Increased spring power high speed
 Inflator
-Bubbles
 Antigrav ceiling bounce
 Runnning against a wall
 Crushers

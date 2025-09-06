@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=29 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="25_148ay"]
+[ext_resource type="PackedScene" uid="uid://dtskge7x0ie2a" path="res://assets/Interactive/bubble.tscn" id="26_b4dte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -178,6 +179,7 @@ itemID = 2
 [node name="AlienShooter" parent="." instance=ExtResource("13_vlmgp")]
 position = Vector2(906, 256)
 flip = true
+itemType = null
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
 position = Vector2(75, 502)
@@ -210,8 +212,11 @@ position = Vector2(-298, 481)
 [node name="Exit" parent="." instance=ExtResource("24_tixdq")]
 position = Vector2(-208, 467)
 
+[node name="Bubble" parent="." instance=ExtResource("26_b4dte")]
+position = Vector2(489, 581)
+
 [node name="Seesaw" parent="." instance=ExtResource("25_148ay")]
-position = Vector2(506, 508)
+position = Vector2(109, 236)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]
