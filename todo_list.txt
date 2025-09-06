@@ -1,5 +1,4 @@
 Transfer item between characters
-Swap left on character selection
 Sound effects
 Enemy death animation
 Erik jump air decreased gravity
