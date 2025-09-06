@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=28 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bkvfnimgr3sl4" path="res://assets/Interactive/keyhole.tscn" id="22_u6cln"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
+[ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="25_148ay"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -139,7 +140,7 @@ position = Vector2(2, 511)
 position = Vector2(715, 460)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_5xdee")]
-position = Vector2(321, 352)
+position = Vector2(-90, 199)
 end = Vector2(300, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -189,7 +190,7 @@ position = Vector2(-216, 412)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
-position = Vector2(441, 514)
+position = Vector2(23, 326)
 collision_layer = 8
 collision_mask = 8
 flip = true
@@ -208,6 +209,9 @@ position = Vector2(-298, 481)
 
 [node name="Exit" parent="." instance=ExtResource("24_tixdq")]
 position = Vector2(-208, 467)
+
+[node name="Seesaw" parent="." instance=ExtResource("25_148ay")]
+position = Vector2(506, 508)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]
