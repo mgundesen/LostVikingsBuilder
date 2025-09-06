@@ -6,6 +6,13 @@ func getPlayers():
 				   get_node("/root/Node2D/Olaf")]
 	return players
 
+func getOverlappingActive(area):
+	for body in area.get_overlapping_bodies():
+		if body is PlayerBase:
+			if body.get("controlActive") == true:
+				return body
+	return null
+
 func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
 		if sourcePosition.distance_to(player.position) < distance:

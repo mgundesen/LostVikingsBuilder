@@ -20,17 +20,14 @@ func _physics_process(_delta):
 		position += position.direction_to(target) * speed
 	# Maybe force move the player for more LV1 experience?
 
-	# This code allows to buffer multiple index changes (not intended)
-	for body in $Area2D.get_overlapping_bodies():
-		if body is PlayerBase:
-			if body.get("controlActive") == true:
-				if targetIndex > 0 and Input.is_action_pressed(&"Up") :
-					if atTarget or previousTarget == targetIndex - 1:
-						previousTarget = targetIndex
-						targetIndex -= 1
-						SceneControl.playSound($AudioStreamPlayer2D)
-				if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
-					if atTarget or previousTarget == targetIndex + 1:
-						previousTarget = targetIndex
-						targetIndex += 1
-						SceneControl.playSound($AudioStreamPlayer2D)
+	if PlayerUtil.getOverlappingActive($Area2D):
+		if targetIndex > 0 and Input.is_action_pressed(&"Up") :
+			if atTarget or previousTarget == targetIndex - 1:
+				previousTarget = targetIndex
+				targetIndex -= 1
+				SceneControl.playSound($AudioStreamPlayer2D)
+		if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
+			if atTarget or previousTarget == targetIndex + 1:
+				previousTarget = targetIndex
+				targetIndex += 1
+				SceneControl.playSound($AudioStreamPlayer2D)

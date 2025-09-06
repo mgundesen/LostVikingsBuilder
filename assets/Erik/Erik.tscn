@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=60 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -50,8 +50,11 @@
 [ext_resource type="Texture2D" uid="uid://drk814hjy4pia" path="res://assets/Erik/FallStun10.png" id="18_fdd60"]
 [ext_resource type="Texture2D" uid="uid://b0nv84pqhip5j" path="res://assets/Erik/dash13.png" id="18_vwv1d"]
 [ext_resource type="Texture2D" uid="uid://c0eytk00xn22u" path="res://assets/Erik/hit.png" id="27_fdd60"]
+[ext_resource type="Texture2D" uid="uid://b4j841sdhwjab" path="res://assets/Erik/Inflate1.png" id="42_qnvwx"]
+[ext_resource type="Texture2D" uid="uid://cht8b554htgxy" path="res://assets/Erik/Inflate2.png" id="43_2d060"]
 [ext_resource type="Texture2D" uid="uid://dec1jwearx7sl" path="res://assets/Erik/tumble1.png" id="43_71xed"]
 [ext_resource type="Texture2D" uid="uid://b8w37ct7u24la" path="res://assets/Erik/tumble2.png" id="44_m55dc"]
+[ext_resource type="Texture2D" uid="uid://celte5626ugn6" path="res://assets/Erik/Inflate3.png" id="44_oagj1"]
 [ext_resource type="Texture2D" uid="uid://n6sddy07etso" path="res://assets/Erik/tumble3.png" id="45_pxrax"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
@@ -228,6 +231,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("42_qnvwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_2d060")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_oagj1")
+}],
+"loop": true,
+"name": &"Inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_oagj1")
+}],
+"loop": true,
+"name": &"Inflated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_op7ga")
 }],
 "loop": true,
@@ -319,7 +344,7 @@ script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.83399e-07, 0)

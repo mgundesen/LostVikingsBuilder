@@ -9,7 +9,7 @@ func walkForce():
 	return WALK_FORCE * (1.6 if is_on_floor() else 1.95)
 
 func walkSpeed():
-	return WALK_MAX_SPEED * 1.5
+	return super.walkSpeed() * 1.5
 
 func stopForce():
 	if state == State.AttackMove2:

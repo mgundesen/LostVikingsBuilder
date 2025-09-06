@@ -37,7 +37,8 @@ var playerHealth = 3
 var itemSlot =  0
 var items = [0,0,0,0]
 
-enum State {Free, AttackMove, AttackMove2, Ladder, HitStun, FallStun, FallDeath, ShockDeath, Dead}
+enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated,
+			HitStun, FallStun, FallDeath, ShockDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -134,6 +135,8 @@ func stateWithPhysics():
 			return true
 		State.FallStun:
 			return true
+		State.Inflated:
+			return true
 		_:
 			return false
 
@@ -143,6 +146,8 @@ func stateWithInput():
 			return true
 		State.Ladder:
 			return true
+		State.Inflated:
+			return true
 		_:
 			return false
 
@@ -150,6 +155,8 @@ func walkForce():
 	return WALK_FORCE * (1.0 if is_on_floor() else 1.4)
 	
 func walkSpeed():
+	if state == State.Inflated:
+		return WALK_MAX_SPEED * 0.5
 	return WALK_MAX_SPEED
 
 func allowJump():
@@ -165,6 +172,10 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Death_Shock")
 	elif state == State.HitStun:
 		$AnimatedSprite2D.play("Hit")
+	elif state == State.Inflating:
+		$AnimatedSprite2D.play("Inflate")
+	elif state == State.Inflated:
+		$AnimatedSprite2D.play("Inflated")
 	elif state == State.Ladder:
 		if abs(yInput) > 0:
 			$AnimatedSprite2D.play("Climb")
@@ -204,6 +215,10 @@ func setState(targetState):
 	if(state == State.FallDeath or state == State.ShockDeath):
 		return
 	state = targetState
+	if targetState == State.Inflating:
+		get_tree().create_timer(0.3).timeout.connect(func(): setState(State.Inflated))
+	if targetState == State.Inflated:
+		get_tree().create_timer(5).timeout.connect(func(): setState(State.Free))
 
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
@@ -238,6 +253,8 @@ func applyPhysics(xInput, triggerJump, delta):
 	# Vertical movement code. Apply gravity.
 	if inAntigrav:
 		velocity.y -= gravity * 0.1 * delta
+	elif state == State.Inflated:
+		velocity.y = -100
 	else:
 		velocity.y += gravity * delta
 		maybeLimitFall()
@@ -290,6 +307,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(&"X"):
 			if !useItem():
 				play_sfx("itemFail")
+		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
+			setState(State.Free)
 	
 	if gotHit:
 		gotHit = false
@@ -308,25 +327,24 @@ func _physics_process(delta):
 	elif state == State.Ladder and abs(yInput) < 0.1:
 		if abs(xInput) > 0 or triggerJump:
 			state = State.Free
+			
 	if springJump:
 		state = State.Free
-				
+
 	if state == State.HitStun:
 		velocity.x = -40
 		velocity.y += gravity * delta
 		move_and_slide()
 	if stateWithPhysics():
 		applyPhysics(xInput, triggerJump, delta)
+		if velocity.x > 0:
+			direction = FacingDirection.Right
+		elif velocity.x < 0:
+			direction = FacingDirection.Left
 	elif state == State.Ladder:
 		position.x = ladderPos.x
 		position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
-			
-	# Do check this condition more
-	if state == State.Free:
-		if velocity.x > 0:
-			direction = FacingDirection.Right
-		elif velocity.x < 0:
-			direction = FacingDirection.Left
+
 	decideAnimation(yInput, velocity)

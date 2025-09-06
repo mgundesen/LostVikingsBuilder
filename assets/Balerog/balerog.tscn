@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=54 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -31,8 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://bi7c26fcn84ba" path="res://assets/Balerog/Walk8.png" id="20_qjibl"]
 [ext_resource type="Texture2D" uid="uid://ruurjf0vphel" path="res://assets/Balerog/hit.png" id="21_l6qba"]
 [ext_resource type="Texture2D" uid="uid://cphfkwjfva8u3" path="res://assets/Balerog/arrow1.png" id="23_481qt"]
+[ext_resource type="Texture2D" uid="uid://c75fdituxg07h" path="res://assets/Balerog/inflate1.png" id="23_fr3as"]
 [ext_resource type="Texture2D" uid="uid://bdaayjj4ql1hj" path="res://assets/Balerog/arrow2.png" id="24_glqjx"]
+[ext_resource type="Texture2D" uid="uid://dyrhs53mqcwg8" path="res://assets/Balerog/inflate2.png" id="24_gyjhu"]
 [ext_resource type="Texture2D" uid="uid://c6yrd0xwik60u" path="res://assets/Balerog/arrow3.png" id="25_0ytw7"]
+[ext_resource type="Texture2D" uid="uid://lvbd7k2gnndd" path="res://assets/Balerog/inflate3.png" id="25_4q5u8"]
 [ext_resource type="Texture2D" uid="uid://nd78cwackkb8" path="res://assets/Balerog/arrow4.png" id="26_hgxwe"]
 [ext_resource type="Texture2D" uid="uid://bgdwytxg4wvyh" path="res://assets/Balerog/arrow5.png" id="27_a4c30"]
 [ext_resource type="Texture2D" uid="uid://cgo78te5h1noa" path="res://assets/Balerog/arrow6.png" id="28_vgmq6"]
@@ -160,6 +163,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fr3as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_gyjhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4q5u8")
+}],
+"loop": true,
+"name": &"Inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_4q5u8")
+}],
+"loop": true,
+"name": &"Inflated",
 "speed": 5.0
 }, {
 "frames": [{
@@ -292,7 +317,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1.33333)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=55 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -38,6 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://b2n328xycup6p" path="res://assets/Olaf/float2.png" id="18_ivdgf"]
 [ext_resource type="Texture2D" uid="uid://btslan6llojne" path="res://assets/Olaf/hit.png" id="27_f1dc3"]
 [ext_resource type="Texture2D" uid="uid://sekka0mt5cs7" path="res://assets/Olaf/idle_sheild.png" id="29_ajvgq"]
+[ext_resource type="Texture2D" uid="uid://bds0vvwtrg8af" path="res://assets/Olaf/inflate1.png" id="32_wi2ut"]
+[ext_resource type="Texture2D" uid="uid://boipymdo71wbe" path="res://assets/Olaf/inflate2.png" id="33_lpcfc"]
+[ext_resource type="Texture2D" uid="uid://bgirxurcbb7on" path="res://assets/Olaf/inflate3.png" id="34_ykl1j"]
 [ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="36_umgyw"]
 [ext_resource type="Texture2D" uid="uid://chagii10dnlw" path="res://assets/Olaf/Walk_Sheild1.png" id="37_8826t"]
 [ext_resource type="Texture2D" uid="uid://bc5vstvqyedhm" path="res://assets/Olaf/Walk_Sheild2.png" id="38_g4mp4"]
@@ -198,6 +201,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("32_wi2ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_lpcfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ykl1j")
+}],
+"loop": true,
+"name": &"Inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_ykl1j")
+}],
+"loop": true,
+"name": &"Inflated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_6nmr2")
 }],
 "loop": true,
@@ -275,7 +300,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)

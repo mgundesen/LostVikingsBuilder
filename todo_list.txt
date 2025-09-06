@@ -3,7 +3,6 @@ Sound effects
 Enemy death animation
 Erik jump air decreased gravity
 Increased spring power high speed
-Inflator
 Antigrav ceiling bounce
 Runnning against a wall
 Crushers
@@ -11,9 +10,13 @@ Pushable blocks and trigger receivers
 Circle path moving platforms
 Teleporter
 Spikes
+Improve infaltion end
+Add physical body to spring
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 Fix balerog fall damage
 Fix facing direction not changed on hit(moves wrong way)
+Bullet speed bug???
+Delayed state transition
