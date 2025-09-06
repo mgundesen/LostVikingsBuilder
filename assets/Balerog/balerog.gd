@@ -37,6 +37,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			state = State.AttackMove
 			spawnHitbox(swordOffset)
+			play_sfx("sword1")
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 		if Input.is_action_just_pressed(&"Y"):
 			velocity.x = 0
@@ -46,6 +47,7 @@ func _physics_process(delta):
 	if state == State.AttackMove2 and subState == AttackState.Idle:
 		if !Input.is_action_pressed(&"Y"):
 			subState = AttackState.Shoot
+			play_sfx("bow")
 			spawnArrow()
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 			

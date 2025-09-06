@@ -52,7 +52,10 @@ const sounds = {
 	"itemUse": preload("res://assets/PlayerSounds/item_use.mp3"),
 	"itemUseFood": preload("res://assets/PlayerSounds/item_use_burb.mp3"),
 	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3"),
-	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3")
+	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3"),
+	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
+	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
+	"sword2": preload("res://assets/PlayerSounds/sword2.mp3")	
 }
 
 func play_sfx(soundName: String):
