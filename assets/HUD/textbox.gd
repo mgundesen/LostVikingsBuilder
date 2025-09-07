@@ -23,6 +23,6 @@ func updateTextbox():
 		setText(line[0], line[1])
 
 func _process(_delta):
-	if Input.is_action_just_pressed(&"B"):
+	if SceneControl.pauseType() == SceneControl.PauseType.Dialog && Input.is_action_just_pressed(&"B"):
 		textIndex += 1
 		updateTextbox()

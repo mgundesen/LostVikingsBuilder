@@ -2,7 +2,7 @@ extends Node2D
 
 var selectYes = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(&"B") or Input.is_action_just_pressed(&"Start"):
 		if selectYes:
 			SceneControl.continueScene()

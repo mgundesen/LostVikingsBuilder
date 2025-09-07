@@ -12,12 +12,12 @@ Teleporter
 Spikes
 Improve infaltion end
 Add physical body to spring
+Balerog second sword swing
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 Fix balerog fall damage animation
 Fix facing direction not changed on hit(moves wrong way)
-Bullet speed bug???
 Delayed state transition
 Fix jump in headbash
