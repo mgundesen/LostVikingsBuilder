@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dr25v111m3dsu"]
 
-[ext_resource type="Script" uid="uid://wdmwmom3yvq7" path="res://robot_shooter.gd" id="1_6xaf7"]
+[ext_resource type="Script" uid="uid://wdmwmom3yvq7" path="res://assets/Enemies/robot_shooter.gd" id="1_6xaf7"]
 [ext_resource type="Texture2D" uid="uid://bon4mjdst4nj2" path="res://assets/Enemies/RobotShooter/shoot1.png" id="2_fvax0"]
 [ext_resource type="Texture2D" uid="uid://5bj8gl3smpqi" path="res://assets/Enemies/RobotShooter/shoot2.png" id="3_w250r"]
 [ext_resource type="Texture2D" uid="uid://hbyvr6yjet5p" path="res://assets/Enemies/RobotShooter/shoot3.png" id="4_y1jh1"]
