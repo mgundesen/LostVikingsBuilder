@@ -15,6 +15,7 @@ func spawnHitbox():
 
 func explode():
 	state = State.explode
+	SceneControl.playSound($AudioStreamPlayer2D)
 	spawnHitbox()
 	get_tree().create_timer(0.5).timeout.connect(func(): queue_free())
 

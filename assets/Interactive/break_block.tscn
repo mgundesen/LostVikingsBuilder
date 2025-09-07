@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cspxwcerk81e7"]
+[gd_scene load_steps=9 format=3 uid="uid://cspxwcerk81e7"]
 
 [ext_resource type="Script" uid="uid://bmaqwcuidfn1n" path="res://assets/Interactive/break_block.gd" id="1_smqop"]
 [ext_resource type="Texture2D" uid="uid://bgxh4obhntvw5" path="res://assets/Interactive/break_wall2.png" id="2_jq1lg"]
 [ext_resource type="Script" uid="uid://83xr2j6dowhu" path="res://assets/Interactive/block_class.gd" id="2_wh47w"]
 [ext_resource type="Texture2D" uid="uid://dqrt3yh2fva3l" path="res://assets/Interactive/break_wall.png" id="3_wh47w"]
+[ext_resource type="AudioStream" uid="uid://10hkiuu66ooa" path="res://assets/Sounds/break.mp3" id="5_wh47w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh47w"]
 size = Vector2(52, 48)
@@ -53,3 +54,6 @@ shape = SubResource("RectangleShape2D_jq1lg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jq1lg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wh47w")

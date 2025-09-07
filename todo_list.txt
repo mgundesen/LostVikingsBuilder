@@ -1,8 +1,5 @@
-Transfer item between characters
-Sound effects
 Enemy death animation
 Erik jump air decreased gravity
-Increased spring power high speed
 Antigrav ceiling bounce
 Runnning against a wall
 Crushers
@@ -13,6 +10,8 @@ Spikes
 Improve infaltion end
 Add physical body to spring
 Balerog second sword swing
+Transfer item between characters(improved)
+Increased spring power high speed
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

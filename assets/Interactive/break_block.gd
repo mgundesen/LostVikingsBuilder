@@ -17,5 +17,6 @@ func _process(_delta):
 	var area = $Area2D
 	if !broken and CollisionUtil.isColliding(area, [Hitbox.Type.explode, Hitbox.Type.breaking]):
 		broken = true
-		get_tree().create_timer(0.5).timeout.connect(spawnNeighbourHitboxes)
+		SceneControl.playSound($AudioStreamPlayer2D)
+		get_tree().create_timer(0.3).timeout.connect(spawnNeighbourHitboxes)
 		$CharacterBody2D.queue_free()

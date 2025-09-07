@@ -53,6 +53,7 @@ const sounds = {
 	"itemUse": preload("res://assets/PlayerSounds/item_use.mp3"),
 	"itemUseFood": preload("res://assets/PlayerSounds/item_use_burb.mp3"),
 	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3"),
+	"hurt": preload("res://assets/PlayerSounds/hurt.mp3"),
 	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3"),
 	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
 	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
@@ -223,6 +224,7 @@ func setState(targetState):
 
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
+	play_sfx("hurt")
 	if playerHealth > 0:
 		state = stunState
 		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free))
