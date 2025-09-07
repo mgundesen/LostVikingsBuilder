@@ -13,6 +13,11 @@ func getOverlappingActive(area):
 				return body
 	return null
 
+func activePlayer():
+	for player in PlayerUtil.getPlayers():	
+		if player.get("controlActive"):
+			return player
+
 func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
 		if sourcePosition.distance_to(player.position) < distance:

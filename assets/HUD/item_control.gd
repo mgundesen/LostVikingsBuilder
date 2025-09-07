@@ -1,7 +1,12 @@
 extends Node2D
 	
 var basePos = [Vector2(0,0), Vector2(0,0), Vector2(0,0)]
-const offset = [Vector2(0,0),Vector2(50,0),Vector2(0,50),Vector2(50,50)] 
+const offset = [Vector2(0,0),Vector2(50,0),Vector2(0,50),Vector2(50,50)]
+
+enum State {selecting, holding}
+var state = State.selecting
+
+var currentItem = ItemUtil.Item.none
 
 func _ready():
 	basePos[0] = $Player1/Image.position
@@ -28,7 +33,18 @@ func drawItems():
 			node.call("setIcon", item)
 			itemIndex+=1
 		playerIndex+=1
-		
+
+func itemSlotChangeCheck(ap):
+	var slot = ap.get("itemSlot")
+	if Input.is_action_just_pressed(&"Right") and slot%2==0:
+		ap.set("itemSlot", ap.get("itemSlot")+1)
+	if Input.is_action_just_pressed(&"Down") and slot<2:
+		ap.set("itemSlot", ap.get("itemSlot")+2)
+	if Input.is_action_just_pressed(&"Left") and slot%2==1:
+		ap.set("itemSlot", ap.get("itemSlot")-1)
+	if Input.is_action_just_pressed(&"Up") and slot>1:
+		ap.set("itemSlot", ap.get("itemSlot")-2)
+
 func _process(_delta):
 	drawItems()
 	
@@ -39,24 +55,32 @@ func _process(_delta):
 		else:
 			SceneControl.setPause(SceneControl.PauseType.Item)
 	
+	if relatedPause:
+		if state == State.selecting:
+			var ap = PlayerUtil.activePlayer()
+			itemSlotChangeCheck(ap)
+			if Input.is_action_just_pressed(&"B"):
+				var item = ap.items[ap.itemSlot]
+				if item != ItemUtil.Item.none:
+					currentItem = item
+					state = State.holding
+		else:
+			if Input.is_action_just_pressed(&"Right"):
+				pass
+			if Input.is_action_just_pressed(&"Left"):
+				pass
+			if Input.is_action_just_pressed(&"B"):
+				state = State.selecting
+				currentItem = ItemUtil.Item.none
+	
+	# Selector drawing
 	var playerIndex = 0
 	for player in PlayerUtil.getPlayers():
 		var selector = selectorForIndex(playerIndex)
 		selector.position = basePos[playerIndex] + offset[player.get("itemSlot")]
-		if relatedPause:
-			if player.get("controlActive"):
-				selector.play("default")
-				var slot = player.get("itemSlot")
-				if Input.is_action_just_pressed(&"Right") and slot%2==0:
-					player.set("itemSlot", player.get("itemSlot")+1)
-				if Input.is_action_just_pressed(&"Down") and slot<2:
-					player.set("itemSlot", player.get("itemSlot")+2)
-				if Input.is_action_just_pressed(&"Left") and slot%2==1:
-					player.set("itemSlot", player.get("itemSlot")-1)
-				if Input.is_action_just_pressed(&"Up") and slot>1:
-					player.set("itemSlot", player.get("itemSlot")-2)
+		if relatedPause and player.get("controlActive") and state == State.selecting:
+			selector.play("default")
 		else:
 			selector.set_frame_and_progress(0,0)
 			selector.stop()
 		playerIndex+=1
-	
