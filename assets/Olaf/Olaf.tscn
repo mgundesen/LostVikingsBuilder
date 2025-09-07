@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=56 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -291,6 +291,9 @@ size = Vector2(91.4286, 128.571)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umgyw"]
 size = Vector2(11.4286, 158.571)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2ut"]
+size = Vector2(89.2308, 130)
+
 [node name="Olaf" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
@@ -322,3 +325,11 @@ position = Vector2(62, 70)
 shape = SubResource("RectangleShape2D_umgyw")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.83399e-07, 0)
+shape = SubResource("RectangleShape2D_wi2ut")

@@ -18,6 +18,19 @@ func activePlayer():
 		if player.get("controlActive"):
 			return player
 
+func nextPlayer(index):
+	index += 1
+	index %= PlayerUtil.getPlayers().size()
+	return index
+
+func previousPlayer(index):
+	var count = PlayerUtil.getPlayers().size()
+	if index == 0:
+		index = count-1
+	else:
+		index -= 1
+	return index
+
 func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
 		if sourcePosition.distance_to(player.position) < distance:

@@ -7,6 +7,7 @@ enum State {selecting, holding}
 var state = State.selecting
 
 var currentItem = ItemUtil.Item.none
+var playerInSwap
 
 func _ready():
 	basePos[0] = $Player1/Image.position
@@ -45,12 +46,36 @@ func itemSlotChangeCheck(ap):
 	if Input.is_action_just_pressed(&"Up") and slot>1:
 		ap.set("itemSlot", ap.get("itemSlot")-2)
 
+func currentPlayerIndex(currentPlayer):
+	var playerIndex = 0
+	for player in PlayerUtil.getPlayers():
+		if player == currentPlayer:
+			break
+		playerIndex += 1
+	return playerIndex
+
+enum SwapType {next, previous}
+func getPlayer(type):
+	var currentIndex = currentPlayerIndex(playerInSwap)
+	var players = PlayerUtil.getPlayers()
+	if type == SwapType.next:
+		return players[PlayerUtil.nextPlayer(currentIndex)]
+	elif type == SwapType.previous:
+		return players[PlayerUtil.previousPlayer(currentIndex)]
+
+func swapItem(swapType):
+	var next = getPlayer(swapType)
+	playerInSwap.items[playerInSwap.itemSlot] = ItemUtil.Item.none
+	next.addItem(currentItem, false)
+	playerInSwap = next
+
 func _process(_delta):
 	drawItems()
 	
 	var relatedPause = SceneControl.pauseType() == SceneControl.PauseType.Item
 	if Input.is_action_just_pressed(&"Select"):
 		if relatedPause:
+			state = State.selecting
 			SceneControl.unpause()
 		else:
 			SceneControl.setPause(SceneControl.PauseType.Item)
@@ -63,12 +88,13 @@ func _process(_delta):
 				var item = ap.items[ap.itemSlot]
 				if item != ItemUtil.Item.none:
 					currentItem = item
+					playerInSwap = ap
 					state = State.holding
 		else:
 			if Input.is_action_just_pressed(&"Right"):
-				pass
+				swapItem(SwapType.next)
 			if Input.is_action_just_pressed(&"Left"):
-				pass
+				swapItem(SwapType.previous)
 			if Input.is_action_just_pressed(&"B"):
 				state = State.selecting
 				currentItem = ItemUtil.Item.none

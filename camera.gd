@@ -2,24 +2,13 @@ extends Node2D
 
 var currentPlayer = 0
 
-func nextPlayer():
-	currentPlayer += 1
-	currentPlayer %= PlayerUtil.getPlayers().size()
-
-func previousPlayer():
-	var count = PlayerUtil.getPlayers().size()
-	if currentPlayer == 0:
-		currentPlayer = count-1
-	else:
-		currentPlayer -= 1
-
 func _process(_delta):
 	var players = PlayerUtil.getPlayers()
 		
 	if Input.is_action_just_pressed(&"SwapLeft"):
-		previousPlayer()
+		currentPlayer = PlayerUtil.previousPlayer(currentPlayer)
 	if Input.is_action_just_pressed(&"SwapRight"):
-		nextPlayer()
+		currentPlayer = PlayerUtil.nextPlayer(currentPlayer)
 	
 	for i in range(3):
 		var player = players[i]
@@ -28,7 +17,7 @@ func _process(_delta):
 
 		if i == currentPlayer:
 			if player.get("visible") == false:
-				nextPlayer()
+				currentPlayer = PlayerUtil.nextPlayer(currentPlayer)
 
 		player.set("controlActive", i == currentPlayer)
 		if(i == currentPlayer):

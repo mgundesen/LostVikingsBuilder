@@ -69,8 +69,9 @@ func _ready():
 func offsetDirected(offset):
 	return -offset if direction == FacingDirection.Left else offset
 
-func addItem(id):
-	play_sfx("itemPickup")
+func addItem(id, withSound = true):
+	if withSound:
+		play_sfx("itemPickup")
 	for index in range(4):
 		if items[index] == 0:
 			items[index] = id

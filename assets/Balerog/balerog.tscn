@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=55 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -308,6 +308,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osywc"]
 size = Vector2(77, 116.833)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr3as"]
+size = Vector2(77.3333, 116)
+
 [node name="Balerog" type="CharacterBody2D"]
 scale = Vector2(0.75, 0.75)
 collision_layer = 4
@@ -323,3 +326,11 @@ animation = &"Inflated"
 shape = SubResource("RectangleShape2D_osywc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6.35783e-07, 0.666666)
+shape = SubResource("RectangleShape2D_fr3as")
