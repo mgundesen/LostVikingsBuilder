@@ -7,7 +7,7 @@ func _process(_delta):
 	
 	for body in get_overlapping_bodies():
 		if body is PlayerBase:
-			body.set("gotHit", true)
+			body.bulletHit(position)
 		queue_free()
 			
 	

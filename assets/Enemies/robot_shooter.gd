@@ -1,6 +1,7 @@
 extends Enemy
 
-var shootCooldown = 0.4
+const shootDelay = 0.5
+const shootCooldown = 0.9
 
 func _ready() -> void:
 	health = 2
@@ -17,8 +18,8 @@ func shouldAttack():
 	if closeToPlayer():
 		state = State.attack
 		$AnimatedSprite2D.set_frame_and_progress(0,0)
-		get_tree().create_timer(shootCooldown).timeout.connect(fire)
-		get_tree().create_timer(0.8).timeout.connect(func(): setState(State.walk))
+		get_tree().create_timer(shootDelay).timeout.connect(fire)
+		get_tree().create_timer(shootCooldown).timeout.connect(func(): setState(State.walk))
 		return true
 	return false
 

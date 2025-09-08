@@ -22,9 +22,6 @@ var ladderHeight = 0
 # Kill interface
 var killShock = false
 
-# Hit interface
-var gotHit = false
-
 # Control active interface
 var controlActive = false
 
@@ -67,7 +64,7 @@ func play_sfx(soundName: String):
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
 
-func offsetDirected(offset):
+func facingDirected(offset):
 	return -offset if direction == FacingDirection.Left else offset
 
 func addItem(id, withSound = true):
@@ -121,7 +118,7 @@ func useItem():
 
 func _implSpawnHitbox(offset, type):
 	var hitboxPos = position
-	hitboxPos.x += offsetDirected(offset)
+	hitboxPos.x += facingDirected(offset)
 	CollisionUtil.spawnHitbox(owner, hitboxPos, type)
 	
 func spawnHitbox(offset, type = Hitbox.Type.basic):
@@ -297,6 +294,14 @@ func validLadderInput(yInput):
 		if position.y > ladderBottom():
 			return false
 	return true
+	
+func bulletHit(bulletPosition):
+	if position.x > bulletPosition.x:
+		direction = FacingDirection.Left
+	else:
+		direction = FacingDirection.Right
+	velocity.y = 0
+	takeDamage(State.HitStun, State.ShockDeath)
 
 func _physics_process(delta):
 	var yInput = 0
@@ -312,12 +317,6 @@ func _physics_process(delta):
 				play_sfx("itemFail")
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
-	
-	if gotHit:
-		gotHit = false
-		velocity.y = 0
-		play_sfx("deathShock")
-		takeDamage(State.HitStun, State.ShockDeath)
 	
 	if killShock:
 		killShock = false
@@ -335,7 +334,7 @@ func _physics_process(delta):
 		state = State.Free
 
 	if state == State.HitStun:
-		velocity.x = -40
+		velocity.x = facingDirected(-40)
 		velocity.y += gravity * delta
 		move_and_slide()
 	if stateWithPhysics():
