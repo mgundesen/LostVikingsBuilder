@@ -17,7 +17,9 @@ func stopForce():
 	return STOP_FORCE * 1.0 if is_on_floor() else STOP_FORCE * 0.3
 
 func allowJump():
-	return Input.is_action_just_pressed(&"B") and (is_on_floor() or state == State.Ladder)
+	var regularJump = is_on_floor() and state == State.Free
+	var ladderJump = state == State.Ladder
+	return Input.is_action_just_pressed(&"B") and (regularJump or ladderJump)
 
 func stateWithInput():
 	match state:
