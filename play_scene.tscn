@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=29 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="25_148ay"]
 [ext_resource type="PackedScene" uid="uid://dtskge7x0ie2a" path="res://assets/Interactive/bubble.tscn" id="26_b4dte"]
+[ext_resource type="PackedScene" uid="uid://kmil4rsq6ek2" path="res://assets/Interactive/pounder.tscn" id="26_i2gka"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="27_i2gka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
@@ -179,7 +180,7 @@ position = Vector2(75, 502)
 position = Vector2(-111, 381)
 
 [node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
-position = Vector2(-216, 412)
+position = Vector2(1130, 276)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
@@ -201,7 +202,7 @@ itemID = 3
 position = Vector2(-298, 481)
 
 [node name="Exit" parent="." instance=ExtResource("24_tixdq")]
-position = Vector2(-208, 467)
+position = Vector2(-378, 463)
 
 [node name="Bubble" parent="." instance=ExtResource("26_b4dte")]
 position = Vector2(489, 581)
@@ -215,6 +216,9 @@ position = Vector2(-64, 513)
 [node name="Door2" parent="." instance=ExtResource("23_vi0nd")]
 position = Vector2(574, 757)
 operationMode = 0
+
+[node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
+position = Vector2(-248, 280)
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

@@ -41,7 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://bds0vvwtrg8af" path="res://assets/Olaf/inflate1.png" id="32_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://boipymdo71wbe" path="res://assets/Olaf/inflate2.png" id="33_lpcfc"]
 [ext_resource type="Texture2D" uid="uid://bgirxurcbb7on" path="res://assets/Olaf/inflate3.png" id="34_ykl1j"]
-[ext_resource type="PackedScene" uid="uid://djef72qqb0nk7" path="res://assets/Interactive/owplatform.tscn" id="36_umgyw"]
 [ext_resource type="Texture2D" uid="uid://chagii10dnlw" path="res://assets/Olaf/Walk_Sheild1.png" id="37_8826t"]
 [ext_resource type="Texture2D" uid="uid://bc5vstvqyedhm" path="res://assets/Olaf/Walk_Sheild2.png" id="38_g4mp4"]
 [ext_resource type="Texture2D" uid="uid://57gfebw8gl57" path="res://assets/Olaf/Walk_Sheild3.png" id="39_vvvox"]
@@ -50,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://c6a5smmsqspgd" path="res://assets/Olaf/Walk_Sheild6.png" id="42_1opws"]
 [ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
-[ext_resource type="Script" uid="uid://dimyryoxjp285" path="res://assets/Olaf/sheild.gd" id="47_ivdgf"]
+[ext_resource type="Script" uid="uid://nmci1n1dkb3y" path="res://assets/Olaf/shield.gd" id="50_lpcfc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -291,6 +290,9 @@ size = Vector2(91.4286, 128.571)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umgyw"]
 size = Vector2(11.4286, 158.571)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1opws"]
+size = Vector2(137, 14.2857)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2ut"]
 size = Vector2(89.2308, 130)
 
@@ -312,17 +314,25 @@ shape = SubResource("RectangleShape2D_yfthr")
 [node name="Shield" type="Node2D" parent="."]
 position = Vector2(-2.85714, -68.5714)
 
-[node name="top" parent="Shield" instance=ExtResource("36_umgyw")]
-position = Vector2(-2.38419e-07, -7.62939e-06)
-
 [node name="front" type="CharacterBody2D" parent="Shield"]
 collision_layer = 8
 collision_mask = 8
-script = ExtResource("47_ivdgf")
+script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/front"]
 position = Vector2(62, 70)
 shape = SubResource("RectangleShape2D_umgyw")
+
+[node name="top" type="CharacterBody2D" parent="Shield"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("50_lpcfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
+position = Vector2(0, -7.14288)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_1opws")
+one_way_collision = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
