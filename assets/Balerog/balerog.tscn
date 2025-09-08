@@ -140,9 +140,21 @@ animations = [{
 "texture": ExtResource("9_c4pdt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_u6icq")
+"texture": ExtResource("8_5qwga")
 }, {
 "duration": 1.0,
+"texture": ExtResource("9_c4pdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5qwga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c4pdt")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_u6icq")
+}, {
+"duration": 1.5,
 "texture": ExtResource("11_l6qba")
 }],
 "loop": true,
@@ -320,7 +332,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1.33333)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Inflated"
+animation = &"Fall_Stun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

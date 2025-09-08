@@ -16,7 +16,5 @@ Increased spring power high speed
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
-Fix balerog fall damage animation
-Fix facing direction not changed on hit(moves wrong way)
-Delayed state transition
+Delayed state transition (such as inflate later setting free)
 Fix jump in headbash
