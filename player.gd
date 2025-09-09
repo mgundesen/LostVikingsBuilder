@@ -12,7 +12,7 @@ const CLIMB_SPEED = 3
 const bombScene = preload("res://assets/Items/bomb.tscn")
 const hitboxScene = preload("res://assets/Hitbox/hitbox.tscn")
 
-@onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var defaultGravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Ladder interface
 var ladderAllowed = false
@@ -196,6 +196,9 @@ func decideAnimation(yInput, vel):
 
 func maybeLimitFall():
 	return
+	
+func gravity():
+	return defaultGravity
 
 func killPlayer():
 	state = State.Dead
@@ -252,11 +255,11 @@ func applyPhysics(xInput, triggerJump, delta):
 
 	# Vertical movement code. Apply gravity.
 	if inAntigrav:
-		velocity.y -= gravity * 0.1 * delta
+		velocity.y -= gravity() * 0.1 * delta
 	elif state == State.Inflated:
 		velocity.y = -100
 	else:
-		velocity.y += gravity * delta
+		velocity.y += gravity() * delta
 		maybeLimitFall()
 	
 	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT

@@ -21,6 +21,11 @@ func allowJump():
 	var ladderJump = state == State.Ladder
 	return Input.is_action_just_pressed(&"B") and (regularJump or ladderJump)
 
+func gravity():
+	if Input.is_action_pressed(&"B"):
+		return defaultGravity * 0.90
+	return defaultGravity
+
 func stateWithInput():
 	match state:
 		State.AttackMove2:
