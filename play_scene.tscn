@@ -141,7 +141,9 @@ position = Vector2(2, 511)
 position = Vector2(715, 460)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_5xdee")]
-position = Vector2(-90, 199)
+position = Vector2(1047, 134)
+mode = 1
+speed = 1.3
 end = Vector2(300, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -180,7 +182,7 @@ position = Vector2(75, 502)
 position = Vector2(-111, 381)
 
 [node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
-position = Vector2(1130, 276)
+position = Vector2(1416, 157)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
