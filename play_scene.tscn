@@ -162,7 +162,7 @@ position = Vector2(316, 507)
 scale = Vector2(0.68, 0.68)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(219, -148)
+position = Vector2(213, 504)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)

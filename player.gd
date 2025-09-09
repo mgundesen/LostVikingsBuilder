@@ -19,9 +19,6 @@ var ladderAllowed = false
 var ladderPos = Vector2()
 var ladderHeight = 0
 
-# Kill interface
-var killShock = false
-
 # Control active interface
 var controlActive = false
 
@@ -35,7 +32,7 @@ var itemSlot =  0
 var items = [0,0,0,0]
 
 enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated,
-			HitStun, FallStun, FallDeath, ShockDeath, Dead}
+			HitStun, FallStun, FallDeath, ShockDeath, SquashDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -52,6 +49,7 @@ const sounds = {
 	"itemFail": preload("res://assets/PlayerSounds/item_fail.mp3"),
 	"hurt": preload("res://assets/PlayerSounds/hurt.mp3"),
 	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3"),
+	"squash": preload("res://assets/PlayerSounds/squash.mp3"),
 	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
 	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
 	"sword2": preload("res://assets/PlayerSounds/sword2.mp3")	
@@ -169,6 +167,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Fall_Stun")
 	elif state == State.ShockDeath:
 		$AnimatedSprite2D.play("Death_Shock")
+	elif state == State.SquashDeath:
+		$AnimatedSprite2D.play("Squash")
 	elif state == State.HitStun:
 		$AnimatedSprite2D.play("Hit")
 	elif state == State.Inflating:
@@ -221,8 +221,8 @@ func setState(targetState):
 
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
-	play_sfx("hurt")
 	if playerHealth > 0:
+		play_sfx("hurt")
 		state = stunState
 		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free))
 	else:
@@ -303,6 +303,14 @@ func bulletHit(bulletPosition):
 	velocity.y = 0
 	takeDamage(State.HitStun, State.ShockDeath)
 
+func killShock():
+	play_sfx("deathShock")
+	takeDamage(State.ShockDeath, State.ShockDeath, 4)
+
+func killSquash():
+	play_sfx("squash")
+	takeDamage(State.SquashDeath, State.SquashDeath, 4)
+
 func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
@@ -317,11 +325,6 @@ func _physics_process(delta):
 				play_sfx("itemFail")
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
-	
-	if killShock:
-		killShock = false
-		play_sfx("deathShock")
-		takeDamage(State.ShockDeath, State.ShockDeath, 4)
 	
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
 		state = State.Ladder

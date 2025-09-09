@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=60 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -41,8 +41,12 @@
 [ext_resource type="Texture2D" uid="uid://bds0vvwtrg8af" path="res://assets/Olaf/inflate1.png" id="32_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://boipymdo71wbe" path="res://assets/Olaf/inflate2.png" id="33_lpcfc"]
 [ext_resource type="Texture2D" uid="uid://bgirxurcbb7on" path="res://assets/Olaf/inflate3.png" id="34_ykl1j"]
+[ext_resource type="Texture2D" uid="uid://bgg6fgflt04ao" path="res://assets/Olaf/squash1.png" id="35_m3b2i"]
+[ext_resource type="Texture2D" uid="uid://bcm2is2jy0bah" path="res://assets/Olaf/squash2.png" id="36_ujkii"]
 [ext_resource type="Texture2D" uid="uid://chagii10dnlw" path="res://assets/Olaf/Walk_Sheild1.png" id="37_8826t"]
+[ext_resource type="Texture2D" uid="uid://bjig3hlcxkhle" path="res://assets/Olaf/squash3.png" id="37_em00i"]
 [ext_resource type="Texture2D" uid="uid://bc5vstvqyedhm" path="res://assets/Olaf/Walk_Sheild2.png" id="38_g4mp4"]
+[ext_resource type="Texture2D" uid="uid://xnta5skpvajp" path="res://assets/Olaf/squash4.png" id="38_x6a3n"]
 [ext_resource type="Texture2D" uid="uid://57gfebw8gl57" path="res://assets/Olaf/Walk_Sheild3.png" id="39_vvvox"]
 [ext_resource type="Texture2D" uid="uid://vl34qclhisly" path="res://assets/Olaf/Walk_Sheild4.png" id="40_ivdgf"]
 [ext_resource type="Texture2D" uid="uid://dnbfa2riaoham" path="res://assets/Olaf/Walk_Sheild5.png" id="41_vs8ea"]
@@ -229,6 +233,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("35_m3b2i")
+}, {
+"duration": 0.5,
+"texture": ExtResource("36_ujkii")
+}, {
+"duration": 0.5,
+"texture": ExtResource("37_em00i")
+}, {
+"duration": 5.0,
+"texture": ExtResource("38_x6a3n")
+}],
+"loop": true,
+"name": &"Squash",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_y1odb")
 }, {
@@ -305,7 +326,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Inflated"
+animation = &"Squash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)
@@ -330,7 +351,6 @@ script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
 position = Vector2(0, -7.14288)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1opws")
 one_way_collision = true
 

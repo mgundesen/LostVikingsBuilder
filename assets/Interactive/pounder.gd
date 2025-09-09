@@ -22,6 +22,6 @@ func _physics_process(_delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase:
-		print("kill")
+		body.killSquash()
 	if body is OlafShield:
 		swapTarget()

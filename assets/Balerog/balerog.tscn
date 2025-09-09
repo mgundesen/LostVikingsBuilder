@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=59 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -48,9 +48,13 @@
 [ext_resource type="Texture2D" uid="uid://bqtskmy836a7b" path="res://assets/Balerog/sword1.png" id="35_a4c30"]
 [ext_resource type="Texture2D" uid="uid://d2jfh2eb0jok5" path="res://assets/Balerog/sword2.png" id="36_vgmq6"]
 [ext_resource type="Texture2D" uid="uid://cas4qlhqqxjgk" path="res://assets/Balerog/sword3.png" id="37_mav3b"]
+[ext_resource type="Texture2D" uid="uid://cf4v1ixs1eiga" path="res://assets/Balerog/squash1.png" id="38_skl0i"]
 [ext_resource type="Texture2D" uid="uid://ci4xnadbup2bd" path="res://assets/Balerog/sword4.png" id="38_y7aal"]
+[ext_resource type="Texture2D" uid="uid://dks1rud6vx13p" path="res://assets/Balerog/squash2.png" id="39_1hd84"]
 [ext_resource type="Texture2D" uid="uid://c40mt3u7cjlde" path="res://assets/Balerog/sword5.png" id="39_mav3b"]
+[ext_resource type="Texture2D" uid="uid://d3gwtb2y33oec" path="res://assets/Balerog/squash3.png" id="40_l7wqj"]
 [ext_resource type="Texture2D" uid="uid://cb84hjbc72eha" path="res://assets/Balerog/sword6.png" id="40_y7aal"]
+[ext_resource type="Texture2D" uid="uid://c210owbyip5ne" path="res://assets/Balerog/squash4.png" id="41_jpriv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x56gs"]
 animations = [{
@@ -265,6 +269,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("38_skl0i")
+}, {
+"duration": 0.5,
+"texture": ExtResource("39_1hd84")
+}, {
+"duration": 0.5,
+"texture": ExtResource("40_l7wqj")
+}, {
+"duration": 5.0,
+"texture": ExtResource("41_jpriv")
+}],
+"loop": true,
+"name": &"Squash",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("35_a4c30")
 }, {
@@ -332,7 +353,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1.33333)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Fall_Stun"
+animation = &"Squash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

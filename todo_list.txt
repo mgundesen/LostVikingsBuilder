@@ -2,7 +2,6 @@ Enemy death animation
 Erik jump air decreased gravity
 Antigrav ceiling bounce
 Runnning against a wall
-Crushers
 Pushable blocks and trigger receivers
 Circle path moving platforms
 Teleporter
