@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=31 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
+[ext_resource type="PackedScene" uid="uid://b6ui50cb1imr" path="res://assets/Enemies/death_animation.tscn" id="14_k4j4b"]
 [ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="17_bnsmh"]
 [ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="18_4e3t1"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
@@ -26,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dtskge7x0ie2a" path="res://assets/Interactive/bubble.tscn" id="26_b4dte"]
 [ext_resource type="PackedScene" uid="uid://kmil4rsq6ek2" path="res://assets/Interactive/pounder.tscn" id="26_i2gka"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="27_i2gka"]
+[ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="27_k4j4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -132,7 +134,7 @@ position = Vector2(510, 367)
 ladderHeight = 8.0
 
 [node name="Button" parent="." instance=ExtResource("2_vlmgp")]
-position = Vector2(385.582, 492.849)
+position = Vector2(320, 367)
 
 [node name="Machine" parent="." instance=ExtResource("17_bnsmh")]
 position = Vector2(2, 511)
@@ -168,6 +170,9 @@ position = Vector2(213, 504)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
+
+[node name="deathanimation" parent="." instance=ExtResource("14_k4j4b")]
+position = Vector2(419, 494)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
@@ -221,6 +226,10 @@ operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
 position = Vector2(-248, 280)
+
+[node name="AlienShooter" parent="." instance=ExtResource("27_k4j4b")]
+position = Vector2(542, 509)
+flip = true
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

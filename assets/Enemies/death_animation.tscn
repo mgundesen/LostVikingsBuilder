@@ -1,0 +1,75 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6ui50cb1imr"]
+
+[ext_resource type="Script" uid="uid://budv3ex8cdgrg" path="res://assets/Enemies/death_animation.gd" id="1_l07wj"]
+[ext_resource type="Texture2D" uid="uid://c8vcp1ry0csf4" path="res://assets/Enemies/death1.png" id="1_nv1uw"]
+[ext_resource type="Texture2D" uid="uid://dkmeo6gh4l4qc" path="res://assets/Enemies/death2.png" id="2_l07wj"]
+[ext_resource type="Texture2D" uid="uid://002tms4vix6v" path="res://assets/Enemies/death3.png" id="3_bdw3v"]
+[ext_resource type="Texture2D" uid="uid://3qms11bifa7a" path="res://assets/Enemies/death4.png" id="4_oybn0"]
+[ext_resource type="Texture2D" uid="uid://dnp1fmw238xnv" path="res://assets/Enemies/death5.png" id="5_wi3a5"]
+[ext_resource type="Texture2D" uid="uid://camr587d5ctx1" path="res://assets/Enemies/death6.png" id="6_u5iw6"]
+[ext_resource type="Texture2D" uid="uid://b10b3ouhh57md" path="res://assets/Enemies/death7.png" id="7_k3qsm"]
+[ext_resource type="Texture2D" uid="uid://biirbslbjjwan" path="res://assets/Enemies/death8.png" id="8_qkkrs"]
+[ext_resource type="Texture2D" uid="uid://b8twmtinf00f5" path="res://assets/Enemies/death9.png" id="9_hv0g3"]
+[ext_resource type="Texture2D" uid="uid://c5m2w5it2lw1a" path="res://assets/Enemies/death10.png" id="10_if6vg"]
+[ext_resource type="Texture2D" uid="uid://by08voao6of6l" path="res://assets/Enemies/death11.png" id="11_qpa4j"]
+[ext_resource type="AudioStream" uid="uid://n6au84y5lwtk" path="res://assets/Sounds/enemykill.mp3" id="13_bdw3v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7b85"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_nv1uw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_l07wj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_bdw3v")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_oybn0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_wi3a5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_u5iw6")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_k3qsm")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_qkkrs")
+}, {
+"duration": 10.0,
+"texture": ExtResource("9_hv0g3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_if6vg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("1_nv1uw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_qpa4j")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_l07wj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_bdw3v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="deathanimation" type="Node2D"]
+script = ExtResource("1_l07wj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_k7b85")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_bdw3v")

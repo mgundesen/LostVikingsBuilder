@@ -74,7 +74,7 @@ func _physics_process(delta):
 			velocity.x = 120 if direction == FacingDirection.Left else -120
 		else:
 			velocity.x = 0
-		velocity.y += gravity * delta
+		velocity.y += gravity() * delta
 		move_and_slide()
 	super._physics_process(delta)
 

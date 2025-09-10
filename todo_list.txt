@@ -1,6 +1,4 @@
-Enemy death animation
-Antigrav ceiling bounce
-Runnning against a wall
+Features:
 Pushable blocks and trigger receivers
 Teleporter
 Spikes
@@ -9,6 +7,8 @@ Add physical body to spring
 Balerog second sword swing
 Transfer item between characters(improved)
 Increased spring power high speed
+Antigrav ceiling bounce
+Runnning against a wall
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

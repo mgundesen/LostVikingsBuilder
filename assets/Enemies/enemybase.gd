@@ -3,6 +3,7 @@ extends Area2D
 class_name Enemy
 
 var itemScene = load("res://assets/Items/item.tscn")
+var deathScene = load("res://assets/Enemies/death_animation.tscn")
 
 enum State{walk, idle, attack, hurt}
 var state = State.walk
@@ -22,6 +23,11 @@ func spawnItem():
 	item.position = position
 	item.setItem(itemType)
 
+func spawnDeathAnimation():
+	var animation = deathScene.instantiate()
+	owner.add_child(animation)
+	animation.position = position
+
 func _process(_delta):
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
@@ -36,6 +42,7 @@ func _process(_delta):
 			# play death animation
 			if itemType != ItemUtil.Item.none:
 				spawnItem()
+			spawnDeathAnimation()
 			queue_free()
 		else:
 			state = State.hurt
