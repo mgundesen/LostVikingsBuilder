@@ -355,7 +355,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(89.2308, 130)
+size = Vector2(90, 130)
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_71xed"]
 

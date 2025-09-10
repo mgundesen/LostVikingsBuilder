@@ -35,8 +35,8 @@ func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
 		if sourcePosition.distance_to(player.position) < distance:
 			if searchDir.length() > 0:
-				if abs((player.position-sourcePosition).angle_to(searchDir)) < PI/2:
-					return true
+				if abs((player.position-sourcePosition).angle_to(searchDir)) < PI/4:
+					return player
 			else:
-				return true
-	return false
+				return player
+	return null

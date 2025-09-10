@@ -263,6 +263,7 @@ func applyPhysics(xInput, triggerJump, delta):
 		maybeLimitFall()
 	
 	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
+
 	# Move based on the velocity and snap to the ground.
 	move_and_slide()
 	if get_slide_collision_count() > 0:
@@ -281,11 +282,14 @@ func applyPhysics(xInput, triggerJump, delta):
 			const jumpMultiplier = 1.15
 			velocity.y *= jumpMultiplier
 
+func size():
+	return $CollisionShape2D.shape.size * scale
+
 func ladderTop():
-	return ladderPos.y - ladderHeight / 2.0 - $CollisionShape2D.shape.size.y / 2.0 * scale.y
+	return ladderPos.y - ladderHeight / 2.0 - size().y / 2.0
 
 func ladderBottom():
-	return ladderPos.y + ladderHeight / 2.0 - $CollisionShape2D.shape.size.y / 2.0 * scale.y
+	return ladderPos.y + ladderHeight / 2.0 - size().y / 2.0
 
 func validLadderInput(yInput):
 	if !ladderAllowed or abs(yInput) < 0.1:
@@ -341,7 +345,7 @@ func _physics_process(delta):
 
 	if state == State.HitStun:
 		velocity.x = facingDirected(-40)
-		velocity.y += gravity * delta
+		velocity.y += gravity() * delta
 		move_and_slide()
 	if stateWithPhysics():
 		applyPhysics(xInput, triggerJump, delta)
