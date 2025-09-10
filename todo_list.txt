@@ -1,5 +1,4 @@
 Features:
-Pushable blocks and trigger receivers
 Teleporter
 Spikes
 Improve infaltion end
