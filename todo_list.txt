@@ -1,5 +1,4 @@
 Features:
-Teleporter
 Spikes
 Improve infaltion end
 Add physical body to spring

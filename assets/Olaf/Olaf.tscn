@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=65 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -47,10 +47,15 @@
 [ext_resource type="Texture2D" uid="uid://bjig3hlcxkhle" path="res://assets/Olaf/squash3.png" id="37_em00i"]
 [ext_resource type="Texture2D" uid="uid://bc5vstvqyedhm" path="res://assets/Olaf/Walk_Sheild2.png" id="38_g4mp4"]
 [ext_resource type="Texture2D" uid="uid://xnta5skpvajp" path="res://assets/Olaf/squash4.png" id="38_x6a3n"]
+[ext_resource type="Texture2D" uid="uid://0a4c3pd7qexc" path="res://assets/Player/teleport1.png" id="39_sgy0l"]
 [ext_resource type="Texture2D" uid="uid://57gfebw8gl57" path="res://assets/Olaf/Walk_Sheild3.png" id="39_vvvox"]
+[ext_resource type="Texture2D" uid="uid://dd5jov01jrqkp" path="res://assets/Player/teleport2.png" id="40_bg3wh"]
 [ext_resource type="Texture2D" uid="uid://vl34qclhisly" path="res://assets/Olaf/Walk_Sheild4.png" id="40_ivdgf"]
+[ext_resource type="Texture2D" uid="uid://bbr4w2ukisc8w" path="res://assets/Player/teleport3.png" id="41_1djfn"]
 [ext_resource type="Texture2D" uid="uid://dnbfa2riaoham" path="res://assets/Olaf/Walk_Sheild5.png" id="41_vs8ea"]
 [ext_resource type="Texture2D" uid="uid://c6a5smmsqspgd" path="res://assets/Olaf/Walk_Sheild6.png" id="42_1opws"]
+[ext_resource type="Texture2D" uid="uid://c8sakqkgr3lpo" path="res://assets/Player/teleport4.png" id="42_53l2r"]
+[ext_resource type="Texture2D" uid="uid://c1e5126jfax88" path="res://assets/Player/teleport5.png" id="43_lo7bn"]
 [ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
 [ext_resource type="Script" uid="uid://nmci1n1dkb3y" path="res://assets/Olaf/shield.gd" id="50_lpcfc"]
@@ -251,6 +256,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("39_sgy0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_bg3wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_1djfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_53l2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_lo7bn")
+}, {
+"duration": 6.0,
+"texture": ExtResource("42_53l2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_1djfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_bg3wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_sgy0l")
+}],
+"loop": true,
+"name": &"Teleport",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("10_y1odb")
 }, {
 "duration": 1.0,
@@ -326,7 +363,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Squash"
+animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)

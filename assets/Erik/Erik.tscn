@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=69 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -60,6 +60,11 @@
 [ext_resource type="Texture2D" uid="uid://dl8eb0k1wmkpp" path="res://assets/Erik/squash2.png" id="47_okwrb"]
 [ext_resource type="Texture2D" uid="uid://bh70oecxq7m8m" path="res://assets/Erik/squash3.png" id="48_vwv1d"]
 [ext_resource type="Texture2D" uid="uid://d7ee65c5goj" path="res://assets/Erik/squash4.png" id="49_egh3y"]
+[ext_resource type="Texture2D" uid="uid://0a4c3pd7qexc" path="res://assets/Player/teleport1.png" id="50_3urqt"]
+[ext_resource type="Texture2D" uid="uid://dd5jov01jrqkp" path="res://assets/Player/teleport2.png" id="51_vaf51"]
+[ext_resource type="Texture2D" uid="uid://bbr4w2ukisc8w" path="res://assets/Player/teleport3.png" id="52_kkqim"]
+[ext_resource type="Texture2D" uid="uid://c8sakqkgr3lpo" path="res://assets/Player/teleport4.png" id="53_yt5oe"]
+[ext_resource type="Texture2D" uid="uid://c1e5126jfax88" path="res://assets/Player/teleport5.png" id="54_smio2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -282,6 +287,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("50_3urqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_vaf51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_kkqim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_yt5oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_smio2")
+}, {
+"duration": 6.0,
+"texture": ExtResource("53_yt5oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_kkqim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_vaf51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_3urqt")
+}],
+"loop": true,
+"name": &"Teleport",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("43_71xed")
 }, {
 "duration": 1.0,
@@ -365,7 +402,7 @@ script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Squash"
+animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.83399e-07, 0)

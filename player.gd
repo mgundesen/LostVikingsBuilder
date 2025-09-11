@@ -19,6 +19,10 @@ var ladderAllowed = false
 var ladderPos = Vector2()
 var ladderHeight = 0
 
+# Teleport interface
+var teleportAllowed = false
+var teleportTarget = Vector2()
+
 # Control active interface
 var controlActive = false
 
@@ -31,7 +35,7 @@ var playerHealth = 3
 var itemSlot =  0
 var items = [0,0,0,0]
 
-enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated,
+enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated, Teleport,
 			HitStun, FallStun, FallDeath, ShockDeath, SquashDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
@@ -52,7 +56,8 @@ const sounds = {
 	"squash": preload("res://assets/PlayerSounds/squash.mp3"),
 	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
 	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
-	"sword2": preload("res://assets/PlayerSounds/sword2.mp3")	
+	"sword2": preload("res://assets/PlayerSounds/sword2.mp3"),
+	"teleport": preload("res://assets/PlayerSounds/teleport.mp3")
 }
 
 func play_sfx(soundName: String):
@@ -175,6 +180,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Inflate")
 	elif state == State.Inflated:
 		$AnimatedSprite2D.play("Inflated")
+	elif state == State.Teleport:
+		$AnimatedSprite2D.play("Teleport")
 	elif state == State.Ladder:
 		if abs(yInput) > 0:
 			$AnimatedSprite2D.play("Climb")
@@ -332,6 +339,11 @@ func _physics_process(delta):
 				play_sfx("itemFail")
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
+		if teleportAllowed == true and Input.is_action_just_pressed(&"A") and is_on_floor():
+			setState(State.Teleport)
+			play_sfx("teleport")
+			get_tree().create_timer(0.7).timeout.connect(func(): position = teleportTarget)
+			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))
 	
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
 		state = State.Ladder
