@@ -175,7 +175,7 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(1076, 366)
+position = Vector2(103, 510)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(316, 507)
@@ -197,7 +197,7 @@ itemID = 2
 position = Vector2(75, 502)
 
 [node name="Spring2" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(-111, 381)
+position = Vector2(-108, 419)
 
 [node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
 position = Vector2(1416, 157)

@@ -1,7 +1,6 @@
 Features:
 Spikes
 Improve infaltion end
-Add physical body to spring
 Balerog second sword swing
 Transfer item between characters(improved)
 Increased spring power high speed
@@ -10,6 +9,7 @@ Runnning against a wall
 Bombs to hit player
 
 Bugs:
+Fix L swap when dead
 Sheild Can push bombs
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
