@@ -7,8 +7,10 @@ Transfer item between characters(improved)
 Increased spring power high speed
 Antigrav ceiling bounce
 Runnning against a wall
+Bombs to hit player
 
 Bugs:
+Sheild Can push bombs
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 Delayed state transition (such as inflate later setting free)
