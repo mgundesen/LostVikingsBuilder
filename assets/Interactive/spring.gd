@@ -7,7 +7,7 @@ func unspring():
 	$AnimatedSprite2D.play("Rest")
 
 func _on_body_entered(body: Node2D) -> void:
-	if !appliedSpring:
+	if !appliedSpring and body is PlayerBase:
 		body.set("springJump", true)
 		appliedSpring = true
 		SceneControl.playSound($AudioStreamPlayer2D)
