@@ -349,7 +349,7 @@ size = Vector2(91.4286, 128.571)
 size = Vector2(11.4286, 158.571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opws"]
-size = Vector2(137, 14.2857)
+size = Vector2(117.071, 7.14285)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2ut"]
 size = Vector2(89.2308, 130)
@@ -363,7 +363,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Walk"
+animation = &"Idle_Sheild"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)
@@ -387,7 +387,8 @@ collision_mask = 15
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
-position = Vector2(0, -7.14288)
+position = Vector2(9.96427, 0.714249)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_1opws")
 one_way_collision = true
 
