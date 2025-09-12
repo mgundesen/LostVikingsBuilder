@@ -7,6 +7,7 @@ const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
+const SOUND_FALL_LIMIT = 200
 const CLIMB_SPEED = 3
 
 const bombScene = preload("res://assets/Items/bomb.tscn")
@@ -268,16 +269,17 @@ func applyPhysics(xInput, triggerJump, delta):
 	else:
 		velocity.y += gravity() * delta
 		maybeLimitFall()
-	
-	var canTakeFallDamage = velocity.y > FALL_DAMAGE_LIMIT
 
 	# Move based on the velocity and snap to the ground.
+	var yBeforeMove = velocity.y
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		# fix some collision are ok
-		if canTakeFallDamage and is_on_floor():
-			play_sfx("bonk")
+		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
 			takeDamage(State.FallStun, State.FallDeath)
+			play_sfx("bonk")
+		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
+			play_sfx("landing")
 
 	if springJump:
 		springJump = false
