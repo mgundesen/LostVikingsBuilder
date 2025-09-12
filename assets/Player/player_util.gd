@@ -14,17 +14,20 @@ func getOverlappingActive(area):
 	return null
 
 func activePlayer():
-	for player in PlayerUtil.getPlayers():	
+	for player in getPlayers():	
 		if player.get("controlActive"):
 			return player
 
+func playerForIndex(index):
+	return getPlayers()[index]
+
 func nextPlayer(index):
 	index += 1
-	index %= PlayerUtil.getPlayers().size()
+	index %= getPlayers().size()
 	return index
 
 func previousPlayer(index):
-	var count = PlayerUtil.getPlayers().size()
+	var count = getPlayers().size()
 	if index == 0:
 		index = count-1
 	else:

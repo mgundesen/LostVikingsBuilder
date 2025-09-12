@@ -2,22 +2,28 @@ extends Node2D
 
 var currentPlayer = 0
 
+func swap(playerFun):
+	currentPlayer = playerFun.call(currentPlayer)
+	while PlayerUtil.playerForIndex(currentPlayer).visible == false:
+		currentPlayer = playerFun.call(currentPlayer)
+
 func _process(_delta):
 	var players = PlayerUtil.getPlayers()
-		
-	if Input.is_action_just_pressed(&"SwapLeft"):
-		currentPlayer = PlayerUtil.previousPlayer(currentPlayer)
-	if Input.is_action_just_pressed(&"SwapRight"):
-		currentPlayer = PlayerUtil.nextPlayer(currentPlayer)
+	
+	if Input.is_action_just_pressed(&"L"):
+		swap(PlayerUtil.previousPlayer)
+	if Input.is_action_just_pressed(&"R"):
+		swap(PlayerUtil.nextPlayer)
 	
 	for i in range(3):
 		var player = players[i]
 		if !player:
 			return
 
+		#Swap in case player is dead
 		if i == currentPlayer:
 			if player.get("visible") == false:
-				currentPlayer = PlayerUtil.nextPlayer(currentPlayer)
+				swap(PlayerUtil.nextPlayer)
 
 		player.set("controlActive", i == currentPlayer)
 		if(i == currentPlayer):

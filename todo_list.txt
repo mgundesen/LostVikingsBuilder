@@ -9,7 +9,6 @@ Runnning against a wall
 Bombs to hit player
 
 Bugs:
-Fix L swap when dead
 Sheild Can push bombs
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
