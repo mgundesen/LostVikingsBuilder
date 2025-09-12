@@ -23,14 +23,14 @@ const oColor = Color8(107, 65, 33)
 
 var textBoxEnabled = false
 const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
-{"level" : "res://Levels/ChanseyLevel1.tscn",
+{"level" : "res://Levels/Chansey_Levels/ChanseyLevel1.tscn",
 "text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
 		 [eColor, "Tradition? Feels more like a recurring side quest at this point."],
 		 [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
 		 [oColor, "At least they also left some food for us, I'm starving"],
 		 [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
 		 [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]},
-{"level" : "res://Levels/level2.tscn"}
+{"level" : "res://Levels/TestLevels/level2.tscn"}
 ]
 
 func nextScene():
