@@ -1,4 +1,4 @@
-extends "res://player.gd"
+extends PlayerBase
 
 var arrowScene = load("res://assets/Balerog/arrow.tscn")
 

@@ -1,4 +1,4 @@
-extends "res://player.gd"
+extends PlayerBase
 
 const chargeCancelTime = 0.2
 

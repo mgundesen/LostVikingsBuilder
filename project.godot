@@ -13,13 +13,14 @@ config_version=5
 config/name="PuzzlePlatformer"
 run/main_scene="uid://bbuuvtppltypr"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://cnjhxs0iluaa1"
 
 [autoload]
 
-PlayerUtil="*res://player_util.gd"
+PlayerUtil="*res://assets/Player/player_util.gd"
 EnemyUtil="*res://assets/Enemies/enemy_util.gd"
 ItemUtil="*res://assets/Items/item_util.gd"
-CollisionUtil="*res://collision_util.gd"
+CollisionUtil="*res://assets/Player/collision_util.gd"
 SceneControl="*res://scene_control.gd"
 
 [display]

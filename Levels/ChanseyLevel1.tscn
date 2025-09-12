@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=4 uid="uid://4vhs462wlgj6"]
 
-[ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://camera.gd" id="1_2ewhw"]
+[ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_2ewhw"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="2_0idif"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="2_36xi1"]
 [ext_resource type="Texture2D" uid="uid://r80l8dgke2a0" path="res://assets/BlockBackground.png" id="2_jg61r"]
@@ -1480,6 +1480,7 @@ tile_map_data = PackedByteArray("AAAPABQAAAAGAAUAAAAPABUAAAAGAAMAAAAPABYAAAAGAAQ
 tile_set = SubResource("TileSet_6q7m6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("14_qsoch")
 volume_db = -9.0
 parameters/looping = true

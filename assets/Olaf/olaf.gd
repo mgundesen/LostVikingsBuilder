@@ -1,4 +1,4 @@
-extends "res://player.gd"
+extends PlayerBase
 
 const SHEILD_FALL_SPEED = 100
 
