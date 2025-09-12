@@ -136,7 +136,7 @@ position = Vector2(644, 552)
 nodes = PackedVector2Array(0, 0, 0, 6)
 
 [node name="ShockTrap" parent="." instance=ExtResource("2_e6jdp")]
-position = Vector2(1130, 546)
+position = Vector2(423, 520)
 
 [node name="Ladder" parent="." instance=ExtResource("3_1p5oe")]
 position = Vector2(322, 482)

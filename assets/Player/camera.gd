@@ -10,6 +10,15 @@ func swap(playerFun):
 func _process(_delta):
 	var players = PlayerUtil.getPlayers()
 	
+	# check if all are dead
+	var allDead = true
+	for player in players:
+		if player.visible == true:
+			allDead = false
+	if allDead:
+		SceneControl.deathScene()
+		return
+	
 	if Input.is_action_just_pressed(&"L"):
 		swap(PlayerUtil.previousPlayer)
 	if Input.is_action_just_pressed(&"R"):
@@ -22,7 +31,7 @@ func _process(_delta):
 
 		#Swap in case player is dead
 		if i == currentPlayer:
-			if player.get("visible") == false:
+			if player.visible == false:
 				swap(PlayerUtil.nextPlayer)
 
 		player.set("controlActive", i == currentPlayer)
