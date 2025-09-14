@@ -197,7 +197,7 @@ itemID = 2
 position = Vector2(75, 502)
 
 [node name="Spring2" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(-108, 419)
+position = Vector2(-93, 233)
 
 [node name="WallSpawner" parent="." instance=ExtResource("21_dlnbv")]
 position = Vector2(1416, 157)
@@ -238,7 +238,7 @@ position = Vector2(574, 757)
 operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
-position = Vector2(459, 318)
+position = Vector2(-175, 212)
 
 [node name="AlienShooter" parent="." instance=ExtResource("27_k4j4b")]
 position = Vector2(155, 790)

@@ -324,8 +324,9 @@ func killShock():
 	takeDamage(State.ShockDeath, State.ShockDeath, 4)
 
 func killSquash():
-	play_sfx("squash")
-	takeDamage(State.SquashDeath, State.SquashDeath, 4)
+	if is_on_floor():
+		play_sfx("squash")
+		takeDamage(State.SquashDeath, State.SquashDeath, 4)
 
 func _physics_process(delta):
 	var yInput = 0
