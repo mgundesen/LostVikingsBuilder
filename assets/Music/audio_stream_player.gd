@@ -6,7 +6,7 @@ func _ready() -> void:
 	else:
 		stop()	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if SceneControl.pauseType() == SceneControl.PauseType.Regular:
 		stream_paused = true
 	else:

@@ -1,5 +1,5 @@
 Features:
-Spikes
+Spikes animation
 Improve infaltion end
 Balerog second sword swing
 Transfer item between characters(improved)

@@ -274,6 +274,8 @@ func applyPhysics(xInput, triggerJump, delta):
 	var yBeforeMove = velocity.y
 	move_and_slide()
 	if get_slide_collision_count() > 0:
+		if get_slide_collision(0).get_collider() is Spikes:
+			killShock()
 		# fix some collision are ok
 		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
 			takeDamage(State.FallStun, State.FallDeath)

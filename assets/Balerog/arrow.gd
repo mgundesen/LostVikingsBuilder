@@ -11,6 +11,5 @@ func _process(_delta):
 	position.x += speed
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is not OlafShield:
 		queue_free()
