@@ -106,7 +106,7 @@ func useItem():
 		ItemUtil.Item.bomb:
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
-			bomb.transform = transform
+			bomb.position = position
 		ItemUtil.Item.keyBlue:
 			if !useKey(ItemUtil.Keyhole.blue):
 				return false
@@ -385,3 +385,7 @@ func _physics_process(delta):
 			state = State.Free
 
 	decideAnimation(yInput, velocity)
+
+func on_area_entered(area: Area2D) -> void:
+	if area is Hitbox and area.type == Hitbox.Type.explode:
+		takeDamage(State.HitStun, State.ShockDeath)
