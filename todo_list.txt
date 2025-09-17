@@ -3,7 +3,6 @@ Improve infaltion end
 Balerog second sword swing
 Transfer item between characters(improved)
 Increased spring power high speed
-Antigrav ceiling bounce
 Runnning against a wall
 
 Bugs:

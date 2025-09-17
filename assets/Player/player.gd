@@ -5,6 +5,7 @@ const STOP_FORCE = 1600
 const WALK_FORCE = 1000
 const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
+const ANTIGRAV_BOUNCE = 100
 const SPRING_FORCE = 850
 const FALL_DAMAGE_LIMIT = 850
 const SOUND_FALL_LIMIT = 200
@@ -84,6 +85,13 @@ func addItem(id, withSound = true):
 			return true
 	return false
 
+func spawnHitboxSmartbomb():
+	var hitbox = hitboxScene.instantiate()
+	hitbox.type = Hitbox.Type.smartbomb
+	hitbox.find_child("CollisionShape2D").shape.set_size(Vector2(1000, 1000)) 
+	add_child(hitbox)
+	hitbox.call("despawn", 0.1)
+
 func useKey(type):
 	var areaNode = find_child("Area2D", false)
 	for area in areaNode.get_overlapping_areas():
@@ -97,9 +105,9 @@ func useItem():
 	match items[itemSlot]:
 		ItemUtil.Item.none:
 			return false
-		ItemUtil.Item.raddish:
+		ItemUtil.Item.tomato, ItemUtil.Item.raddish, ItemUtil.Item.beef:
 			if playerHealth < 3:
-				playerHealth += 1
+				playerHealth += 2 if items[itemSlot] == ItemUtil.Item.beef else 1
 				sound = "itemUseFood"
 			else:
 				return false
@@ -116,6 +124,8 @@ func useItem():
 		ItemUtil.Item.keyRed:
 			if !useKey(ItemUtil.Keyhole.red):
 				return false
+		ItemUtil.Item.smartbomb:
+			spawnHitboxSmartbomb()
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
@@ -247,56 +257,7 @@ func takeDamage(stunState, deathState, amount = 1):
 func stopForce():
 	# Very fast turnaround on ground
 	return STOP_FORCE * 20.0 if is_on_floor() else STOP_FORCE * 0.7
-
-func applyPhysics(xInput, triggerJump, delta):
-	# Horizontal movement code. First, get the player's input.
-	var appliedWalk = walkForce()
-	var walk = appliedWalk * xInput
-	# Slow down the player if they're not trying to move.
-	var noXInput = abs(walk) < appliedWalk * 0.2
-	var oppositeInput = xInput*velocity.x < 0
-	if noXInput and is_on_floor():
-		# Enchanced stop when not giving input on the ground (Erik shenanigans)
-		velocity.x = move_toward(velocity.x, 0, stopForce() * 2 * delta)
-	elif noXInput or (oppositeInput and is_on_floor()):
-		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
-	else:
-		velocity.x += walk * delta
-	# Clamp to the maximum horizontal movement speed.
-	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
-
-	# Vertical movement code. Apply gravity.
-	if inAntigrav:
-		velocity.y -= gravity() * 0.1 * delta
-	elif state == State.Inflated:
-		velocity.y = -100
-	else:
-		velocity.y += gravity() * delta
-		maybeLimitFall()
-
-	# Move based on the velocity and snap to the ground.
-	var yBeforeMove = velocity.y
-	move_and_slide()
-	if get_slide_collision_count() > 0:
-		if get_slide_collision(0).get_collider() is Spikes:
-			killSpikes()
-		# fix some collision are ok
-		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
-			takeDamage(State.FallStun, State.FallDeath)
-			play_sfx("bonk")
-		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
-			play_sfx("landing")
-
-	if springJump:
-		springJump = false
-		velocity.y = -SPRING_FORCE
-
-	if triggerJump:
-		velocity.y = -JUMP_SPEED
-		if abs(velocity.x) == walkSpeed():
-			const jumpMultiplier = 1.15
-			velocity.y *= jumpMultiplier
-
+	
 func size():
 	return $CollisionShape2D.shape.size * scale
 
@@ -337,6 +298,59 @@ func killSquash():
 	if is_on_floor():
 		play_sfx("squash")
 		takeDamage(State.SquashDeath, State.SquashDeath, 4)
+
+func applyPhysics(xInput, triggerJump, delta):
+	# Horizontal movement code. First, get the player's input.
+	var appliedWalk = walkForce()
+	var walk = appliedWalk * xInput
+	# Slow down the player if they're not trying to move.
+	var noXInput = abs(walk) < appliedWalk * 0.2
+	var oppositeInput = xInput*velocity.x < 0
+	if noXInput and is_on_floor():
+		# Enchanced stop when not giving input on the ground (Erik shenanigans)
+		velocity.x = move_toward(velocity.x, 0, stopForce() * 2 * delta)
+	elif noXInput or (oppositeInput and is_on_floor()):
+		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
+	else:
+		velocity.x += walk * delta
+	# Clamp to the maximum horizontal movement speed.
+	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
+
+	# Vertical movement code. Apply gravity.
+	if inAntigrav:
+		velocity.y -= gravity() * 0.1 * delta
+	elif state == State.Inflated:
+		velocity.y = -100
+	else:
+		velocity.y += gravity() * delta
+		maybeLimitFall()
+
+	# Move based on the velocity and snap to the ground.
+	var yBeforeMove = velocity.y
+	move_and_slide()
+	#print(velocity)
+	if get_slide_collision_count() > 0:
+		var col = get_slide_collision(0).get_collider()
+		if col is Spikes:
+			killSpikes()
+		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
+			velocity.y = ANTIGRAV_BOUNCE
+		# fix some collision are ok
+		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
+			takeDamage(State.FallStun, State.FallDeath)
+			play_sfx("bonk")
+		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
+			play_sfx("landing")
+
+	if springJump:
+		springJump = false
+		velocity.y = -SPRING_FORCE
+
+	if triggerJump:
+		velocity.y = -JUMP_SPEED
+		if abs(velocity.x) == walkSpeed():
+			const jumpMultiplier = 1.15
+			velocity.y *= jumpMultiplier
 
 func _physics_process(delta):
 	var yInput = 0

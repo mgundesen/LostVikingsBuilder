@@ -250,7 +250,7 @@ position = Vector2(782, 569)
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
 [node name="Item" parent="." instance=ExtResource("4_mntja")]
-position = Vector2(131, 421)
+position = Vector2(129, 424)
 itemID = 2
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
@@ -321,6 +321,22 @@ tile_map_data = PackedByteArray("AAAgACUAAAABAAAAAAD8/xAAAAAEAAAAAAD8/xEAAAAEAAE
 tile_set = SubResource("TileSet_n8ij3")
 use_kinematic_bodies = true
 script = ExtResource("32_44oio")
+
+[node name="Item3" parent="." instance=ExtResource("4_mntja")]
+position = Vector2(212, 357)
+itemID = 1
+
+[node name="Item4" parent="." instance=ExtResource("4_mntja")]
+position = Vector2(156, 347)
+itemID = 9
+
+[node name="Item5" parent="." instance=ExtResource("4_mntja")]
+position = Vector2(95, 362)
+itemID = 8
+
+[node name="Item6" parent="." instance=ExtResource("4_mntja")]
+position = Vector2(42, 370)
+itemID = 7
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]

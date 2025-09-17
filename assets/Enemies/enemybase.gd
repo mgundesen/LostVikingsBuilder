@@ -34,7 +34,7 @@ func _process(_delta):
 	
 	var type = CollisionUtil.isColliding(self, hitTypes)
 	if type:
-		if type == Hitbox.Type.explode:
+		if type == Hitbox.Type.explode or type == Hitbox.Type.smartbomb:
 			health -= 3
 		else:
 			health -= 1

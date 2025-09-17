@@ -5,7 +5,7 @@ const shootCooldown = 0.9
 
 func _ready() -> void:
 	health = 2
-	hitTypes = [Hitbox.Type.breaking, Hitbox.Type.explode]
+	hitTypes = [Hitbox.Type.breaking, Hitbox.Type.explode, Hitbox.Type.smartbomb]
 
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
