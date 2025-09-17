@@ -1,12 +1,11 @@
 Features:
-Spikes animation
+Bombs to hit player
 Improve infaltion end
 Balerog second sword swing
 Transfer item between characters(improved)
 Increased spring power high speed
 Antigrav ceiling bounce
 Runnning against a wall
-Bombs to hit player
 
 Bugs:
 Sheild Can push bombs

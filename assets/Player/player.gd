@@ -37,7 +37,7 @@ var itemSlot =  0
 var items = [0,0,0,0]
 
 enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated, Teleport,
-			HitStun, FallStun, FallDeath, ShockDeath, SquashDeath, Dead}
+			HitStun, FallStun, FallDeath, ShockDeath, SpikesDeath, SquashDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -55,6 +55,7 @@ const sounds = {
 	"hurt": preload("res://assets/PlayerSounds/hurt.mp3"),
 	"deathShock": preload("res://assets/PlayerSounds/death_shock.mp3"),
 	"squash": preload("res://assets/PlayerSounds/squash.mp3"),
+	"deathSpikes": preload("res://assets/PlayerSounds/death_spikes.mp3"),
 	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
 	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
 	"sword2": preload("res://assets/PlayerSounds/sword2.mp3"),
@@ -62,8 +63,9 @@ const sounds = {
 }
 
 func play_sfx(soundName: String):
-	sfx.stream = sounds[soundName]
-	SceneControl.playSound(sfx)
+	if playerHealth > 0: # Avoid overwriting death sounds with fall sound
+		sfx.stream = sounds[soundName]
+		SceneControl.playSound(sfx)
 
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
@@ -173,6 +175,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Fall_Stun")
 	elif state == State.ShockDeath:
 		$AnimatedSprite2D.play("Death_Shock")
+	elif state == State.SpikesDeath:
+		$AnimatedSprite2D.play("Death_Spikes")
 	elif state == State.SquashDeath:
 		$AnimatedSprite2D.play("Squash")
 	elif state == State.HitStun:
@@ -275,7 +279,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		if get_slide_collision(0).get_collider() is Spikes:
-			killShock()
+			killSpikes()
 		# fix some collision are ok
 		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
 			takeDamage(State.FallStun, State.FallDeath)
@@ -324,6 +328,10 @@ func bulletHit(bulletPosition):
 func killShock():
 	play_sfx("deathShock")
 	takeDamage(State.ShockDeath, State.ShockDeath, 4)
+
+func killSpikes():
+	play_sfx("deathSpikes")
+	takeDamage(State.SpikesDeath, State.SpikesDeath, 4)
 
 func killSquash():
 	if is_on_floor():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=67 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -26,12 +26,15 @@
 [ext_resource type="Texture2D" uid="uid://brlbqsj7y677b" path="res://assets/Olaf/FallStun5.png" id="13_3dn4f"]
 [ext_resource type="Texture2D" uid="uid://d0f6wcfm0vsnx" path="res://assets/Olaf/kill_electric2.png" id="13_f1dc3"]
 [ext_resource type="Texture2D" uid="uid://bjoohaw2xa5f2" path="res://assets/Olaf/Walk4.png" id="13_y3ehv"]
+[ext_resource type="Texture2D" uid="uid://beej8sjn8aptb" path="res://assets/Olaf/spikes1.png" id="14_53l2r"]
 [ext_resource type="Texture2D" uid="uid://dh508skxefqws" path="res://assets/Olaf/FallStun6.png" id="14_oggk0"]
 [ext_resource type="Texture2D" uid="uid://bw2optfk3g5xr" path="res://assets/Olaf/Walk5.png" id="14_qwh1y"]
 [ext_resource type="Texture2D" uid="uid://b5i0ko0fx0cqu" path="res://assets/Olaf/FallStun7.png" id="15_6ls3k"]
+[ext_resource type="Texture2D" uid="uid://djf8edf76bdc6" path="res://assets/Olaf/spikes2.png" id="15_lo7bn"]
 [ext_resource type="Texture2D" uid="uid://u0dw787d6m7l" path="res://assets/Olaf/Walk6.png" id="15_t5dee"]
 [ext_resource type="Texture2D" uid="uid://6hbtu1gjjchn" path="res://assets/Olaf/FallStun8.png" id="16_a6ga6"]
 [ext_resource type="Texture2D" uid="uid://dm0ujak4jckiv" path="res://assets/Olaf/Walk7.png" id="16_ci8v8"]
+[ext_resource type="Texture2D" uid="uid://b65ughga0ytao" path="res://assets/Olaf/spikes3.png" id="16_ox7t3"]
 [ext_resource type="Texture2D" uid="uid://buf6ggthi6b8x" path="res://assets/Olaf/FallStun9.png" id="17_tnx42"]
 [ext_resource type="Texture2D" uid="uid://bu1s80mrvdkvp" path="res://assets/Olaf/float1.png" id="17_vvvox"]
 [ext_resource type="Texture2D" uid="uid://chlsoe78soqd2" path="res://assets/Olaf/FallStun10.png" id="18_bo61s"]
@@ -111,6 +114,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Shock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_53l2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lo7bn")
+}, {
+"duration": 6.0,
+"texture": ExtResource("16_ox7t3")
+}],
+"loop": true,
+"name": &"Death_Spikes",
 "speed": 5.0
 }, {
 "frames": [{
@@ -359,7 +376,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Walk"
+animation = &"Death_Spikes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)
