@@ -2,14 +2,17 @@ extends PlayerBase
 
 const chargeCancelTime = 0.2
 
+const ERIK_MAX_SPEED = 375
+const ERIK_WALK_FORCE = 1040
+
 enum Substate {bash, tumble, tumble2}
 var subState = Substate.bash
 
 func walkForce():
-	return WALK_FORCE * (1.6 if is_on_floor() else 1.95)
+	return ERIK_WALK_FORCE * (1.0 if is_on_floor() else 1.22)
 
 func walkSpeed():
-	return super.walkSpeed() * 1.5
+	return ERIK_MAX_SPEED
 
 func stopForce():
 	if state == State.AttackMove2:

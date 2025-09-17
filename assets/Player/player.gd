@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name PlayerBase
 
 const STOP_FORCE = 1600
-const WALK_FORCE = 650
+const WALK_FORCE = 1000
 const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
 const SPRING_FORCE = 850
