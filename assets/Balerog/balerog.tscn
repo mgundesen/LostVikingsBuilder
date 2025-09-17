@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=63 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -376,19 +376,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osywc"]
-size = Vector2(77, 116.833)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr3as"]
-size = Vector2(77.3333, 116)
+size = Vector2(58, 85)
 
 [node name="Balerog" type="CharacterBody2D"]
-scale = Vector2(0.75, 0.75)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1.33333)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_x56gs")
 animation = &"Walk"
 
@@ -402,5 +398,4 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-6.35783e-07, 0.666666)
-shape = SubResource("RectangleShape2D_fr3as")
+shape = SubResource("RectangleShape2D_osywc")

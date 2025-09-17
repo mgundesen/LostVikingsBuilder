@@ -392,15 +392,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(90, 130)
+size = Vector2(58.5, 84.5)
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_71xed"]
 
 [node name="Erik" type="CharacterBody2D"]
-scale = Vector2(0.65, 0.65)
 script = ExtResource("1_d55dm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"Walk"
 

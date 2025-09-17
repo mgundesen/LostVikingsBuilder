@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=64 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -343,27 +343,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
-size = Vector2(91.4286, 128.571)
+size = Vector2(63, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umgyw"]
-size = Vector2(11.4286, 158.571)
+size = Vector2(11.4286, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opws"]
-size = Vector2(117.071, 7.14285)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2ut"]
-size = Vector2(89.2308, 130)
+size = Vector2(80.0001, 7.14285)
 
 [node name="Olaf" type="CharacterBody2D"]
-scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_yuhhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Idle_Sheild"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.40598e-06, 0)
@@ -378,7 +374,7 @@ collision_mask = 8
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/front"]
-position = Vector2(62, 70)
+position = Vector2(43.8571, 68.0714)
 shape = SubResource("RectangleShape2D_umgyw")
 
 [node name="top" type="CharacterBody2D" parent="Shield"]
@@ -387,7 +383,7 @@ collision_mask = 15
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
-position = Vector2(9.96427, 0.714249)
+position = Vector2(4.85714, 20.5714)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_1opws")
 one_way_collision = true
@@ -399,5 +395,5 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.83399e-07, 0)
-shape = SubResource("RectangleShape2D_wi2ut")
+position = Vector2(-3.40598e-06, 0)
+shape = SubResource("RectangleShape2D_yfthr")
