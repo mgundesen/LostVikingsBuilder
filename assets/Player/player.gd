@@ -242,7 +242,7 @@ func setState(targetState):
 	if targetState == State.Inflating:
 		get_tree().create_timer(0.3).timeout.connect(func(): setState(State.Inflated))
 	if targetState == State.Inflated:
-		get_tree().create_timer(5).timeout.connect(func(): setState(State.Free))
+		get_tree().create_timer(7).timeout.connect(func(): setState(State.Free))
 
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
@@ -320,7 +320,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	if inAntigrav:
 		velocity.y -= gravity() * 0.1 * delta
 	elif state == State.Inflated:
-		velocity.y = -100
+		velocity.y = -115
 	else:
 		velocity.y += gravity() * delta
 		maybeLimitFall()
@@ -331,7 +331,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	#print(velocity)
 	if get_slide_collision_count() > 0:
 		var col = get_slide_collision(0).get_collider()
-		if col is Spikes:
+		if col is Spikes and yBeforeMove > 0:
 			killSpikes()
 		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
 			velocity.y = ANTIGRAV_BOUNCE
