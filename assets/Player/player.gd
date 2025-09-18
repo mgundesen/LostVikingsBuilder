@@ -25,6 +25,10 @@ var ladderHeight = 0
 var teleportAllowed = false
 var teleportTarget = Vector2()
 
+# Tredmill interface
+var onTredmill = false
+var tredmillSpeed = -1
+
 # Control active interface
 var controlActive = false
 
@@ -397,6 +401,8 @@ func _physics_process(delta):
 		position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or position.y > ladderBottom():
 			state = State.Free
+	if onTredmill:
+		position.x += tredmillSpeed
 
 	decideAnimation(yInput, velocity)
 

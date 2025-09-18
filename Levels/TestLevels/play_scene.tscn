@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=38 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://pswpn58j5gx3" path="res://assets/Interactive/teleporter.tscn" id="30_jl8yd"]
 [ext_resource type="Texture2D" uid="uid://jc67txbagsoy" path="res://assets/spikes.png" id="31_mlwme"]
 [ext_resource type="Script" uid="uid://c4ypmkniosifq" path="res://assets/Hitbox/spikes.gd" id="32_44oio"]
+[ext_resource type="PackedScene" uid="uid://dwugfhkhbyida" path="res://assets/Interactive/tredmill.tscn" id="33_44oio"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -279,7 +280,7 @@ position = Vector2(-28, 441)
 itemID = 3
 
 [node name="Door" parent="." instance=ExtResource("23_vi0nd")]
-position = Vector2(-298, 481)
+position = Vector2(-362, 234)
 
 [node name="Exit" parent="." instance=ExtResource("24_tixdq")]
 position = Vector2(-378, 463)
@@ -298,7 +299,7 @@ position = Vector2(574, 757)
 operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
-position = Vector2(-173, 321)
+position = Vector2(-170, 201)
 
 [node name="AlienShooter" parent="." instance=ExtResource("27_k4j4b")]
 position = Vector2(155, 790)
@@ -337,6 +338,11 @@ itemID = 8
 [node name="Item6" parent="." instance=ExtResource("4_mntja")]
 position = Vector2(42, 370)
 itemID = 7
+
+[node name="Tredmill" parent="." instance=ExtResource("33_44oio")]
+position = Vector2(-574, 572)
+Width = 8.0
+reverse = false
 
 [connection signal="activated" from="Button" to="Barrier" method="_turn_off"]
 [connection signal="activated" from="Machine" to="Barrier" method="_turn_off"]
