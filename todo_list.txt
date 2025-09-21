@@ -8,5 +8,4 @@ Runnning against a wall
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
-Delayed state transition (such as inflate later setting free)
 heck is circular platform physics doing?

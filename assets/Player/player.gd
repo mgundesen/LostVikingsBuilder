@@ -47,6 +47,8 @@ var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
 
+var inflateTimer
+
 @onready var sfx = $AudioStreamPlayer2D
 
 # Preload sound effects
@@ -74,6 +76,14 @@ func play_sfx(soundName: String):
 
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
+	setupTimers()
+
+func setupTimers():
+	inflateTimer = Timer.new()
+	add_child(inflateTimer)
+	inflateTimer.wait_time = 7.0
+	inflateTimer.one_shot = true
+	inflateTimer.timeout.connect(func(): setState(State.Free))
 
 func facingDirected(offset):
 	return -offset if direction == FacingDirection.Left else offset
@@ -246,7 +256,7 @@ func setState(targetState):
 	if targetState == State.Inflating:
 		get_tree().create_timer(0.3).timeout.connect(func(): setState(State.Inflated))
 	if targetState == State.Inflated:
-		get_tree().create_timer(7).timeout.connect(func(): setState(State.Free))
+		inflateTimer.start()
 
 func takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
@@ -332,10 +342,10 @@ func applyPhysics(xInput, triggerJump, delta):
 	# Move based on the velocity and snap to the ground.
 	var yBeforeMove = velocity.y
 	move_and_slide()
-	#print(velocity)
 	if get_slide_collision_count() > 0:
 		var col = get_slide_collision(0).get_collider()
-		if col is Spikes and yBeforeMove > 0:
+		# 17 is to be bigger than 1 step of gravity calculation
+		if col is Spikes and yBeforeMove > 17: 
 			killSpikes()
 		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
 			velocity.y = ANTIGRAV_BOUNCE
@@ -370,6 +380,7 @@ func _physics_process(delta):
 				play_sfx("itemFail")
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
+			inflateTimer.stop()
 		if teleportAllowed == true and Input.is_action_just_pressed(&"A") and is_on_floor():
 			setState(State.Teleport)
 			play_sfx("teleport")

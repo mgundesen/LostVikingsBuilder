@@ -10,6 +10,7 @@ func updateSheildCollision():
 
 func _ready():
 	updateSheildCollision()
+	super._ready()
 
 func maybeLimitFall():
 	if raisedSheild:
