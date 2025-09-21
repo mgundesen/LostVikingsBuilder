@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d24hykuun30i1"]
+
+[ext_resource type="Script" uid="uid://dug68d061vsvy" path="res://assets/Interactive/sensor.gd" id="1_3s35t"]
+[ext_resource type="Texture2D" uid="uid://eoc2fp2vipaj" path="res://assets/Interactive/Sensor.png" id="2_apq1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiulv"]
+size = Vector2(37, 49)
+
+[node name="Sensor" type="Node2D"]
+script = ExtResource("1_3s35t")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_apq1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_iiulv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

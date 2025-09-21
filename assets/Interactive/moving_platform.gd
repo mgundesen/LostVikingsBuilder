@@ -5,23 +5,30 @@ enum Mode {EndPoints, Circular}
 # EndPoints mode
 var start = Vector2()
 @export var speed = 2.0
-@export var end = Vector2(100,100)
+@export var end = Vector2(3,0)
 #Circular Mode
 @export var radius = 200
 var center
 var angle = 0
+
+@export var moving = true
 
 var target = Vector2()
 var nextTarget = Vector2()
 
 func _ready():
 	if mode == Mode.EndPoints:
-		target = end + position
-		nextTarget = start + position
+		target = end * 46 + position
+		nextTarget = start * 46 + position
 	else:
 		center = position
 
+func _startMove():
+	moving = true
+
 func _physics_process(_delta):
+	if not moving:
+		return
 	if mode == Mode.EndPoints:
 		position += position.direction_to(target) * speed
 		if position.distance_to(target) < speed:

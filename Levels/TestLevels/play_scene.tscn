@@ -221,7 +221,7 @@ position = Vector2(1336, 895)
 position = Vector2(715, 460)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_5xdee")]
-position = Vector2(1047, 134)
+position = Vector2(491, 175)
 mode = 1
 speed = 1.3
 end = Vector2(300, 0)
