@@ -7,7 +7,7 @@ const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
 const ANTIGRAV_BOUNCE = 100
 const SPRING_FORCE = 850
-const FALL_DAMAGE_LIMIT = 850
+const FALL_DAMAGE_LIMIT = 900
 const SOUND_FALL_LIMIT = 200
 const CLIMB_SPEED = 3
 
@@ -339,6 +339,10 @@ func applyPhysics(xInput, triggerJump, delta):
 		velocity.y += gravity() * delta
 		maybeLimitFall()
 
+	if springJump:
+		springJump = false
+		velocity.y = -SPRING_FORCE
+
 	# Move based on the velocity and snap to the ground.
 	var yBeforeMove = velocity.y
 	move_and_slide()
@@ -355,10 +359,6 @@ func applyPhysics(xInput, triggerJump, delta):
 			play_sfx("bonk")
 		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
 			play_sfx("landing")
-
-	if springJump:
-		springJump = false
-		velocity.y = -SPRING_FORCE
 
 	if triggerJump:
 		velocity.y = -JUMP_SPEED

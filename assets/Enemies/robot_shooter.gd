@@ -12,7 +12,7 @@ func closeToPlayer():
 
 func fire():
 	SceneControl.playSound($AudioStreamPlayer2D)
-	EnemyUtil.fire(self, flip, -30)
+	EnemyUtil.fire(self, flip, -20)
 
 func shouldAttack():
 	if closeToPlayer():

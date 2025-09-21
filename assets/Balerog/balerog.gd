@@ -15,7 +15,7 @@ func spawnArrow():
 	owner.add_child(arrow)
 	arrow.transform = transform
 	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset
-	arrow.position.x += offset
+	arrow.position += Vector2(offset, -5)
 
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left

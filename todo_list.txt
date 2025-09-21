@@ -1,11 +1,13 @@
 Features:
-Improve infaltion end
 Balerog second sword swing
 Transfer item between characters(improved)
-Increased spring power high speed
-Runnning against a wall
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 heck is circular platform physics doing?
+
+Features Low Priority:
+Improve infaltion end
+Increased spring power high speed
+Runnning against a wall

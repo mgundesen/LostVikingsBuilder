@@ -25,10 +25,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56eos"]
-size = Vector2(93.8462, 69.5)
+size = Vector2(143.077, 69.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fntwp"]
-size = Vector2(140, 49.9231)
+size = Vector2(140, 57.6155)
 
 [node name="Spring" type="Node2D"]
 scale = Vector2(0.65, 0.65)
@@ -48,7 +48,7 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.769232, -34.75)
+position = Vector2(0.769228, -34.75)
 shape = SubResource("RectangleShape2D_56eos")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -56,7 +56,7 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1, 48.0385)
+position = Vector2(1, 44.1923)
 shape = SubResource("RectangleShape2D_fntwp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
