@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl4qkuq3dr0xi"]
+
+[ext_resource type="Texture2D" uid="uid://dkvvkqo0r67s2" path="res://assets/Interactive/BreakBlock.png" id="1_6urg4"]
+[ext_resource type="Texture2D" uid="uid://3i21fi2qk8mr" path="res://assets/Interactive/BreakBlock1.png" id="1_86f6i"]
+[ext_resource type="Script" uid="uid://vv64wwqaspky" path="res://assets/Interactive/break_block_2.gd" id="1_tt0hl"]
+[ext_resource type="Texture2D" uid="uid://c2rdln5t2noyp" path="res://assets/Interactive/BreakBlock2.png" id="2_tt0hl"]
+[ext_resource type="Texture2D" uid="uid://b8d64jh6kl4jh" path="res://assets/Interactive/BreakBlock3.png" id="3_o6bbf"]
+[ext_resource type="AudioStream" uid="uid://10hkiuu66ooa" path="res://assets/Sounds/break.mp3" id="6_o6bbf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dqgs"]
+size = Vector2(46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2fvfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_86f6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tt0hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o6bbf")
+}],
+"loop": true,
+"name": &"breaking",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6urg4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BreakBlock2" type="Node2D"]
+script = ExtResource("1_tt0hl")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_6dqgs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2fvfi")
+animation = &"breaking"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6dqgs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o6bbf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

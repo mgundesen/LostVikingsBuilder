@@ -1,5 +1,7 @@
 extends Hitbox
 
+class_name Arrow
+
 var speed = 8.5
 
 func _init():
