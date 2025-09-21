@@ -18,9 +18,11 @@ frame_3/texture = ExtResource("4_h2xme")
 frame_3/duration = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojlhv"]
+resource_local_to_scene = true
 size = Vector2(200, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyifo"]
+resource_local_to_scene = true
 size = Vector2(200, 9)
 
 [node name="Tredmill" type="Node2D"]
