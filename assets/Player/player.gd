@@ -409,8 +409,16 @@ func _physics_process(delta):
 			direction = FacingDirection.Left
 	elif state == State.Ladder:
 		position.x = ladderPos.x
-		position.y += yInput * CLIMB_SPEED
-		if position.y < ladderTop() or position.y > ladderBottom():
+		var touchingTiles = false
+		for body in $Area2D.get_overlapping_bodies():
+			print(body)
+			if body is Tiles:
+				touchingTiles = true
+			if body is Spikes:
+				killSpikes()
+		if !touchingTiles or yInput > 0:
+			position.y += yInput * CLIMB_SPEED
+		if position.y < ladderTop() or (yInput > 0 and touchingTiles):
 			state = State.Free
 	if onTredmill:
 		position.x += tredmillSpeed
