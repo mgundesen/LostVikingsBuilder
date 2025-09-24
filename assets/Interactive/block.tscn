@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqnhpyxdnb3kl"]
+[gd_scene load_steps=4 format=3 uid="uid://dqnhpyxdnb3kl"]
 
 [ext_resource type="Script" uid="uid://ckcsl5b78c2a0" path="res://assets/Interactive/block.gd" id="1_cqrb3"]
 [ext_resource type="Texture2D" uid="uid://cy2e53uf8e8dh" path="res://assets/Interactive/block.png" id="2_cqrb3"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a64gw"]
-points = PackedVector2Array(-44, -46, 44, -46, 44, 30, 40, 46, -40, 46, -44, 30)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqrb3"]
-size = Vector2(88, 8)
+size = Vector2(82, 2)
 
 [node name="Block" type="CharacterBody2D"]
 collision_layer = 7
@@ -19,15 +16,15 @@ position = Vector2(-1.19209e-07, 2.563e-06)
 scale = Vector2(0.633094, 0.691729)
 texture = ExtResource("2_cqrb3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_a64gw")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-44, -46, 44, -46, 44, 29, 40, 46, -40, 46, -44, 29)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 45)
+position = Vector2(0, 48)
 shape = SubResource("RectangleShape2D_cqrb3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

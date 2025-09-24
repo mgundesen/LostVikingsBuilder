@@ -216,7 +216,7 @@ position = Vector2(320, 367)
 position = Vector2(2, 511)
 
 [node name="PressurePlate" parent="." instance=ExtResource("29_jl8yd")]
-position = Vector2(1336, 895)
+position = Vector2(1334, 898)
 
 [node name="Barrier" parent="." instance=ExtResource("6_5hyrw")]
 position = Vector2(715, 460)
@@ -238,7 +238,7 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(142, 505)
+position = Vector2(1651, 769)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(316, 507)

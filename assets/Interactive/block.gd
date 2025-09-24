@@ -7,16 +7,16 @@ class_name Block
 var disabled = false
 
 func _physics_process(delta: float) -> void:
-	print(position)
-	
+	if PlayerUtil.closeToPlayer(position, 46+33, Vector2(-1,0)):
+		position.x += 2
+	if PlayerUtil.closeToPlayer(position, 46+33, Vector2(1,0)):
+		position.x -= 2
 	if !disabled:
 		velocity.y += gravity * delta
-	
-		if PlayerUtil.closeToPlayer(position, 46+33, Vector2(-1,0)):
-			position.x += 2
-		if PlayerUtil.closeToPlayer(position, 46+33, Vector2(1,0)):
-			position.x -= 2
 		move_and_slide()
+		# Avoid block sticking to a player too much
+		if is_on_wall_only():
+			position.y += 2
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is OlafShield:
