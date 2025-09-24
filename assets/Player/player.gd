@@ -241,7 +241,9 @@ func killPlayer():
 	for i in range(4):
 		items[i] = ItemUtil.Item.none
 	visible = false
-	position = Vector2(-100000, -100000) # Move the hitboxes away
+	#Remove collision
+	set_collision_layer(0)
+	set_collision_mask(0)
 	
 func stunTime():
 	if state == State.FallStun:
