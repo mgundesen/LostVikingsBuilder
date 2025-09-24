@@ -300,7 +300,7 @@ position = Vector2(574, 757)
 operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
-position = Vector2(-170, 201)
+position = Vector2(-173, 321)
 
 [node name="AlienShooter" parent="." instance=ExtResource("27_k4j4b")]
 position = Vector2(155, 790)

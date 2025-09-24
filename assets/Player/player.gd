@@ -411,7 +411,6 @@ func _physics_process(delta):
 		position.x = ladderPos.x
 		var touchingTiles = false
 		for body in $Area2D.get_overlapping_bodies():
-			print(body)
 			if body is Tiles:
 				touchingTiles = true
 			if body is Spikes:
