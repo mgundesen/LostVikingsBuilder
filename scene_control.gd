@@ -43,6 +43,8 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 
 func nextScene():
 	currentScene += 1
+	if sceneList.size() == currentScene:
+		currentScene = 0
 	get_tree().change_scene_to_file(sceneList[currentScene]["level"])
 
 func continueScene():
@@ -58,11 +60,12 @@ func deathScene():
 func textForScene(type):
 	if textBoxEnabled:
 		if type == Dialog.Start:
-			return sceneList[currentScene]["text"]
+			if "text" in sceneList[currentScene]:
+				return sceneList[currentScene]["text"]
 		elif type == Dialog.End:
-			return sceneList[currentScene]["endText"]
-	else:
-		return []
+			if "endText" in sceneList[currentScene]:
+				return sceneList[currentScene]["endText"]
+	return []
 		
 func getMusicEnabled():
 	return musicEnabled
