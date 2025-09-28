@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciis1vf6dfi27"]
+
+[ext_resource type="Script" uid="uid://br50x8bcya5s4" path="res://assets/Menu/text_menu.gd" id="1_e7vbr"]
+[ext_resource type="Texture2D" uid="uid://d31yrby42s0do" path="res://assets/Menu/menu_icon.png" id="2_ku3xy"]
+
+[node name="textMenu" type="CanvasLayer"]
+script = ExtResource("1_e7vbr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "abc
+"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(406, 382)
+texture = ExtResource("2_ku3xy")

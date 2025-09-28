@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5y46p400ksns"]
 
 [ext_resource type="Script" uid="uid://c5wufjesfvsja" path="res://assets/HUD/textbox.gd" id="1_j08tl"]
-[ext_resource type="FontFile" uid="uid://cdqxbjqdvt7x3" path="res://assets/MooseNooks.ttf" id="1_poo6i"]
+[ext_resource type="FontFile" uid="uid://cqrs2c1gxx6dy" path="res://assets/Font/troika.otf" id="2_j08tl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j08tl"]
 bg_color = Color(0.580392, 0, 0, 1)
@@ -17,7 +17,6 @@ corner_radius_bottom_left = 8
 
 [node name="Textbox" type="CanvasLayer"]
 process_mode = 3
-visible = false
 offset = Vector2(250, 250)
 scale = Vector2(1.4, 1.4)
 transform = Transform2D(1.4, 0, 0, 1.4, 250, 250)
@@ -44,5 +43,5 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/normal_font = ExtResource("1_poo6i")
+theme_override_fonts/normal_font = ExtResource("2_j08tl")
 text = "Waking up in a cell again... this is starting to feel like a tradition."
