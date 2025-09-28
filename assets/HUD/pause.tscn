@@ -9,6 +9,7 @@ process_mode = 3
 script = ExtResource("1_yogh0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Yes" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(500, 400)

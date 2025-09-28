@@ -8,6 +8,7 @@ func _startDialog():
 	updateTextbox()
 
 func _ready():
+	visible = true
 	_startDialog()
 
 func setText(color, text):
