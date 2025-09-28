@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://4vhs462wlgj6"]
+[gd_scene load_steps=29 format=4 uid="uid://4vhs462wlgj6"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_2ewhw"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="2_0idif"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://drf6bcs41yduw" path="res://assets/Interactive/moving_platform.tscn" id="12_xer1j"]
 [ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="13_xer1j"]
 [ext_resource type="AudioStream" uid="uid://8tut4eja2sqh" path="res://assets/Music/ship_music.mp3" id="14_qsoch"]
+[ext_resource type="PackedScene" uid="uid://dnkhm086cejgp" path="res://assets/HUD/fade_scene.tscn" id="15_cqhsr"]
 [ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="15_vnof0"]
 [ext_resource type="PackedScene" uid="uid://c1ny4ndeihgsh" path="res://assets/Interactive/wall_spawner.tscn" id="16_5ai7y"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="17_ek7th"]
@@ -1407,7 +1408,7 @@ position = Vector2(966, 115)
 [node name="MovingPlatform" parent="Objects" instance=ExtResource("12_xer1j")]
 position = Vector2(700.851, 396.305)
 speed = 3.5
-end = Vector2(0, -350)
+end = Vector2(0, -8)
 
 [node name="Antigrav" parent="Objects" instance=ExtResource("17_ek7th")]
 position = Vector2(1493, 272)
@@ -1459,13 +1460,15 @@ position_smoothing_speed = 20.0
 editor_draw_limits = true
 script = ExtResource("1_2ewhw")
 
+[node name="FadeScene" parent="." instance=ExtResource("15_cqhsr")]
+
 [node name="HUD" parent="." instance=ExtResource("2_0idif")]
 
 [node name="Balerog" parent="." instance=ExtResource("3_36xi1")]
 position = Vector2(187, 508)
 
 [node name="Erik" parent="." instance=ExtResource("4_is5fq")]
-position = Vector2(1317, 506)
+position = Vector2(279, 506)
 
 [node name="Olaf" parent="." instance=ExtResource("5_6q7m6")]
 position = Vector2(102, 506)

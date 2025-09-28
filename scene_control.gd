@@ -30,7 +30,8 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 		 [oColor, "At least they also left some food for us, I'm starving"],
 		 [bColor, "Tradition or not, the guards actually remembered to lock our cell this time."],
 		 [eColor, "... Get busy living or get busy dying. Time to get busy escaping."]]},
-{"level" : "res://Levels/TestLevels/level2.tscn"}
+{"level" : "res://Levels/TestLevels/level2.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level3.tscn"}
 ]
 
 func nextScene():
