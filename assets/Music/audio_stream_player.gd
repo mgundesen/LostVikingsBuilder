@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 func _ready() -> void:
-	if SceneControl.getMusicEnabled():
+	if SceneControl.musicEnabled:
 		play()
 	else:
 		stop()	

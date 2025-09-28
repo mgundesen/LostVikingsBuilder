@@ -9,11 +9,13 @@ func pauseType():
 	return pauseState
 	
 func setPause(type):
-	pauseState = type
-	get_tree().paused = !pauseState == PauseType.None
+	if pauseState == PauseType.None:
+		pauseState = type
+		get_tree().paused = !pauseState == PauseType.None
 
 func unpause():
-	setPause(PauseType.None)
+	pauseState = PauseType.None
+	get_tree().paused = !pauseState == PauseType.None
 
 var currentScene = 0
 var musicEnabled = true
