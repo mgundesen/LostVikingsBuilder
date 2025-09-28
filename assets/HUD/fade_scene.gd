@@ -8,4 +8,5 @@ func fadein():
 	$AnimationPlayer.play("fadein")
 
 func fadeout():
+	set_process_mode(Node.PROCESS_MODE_PAUSABLE)
 	$AnimationPlayer.play("fadeout")

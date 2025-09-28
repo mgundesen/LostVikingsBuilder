@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://crcsxp8gjl36x"]
+[gd_scene load_steps=39 format=4 uid="uid://crcsxp8gjl36x"]
 
 [ext_resource type="Texture2D" uid="uid://cwlovvlrxtsnf" path="res://assets/background_candyland.png" id="1_ftyrr"]
 [ext_resource type="Texture2D" uid="uid://r80l8dgke2a0" path="res://assets/BlockBackground.png" id="1_wtqwx"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnhpyxdnb3kl" path="res://assets/Interactive/block.tscn" id="17_s1hir"]
 [ext_resource type="PackedScene" uid="uid://d24hykuun30i1" path="res://assets/Interactive/sensor.tscn" id="17_t6oyi"]
 [ext_resource type="PackedScene" uid="uid://drf6bcs41yduw" path="res://assets/Interactive/moving_platform.tscn" id="18_s1hir"]
+[ext_resource type="PackedScene" uid="uid://dnkhm086cejgp" path="res://assets/HUD/fade_scene.tscn" id="19_2k728"]
+[ext_resource type="PackedScene" uid="uid://b5y46p400ksns" path="res://assets/HUD/textbox.tscn" id="20_ollon"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="24_j3qyi"]
 [ext_resource type="Script" uid="uid://b0s5p8ml0e4jt" path="res://assets/Hitbox/tile_map_layer.gd" id="25_3ey4s"]
 [ext_resource type="AudioStream" uid="uid://dtbxu0a7gqvjx" path="res://assets/Music/Factory.mp3" id="26_3ey4s"]
@@ -1684,10 +1686,10 @@ position = Vector2(294, 511)
 position = Vector2(438, 516)
 
 [node name="Block" parent="Objects" instance=ExtResource("17_s1hir")]
-position = Vector2(441, -215)
+position = Vector2(560, -537)
 
 [node name="Exit" parent="Objects" instance=ExtResource("10_8wv4e")]
-position = Vector2(1146, 472)
+position = Vector2(389, 455)
 
 [node name="WallSpawner" parent="Objects" instance=ExtResource("8_j3qyi")]
 position = Vector2(411, -296)
@@ -1780,7 +1782,11 @@ position_smoothing_speed = 20.0
 editor_draw_limits = true
 script = ExtResource("2_igp3g")
 
+[node name="FadeScene" parent="." instance=ExtResource("19_2k728")]
+
 [node name="HUD" parent="." instance=ExtResource("3_3qx3l")]
+
+[node name="Textbox" parent="." instance=ExtResource("20_ollon")]
 
 [node name="Balerog" parent="." instance=ExtResource("4_8h4jd")]
 position = Vector2(57, 479)
@@ -1820,4 +1826,5 @@ script = ExtResource("9_7m2du")
 [connection signal="exited" from="Objects/Sensor" to="Objects/Door" method="close"]
 [connection signal="exited" from="Objects/Sensor" to="OBPath/OBDoor" method="close"]
 [connection signal="exited" from="Objects/Sensor" to="Erik Path/Door3" method="close"]
+[connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
 [connection signal="opened" from="OBPath/Keyhole" to="OBPath/MovingPlatform" method="_startMove"]

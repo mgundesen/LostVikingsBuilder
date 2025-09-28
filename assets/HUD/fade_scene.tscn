@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="FadeScene" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_7grad")
 
 [node name="ColorRect" type="ColorRect" parent="."]

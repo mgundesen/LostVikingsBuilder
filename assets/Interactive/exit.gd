@@ -12,4 +12,4 @@ func _process(_delta):
 	transition = true
 	won.emit()
 	get_parent().get_parent().get_node("FadeScene").fadeout()
-	get_tree().create_timer(0.5).timeout.connect(func(): SceneControl.nextScene())
+	get_tree().create_timer(0.5, false).timeout.connect(func(): SceneControl.nextScene())

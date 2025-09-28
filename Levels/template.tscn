@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://crcsxp8gjl36x"]
+[gd_scene load_steps=24 format=4 uid="uid://crcsxp8gjl36x"]
 
 [ext_resource type="Texture2D" uid="uid://r80l8dgke2a0" path="res://assets/BlockBackground.png" id="1_wtqwx"]
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="2_igp3g"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="3_3qx3l"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="4_8h4jd"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="5_h8l50"]
+[ext_resource type="PackedScene" uid="uid://b5y46p400ksns" path="res://assets/HUD/textbox.tscn" id="6_85dei"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="6_x47i1"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="7_85dei"]
 [ext_resource type="Texture2D" uid="uid://jc67txbagsoy" path="res://assets/spikes.png" id="7_igp3g"]
@@ -1589,6 +1590,8 @@ script = ExtResource("2_igp3g")
 
 [node name="HUD" parent="." instance=ExtResource("3_3qx3l")]
 
+[node name="Textbox" parent="." instance=ExtResource("6_85dei")]
+
 [node name="Balerog" parent="." instance=ExtResource("4_8h4jd")]
 position = Vector2(187, 508)
 
@@ -1619,3 +1622,5 @@ stream = ExtResource("8_nph8i")
 volume_db = -9.0
 parameters/looping = true
 script = ExtResource("9_7m2du")
+
+[connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
