@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://itw3hjx6thsd"]
+[gd_scene load_steps=11 format=3 uid="uid://itw3hjx6thsd"]
 
 [ext_resource type="Script" uid="uid://c6tm8kuw6ux64" path="res://assets/Enemies/AlienShooter/alien_shooter.gd" id="1_escer"]
 [ext_resource type="Texture2D" uid="uid://c5qg7nolmvi60" path="res://assets/Enemies/AlienShooter/attack.png" id="1_mj686"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4xmjao0vo0ux" path="res://assets/Enemies/AlienShooter/walk2.png" id="3_6snvm"]
 [ext_resource type="Texture2D" uid="uid://c1r7b042cdlhq" path="res://assets/Enemies/AlienShooter/walk3.png" id="4_peamy"]
 [ext_resource type="Texture2D" uid="uid://dkqq4ic4pgije" path="res://assets/Enemies/AlienShooter/walk4.png" id="5_5fejw"]
+[ext_resource type="PackedScene" uid="uid://cffav8lls5m8j" path="res://assets/Enemies/edge_detect.tscn" id="8_peamy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7v5mr"]
 animations = [{
@@ -64,5 +65,8 @@ animation = &"attack"
 position = Vector2(0.5, 0.694449)
 shape = SubResource("RectangleShape2D_ck1l7")
 
+[node name="EdgeDetect" parent="." instance=ExtResource("8_peamy")]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]

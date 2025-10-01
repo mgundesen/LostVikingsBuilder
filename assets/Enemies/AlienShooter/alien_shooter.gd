@@ -44,3 +44,7 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body is not PlayerBase:
 		flip = !flip
+
+
+func _on_edge_detect_hit_edge() -> void:
+	flip = !flip

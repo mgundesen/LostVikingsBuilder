@@ -18,7 +18,7 @@ func unpause():
 	get_tree().paused = !pauseState == PauseType.None
 
 var currentScene = 0
-var musicEnabled = true
+var musicEnabled = false
 var soundEnabled = true
 
 const eColor = Color8(148, 0, 0)

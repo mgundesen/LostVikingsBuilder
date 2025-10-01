@@ -1466,6 +1466,7 @@ script = ExtResource("1_2ewhw")
 [node name="HUD" parent="." instance=ExtResource("2_0idif")]
 
 [node name="Textbox" parent="." instance=ExtResource("17_6nbcr")]
+visible = false
 
 [node name="Balerog" parent="." instance=ExtResource("3_36xi1")]
 position = Vector2(187, 508)

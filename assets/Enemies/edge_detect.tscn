@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cffav8lls5m8j"]
+
+[ext_resource type="Script" uid="uid://b2tr0o84fc1qf" path="res://assets/Enemies/edge_detect.gd" id="1_lrowm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32vdl"]
+size = Vector2(8, 130)
+
+[node name="EdgeDetect" type="Node2D"]
+script = ExtResource("1_lrowm")
+
+[node name="RightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_32vdl")
+
+[node name="LeftArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(-50, 0)
+shape = SubResource("RectangleShape2D_32vdl")
+
+[connection signal="body_exited" from="RightArea" to="." method="_on_area_body_exited"]
+[connection signal="body_exited" from="LeftArea" to="." method="_on_area_body_exited"]
