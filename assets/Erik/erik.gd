@@ -72,22 +72,28 @@ func _physics_process(delta):
 		   xInput > -0.8 and direction == FacingDirection.Left:
 			get_tree().create_timer(chargeCancelTime).timeout.connect(func(): setState(State.Free))
 			
-	if state == State.AttackMove2 and (subState == Substate.tumble or subState == Substate.tumble2):
-		if subState == Substate.tumble:
-			velocity.x = 120 if direction == FacingDirection.Left else -120
-		else:
-			velocity.x = 0
-		velocity.y += gravity() * delta
-		move_and_slide()
+	if state == State.AttackMove2: 
+		if subState == Substate.bash and is_on_wall():
+			wallBonk()
+		elif subState == Substate.tumble or subState == Substate.tumble2:
+			if subState == Substate.tumble:
+				velocity.x = 120 if direction == FacingDirection.Left else -120
+			else:
+				velocity.x = 0
+			velocity.y += gravity() * delta
+			move_and_slide()
 	super._physics_process(delta)
+
+func wallBonk():
+	spawnHitbox(50, Hitbox.Type.breaking)
+	subState = Substate.tumble
+	play_sfx("bonk")
+	velocity.y = -220
+	get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
+	# intentional skip of setState to allow exit
+	get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if state == State.AttackMove2 and (area is Enemy or area is BreakBlock):
-		spawnHitbox(50, Hitbox.Type.breaking)
-		subState = Substate.tumble
-		play_sfx("bonk")
-		velocity.y = -220
-		get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
-		# intentional skip of setState to allow exit
-		get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+		wallBonk()
 	super.on_area_entered(area)
