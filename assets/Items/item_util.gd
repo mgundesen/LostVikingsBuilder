@@ -1,6 +1,7 @@
 extends Node2D
 
-enum Item {none, raddish, tomato, bomb, keyBlue, keyRed, keyYellow, beef, smartbomb, fireArrow}
+enum Item {none, raddish, tomato, bomb, keyBlue, keyRed, keyYellow, 
+		   beef, smartbomb, fireArrow, gravboots}
 enum Keyhole{red, blue, yellow}
 
 func imagePath(id):
@@ -25,3 +26,5 @@ func imagePath(id):
 			return "smartbomb"
 		Item.fireArrow:
 			return "fire_arrow"
+		Item.gravboots:
+			return "gravboots"

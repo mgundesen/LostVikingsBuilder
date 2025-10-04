@@ -8,6 +8,7 @@ var state = State.Closed
 enum Mode{Auto, Signals, Timed}
 @export var operationMode = Mode.Signals
 @export var timer = 2.0
+@export var openCount = 1
 
 @onready var sfx = $AudioStreamPlayer2D
 
@@ -27,13 +28,16 @@ func setCollision(on):
 		set_collision_mask_value(layer+1, on)
 
 func open():
-	play_sfx("open")
-	state = State.Open
-	setCollision(false)
-	if operationMode == Mode.Timed:
-		get_tree().create_timer(timer).timeout.connect(close)
+	openCount -= 1
+	if openCount == 0:
+		play_sfx("open")
+		state = State.Open
+		setCollision(false)
+		if operationMode == Mode.Timed:
+			get_tree().create_timer(timer).timeout.connect(close)
 
 func close():
+	openCount += 1
 	play_sfx("close")
 	state = State.Closed
 	setCollision(true)

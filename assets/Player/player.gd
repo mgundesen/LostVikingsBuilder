@@ -36,6 +36,7 @@ var controlActive = false
 var springJump = false
 
 var inAntigrav = false
+var imuneAntigrav = false
 
 var playerHealth = 3
 var itemSlot =  0
@@ -140,6 +141,8 @@ func useItem():
 				return false
 		ItemUtil.Item.smartbomb:
 			spawnHitboxSmartbomb()
+		ItemUtil.Item.gravboots:
+			imuneAntigrav = true
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
@@ -333,7 +336,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
 
 	# Vertical movement code. Apply gravity.
-	if inAntigrav:
+	if inAntigrav and !imuneAntigrav:
 		velocity.y -= gravity() * 0.1 * delta
 	elif state == State.Inflated:
 		velocity.y = -115
