@@ -38,6 +38,7 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 			[eColor, "Since when have that started bothering you?"],
 			[oColor, "Dunno, maybe him yet again being alive to do his tricks."],
 			[bColor, "I'm betting this is someone else pulling the strings!"]]},
+{"level" : "res://Levels/Chansey_Levels/Level2.tscn"},
 {"level" : "res://Levels/Chansey_Levels/Level3.tscn",
 "text" : [[bColor, "abc."]],
 "endText" : [[bColor, "abc."]]}

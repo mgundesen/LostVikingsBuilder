@@ -13,7 +13,7 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase and on == true:
-		body.set("inAntigrav", true)
+		body.enterAntigrav()
 	else:
 		body.set("inAntigrav", false)
 

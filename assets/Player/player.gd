@@ -67,7 +67,8 @@ const sounds = {
 	"bow": preload("res://assets/PlayerSounds/bow.mp3"),
 	"sword1": preload("res://assets/PlayerSounds/sword1.mp3"),
 	"sword2": preload("res://assets/PlayerSounds/sword2.mp3"),
-	"teleport": preload("res://assets/PlayerSounds/teleport.mp3")
+	"teleport": preload("res://assets/PlayerSounds/teleport.mp3"),
+	"antigrav": preload("res://assets/PlayerSounds/antigrav.mp3")
 }
 
 func play_sfx(soundName: String):
@@ -193,6 +194,11 @@ func walkSpeed():
 
 func allowJump():
 	return false
+
+func enterAntigrav():
+	inAntigrav = true
+	if !imuneAntigrav:
+		play_sfx("antigrav")
 
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
