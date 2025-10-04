@@ -5,8 +5,9 @@ class_name Door
 enum State{Open, Closed, Opening, Closing}
 var state = State.Closed
 
-enum Mode{Auto, Signals}
-@export var operationMode = Mode.Signals 
+enum Mode{Auto, Signals, Timed}
+@export var operationMode = Mode.Signals
+@export var timer = 2.0
 
 @onready var sfx = $AudioStreamPlayer2D
 
@@ -29,6 +30,8 @@ func open():
 	play_sfx("open")
 	state = State.Open
 	setCollision(false)
+	if operationMode == Mode.Timed:
+		get_tree().create_timer(timer).timeout.connect(close)
 
 func close():
 	play_sfx("close")
