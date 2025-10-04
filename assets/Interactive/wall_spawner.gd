@@ -11,7 +11,7 @@ enum Type {WallBlock, BreakBlock}
 func spawnBlock(node):
 	var block = wallBlockScene.instantiate() if type == Type.WallBlock else breakBlockScene.instantiate()
 	add_child(block)
-	block.position += node * 48
+	block.position += node * 46
 
 func _ready():
 	for node in nodes:

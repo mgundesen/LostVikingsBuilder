@@ -7,10 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://10hkiuu66ooa" path="res://assets/Sounds/break.mp3" id="5_wh47w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh47w"]
-size = Vector2(52, 48)
+size = Vector2(50, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jq1lg"]
-size = Vector2(48, 48)
+size = Vector2(46, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jq1lg"]
 animations = [{
