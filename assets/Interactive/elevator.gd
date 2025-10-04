@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var nodes = PackedVector2Array()
+@export var startNode = 0
 @export var speed = 3
 
 var previousTarget = 0
@@ -9,6 +10,9 @@ var targetIndex = 0
 func _ready():
 	for i in range(nodes.size()):
 		nodes[i] = nodes[i] * 46 + position
+	targetIndex = startNode
+	var target = nodes[targetIndex]
+	position = target
 
 func _physics_process(_delta):
 	var target = nodes[targetIndex]
