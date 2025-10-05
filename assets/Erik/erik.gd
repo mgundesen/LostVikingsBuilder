@@ -12,6 +12,8 @@ func walkForce():
 	return ERIK_WALK_FORCE * (1.0 if is_on_floor() else 1.22)
 
 func walkSpeed():
+	if state == State.Inflated:
+		return WALK_MAX_SPEED * 0.5
 	return ERIK_MAX_SPEED
 
 func stopForce():

@@ -1,12 +1,15 @@
 Features:
 Balerog second sword swing
 Transfer item between characters(improved)
+Improved graphic tredmill
 
 Bugs:
+Multi inflate
 Hit in erik attack 2 state exits in a odd way
 Spring canceling death animation
 heck is circular platform physics doing?
 Jumping down antigrav
+Jumping upward into spikes
 
 Features Low Priority:
 Improve infaltion end
