@@ -42,8 +42,8 @@ var playerHealth = 3
 var itemSlot =  0
 var items = [0,0,0,0]
 
-enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated, Teleport,
-			HitStun, FallStun, FallDeath, ShockDeath, SpikesDeath, SquashDeath, Dead}
+enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated, Teleport, HitStun, FallStun, 
+			FallDeath, ShockDeath, SpikesDeath, SquashDeath, DrownDeath, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -212,6 +212,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Death_Spikes")
 	elif state == State.SquashDeath:
 		$AnimatedSprite2D.play("Squash")
+	elif state == State.DrownDeath:
+		$AnimatedSprite2D.play("Drown")
 	elif state == State.HitStun:
 		$AnimatedSprite2D.play("Hit")
 	elif state == State.Inflating:
@@ -311,18 +313,20 @@ func bulletHit(bulletPosition):
 	velocity.y = 0
 	takeDamage(State.HitStun, State.ShockDeath)
 
-func killShock():
-	play_sfx("deathShock")
-	takeDamage(State.ShockDeath, State.ShockDeath, 4)
-
-func killSpikes():
-	play_sfx("deathSpikes")
-	takeDamage(State.SpikesDeath, State.SpikesDeath, 4)
-
-func killSquash():
-	if is_on_floor():
-		play_sfx("squash")
-		takeDamage(State.SquashDeath, State.SquashDeath, 4)
+func kill(type):
+	match type:
+		KillArea.Type.Shock:
+			play_sfx("deathShock")
+			takeDamage(State.ShockDeath, State.ShockDeath, 4)
+		KillArea.Type.Spikes:
+			play_sfx("deathSpikes")
+			takeDamage(State.SpikesDeath, State.SpikesDeath, 4)
+		KillArea.Type.Squash:
+			if is_on_floor():
+				play_sfx("squash")
+				takeDamage(State.SquashDeath, State.SquashDeath, 4)
+		KillArea.Type.Drown:
+			takeDamage(State.DrownDeath, State.DrownDeath, 4)
 
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
@@ -361,7 +365,7 @@ func applyPhysics(xInput, triggerJump, delta):
 		var col = get_slide_collision(0).get_collider()
 		# 17 is to be bigger than 1 step of gravity calculation
 		if col is Spikes and yBeforeMove > 17: 
-			killSpikes()
+			kill(KillArea.Type.Spikes)
 		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
 			velocity.y = ANTIGRAV_BOUNCE
 		# fix some collision are ok
@@ -425,7 +429,7 @@ func _physics_process(delta):
 			if body is Tiles:
 				touchingTiles = true
 			if body is Spikes:
-				killSpikes()
+				kill(KillArea.Type.Spikes)
 		if !touchingTiles or yInput > 0:
 			position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or (yInput > 0 and touchingTiles):

@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is OlafShield:
 		disabled = true
 	if body is PlayerBase and disabled == false:
-		body.killSquash()
+		body.kill(KillArea.Type.Squash)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is OlafShield:

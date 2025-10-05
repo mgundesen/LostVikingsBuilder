@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjbpdr3spjxcb"]
+
+[ext_resource type="Script" uid="uid://cheyplfq6oubl" path="res://assets/Interactive/suger_water.gd" id="1_kn5e5"]
+[ext_resource type="Texture2D" uid="uid://ck0hlookdebx0" path="res://assets/Interactive/sugarwater1.png" id="1_uv358"]
+[ext_resource type="Texture2D" uid="uid://dy0v5pc38x10t" path="res://assets/Interactive/sugarwater2.png" id="2_kn5e5"]
+[ext_resource type="Texture2D" uid="uid://ci55i6cqg5ml7" path="res://assets/Interactive/sugarwater3.png" id="3_te8jy"]
+[ext_resource type="Texture2D" uid="uid://dao5ervct5mp3" path="res://assets/Interactive/sugarwater4.png" id="4_s753v"]
+[ext_resource type="Texture2D" uid="uid://dt2vqy6mspm6l" path="res://assets/Interactive/sugarwater5.png" id="5_84gci"]
+[ext_resource type="Texture2D" uid="uid://bqyoqdk1j1hsy" path="res://assets/Interactive/sugarwater6.png" id="6_7acob"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_a66ls"]
+frames = 6
+speed_scale = 5.0
+frame_0/texture = ExtResource("1_uv358")
+frame_1/texture = ExtResource("2_kn5e5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_te8jy")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_s753v")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_84gci")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_7acob")
+frame_5/duration = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt3b5"]
+size = Vector2(48, 75.5)
+
+[node name="SugerWater" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_kn5e5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = SubResource("AnimatedTexture_a66ls")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.75)
+shape = SubResource("RectangleShape2D_bt3b5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

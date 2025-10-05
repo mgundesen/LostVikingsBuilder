@@ -51,6 +51,7 @@ script = ExtResource("1_v55rs")
 [node name="owplatform" parent="." instance=ExtResource("1_dt850")]
 position = Vector2(0, 44)
 scale = Vector2(0.75, 0.75)
+platformWidth = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pw1b2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=74 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -52,6 +52,9 @@
 [ext_resource type="Texture2D" uid="uid://c0eytk00xn22u" path="res://assets/Erik/hit.png" id="27_fdd60"]
 [ext_resource type="Texture2D" uid="uid://0arbyuq12ew6" path="res://assets/Erik/spikes2.png" id="28_kkqim"]
 [ext_resource type="Texture2D" uid="uid://c2g3kb5ko3xap" path="res://assets/Erik/spikes3.png" id="29_yt5oe"]
+[ext_resource type="Texture2D" uid="uid://qjkwxh3avw3i" path="res://assets/Erik/drown1.png" id="30_ir13n"]
+[ext_resource type="Texture2D" uid="uid://cjmgi36cb6o81" path="res://assets/Erik/drown2.png" id="31_fs7ee"]
+[ext_resource type="Texture2D" uid="uid://d35r6uc4vvx0" path="res://assets/Erik/drown3.png" id="32_nn7jc"]
 [ext_resource type="Texture2D" uid="uid://b4j841sdhwjab" path="res://assets/Erik/Inflate1.png" id="42_qnvwx"]
 [ext_resource type="Texture2D" uid="uid://cht8b554htgxy" path="res://assets/Erik/Inflate2.png" id="43_2d060"]
 [ext_resource type="Texture2D" uid="uid://dec1jwearx7sl" path="res://assets/Erik/tumble1.png" id="43_71xed"]
@@ -177,6 +180,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Spikes",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_ir13n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_fs7ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_nn7jc")
+}],
+"loop": true,
+"name": &"Drown",
 "speed": 5.0
 }, {
 "frames": [{
@@ -418,7 +435,7 @@ script = ExtResource("1_d55dm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Death_Spikes"
+animation = &"Drown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.83399e-07, 0)

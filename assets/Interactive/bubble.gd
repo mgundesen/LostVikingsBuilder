@@ -4,7 +4,7 @@ enum State {default, breaking}
 var state = State.default
 
 @export var speed = 1.0
-@export var aliveTime = 5.0
+@export var aliveTime = 6.0
 
 func _stratBreak():
 	state = State.breaking

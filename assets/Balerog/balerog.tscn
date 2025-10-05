@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=69 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -28,9 +28,12 @@
 [ext_resource type="Texture2D" uid="uid://ddcgqi0op4bkb" path="res://assets/Balerog/Walk3.png" id="15_ymnis"]
 [ext_resource type="Texture2D" uid="uid://202tfuhfta7r" path="res://assets/Balerog/spikes3.png" id="16_5vpaa"]
 [ext_resource type="Texture2D" uid="uid://bgumvuuq7yo24" path="res://assets/Balerog/Walk4.png" id="16_be8u7"]
+[ext_resource type="Texture2D" uid="uid://rb1f4pcqx6ed" path="res://assets/Balerog/drown1.png" id="17_pty1c"]
 [ext_resource type="Texture2D" uid="uid://ccm8mbeiwqgl4" path="res://assets/Balerog/Walk5.png" id="17_yxs4v"]
 [ext_resource type="Texture2D" uid="uid://gwnkisgcr57q" path="res://assets/Balerog/Walk6.png" id="18_masmj"]
+[ext_resource type="Texture2D" uid="uid://b7kuyqrfd5g75" path="res://assets/Balerog/drown2.png" id="18_qomx2"]
 [ext_resource type="Texture2D" uid="uid://bnm0hqj6dlbbd" path="res://assets/Balerog/Walk7.png" id="19_awpe3"]
+[ext_resource type="Texture2D" uid="uid://d3rc4vw1hsug3" path="res://assets/Balerog/drown3.png" id="19_yma5q"]
 [ext_resource type="Texture2D" uid="uid://bi7c26fcn84ba" path="res://assets/Balerog/Walk8.png" id="20_qjibl"]
 [ext_resource type="Texture2D" uid="uid://ruurjf0vphel" path="res://assets/Balerog/hit.png" id="21_l6qba"]
 [ext_resource type="Texture2D" uid="uid://cphfkwjfva8u3" path="res://assets/Balerog/arrow1.png" id="23_481qt"]
@@ -129,6 +132,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death_Spikes",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_pty1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qomx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yma5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qomx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yma5q")
+}],
+"loop": true,
+"name": &"Drown",
 "speed": 5.0
 }, {
 "frames": [{
@@ -403,7 +426,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Death_Spikes"
+animation = &"Drown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")
