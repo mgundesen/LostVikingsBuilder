@@ -272,6 +272,8 @@ func setState(targetState):
 		inflateTimer.start()
 
 func takeDamage(stunState, deathState, amount = 1):
+	if playerHealth < 1:
+		return
 	playerHealth -= amount
 	if playerHealth > 0:
 		play_sfx("hurt")
@@ -363,8 +365,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		var col = get_slide_collision(0).get_collider()
-		# 17 is to be bigger than 1 step of gravity calculation
-		if col is Spikes and yBeforeMove > 17: 
+		if col is Spikes: 
 			kill(KillArea.Type.Spikes)
 		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
 			velocity.y = ANTIGRAV_BOUNCE
