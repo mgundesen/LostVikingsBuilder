@@ -8,7 +8,8 @@ var deathScene = load("res://assets/Enemies/death_animation.tscn")
 enum State{walk, idle, attack, hurt}
 var state = State.walk
 
-@export var flip = false 
+@export var flip = false
+var flipCooldown = false
 var health = 1
 var hitTypes = []
 @export var itemType = ItemUtil.Item.none
@@ -47,3 +48,16 @@ func _process(_delta):
 		else:
 			state = State.hurt
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.walk)
+
+func doFlip():
+	if !flipCooldown:
+		flip = !flip
+		flipCooldown = true
+		get_tree().create_timer(0.1).timeout.connect(func(): flipCooldown = false)
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is not PlayerBase:
+		doFlip()
+
+func _on_edge_detect_hit_edge() -> void:
+	doFlip()

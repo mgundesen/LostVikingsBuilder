@@ -35,7 +35,3 @@ func _process(delta):
 		$AnimatedSprite2D.play("shoot", 0.7)
 
 	super._process(delta)
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is not PlayerBase:
-		flip = !flip

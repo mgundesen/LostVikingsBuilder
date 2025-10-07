@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr25v111m3dsu"]
+[gd_scene load_steps=14 format=3 uid="uid://dr25v111m3dsu"]
 
 [ext_resource type="Script" uid="uid://wdmwmom3yvq7" path="res://assets/Enemies/robot_shooter.gd" id="1_6xaf7"]
 [ext_resource type="Texture2D" uid="uid://bon4mjdst4nj2" path="res://assets/Enemies/RobotShooter/shoot1.png" id="2_fvax0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://btpgki20uyryn" path="res://assets/Enemies/RobotShooter/walk3.png" id="8_44433"]
 [ext_resource type="Texture2D" uid="uid://dt1ktpw01u83v" path="res://assets/Enemies/RobotShooter/walk4.png" id="9_ehb0l"]
 [ext_resource type="AudioStream" uid="uid://clle6lg2ck60v" path="res://assets/Enemies/robot.mp3" id="10_fvax0"]
+[ext_resource type="PackedScene" uid="uid://cffav8lls5m8j" path="res://assets/Enemies/edge_detect.tscn" id="11_w250r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hm6ci"]
 animations = [{
@@ -69,5 +70,8 @@ shape = SubResource("RectangleShape2D_6ayab")
 stream = ExtResource("10_fvax0")
 pitch_scale = 1.3
 
+[node name="EdgeDetect" parent="." instance=ExtResource("11_w250r")]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]

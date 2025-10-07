@@ -1,7 +1,6 @@
 extends Enemy
 
 var shootCooldown = 0.4
-var flipCooldown = false
 
 func _ready():
 	idleCycle()
@@ -41,17 +40,3 @@ func _process(delta):
 		$AnimatedSprite2D.play("attack", 0.7)
 
 	super._process(delta)
-
-func doFlip():
-	if !flipCooldown:
-		flip = !flip
-		flipCooldown = true
-		get_tree().create_timer(0.1).timeout.connect(func(): flipCooldown = false)
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is not PlayerBase:
-		doFlip()
-
-
-func _on_edge_detect_hit_edge() -> void:
-	doFlip()
