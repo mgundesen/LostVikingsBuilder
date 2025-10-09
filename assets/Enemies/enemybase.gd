@@ -56,7 +56,7 @@ func doFlip():
 		get_tree().create_timer(0.1).timeout.connect(func(): flipCooldown = false)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is not PlayerBase:
+	if body is not PlayerBase and body is not OlafShield:
 		doFlip()
 
 func _on_edge_detect_hit_edge() -> void:

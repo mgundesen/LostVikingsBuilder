@@ -67,6 +67,5 @@ shape = SubResource("RectangleShape2D_ck1l7")
 
 [node name="EdgeDetect" parent="." instance=ExtResource("8_peamy")]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]

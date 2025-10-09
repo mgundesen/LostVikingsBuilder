@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=42 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="12_n8ij3"]
+[ext_resource type="PackedScene" uid="uid://b1k7hvem7rnmy" path="res://assets/Enemies/Slicer/slicer.tscn" id="14_hjyqq"]
 [ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="17_bnsmh"]
 [ext_resource type="PackedScene" uid="uid://b42yu4ycb7dor" path="res://assets/Interactive/toggle_button.tscn" id="18_4e3t1"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
@@ -204,7 +205,7 @@ nodes = PackedVector2Array(0, 0, 0, 6)
 position = Vector2(1050, 383)
 
 [node name="SugerWater" parent="." instance=ExtResource("3_vm1b5")]
-position = Vector2(862, 742)
+position = Vector2(704, 987)
 Width = 14.0
 
 [node name="Ladder" parent="." instance=ExtResource("3_1p5oe")]
@@ -251,7 +252,7 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(-192, 506)
+position = Vector2(-107, 775)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(316, 507)
@@ -267,6 +268,11 @@ position = Vector2(782, 569)
 [node name="Item" parent="." instance=ExtResource("4_mntja")]
 position = Vector2(129, 424)
 itemID = 2
+
+[node name="Slicer" parent="." instance=ExtResource("14_hjyqq")]
+position = Vector2(45, 794)
+collision_layer = 15
+collision_mask = 15
 
 [node name="ToggleButton" parent="." instance=ExtResource("18_4e3t1")]
 position = Vector2(75, 502)
