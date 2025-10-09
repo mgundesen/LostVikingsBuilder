@@ -1429,7 +1429,7 @@ position = Vector2(1265, 208)
 Width = 4.0
 
 [node name="Exit" parent="Objects" instance=ExtResource("10_qudn8")]
-position = Vector2(371, 469)
+position = Vector2(5.00003, 678)
 
 [node name="ShockTrap3" parent="Objects" instance=ExtResource("9_ek7th")]
 position = Vector2(615, 1059)

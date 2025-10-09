@@ -160,26 +160,21 @@ func spawnHitbox(offset, type = Hitbox.Type.basic):
 
 func stateWithPhysics():
 	match state:
-		State.Free:
-			return true
-		State.AttackMove:
-			return true
-		State.AttackMove2:
-			return true
-		State.FallStun:
-			return true
-		State.Inflated:
+		State.Free, State.AttackMove, State.AttackMove2, State.FallStun, State.Inflated:
 			return true
 		_:
 			return false
 
 func stateWithInput():
 	match state:
-		State.Free:
+		State.Free, State.Ladder, State.Inflated:
 			return true
-		State.Ladder:
-			return true
-		State.Inflated:
+		_:
+			return false
+
+func deathState():
+	match state:
+		State.FallDeath, State.ShockDeath, State.SpikesDeath, State.SquashDeath, State.DrownDeath:
 			return true
 		_:
 			return false
@@ -263,7 +258,7 @@ func stunTime():
 		return 0.7
 
 func setState(targetState):
-	if(state == State.FallDeath or state == State.ShockDeath):
+	if deathState():
 		return
 	state = targetState
 	if targetState == State.Inflating:
@@ -411,7 +406,7 @@ func _physics_process(delta):
 			state = State.Free
 			
 	if springJump:
-		state = State.Free
+		setState(State.Free)
 
 	if state == State.HitStun:
 		velocity.x = facingDirected(-40)
