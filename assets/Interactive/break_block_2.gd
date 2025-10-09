@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BreakBlock2
+
 enum Mode {Arrow, Stand}
 @export var mode = Mode.Arrow
 

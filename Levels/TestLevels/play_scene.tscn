@@ -252,7 +252,7 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(-107, 775)
+position = Vector2(452, 492)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(316, 507)

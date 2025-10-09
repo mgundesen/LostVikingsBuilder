@@ -4,6 +4,7 @@ Transfer item between characters(improved)
 Improved graphic tredmill
 More enemies
 Skeleton death animation
+Slow falling wall
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

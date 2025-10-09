@@ -3,7 +3,7 @@ extends Node2D
 var wallBlockScene = load("res://assets/Interactive/break_block.tscn")
 var breakBlockScene = load("res://assets/Interactive/break_block_2.tscn")
 
-enum Type {WallBlock, BreakBlock}
+enum Type {WallBlock, BreakBlock, BreakBlockWalk}
 @export var type = Type.WallBlock
 
 @export var nodes = PackedVector2Array()
@@ -11,6 +11,8 @@ enum Type {WallBlock, BreakBlock}
 func spawnBlock(node):
 	var block = wallBlockScene.instantiate() if type == Type.WallBlock else breakBlockScene.instantiate()
 	add_child(block)
+	if type == Type.BreakBlockWalk:
+		block.mode = BreakBlock2.Mode.Stand
 	block.position += node * 46
 
 func _ready():
