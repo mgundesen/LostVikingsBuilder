@@ -304,13 +304,14 @@ func validLadderInput(yInput):
 			return false
 	return true
 	
-func bulletHit(bulletPosition):
+func bulletHit(bulletPosition, type):
 	if position.x > bulletPosition.x:
 		direction = FacingDirection.Left
 	else:
 		direction = FacingDirection.Right
 	velocity.y = 0
-	takeDamage(State.HitStun, State.ShockDeath)
+	var deathType = State.ShockDeath if type == Bullet.Type.laser else State.DeathSkeleton
+	takeDamage(State.HitStun, deathType)
 
 func kill(type):
 	match type:

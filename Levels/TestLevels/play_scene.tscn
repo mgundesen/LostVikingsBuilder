@@ -285,7 +285,7 @@ position = Vector2(1416, 157)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
-position = Vector2(919, 789)
+position = Vector2(479, 512)
 collision_layer = 8
 collision_mask = 8
 flip = true

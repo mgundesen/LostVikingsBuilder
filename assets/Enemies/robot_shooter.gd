@@ -2,17 +2,22 @@ extends Enemy
 
 const shootDelay = 0.5
 const shootCooldown = 0.9
+var longShotCooldown = false
 
 func _ready() -> void:
 	health = 2
 	hitTypes = [Hitbox.Type.breaking, Hitbox.Type.explode, Hitbox.Type.smartbomb]
 
 func closeToPlayer():
-	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
+	var dist = 80 if longShotCooldown else 350
+	return PlayerUtil.closeToPlayer(position, dist, Vector2(-1,0) if flip else Vector2(1,0))
 
 func fire():
+	longShotCooldown = true
+	# can technically give improper state but gives more fun behaviour
+	get_tree().create_timer(2.5).timeout.connect(func(): longShotCooldown = false)
 	SceneControl.playSound($AudioStreamPlayer2D)
-	EnemyUtil.fire(self, flip, -20)
+	EnemyUtil.fire(self, flip, -20, Bullet.Type.bullet)
 
 func shouldAttack():
 	if closeToPlayer():
