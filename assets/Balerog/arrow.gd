@@ -9,7 +9,7 @@ var speed = 8.5
 
 func setType(newType):
 	arrowType = newType
-	type = Type.basic if arrowType == ArrowType.basic else Type.fireArrow
+	type = Type.colliding if arrowType == ArrowType.basic else Type.fireArrow
 	var path = "res://assets/Balerog/arrow.png"
 	if arrowType == ArrowType.fire:
 		path = "res://assets/Balerog/fire_arrow.png"
