@@ -2,10 +2,15 @@ extends Area2D
 
 class_name ButtonBase
 
+@export var buttonCooldown = 0.0
+var isOnCooldown = false
 signal activated
 
 func buttonPress():
-	activated.emit()
+	if !isOnCooldown:
+		isOnCooldown = true
+		get_tree().create_timer(buttonCooldown).timeout.connect(func(): isOnCooldown = false)
+		activated.emit()
 
 func _process(_delta):
 	
