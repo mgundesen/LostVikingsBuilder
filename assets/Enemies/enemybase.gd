@@ -4,6 +4,7 @@ class_name Enemy
 
 var itemScene = load("res://assets/Items/item.tscn")
 var deathScene = load("res://assets/Enemies/death_animation.tscn")
+var hitVisual = load("res://assets/Enemies/hit_visual.tscn")
 
 enum State{walk, idle, attack, hurt}
 var state = State.walk
@@ -24,10 +25,16 @@ func spawnItem():
 	item.position = position
 	item.setItem(itemType)
 
+func spawnHitVisual():
+	var visual = hitVisual.instantiate()
+	owner.add_child(visual)
+	visual.position = position
+
 func spawnDeathAnimation():
 	var animation = deathScene.instantiate()
 	owner.add_child(animation)
 	animation.position = position
+	animation.position.y -= 10 # This offset should use enemy height to be correct
 
 func _process(_delta):
 	if state == State.hurt:
@@ -46,6 +53,7 @@ func _process(_delta):
 			spawnDeathAnimation()
 			queue_free()
 		else:
+			spawnHitVisual()
 			state = State.hurt
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.walk)
 
