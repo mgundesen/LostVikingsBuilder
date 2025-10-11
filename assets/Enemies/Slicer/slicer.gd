@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase:
-		body.takeDamage(PlayerBase.State.HitStun, PlayerBase.State.HitStun)
+		body.takeDamage(PlayerBase.State.HitStun, PlayerBase.State.DeathSkeleton)
 		onCooldown = true
 		get_tree().create_timer(body.stunTime() + 0.1).timeout.connect(func(): onCooldown = false)
 	super._on_body_entered(body)

@@ -252,13 +252,13 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(452, 492)
+position = Vector2(236, 495)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(316, 507)
+position = Vector2(314, 493)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(213, 504)
+position = Vector2(255, 776)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
@@ -285,7 +285,7 @@ position = Vector2(1416, 157)
 nodes = PackedVector2Array(0, 0, 0, 1, 0, 2, 0, 3)
 
 [node name="RobotShooter" parent="." instance=ExtResource("21_u6cln")]
-position = Vector2(347, 787)
+position = Vector2(919, 789)
 collision_layer = 8
 collision_mask = 8
 flip = true
@@ -322,7 +322,7 @@ operationMode = 0
 position = Vector2(-173, 321)
 
 [node name="AlienShooter" parent="." instance=ExtResource("27_k4j4b")]
-position = Vector2(155, 790)
+position = Vector2(815, 787)
 flip = true
 
 [node name="Block" parent="." instance=ExtResource("29_jkops")]

@@ -1445,7 +1445,7 @@ position = Vector2(706, 1032)
 position = Vector2(1112, 1032)
 
 [node name="WallSpawner" parent="Objects" instance=ExtResource("16_5ai7y")]
-position = Vector2(1106, 576)
+position = Vector2(1106, 575)
 nodes = PackedVector2Array(0, 0, 0, 1, 1, 0, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]

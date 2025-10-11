@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=75 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -30,17 +30,23 @@
 [ext_resource type="Texture2D" uid="uid://dh508skxefqws" path="res://assets/Olaf/FallStun6.png" id="14_oggk0"]
 [ext_resource type="Texture2D" uid="uid://bw2optfk3g5xr" path="res://assets/Olaf/Walk5.png" id="14_qwh1y"]
 [ext_resource type="Texture2D" uid="uid://b5i0ko0fx0cqu" path="res://assets/Olaf/FallStun7.png" id="15_6ls3k"]
+[ext_resource type="Texture2D" uid="uid://c02bwqnai1y61" path="res://assets/Olaf/skeleton1.png" id="15_j6i3s"]
 [ext_resource type="Texture2D" uid="uid://djf8edf76bdc6" path="res://assets/Olaf/spikes2.png" id="15_lo7bn"]
 [ext_resource type="Texture2D" uid="uid://u0dw787d6m7l" path="res://assets/Olaf/Walk6.png" id="15_t5dee"]
 [ext_resource type="Texture2D" uid="uid://6hbtu1gjjchn" path="res://assets/Olaf/FallStun8.png" id="16_a6ga6"]
 [ext_resource type="Texture2D" uid="uid://dm0ujak4jckiv" path="res://assets/Olaf/Walk7.png" id="16_ci8v8"]
+[ext_resource type="Texture2D" uid="uid://wrf1ma4fmw5v" path="res://assets/Olaf/skeleton2.png" id="16_dpe05"]
 [ext_resource type="Texture2D" uid="uid://b65ughga0ytao" path="res://assets/Olaf/spikes3.png" id="16_ox7t3"]
+[ext_resource type="Texture2D" uid="uid://d3sf81fqcmkol" path="res://assets/Olaf/skeleton3.png" id="17_8y300"]
 [ext_resource type="Texture2D" uid="uid://b2injlncxcnjk" path="res://assets/Olaf/drown1.png" id="17_ox7t3"]
 [ext_resource type="Texture2D" uid="uid://buf6ggthi6b8x" path="res://assets/Olaf/FallStun9.png" id="17_tnx42"]
 [ext_resource type="Texture2D" uid="uid://bu1s80mrvdkvp" path="res://assets/Olaf/float1.png" id="17_vvvox"]
 [ext_resource type="Texture2D" uid="uid://c47ltjt8c46o8" path="res://assets/Olaf/drown2.png" id="18_0p8dw"]
 [ext_resource type="Texture2D" uid="uid://chlsoe78soqd2" path="res://assets/Olaf/FallStun10.png" id="18_bo61s"]
 [ext_resource type="Texture2D" uid="uid://b2n328xycup6p" path="res://assets/Olaf/float2.png" id="18_ivdgf"]
+[ext_resource type="Texture2D" uid="uid://dn1xjma16vo12" path="res://assets/Olaf/skeleton4.png" id="18_jr432"]
+[ext_resource type="Texture2D" uid="uid://cqo0af1mjn2wl" path="res://assets/Olaf/skeleton5.png" id="19_ya2lh"]
+[ext_resource type="Texture2D" uid="uid://u1a65ur6jcx" path="res://assets/Olaf/skeleton6.png" id="20_bnro7"]
 [ext_resource type="Texture2D" uid="uid://btslan6llojne" path="res://assets/Olaf/hit.png" id="27_f1dc3"]
 [ext_resource type="Texture2D" uid="uid://sekka0mt5cs7" path="res://assets/Olaf/idle_sheild.png" id="29_ajvgq"]
 [ext_resource type="Texture2D" uid="uid://bds0vvwtrg8af" path="res://assets/Olaf/inflate1.png" id="32_wi2ut"]
@@ -117,6 +123,32 @@ animations = [{
 "loop": true,
 "name": &"Death_Shock",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("27_f1dc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_j6i3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dpe05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8y300")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jr432")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ya2lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bnro7")
+}],
+"loop": true,
+"name": &"Death_Skeleton",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -389,7 +421,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Drown"
+animation = &"Death_Skeleton"
 
 [node name="Shield" type="Node2D" parent="."]
 position = Vector2(-2.85714, -68.5714)

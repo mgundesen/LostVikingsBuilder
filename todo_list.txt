@@ -3,13 +3,16 @@ Balerog second sword swing
 Transfer item between characters(improved)
 Improved graphic tredmill
 More enemies
-Skeleton death animation
 Slow falling wall
+damage cooldown
+Better arrow buffer between shots
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav
+2 using spring at the same time
+Can pass slider by not leaving area(missing turn)
 
 Features Low Priority:
 Improve infaltion end

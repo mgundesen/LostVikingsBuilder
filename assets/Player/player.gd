@@ -43,7 +43,7 @@ var itemSlot =  0
 var items = [0,0,0,0]
 
 enum State {Free, AttackMove, AttackMove2, Ladder, Inflating, Inflated, Teleport, HitStun, FallStun, 
-			FallDeath, ShockDeath, SpikesDeath, SquashDeath, DrownDeath, Dead}
+			FallDeath, ShockDeath, SpikesDeath, SquashDeath, DrownDeath, DeathSkeleton, Dead}
 var state = State.Free
 enum FacingDirection {Left, Right}
 var direction = FacingDirection.Right
@@ -174,7 +174,7 @@ func stateWithInput():
 
 func deathState():
 	match state:
-		State.FallDeath, State.ShockDeath, State.SpikesDeath, State.SquashDeath, State.DrownDeath:
+		State.FallDeath, State.ShockDeath, State.SpikesDeath, State.SquashDeath, State.DrownDeath, State.DeathSkeleton:
 			return true
 		_:
 			return false
@@ -209,6 +209,8 @@ func decideAnimation(yInput, vel):
 		$AnimatedSprite2D.play("Squash")
 	elif state == State.DrownDeath:
 		$AnimatedSprite2D.play("Drown")
+	elif state == State.DeathSkeleton:
+		$AnimatedSprite2D.play("Death_Skeleton")
 	elif state == State.HitStun:
 		$AnimatedSprite2D.play("Hit")
 	elif state == State.Inflating:
