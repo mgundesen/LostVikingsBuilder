@@ -5,7 +5,7 @@ Improved graphic tredmill
 More enemies
 Slow falling wall
 damage cooldown
-Better arrow buffer between shots
+Add hit effects
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

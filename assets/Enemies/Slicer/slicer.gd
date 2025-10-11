@@ -2,12 +2,17 @@ extends Enemy
 
 var onCooldown = false
 
+func _ready() -> void:
+	health = 3
+
 func turnToPlayer():
 	return PlayerUtil.closeToPlayer(position, 300, Vector2(1,0) if flip else Vector2(-1,0))
 	
 func _process(delta):
 	if turnToPlayer():
 		doFlip()
+	if state == State.hurt:
+		position.x += 1 if flip else -1
 	if !onCooldown:
 		position.x += -2 if flip else 2
 	$Sprite2D.flip_h = flip
