@@ -1,15 +1,18 @@
 extends Node2D
 
-var appliedSpring = false
+var appliedSpring = [false, false, false]
 
-func unspring():
-	appliedSpring = false
+func unspring(index):
+	appliedSpring[index] = false
 	$AnimatedSprite2D.play("Rest")
 
 func _on_body_entered(body: Node2D) -> void:
-	if !appliedSpring and body is PlayerBase:
-		body.set("springJump", true)
-		appliedSpring = true
-		SceneControl.playSound($AudioStreamPlayer2D)
-		get_tree().create_timer(0.07).timeout.connect(func(): unspring())
-		$AnimatedSprite2D.play("Pressed")
+	
+	if body is PlayerBase:
+		var index = PlayerUtil.indexForPlayer(body)
+		if !appliedSpring[index]:
+			body.set("springJump", true)
+			appliedSpring[index] = true
+			SceneControl.playSound($AudioStreamPlayer2D)
+			get_tree().create_timer(0.07).timeout.connect(func(): unspring(index))
+			$AnimatedSprite2D.play("Pressed")

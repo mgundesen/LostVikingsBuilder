@@ -20,6 +20,14 @@ func activePlayer():
 
 func playerForIndex(index):
 	return getPlayers()[index]
+	
+func indexForPlayer(node):
+	var index = 0
+	for player in getPlayers():
+		if node == player:
+			return index
+		index += 1
+	return -1
 
 func nextPlayer(index):
 	index += 1

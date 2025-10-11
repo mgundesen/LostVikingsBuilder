@@ -10,7 +10,6 @@ Bugs:
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav
-2 using spring at the same time
 Can pass slider by not leaving area(missing turn)
 
 Features Low Priority:
