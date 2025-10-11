@@ -2,7 +2,18 @@ extends Hitbox
 
 class_name Arrow
 
+enum ArrowType{basic, fire}
+var arrowType = ArrowType.basic
+
 var speed = 8.5
+
+func setType(newType):
+	arrowType = newType
+	type = Type.basic if arrowType == ArrowType.basic else Type.fireArrow
+	var path = "res://assets/Balerog/arrow.png"
+	if arrowType == ArrowType.fire:
+		path = "res://assets/Balerog/fire_arrow.png"
+	$Sprite2D.texture = load(path)
 
 func _init():
 	type = Type.colliding

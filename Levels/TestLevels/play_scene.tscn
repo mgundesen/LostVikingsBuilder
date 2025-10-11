@@ -258,7 +258,7 @@ position = Vector2(236, 495)
 position = Vector2(314, 493)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(255, 776)
+position = Vector2(241, 499)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
@@ -266,8 +266,8 @@ position = Vector2(782, 569)
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
 [node name="Item" parent="." instance=ExtResource("4_mntja")]
-position = Vector2(129, 424)
-itemID = 2
+position = Vector2(148, 480)
+itemID = 9
 
 [node name="Slicer" parent="." instance=ExtResource("14_hjyqq")]
 position = Vector2(45, 794)

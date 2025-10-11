@@ -4,18 +4,24 @@ var arrowScene = load("res://assets/Balerog/arrow.tscn")
 
 enum AttackState {Ready, Idle, Shoot}
 var subState = AttackState.Ready
+var arrowType = Arrow.ArrowType.basic
 
 const arrowOffset = 40
 const swordOffset = 50
 
 func spawnArrow():
 	var arrow = arrowScene.instantiate()
+	arrow.setType(arrowType)
 	if direction == FacingDirection.Left:
 		arrow.set("speed", -arrow.get("speed"))
 	owner.add_child(arrow)
 	arrow.transform = transform
 	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset
 	arrow.position += Vector2(offset, -5)
+
+func canUseFireArrow():
+	arrowType = Arrow.ArrowType.fire
+	return true
 
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left

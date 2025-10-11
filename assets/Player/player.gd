@@ -101,6 +101,9 @@ func addItem(id, withSound = true):
 			return true
 	return false
 
+func canUseFireArrow():
+	return false
+
 func spawnHitboxSmartbomb():
 	var hitbox = hitboxScene.instantiate()
 	hitbox.type = Hitbox.Type.smartbomb
@@ -144,6 +147,9 @@ func useItem():
 			spawnHitboxSmartbomb()
 		ItemUtil.Item.gravboots:
 			imuneAntigrav = true
+		ItemUtil.Item.fireArrow:
+			if !canUseFireArrow():
+				return false
 	
 	items[itemSlot] = ItemUtil.Item.none
 	itemSlot = (itemSlot + 1) %4
