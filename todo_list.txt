@@ -4,8 +4,6 @@ Transfer item between characters(improved)
 Improved graphic tredmill
 More enemies
 Slow falling wall
-damage cooldown
-Sound for entering item menu
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
@@ -13,6 +11,7 @@ heck is circular platform physics doing?
 Jumping down antigrav
 
 Features Low Priority:
+damage cooldown
 Improve infaltion end
 Increased spring power high speed
 Runnning against a wall

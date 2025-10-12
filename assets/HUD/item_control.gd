@@ -39,12 +39,15 @@ func itemSlotChangeCheck(ap):
 	var slot = ap.get("itemSlot")
 	if Input.is_action_just_pressed(&"Right") and slot%2==0:
 		ap.set("itemSlot", ap.get("itemSlot")+1)
-	if Input.is_action_just_pressed(&"Down") and slot<2:
+	elif Input.is_action_just_pressed(&"Down") and slot<2:
 		ap.set("itemSlot", ap.get("itemSlot")+2)
-	if Input.is_action_just_pressed(&"Left") and slot%2==1:
+	elif Input.is_action_just_pressed(&"Left") and slot%2==1:
 		ap.set("itemSlot", ap.get("itemSlot")-1)
-	if Input.is_action_just_pressed(&"Up") and slot>1:
+	elif Input.is_action_just_pressed(&"Up") and slot>1:
 		ap.set("itemSlot", ap.get("itemSlot")-2)
+	else:
+		return
+	SceneControl.menuSoundNode().play_sfx("swap")
 
 func currentPlayerIndex(currentPlayer):
 	var playerIndex = 0
@@ -87,6 +90,7 @@ func _process(_delta):
 			if Input.is_action_just_pressed(&"B"):
 				var item = ap.items[ap.itemSlot]
 				if item != ItemUtil.Item.none:
+					SceneControl.menuSoundNode().play_sfx("select")
 					currentItem = item
 					playerInSwap = ap
 					state = State.holding
@@ -98,6 +102,7 @@ func _process(_delta):
 			if Input.is_action_just_pressed(&"B"):
 				state = State.selecting
 				currentItem = ItemUtil.Item.none
+				SceneControl.menuSoundNode().play_sfx("select")
 	
 	# Selector drawing
 	var playerIndex = 0

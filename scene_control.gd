@@ -5,10 +5,15 @@ var pauseState = PauseType.None
 
 enum Dialog {Start, End}
 
+func menuSoundNode():
+	return get_node("/root/Node2D/HUD/MenuSound")
+
 func pauseType():
 	return pauseState
 	
 func setPause(type):
+	if type == PauseType.Regular or type == PauseType.Item:
+		menuSoundNode().enterPause()
 	if pauseState == PauseType.None:
 		pauseState = type
 		get_tree().paused = !pauseState == PauseType.None

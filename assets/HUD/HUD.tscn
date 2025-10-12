@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn35ca1qeyuc1"]
+[gd_scene load_steps=8 format=3 uid="uid://bn35ca1qeyuc1"]
 
 [ext_resource type="Texture2D" uid="uid://b4tvpkyoe3hfw" path="res://assets/HUD/Hud.png" id="1_0n44s"]
 [ext_resource type="Script" uid="uid://ckmkro8a1b2cw" path="res://assets/HUD/player_status.gd" id="1_1qsk2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b14lf3fl3qx4a" path="res://assets/HUD/pause.tscn" id="2_8rpq3"]
 [ext_resource type="PackedScene" uid="uid://s5015fvq7hsn" path="res://assets/HUD/player_status.tscn" id="3_obmiu"]
 [ext_resource type="PackedScene" uid="uid://dr73talwr0hy" path="res://assets/HUD/item_status.tscn" id="5_qb0qd"]
+[ext_resource type="Script" uid="uid://cr1i5mfwvgntx" path="res://assets/HUD/menu_sound.gd" id="7_8rpq3"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
@@ -25,3 +26,6 @@ texture = ExtResource("1_0n44s")
 script = ExtResource("1_1qsk2")
 
 [node name="ItemShow" parent="." instance=ExtResource("5_qb0qd")]
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("7_8rpq3")
