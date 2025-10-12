@@ -401,8 +401,9 @@ func _physics_process(delta):
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
 			inflateTimer.stop()
-		if teleportAllowed == true and Input.is_action_just_pressed(&"A") and is_on_floor():
+		if teleportAllowed == true and Input.is_action_just_pressed(&"A") and is_on_floor() and state == State.Free:
 			setState(State.Teleport)
+			teleportAllowed = false
 			play_sfx("teleport")
 			get_tree().create_timer(0.7).timeout.connect(func(): position = teleportTarget)
 			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))

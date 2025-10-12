@@ -75,7 +75,9 @@ func _physics_process(delta):
 			get_tree().create_timer(chargeCancelTime).timeout.connect(func(): setState(State.Free))
 			
 	if state == State.AttackMove2: 
-		if subState == Substate.bash and is_on_wall():
+		if !is_on_floor() and subState == Substate.bash:
+			state = State.Free
+		elif subState == Substate.bash and is_on_wall():
 			wallBonk()
 		elif subState == Substate.tumble or subState == Substate.tumble2:
 			if subState == Substate.tumble:

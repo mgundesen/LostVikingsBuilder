@@ -1701,7 +1701,7 @@ itemType = 9
 
 [node name="Teleporter" parent="Top" instance=ExtResource("6_dxl07")]
 position = Vector2(990, -551)
-offset = Vector2(16.5, 27.5)
+offset = Vector2(16.5, 28)
 
 [node name="MovingPlatform" parent="Top" instance=ExtResource("7_nvdn0")]
 position = Vector2(1290.23, -506.154)
@@ -1757,7 +1757,7 @@ itemID = 2
 
 [node name="Teleporter" parent="Bottom" instance=ExtResource("6_dxl07")]
 position = Vector2(1748, 713)
-offset = Vector2(-16.5, -27.5)
+offset = Vector2(-16.5, -27)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -1797,7 +1797,7 @@ visible = false
 position = Vector2(469, 481)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(1025, -565)
+position = Vector2(641, 294)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(1892, -202)

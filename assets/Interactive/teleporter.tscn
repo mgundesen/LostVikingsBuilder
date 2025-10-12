@@ -14,4 +14,3 @@ script = ExtResource("1_ouyod")
 shape = SubResource("RectangleShape2D_wh1vw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

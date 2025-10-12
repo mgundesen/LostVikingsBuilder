@@ -12,8 +12,6 @@ Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav
 Can pass slider by not leaving area(missing turn)
-Cancel bash if leaving ground
-Teleporting into teleporter area
 
 Features Low Priority:
 Improve infaltion end
