@@ -11,16 +11,22 @@ func labelForIndex(index):
 func nameForIndex(index):
 	return "Label{index}".format({"index": index})
 
-func _ready() -> void:
+func updateLabels(fontSize = 52):
+	var children = $MarginContainer/VBoxContainer.get_children()
+	for child in children:
+		child.free()
 	var count = 0
 	for label in textLabels:
 		var newLabel = Label.new()
 		newLabel.set_name(nameForIndex(count))
 		count += 1
-		newLabel.add_theme_font_size_override("font_size", 52)
+		newLabel.add_theme_font_size_override("font_size", fontSize)
 		newLabel.add_theme_font_override("font",load("res://assets/Font/troika.otf"))
 		newLabel.set_text(label)
 		$MarginContainer/VBoxContainer.add_child(newLabel)
+
+func _ready() -> void:
+	updateLabels()
 
 func toggle(index, on):
 	var onOff = " on" if on else " off"

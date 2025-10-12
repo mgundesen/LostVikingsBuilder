@@ -44,9 +44,11 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 			[oColor, "Dunno, maybe him yet again being alive to do his tricks."],
 			[bColor, "I'm betting this is someone else pulling the strings!"]]},
 {"level" : "res://Levels/Chansey_Levels/Level2.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level3.tscn",
+{"level" : "res://Levels/Chansey_Levels/Level4.tscn",
 "text" : [[bColor, "abc."]],
-"endText" : [[bColor, "abc."]]}
+"endText" : [[bColor, "abc."]]},
+{"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
 ]
 
 func nextScene():

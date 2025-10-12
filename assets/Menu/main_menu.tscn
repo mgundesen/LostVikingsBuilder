@@ -19,3 +19,7 @@ textLabels = ["New Game", "Options", "Level Select"]
 
 [node name="Settings" parent="." instance=ExtResource("4_q0kiu")]
 textLabels = ["Music", "Sound", "Exit"]
+
+[node name="LevelSelect" parent="." instance=ExtResource("4_q0kiu")]
+offset = Vector2(0, 300)
+transform = Transform2D(1, 0, 0, 1, 0, 300)
