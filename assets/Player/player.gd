@@ -274,7 +274,7 @@ func setState(targetState):
 	if targetState == State.Inflated:
 		inflateTimer.start()
 
-func takeDamage(stunState, deathState, amount = 1):
+func _takeDamage(stunState, deathState, amount = 1):
 	if playerHealth < 1:
 		return
 	playerHealth -= amount
@@ -309,30 +309,33 @@ func validLadderInput(yInput):
 		if position.y > ladderBottom():
 			return false
 	return true
-	
-func bulletHit(bulletPosition, type):
-	if position.x > bulletPosition.x:
+
+func getHit(sourcePosition, damageType, deathType):
+	if position.x > sourcePosition.x:
 		direction = FacingDirection.Left
 	else:
 		direction = FacingDirection.Right
 	velocity.y = 0
-	var deathType = State.ShockDeath if type == Bullet.Type.laser else State.DeathSkeleton
-	takeDamage(State.HitStun, deathType)
+	_takeDamage(damageType, deathType)
+
+func bulletHit(bulletPosition, bulletType):
+	var deathType = State.ShockDeath if bulletType == Bullet.Type.laser else State.DeathSkeleton
+	getHit(bulletPosition, State.HitStun, deathType)
 
 func kill(type):
 	match type:
 		KillArea.Type.Shock:
 			play_sfx("deathShock")
-			takeDamage(State.ShockDeath, State.ShockDeath, 4)
+			_takeDamage(State.ShockDeath, State.ShockDeath, 4)
 		KillArea.Type.Spikes:
 			play_sfx("deathSpikes")
-			takeDamage(State.SpikesDeath, State.SpikesDeath, 4)
+			_takeDamage(State.SpikesDeath, State.SpikesDeath, 4)
 		KillArea.Type.Squash:
 			if is_on_floor():
 				play_sfx("squash")
-				takeDamage(State.SquashDeath, State.SquashDeath, 4)
+				_takeDamage(State.SquashDeath, State.SquashDeath, 4)
 		KillArea.Type.Drown:
-			takeDamage(State.DrownDeath, State.DrownDeath, 4)
+			_takeDamage(State.DrownDeath, State.DrownDeath, 4)
 
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
@@ -375,7 +378,7 @@ func applyPhysics(xInput, triggerJump, delta):
 			velocity.y = ANTIGRAV_BOUNCE
 		# fix some collision are ok
 		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
-			takeDamage(State.FallStun, State.FallDeath)
+			_takeDamage(State.FallStun, State.FallDeath)
 			play_sfx("bonk")
 		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
 			play_sfx("landing")
@@ -447,4 +450,4 @@ func _physics_process(delta):
 
 func on_area_entered(area: Area2D) -> void:
 	if area is Hitbox and area.type == Hitbox.Type.explode:
-		takeDamage(State.HitStun, State.ShockDeath)
+		_takeDamage(State.HitStun, State.ShockDeath)
