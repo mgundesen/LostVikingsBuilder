@@ -8,8 +8,8 @@
 size = Vector2(82, 2)
 
 [node name="Block" type="CharacterBody2D"]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_cqrb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
