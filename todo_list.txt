@@ -4,7 +4,6 @@ Transfer item between characters(improved)
 Improved graphic tredmill
 More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Egypt Guard, Mummy, Flying dropper, Evil Balerog)
 Slow falling wall
-Door graphic
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

@@ -1,13 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm1fm0fxl42t2"]
+[gd_scene load_steps=15 format=3 uid="uid://cm1fm0fxl42t2"]
 
 [ext_resource type="Script" uid="uid://c5ewtigcvk5tv" path="res://assets/Interactive/door.gd" id="1_hrrdk"]
 [ext_resource type="Texture2D" uid="uid://cqq254lf0vkne" path="res://assets/Interactive/door.png" id="2_k1saq"]
+[ext_resource type="Texture2D" uid="uid://bhqht3acgxbey" path="res://assets/Interactive/cdoor.png" id="2_ni64f"]
 [ext_resource type="Texture2D" uid="uid://cutas3j8scedp" path="res://assets/Interactive/door_open1.png" id="3_jyokl"]
+[ext_resource type="Texture2D" uid="uid://cmh35cb1gum5r" path="res://assets/Interactive/cdoor_open1.png" id="3_th8ip"]
 [ext_resource type="Texture2D" uid="uid://cyhderg7ludig" path="res://assets/Interactive/door_open2.png" id="4_b8tfi"]
+[ext_resource type="Texture2D" uid="uid://euf4qvrb1wvh" path="res://assets/Interactive/cdoor_open2.png" id="4_wtvpy"]
 [ext_resource type="Texture2D" uid="uid://bfer10vg0o1a2" path="res://assets/Interactive/door_open3.png" id="5_odu1m"]
+[ext_resource type="Texture2D" uid="uid://247pt264twsa" path="res://assets/Interactive/cdoor_open3.png" id="5_wj0me"]
+[ext_resource type="Texture2D" uid="uid://b8j3kk6y4aj6s" path="res://assets/Interactive/cdoor_open4.png" id="6_p6xvn"]
+[ext_resource type="Texture2D" uid="uid://b4xum2kaivojd" path="res://assets/Interactive/cdoor_open6.png" id="7_nshuf"]
+[ext_resource type="Texture2D" uid="uid://dhkuvnwd0w1f3" path="res://assets/Interactive/cdoor_open5.png" id="8_q0n8i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7kuw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ni64f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_th8ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wtvpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wj0me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p6xvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q0n8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nshuf")
+}],
+"loop": true,
+"name": &"candydefault",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_k1saq")
@@ -51,6 +84,7 @@ script = ExtResource("1_hrrdk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k7kuw")
+animation = &"candydefault"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
