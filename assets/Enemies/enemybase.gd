@@ -10,6 +10,7 @@ enum State{walk, idle, attack, hurt}
 var state = State.walk
 
 @export var flip = false
+# cooldown to avoid multiple flips if colliding with multiple things at the same time
 var flipCooldown = false
 var health = 1
 var hitTypes = []
@@ -61,7 +62,7 @@ func doFlip():
 	if !flipCooldown:
 		flip = !flip
 		flipCooldown = true
-		get_tree().create_timer(0.1).timeout.connect(func(): flipCooldown = false)
+		get_tree().create_timer(0.01).timeout.connect(func(): flipCooldown = false)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not PlayerBase and body is not OlafShield:

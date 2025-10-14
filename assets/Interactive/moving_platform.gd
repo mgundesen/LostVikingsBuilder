@@ -26,16 +26,22 @@ func _ready():
 func _startMove():
 	moving = true
 
+func toggleMove():
+	moving = !moving
+	
+func swapTarget():
+	# Why is swap not a thing in gd?
+	var temp = target
+	target = nextTarget
+	nextTarget = temp
+
 func _physics_process(_delta):
 	if not moving:
 		return
 	if mode == Mode.EndPoints:
 		position += position.direction_to(target) * speed
 		if position.distance_to(target) < speed:
-			# Why is swap not a thing in gd?
-			var temp = target
-			target = nextTarget
-			nextTarget = temp
+			swapTarget()
 	else:
 		angle += speed
 		var x = center.x + radius * cos(deg_to_rad(angle))

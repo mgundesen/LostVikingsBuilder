@@ -1,12 +1,19 @@
 extends Enemy
 
 var onCooldown = false
+#Note, can in theory break through a wall if flipCooldown and agroCooldown
+#hits a very specific timing
+var aggroCooldown = false 
 
 func _ready() -> void:
 	health = 3
 
 func turnToPlayer():
-	return PlayerUtil.closeToPlayer(position, 300, Vector2(1,0) if flip else Vector2(-1,0))
+	if !aggroCooldown:
+		aggroCooldown = true
+		get_tree().create_timer(1.0).timeout.connect(func(): aggroCooldown = false)
+		return PlayerUtil.closeToPlayer(position, 300, Vector2(1,0) if flip else Vector2(-1,0))
+	return false
 	
 func _process(delta):
 	if turnToPlayer():

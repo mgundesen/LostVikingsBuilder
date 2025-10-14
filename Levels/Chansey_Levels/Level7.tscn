@@ -1678,6 +1678,7 @@ tile_set = SubResource("TileSet_16ayd")
 
 [node name="Door" parent="Objects" instance=ExtResource("2_fmn42")]
 position = Vector2(644, 483)
+style = 1
 
 [node name="Seesaw" parent="Objects" instance=ExtResource("15_64yae")]
 position = Vector2(294, 511)
