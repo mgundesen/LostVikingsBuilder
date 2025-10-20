@@ -7,6 +7,7 @@ enum State {selecting, holding}
 var state = State.selecting
 
 var currentItem = ItemUtil.Item.none
+var itemInTrash = false
 var playerInSwap
 
 func _ready():
@@ -14,8 +15,6 @@ func _ready():
 	basePos[1] = $Player2/Image.position
 	basePos[2] = $Player3/Image.position
 	
-	$Player1/ItemSprite2.call("setIcon",2)
-		
 func selectorForIndex(index):
 	var path = "Player{index}/Image".format({"index": index+1})
 	return get_node(path)
@@ -59,12 +58,10 @@ func currentPlayerIndex(currentPlayer):
 
 enum SwapType {next, previous}
 func getPlayer(type):
-	var currentIndex = currentPlayerIndex(playerInSwap)
-	var players = PlayerUtil.getPlayers()
 	if type == SwapType.next:
-		return players[PlayerUtil.nextPlayer(currentIndex)]
+		return PlayerUtil.nextPlayer(playerInSwap)
 	elif type == SwapType.previous:
-		return players[PlayerUtil.previousPlayer(currentIndex)]
+		return PlayerUtil.previousPlayer(playerInSwap)
 
 func swapItem(swapType):
 	var next = getPlayer(swapType)

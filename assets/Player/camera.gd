@@ -1,10 +1,13 @@
 extends Node2D
 
-var currentPlayer = 0
+var currentPlayer
 
+func _ready() -> void:
+	currentPlayer = PlayerUtil.getPlayers().front()
+	
 func swap(playerFun):
 	currentPlayer = playerFun.call(currentPlayer)
-	while PlayerUtil.playerForIndex(currentPlayer).visible == false:
+	while currentPlayer.visible == false:
 		currentPlayer = playerFun.call(currentPlayer)
 
 func _process(_delta):
@@ -24,17 +27,16 @@ func _process(_delta):
 	if Input.is_action_just_pressed(&"R"):
 		swap(PlayerUtil.nextPlayer)
 	
-	for i in range(3):
-		var player = players[i]
+	for player in PlayerUtil.getPlayers():
 		if !player:
 			return
 
 		#Swap in case player is dead
-		if i == currentPlayer:
+		if player == currentPlayer:
 			if player.visible == false:
 				swap(PlayerUtil.nextPlayer)
 
-		player.set("controlActive", i == currentPlayer)
-		if(i == currentPlayer):
+		player.set("controlActive", player == currentPlayer)
+		if(player == currentPlayer):
 			position = player.position
 			position.y -= 40 # offset for the HUD

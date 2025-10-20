@@ -29,18 +29,20 @@ func indexForPlayer(node):
 		index += 1
 	return -1
 
-func nextPlayer(index):
+func nextPlayer(player):
+	var index = indexForPlayer(player)
 	index += 1
 	index %= getPlayers().size()
-	return index
+	return playerForIndex(index)
 
-func previousPlayer(index):
+func previousPlayer(player):
+	var index = indexForPlayer(player)
 	var count = getPlayers().size()
 	if index == 0:
 		index = count-1
 	else:
 		index -= 1
-	return index
+	return playerForIndex(index)
 
 func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
