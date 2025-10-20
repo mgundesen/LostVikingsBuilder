@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 	elif state == Menu.Settings:
 		if $Settings.currentIndex == 0:
 			SceneControl.musicEnabled = !SceneControl.musicEnabled 
+			$AudioStreamPlayer.updateMusicState()
 			updateSettingText()
 		elif $Settings.currentIndex == 1:
 			SceneControl.soundEnabled = !SceneControl.soundEnabled 

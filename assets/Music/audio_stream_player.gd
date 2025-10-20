@@ -1,10 +1,13 @@
 extends AudioStreamPlayer
 
-func _ready() -> void:
+func updateMusicState():
 	if SceneControl.musicEnabled:
 		play()
 	else:
-		stop()	
+		stop()
+
+func _ready() -> void:
+	updateMusicState()
 
 func _process(_delta: float) -> void:
 	if SceneControl.pauseType() == SceneControl.PauseType.Regular:

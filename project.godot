@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="PuzzlePlatformer"
+config/name="The Lost Vikings Chansey's Levels"
 run/main_scene="uid://bbuuvtppltypr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cnjhxs0iluaa1"
@@ -27,6 +27,7 @@ SceneControl="*res://scene_control.gd"
 
 window/size/viewport_width=1000
 window/size/viewport_height=800
+window/stretch/mode="canvas_items"
 
 [input]
 
