@@ -90,16 +90,28 @@ func setupTimers():
 func facingDirected(offset):
 	return -offset if direction == FacingDirection.Left else offset
 
-func addItem(id, withSound = true):
-	if withSound:
+func spaceForItem():
+	for index in range(4):
+		if items[index] == 0:
+			return true
+	return false
+
+func selectAnyItem():
+	for index in range(4):
+		if items[index] != 0:
+			itemSlot = index
+			return
+
+func addItem(id, fromMenu = false):
+	if !fromMenu:
 		play_sfx("itemPickup")
+	assert(spaceForItem())
 	for index in range(4):
 		if items[index] == 0:
 			items[index] = id
-			if items[itemSlot] == 0:
+			if items[itemSlot] == 0 or fromMenu:
 				itemSlot = index
-			return true
-	return false
+			return
 
 func canUseFireArrow():
 	return false

@@ -7,7 +7,7 @@ enum State {selecting, holding}
 var state = State.selecting
 
 var currentItem = ItemUtil.Item.none
-var itemInTrash = false
+var swapOrigin
 var playerInSwap
 
 func _ready():
@@ -48,26 +48,33 @@ func itemSlotChangeCheck(ap):
 		return
 	SceneControl.menuSoundNode().play_sfx("swap")
 
-func currentPlayerIndex(currentPlayer):
-	var playerIndex = 0
-	for player in PlayerUtil.getPlayers():
-		if player == currentPlayer:
-			break
-		playerIndex += 1
-	return playerIndex
+func getClosePlayer(nextPlayerFun):
+	var newSwap = playerInSwap
+	newSwap = nextPlayerFun.call(playerInSwap)
+	while newSwap != playerInSwap:
+		if newSwap.position.distance_to(swapOrigin.position) < 200 and newSwap.spaceForItem():
+			return newSwap
+		newSwap = nextPlayerFun.call(newSwap)
+	SceneControl.menuSoundNode().play_sfx("itemFail")
+	return playerInSwap
 
 enum SwapType {next, previous}
 func getPlayer(type):
 	if type == SwapType.next:
-		return PlayerUtil.nextPlayer(playerInSwap)
+		return getClosePlayer(PlayerUtil.nextPlayer)
 	elif type == SwapType.previous:
-		return PlayerUtil.previousPlayer(playerInSwap)
+		return getClosePlayer(PlayerUtil.previousPlayer)
 
 func swapItem(swapType):
 	var next = getPlayer(swapType)
 	playerInSwap.items[playerInSwap.itemSlot] = ItemUtil.Item.none
-	next.addItem(currentItem, false)
+	next.addItem(currentItem, true)
 	playerInSwap = next
+
+func setState(newState):
+	if state == State.holding:
+		swapOrigin.selectAnyItem()
+	state = newState
 
 func _process(_delta):
 	drawItems()
@@ -75,7 +82,7 @@ func _process(_delta):
 	var relatedPause = SceneControl.pauseType() == SceneControl.PauseType.Item
 	if Input.is_action_just_pressed(&"Select"):
 		if relatedPause:
-			state = State.selecting
+			setState(State.selecting)
 			SceneControl.unpause()
 		else:
 			SceneControl.setPause(SceneControl.PauseType.Item)
@@ -89,15 +96,16 @@ func _process(_delta):
 				if item != ItemUtil.Item.none:
 					SceneControl.menuSoundNode().play_sfx("select")
 					currentItem = item
+					swapOrigin = ap
 					playerInSwap = ap
-					state = State.holding
+					setState(State.holding)
 		else:
 			if Input.is_action_just_pressed(&"Right"):
 				swapItem(SwapType.next)
 			if Input.is_action_just_pressed(&"Left"):
 				swapItem(SwapType.previous)
 			if Input.is_action_just_pressed(&"B"):
-				state = State.selecting
+				setState(State.selecting)
 				currentItem = ItemUtil.Item.none
 				SceneControl.menuSoundNode().play_sfx("select")
 	

@@ -1,6 +1,5 @@
 Features:
 Balerog second sword swing
-Transfer item between characters(improved)
 Improved graphic tredmill
 More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Egypt Guard, Mummy, Flying dropper, Evil Balerog)
 Slow falling wall
@@ -12,6 +11,7 @@ Jumping down antigrav
 Fix olaf selected image
 
 Features Low Priority:
+Implement item trash slot
 Magnet/Crane system
 Large pounder
 Acid drops
