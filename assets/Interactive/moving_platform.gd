@@ -3,8 +3,8 @@ extends Node2D
 enum Mode {EndPoints, Circular}
 @export var mode = Mode.EndPoints
 # EndPoints mode
-var start = Vector2()
 @export var speed = 2.0
+@export var start = Vector2(0,0)
 @export var end = Vector2(3,0)
 #Circular Mode
 @export var radius = 200

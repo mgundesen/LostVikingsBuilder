@@ -385,7 +385,7 @@ func applyPhysics(xInput, triggerJump, delta):
 
 	if triggerJump:
 		velocity.y = -JUMP_SPEED
-		if abs(velocity.x) == walkSpeed():
+		if abs(velocity.x) > walkSpeed() - 70:
 			const jumpMultiplier = 1.15
 			velocity.y *= jumpMultiplier
 
