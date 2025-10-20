@@ -1784,7 +1784,9 @@ position = Vector2(1932, 162)
 position = Vector2(1978, 832)
 
 [node name="Door" parent="Bottom" instance=ExtResource("14_bnllg")]
-position = Vector2(2324, 688)
+position = Vector2(2323, 688)
+scale = Vector2(1, 1)
+style = 1
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -1824,7 +1826,7 @@ visible = false
 position = Vector2(340, 500)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(410, 502)
+position = Vector2(410, 501)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(252, 499)

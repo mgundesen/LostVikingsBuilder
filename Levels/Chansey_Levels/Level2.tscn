@@ -1990,6 +1990,7 @@ tile_set = SubResource("TileSet_16ayd")
 
 [node name="Door" parent="ErikBlock" instance=ExtResource("8_jup6j")]
 position = Vector2(989, 896)
+scale = Vector2(1, 1)
 operationMode = 2
 timer = 1.5
 
@@ -2064,7 +2065,8 @@ itemID = 3
 [node name="RightSide" type="Node2D" parent="."]
 
 [node name="Door" parent="RightSide" instance=ExtResource("8_jup6j")]
-position = Vector2(1355, 483)
+position = Vector2(1357, 483)
+scale = Vector2(1, 1)
 openCount = 2
 
 [node name="Keyhole" parent="RightSide" instance=ExtResource("13_yycrt")]
