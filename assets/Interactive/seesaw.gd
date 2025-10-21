@@ -18,6 +18,7 @@ func _left_body_entered(body: Node2D) -> void:
 func _right_body_entered(body: Node2D) -> void:
 	if active == Active.Left and body.velocity.y > 0:
 		bounce($LeftArea, body, Active.Right)
+		body.velocity.y = body.velocity.y / 2
 
 func _process(_delta):
 	if active == Active.Right:

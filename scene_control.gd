@@ -1,5 +1,27 @@
 extends Node
 
+const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level1.tscn",
+"text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
+		 [eColor, "Tradition? Feels more like a recurring side quest at this point."],
+		 [bColor, "Well, the guards actually remembered to lock our cell this time."],
+		 [oColor, "At least they also left some food for us! I'm starving"],
+		 [bColor, "Quit yea blabbering! Do you see the gap in the wall? Erik do you think you can make it?"],
+		 [eColor, "Sure or else I wouldn't be Erik the Swift. Time to get busy escaping."]],
+"endText" : [[oColor, "Do you think Tomator well be mad about us escaping again?"],
+			[eColor, "Since when have that started bothering you?"],
+			[oColor, "Dunno, maybe him yet again being alive to do his tricks."],
+			[bColor, "I'm betting this is someone else pulling the strings!"]]},
+{"level" : "res://Levels/Chansey_Levels/Level2.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level3.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level4.tscn",
+"text" : [[bColor, "abc."]],
+"endText" : [[bColor, "abc."]]},
+{"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level6.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
+]
+
 enum PauseType {Regular, Item, Dialog, None}
 var pauseState = PauseType.None
 
@@ -31,26 +53,6 @@ const bColor = Color8(25, 121, 0)
 const oColor = Color8(107, 65, 33)
 
 var textBoxEnabled = true
-const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level1.tscn",
-"text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
-		 [eColor, "Tradition? Feels more like a recurring side quest at this point."],
-		 [bColor, "Well, the guards actually remembered to lock our cell this time."],
-		 [oColor, "At least they also left some food for us! I'm starving"],
-		 [bColor, "Quit yea blabbering! Do you see the gap in the wall? Erik do you think you can make it?"],
-		 [eColor, "Sure or else I wouldn't be Erik the Swift. Time to get busy escaping."]],
-"endText" : [[oColor, "Do you think Tomator well be mad about us escaping again?"],
-			[eColor, "Since when have that started bothering you?"],
-			[oColor, "Dunno, maybe him yet again being alive to do his tricks."],
-			[bColor, "I'm betting this is someone else pulling the strings!"]]},
-{"level" : "res://Levels/Chansey_Levels/Level2.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level3.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level4.tscn",
-"text" : [[bColor, "abc."]],
-"endText" : [[bColor, "abc."]]},
-{"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
-]
 
 func nextScene():
 	currentScene += 1
