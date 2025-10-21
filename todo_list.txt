@@ -11,6 +11,7 @@ Jumping down antigrav
 Fix olaf selected image
 
 Features Low Priority:
+Wind item
 Implement item trash slot
 Magnet/Crane system
 Large pounder

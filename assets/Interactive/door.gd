@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Door
 
 enum State{Open, Closed, Opening, Closing}
-var state = State.Closed
+@export var state = State.Closed
 
 enum Mode{Auto, Signals, Timed}
 @export var operationMode = Mode.Signals
@@ -21,6 +21,10 @@ const sounds = {
 	"candylandDoor": preload("res://assets/Sounds/cdoor.mp3")
 }
 
+func _ready() -> void:
+	if state == State.Open:
+		setCollision(false)
+
 func play_sfx(soundName: String):
 	sfx.stream = sounds[soundName]
 	SceneControl.playSound(sfx)
@@ -32,22 +36,23 @@ func setCollision(on):
 
 func open():
 	openCount -= 1
+	if operationMode == Mode.Timed:
+		get_tree().create_timer(timer).timeout.connect(close)
 	if openCount == 0:
 		play_sfx("open" if style == Style.Ship else "candylandDoor")
 		state = State.Opening
 		var openTime = 0.07 if style == Style.Ship else 0.8
 		get_tree().create_timer(openTime).timeout.connect(func(): state = State.Open)
 		setCollision(false)
-		if operationMode == Mode.Timed:
-			get_tree().create_timer(timer).timeout.connect(close)
 
 func close():
 	openCount += 1
-	play_sfx("close" if style == Style.Ship else "candylandDoor")
-	state = State.Closing
-	var openTime = 0.07 if style == Style.Ship else 0.8
-	get_tree().create_timer(openTime).timeout.connect(func(): state = State.Closed)
-	setCollision(true)
+	if openCount == 1:
+		play_sfx("close" if style == Style.Ship else "candylandDoor")
+		state = State.Closing
+		var openTime = 0.07 if style == Style.Ship else 0.8
+		get_tree().create_timer(openTime).timeout.connect(func(): state = State.Closed)
+		setCollision(true)
 
 func toggle():
 	if state == State.Open:

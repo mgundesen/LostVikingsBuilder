@@ -83,7 +83,7 @@ func _ready():
 func setupTimers():
 	inflateTimer = Timer.new()
 	add_child(inflateTimer)
-	inflateTimer.wait_time = 7.0
+	inflateTimer.wait_time = 6.0
 	inflateTimer.one_shot = true
 	inflateTimer.timeout.connect(func(): setState(State.Free))
 

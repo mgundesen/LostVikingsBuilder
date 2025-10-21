@@ -1375,11 +1375,9 @@ position = Vector2(575, 507)
 
 [node name="Door" parent="Objects" instance=ExtResource("7_xer1j")]
 position = Vector2(460, 483)
-scale = Vector2(1, 1)
 
 [node name="Door2" parent="Objects" instance=ExtResource("7_xer1j")]
 position = Vector2(966, 483)
-scale = Vector2(1, 1)
 
 [node name="Item" parent="Objects" instance=ExtResource("2_36xi1")]
 position = Vector2(-6, 465)
