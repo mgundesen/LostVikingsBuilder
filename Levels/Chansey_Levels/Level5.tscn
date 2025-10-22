@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://c4ypmkniosifq" path="res://assets/Hitbox/spikes.gd" id="8_3qx3l"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="8_ead10"]
 [ext_resource type="PackedScene" uid="uid://bcdwryut4xt1l" path="res://assets/Hazards/shock_trap.tscn" id="8_g3wji"]
-[ext_resource type="AudioStream" uid="uid://8tut4eja2sqh" path="res://assets/Music/ship_music.mp3" id="8_nph8i"]
 [ext_resource type="PackedScene" uid="uid://dqnhpyxdnb3kl" path="res://assets/Interactive/block.tscn" id="9_0afcl"]
 [ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="9_7m2du"]
 [ext_resource type="Script" uid="uid://b0s5p8ml0e4jt" path="res://assets/Hitbox/tile_map_layer.gd" id="10_8h4jd"]
@@ -29,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bk7t6s0r6bhod" path="res://assets/Interactive/pressure_plate.tscn" id="13_v5f6f"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="14_bnllg"]
 [ext_resource type="PackedScene" uid="uid://c1ny4ndeihgsh" path="res://assets/Interactive/wall_spawner.tscn" id="16_0pgnk"]
+[ext_resource type="AudioStream" uid="uid://dtbxu0a7gqvjx" path="res://assets/Music/Factory.mp3" id="28_v5f6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3nun5"]
 texture = ExtResource("1_wtqwx")
@@ -1848,7 +1848,7 @@ tile_set = SubResource("TileSet_b4tna")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("8_nph8i")
+stream = ExtResource("28_v5f6f")
 volume_db = -9.0
 parameters/looping = true
 script = ExtResource("9_7m2du")
