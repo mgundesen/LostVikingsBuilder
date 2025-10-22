@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbuuvtppltypr"]
+[gd_scene load_steps=7 format=3 uid="uid://bbuuvtppltypr"]
 
 [ext_resource type="Texture2D" uid="uid://nlxw7yg07rjc" path="res://assets/Menu/start_menu.png" id="1_mv4ud"]
 [ext_resource type="Script" uid="uid://b37a4421o3loa" path="res://assets/Menu/main_menu.gd" id="1_v1a7t"]
+[ext_resource type="FontFile" uid="uid://cqrs2c1gxx6dy" path="res://assets/Font/troika.otf" id="3_4smr7"]
 [ext_resource type="AudioStream" uid="uid://cfvkxceb4i7fe" path="res://assets/Music/title_screen.mp3" id="4_om2qm"]
 [ext_resource type="PackedScene" uid="uid://ciis1vf6dfi27" path="res://assets/Menu/text_menu.tscn" id="4_q0kiu"]
 [ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="5_4smr7"]
@@ -10,11 +11,32 @@
 script = ExtResource("1_v1a7t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(501, 405)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_mv4ud")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 127.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_4smr7")
+text = " Alpha Version 0.1"
 
 [node name="GeneralChoices" parent="." instance=ExtResource("4_q0kiu")]
 textLabels = ["New Game", "Options", "Level Select"]
