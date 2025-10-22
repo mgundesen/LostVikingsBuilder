@@ -98,6 +98,10 @@ func wallBonk():
 	get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if state == State.AttackMove2 and (area is Enemy or area is BreakBlock):
+	if state == State.AttackMove2 and area is BreakBlock:
 		wallBonk()
 	super.on_area_entered(area)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if state == State.AttackMove2 and body is Enemy:
+		wallBonk()

@@ -490,3 +490,4 @@ shape = SubResource("RectangleShape2D_i3pqv")
 stream = SubResource("AudioStreamPolyphonic_71xed")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1396,7 +1396,7 @@ position = Vector2(841, 393)
 ladderHeight = 7.0
 
 [node name="RobotShooter" parent="Objects" instance=ExtResource("3_is5fq")]
-position = Vector2(738, 512)
+position = Vector2(738, 514)
 itemType = 5
 
 [node name="HBomb" parent="Objects" instance=ExtResource("2_36xi1")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://itw3hjx6thsd"]
+[gd_scene load_steps=12 format=3 uid="uid://itw3hjx6thsd"]
 
 [ext_resource type="Script" uid="uid://c6tm8kuw6ux64" path="res://assets/Enemies/AlienShooter/alien_shooter.gd" id="1_escer"]
 [ext_resource type="Texture2D" uid="uid://c5qg7nolmvi60" path="res://assets/Enemies/AlienShooter/attack.png" id="1_mj686"]
@@ -49,23 +49,32 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck1l7"]
-size = Vector2(109, 109.722)
+size = Vector2(74, 75)
 
-[node name="AlienShooter" type="Area2D"]
-scale = Vector2(0.72, 0.72)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6snvm"]
+size = Vector2(79, 75.375)
+
+[node name="AlienShooter" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_escer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_7v5mr")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.694449)
 shape = SubResource("RectangleShape2D_ck1l7")
 
 [node name="EdgeDetect" parent="." instance=ExtResource("8_peamy")]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6snvm")
+
 [connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

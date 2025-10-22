@@ -1785,7 +1785,6 @@ position = Vector2(1978, 832)
 
 [node name="Door" parent="Bottom" instance=ExtResource("14_bnllg")]
 position = Vector2(2323, 688)
-scale = Vector2(1, 1)
 style = 1
 
 [node name="Objects" type="Node2D" parent="."]

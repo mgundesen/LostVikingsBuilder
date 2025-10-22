@@ -2045,11 +2045,11 @@ tile_set = SubResource("TileSet_16ayd")
 position = Vector2(795, 700)
 
 [node name="Shooter" parent="Objects" instance=ExtResource("4_8wv4e")]
-position = Vector2(816, 914)
+position = Vector2(816, 916)
 flip = true
 
 [node name="AlienShooter" parent="Objects" instance=ExtResource("5_ijc0w")]
-position = Vector2(474, 743)
+position = Vector2(474, 744)
 
 [node name="MovingPlatform" parent="Objects" instance=ExtResource("6_rghcr")]
 position = Vector2(23, 966)
@@ -2067,13 +2067,12 @@ rotation = 1.5708
 
 [node name="Door" parent="Objects" instance=ExtResource("9_j3qyi")]
 position = Vector2(276, 1702)
-scale = Vector2(1, 1)
 
 [node name="Button" parent="Objects" instance=ExtResource("10_147pn")]
 position = Vector2(317, 1428)
 
 [node name="Slicer" parent="Objects" instance=ExtResource("11_3ey4s")]
-position = Vector2(460, 1737)
+position = Vector2(460, 1738)
 
 [node name="PlatformButton2" parent="Objects" instance=ExtResource("7_51xty")]
 position = Vector2(128, 1710)
@@ -2120,7 +2119,6 @@ Width = 24.0
 
 [node name="Door2" parent="Objects" instance=ExtResource("9_j3qyi")]
 position = Vector2(644, 712)
-scale = Vector2(1, 1)
 
 [node name="Food" parent="Objects" instance=ExtResource("14_ollon")]
 position = Vector2(733, 489)

@@ -6,6 +6,7 @@
 size = Vector2(8, 130)
 
 [node name="EdgeDetect" type="Node2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_lrowm")
 
 [node name="RightArea" type="Area2D" parent="."]

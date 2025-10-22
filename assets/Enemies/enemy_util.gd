@@ -4,6 +4,7 @@ var bulletScene = load("res://assets/Enemies/bullet.tscn")
 
 func fire(origin, flip, yOffset = 0, type = Bullet.Type.laser):
 	var bullet = bulletScene.instantiate()
+	bullet.set
 	bullet.setType(type)
 	if flip:
 		bullet.set("speed", -bullet.get("speed"))

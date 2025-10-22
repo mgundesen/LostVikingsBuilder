@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 class_name Enemy
 
@@ -41,7 +41,7 @@ func _process(_delta):
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
 	
-	var type = CollisionUtil.isColliding(self, hitTypes)
+	var type = CollisionUtil.isColliding($Area2D, hitTypes)
 	if type:
 		if type == Hitbox.Type.explode or type == Hitbox.Type.smartbomb or type == Hitbox.Type.fireArrow:
 			health -= 3
@@ -65,7 +65,7 @@ func doFlip():
 		get_tree().create_timer(0.01).timeout.connect(func(): flipCooldown = false)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is not PlayerBase and body is not OlafShield:
+	if body is not PlayerBase and body is not OlafShield and body is not Enemy:
 		doFlip()
 
 func _on_edge_detect_hit_edge() -> void:
