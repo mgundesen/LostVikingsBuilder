@@ -18,9 +18,13 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 "text" : [[bColor, "abc."]],
 "endText" : [[bColor, "abc."]]},
 {"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level6.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
+{"level" : "res://Levels/Chansey_Levels/Level6.tscn"}#,
+#{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
 ]
+
+var currentScene = 0
+var musicEnabled = true
+var soundEnabled = true
 
 enum PauseType {Regular, Item, Dialog, None}
 var pauseState = PauseType.None
@@ -43,10 +47,6 @@ func setPause(type):
 func unpause():
 	pauseState = PauseType.None
 	get_tree().paused = !pauseState == PauseType.None
-
-var currentScene = 0
-var musicEnabled = false
-var soundEnabled = true
 
 const eColor = Color8(148, 0, 0)
 const bColor = Color8(25, 121, 0)

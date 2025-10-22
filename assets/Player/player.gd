@@ -79,6 +79,7 @@ func play_sfx(soundName: String):
 func _ready():
 	set_platform_on_leave(PLATFORM_ON_LEAVE_DO_NOTHING)
 	setupTimers()
+	$AnimatedSprite2D.play("Idle")
 
 func setupTimers():
 	inflateTimer = Timer.new()
