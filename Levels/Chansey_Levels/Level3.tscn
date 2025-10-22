@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="2_x47i1"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="3_3qx3l"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="4_8h4jd"]
-[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="4_8wv4e"]
+[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/Shooter/shooter.tscn" id="4_8wv4e"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="5_h8l50"]
 [ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="5_ijc0w"]
 [ext_resource type="PackedScene" uid="uid://b5y46p400ksns" path="res://assets/HUD/textbox.tscn" id="6_85dei"]

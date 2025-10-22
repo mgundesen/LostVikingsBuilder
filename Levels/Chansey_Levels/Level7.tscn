@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="10_8wv4e"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="11_rghcr"]
 [ext_resource type="PackedScene" uid="uid://dwugfhkhbyida" path="res://assets/Interactive/tredmill.tscn" id="12_51xty"]
-[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="13_j3qyi"]
+[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/Shooter/shooter.tscn" id="13_j3qyi"]
 [ext_resource type="PackedScene" uid="uid://bkvfnimgr3sl4" path="res://assets/Interactive/keyhole.tscn" id="13_wuymp"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="14_64yae"]
 [ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="15_64yae"]

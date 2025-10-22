@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://brmw0j71b2k1f"]
+
+[ext_resource type="Script" uid="uid://dei0wkd80jdt1" path="res://assets/Enemies/enymyHitbox.gd" id="1_r6crq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06x30"]
+
+[node name="EnemyHitbox" type="Area2D"]
+script = ExtResource("1_r6crq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_06x30")

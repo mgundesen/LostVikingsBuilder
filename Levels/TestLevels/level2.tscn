@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="5_vh8st"]
 [ext_resource type="PackedScene" uid="uid://dw28rbseukwil" path="res://assets/Interactive/machine.tscn" id="6_plkcr"]
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="7_ucg3d"]
-[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/shooter.tscn" id="8_fn86y"]
+[ext_resource type="PackedScene" uid="uid://bjrhbqtapfjs1" path="res://assets/Enemies/Shooter/shooter.tscn" id="8_fn86y"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="9_hhhfn"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="10_wqun2"]
 [ext_resource type="PackedScene" uid="uid://itw3hjx6thsd" path="res://assets/Enemies/AlienShooter/alien_shooter.tscn" id="11_x0bbt"]

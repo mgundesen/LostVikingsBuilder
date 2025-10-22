@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4xgw8ws2lime" path="res://assets/Enemies/RobotShooter/walk2.png" id="7_gyqkk"]
 [ext_resource type="Texture2D" uid="uid://btpgki20uyryn" path="res://assets/Enemies/RobotShooter/walk3.png" id="8_44433"]
 [ext_resource type="Texture2D" uid="uid://dt1ktpw01u83v" path="res://assets/Enemies/RobotShooter/walk4.png" id="9_ehb0l"]
-[ext_resource type="AudioStream" uid="uid://clle6lg2ck60v" path="res://assets/Enemies/robot.mp3" id="10_fvax0"]
+[ext_resource type="AudioStream" uid="uid://clle6lg2ck60v" path="res://assets/Sounds/robot.mp3" id="10_fvax0"]
 [ext_resource type="PackedScene" uid="uid://cffav8lls5m8j" path="res://assets/Enemies/edge_detect.tscn" id="11_w250r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hm6ci"]

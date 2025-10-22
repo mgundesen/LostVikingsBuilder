@@ -1,0 +1,13 @@
+extends Area2D
+
+func _ready() -> void:
+	get_tree().create_timer(0.5).timeout.connect(queue_free)
+
+func _process(_delta):
+	for body in get_overlapping_bodies():
+		if body is PlayerBase:
+			body.getHit(position, PlayerBase.State.HitStun, PlayerBase.State.DeathSkeleton)
+		if body is Enemy:
+			continue
+		queue_free()
+		
