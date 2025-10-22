@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b50ek4om118vt"]
+[gd_scene load_steps=40 format=4 uid="uid://b50ek4om118vt"]
 
 [ext_resource type="Texture2D" uid="uid://cwlovvlrxtsnf" path="res://assets/background_candyland.png" id="1_nph8i"]
 [ext_resource type="Texture2D" uid="uid://r80l8dgke2a0" path="res://assets/BlockBackground.png" id="1_wtqwx"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://b0s5p8ml0e4jt" path="res://assets/Hitbox/tile_map_layer.gd" id="10_8h4jd"]
 [ext_resource type="PackedScene" uid="uid://b1k7hvem7rnmy" path="res://assets/Enemies/Slicer/slicer.tscn" id="11_fo4c1"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="12_mjfvw"]
+[ext_resource type="PackedScene" uid="uid://b7mdy3pfohm3c" path="res://assets/Enemies/Guard/guard.tscn" id="13_6brow"]
 [ext_resource type="PackedScene" uid="uid://dnkhm086cejgp" path="res://assets/HUD/fade_scene.tscn" id="13_h8l50"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="13_isgux"]
 [ext_resource type="PackedScene" uid="uid://bkvfnimgr3sl4" path="res://assets/Interactive/keyhole.tscn" id="15_635mv"]
@@ -2112,6 +2113,12 @@ style = 1
 position = Vector2(-1729, 474)
 itemID = 5
 
+[node name="Guard2" parent="Left" instance=ExtResource("13_6brow")]
+position = Vector2(-1323, 499)
+
+[node name="Guard" parent="Left" instance=ExtResource("13_6brow")]
+position = Vector2(-1579, 495)
+
 [node name="Top" type="Node2D" parent="."]
 
 [node name="EnemyDoor" parent="Top" instance=ExtResource("4_1me2n")]
@@ -2194,7 +2201,7 @@ visible = false
 position = Vector2(177, 502)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(257, 502)
+position = Vector2(-897, 443)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(80, 501)

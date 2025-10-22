@@ -253,7 +253,7 @@ Width = 4
 position = Vector2(410, 722)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(249, 510)
+position = Vector2(349, 763)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
 position = Vector2(159, 486)

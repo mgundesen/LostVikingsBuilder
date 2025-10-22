@@ -3,7 +3,6 @@ Balerog second sword swing
 Improved graphic tredmill
 More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Egypt Guard, Mummy, Flying dropper, Evil Balerog)
 Slow falling wall
-Add eqyptian guards to level 6
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way

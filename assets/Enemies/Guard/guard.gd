@@ -48,3 +48,7 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if state == State.walk:
 		velocity.y = JUMP_VELOCITY
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is not PlayerBase and body is not OlafShield:
+		doFlip()
