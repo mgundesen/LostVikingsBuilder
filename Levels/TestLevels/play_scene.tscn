@@ -236,10 +236,10 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(-467, 500)
+position = Vector2(322, 365)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(-493, 427)
+position = Vector2(358, 523)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
 position = Vector2(770, 765)
@@ -262,7 +262,7 @@ position = Vector2(1163, 691)
 position = Vector2(109, 236)
 
 [node name="Inflater" parent="." instance=ExtResource("27_i2gka")]
-position = Vector2(-0.999939, 441)
+position = Vector2(361, 510)
 
 [node name="Door2" parent="." instance=ExtResource("23_vi0nd")]
 position = Vector2(574, 757)

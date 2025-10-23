@@ -5,12 +5,17 @@ const SHEILD_FALL_SPEED = 100
 var raisedSheild = false
 
 func updateSheildCollision():
-	$Shield/front/CollisionShape2D.disabled = raisedSheild
-	$Shield/top/CollisionShape2D.disabled = !raisedSheild
+	var inflatedState = state == State.Inflating or state == State.Inflated
+	$Shield/front/CollisionShape2D.disabled = raisedSheild or inflatedState
+	$Shield/top/CollisionShape2D.disabled = !raisedSheild or inflatedState
 
 func _ready():
 	updateSheildCollision()
 	super._ready()
+	
+func setState(targetState):
+	updateSheildCollision()
+	super.setState(targetState)
 
 func maybeLimitFall():
 	if raisedSheild:
