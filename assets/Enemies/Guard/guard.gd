@@ -11,8 +11,8 @@ func _ready() -> void:
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
 
-func closeToSheild():
-	return PlayerUtil.closeToSheild(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
+func closeToShield():
+	return PlayerUtil.closeToShield(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
 
 func exitAttack():
 	setState(State.walk)
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	move_and_slide()
 	
-	if !attackCooldown and state == State.walk and (closeToPlayer() or closeToSheild()):
+	if !attackCooldown and state == State.walk and (closeToPlayer() or closeToShield()):
 		attackCooldown = true
 		setState(State.attack)
 		get_tree().create_timer(0.2).timeout.connect(attemptAttack)

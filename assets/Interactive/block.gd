@@ -5,6 +5,11 @@ class_name Block
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var disabled = false
+var frontShield
+
+func _ready() -> void:
+	frontShield = PlayerUtil.frontShield()
+	add_collision_exception_with(frontShield)
 
 func _physics_process(delta: float) -> void:
 	if PlayerUtil.closeToPlayer(position, 46+33, Vector2(-1,0)):
@@ -19,7 +24,7 @@ func _physics_process(delta: float) -> void:
 			position.y += 2
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is OlafShield:
+	if body is OlafShield and body != frontShield:
 		disabled = true
 	if body is PlayerBase and disabled == false:
 		body.kill(KillArea.Type.Squash)

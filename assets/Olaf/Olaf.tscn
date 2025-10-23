@@ -421,7 +421,7 @@ script = ExtResource("1_yuhhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Death_Skeleton"
+animation = &"Idle_Sheild"
 
 [node name="Shield" type="Node2D" parent="."]
 
@@ -441,7 +441,7 @@ collision_mask = 15
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
-position = Vector2(5, -40)
+position = Vector2(-3.85714, -31.5714)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_1opws")
 one_way_collision = true

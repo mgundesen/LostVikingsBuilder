@@ -52,8 +52,12 @@ func closeToPosition(sourcePosition, position, distance, searchDir):
 			else:
 				return true
 	return false
+	
+func frontShield():
+	var olaf = getPlayers()[2]
+	return olaf.find_child("front")
 
-func closeToSheild(sourcePosition, distance, searchDir = Vector2(0,0)):
+func closeToShield(sourcePosition, distance, searchDir = Vector2(0,0)):
 	var olaf = getPlayers()[2]
 	if olaf.raisedSheild:
 		return false
