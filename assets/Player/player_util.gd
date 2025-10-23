@@ -44,14 +44,28 @@ func previousPlayer(player):
 		index -= 1
 	return playerForIndex(index)
 
+func closeToPosition(sourcePosition, position, distance, searchDir):
+	if sourcePosition.distance_to(position) < distance:
+			if searchDir.length() > 0:
+				if abs((position-sourcePosition).angle_to(searchDir)) < PI/4:
+					return true
+			else:
+				return true
+	return false
+
+func closeToSheild(sourcePosition, distance, searchDir = Vector2(0,0)):
+	var olaf = getPlayers()[2]
+	if olaf.raisedSheild:
+		return false
+	var pos = olaf.position + olaf.facingDirected(Vector2(45,0))
+	if closeToPosition(sourcePosition, pos, distance, searchDir):
+		return true
+	return false
+
 func closeToPlayer(sourcePosition, distance, searchDir = Vector2(0,0)):
 	for player in getPlayers():
 		if player.playerHealth <= 0:
 			continue
-		if sourcePosition.distance_to(player.position) < distance:
-			if searchDir.length() > 0:
-				if abs((player.position-sourcePosition).angle_to(searchDir)) < PI/4:
-					return player
-			else:
+		if closeToPosition(sourcePosition, player.position, distance, searchDir):
 				return player
 	return null

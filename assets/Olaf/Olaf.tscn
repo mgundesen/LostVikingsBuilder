@@ -424,7 +424,6 @@ sprite_frames = SubResource("SpriteFrames_ywefy")
 animation = &"Death_Skeleton"
 
 [node name="Shield" type="Node2D" parent="."]
-position = Vector2(-2.85714, -68.5714)
 
 [node name="front" type="CharacterBody2D" parent="Shield"]
 collision_layer = 8
@@ -432,16 +431,17 @@ collision_mask = 8
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/front"]
-position = Vector2(47.8571, 67.5714)
+position = Vector2(45, 0)
 shape = SubResource("RectangleShape2D_umgyw")
 
 [node name="top" type="CharacterBody2D" parent="Shield"]
+position = Vector2(4.85714, -10.4286)
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("50_lpcfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/top"]
-position = Vector2(7.85714, 26.5714)
+position = Vector2(5, -40)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_1opws")
 one_way_collision = true

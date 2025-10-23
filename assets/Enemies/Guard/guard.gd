@@ -11,6 +11,9 @@ func _ready() -> void:
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
 
+func closeToSheild():
+	return PlayerUtil.closeToSheild(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
+
 func exitAttack():
 	setState(State.walk)
 	velocity.y = JUMP_VELOCITY
@@ -28,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	move_and_slide()
 	
-	if !attackCooldown and state == State.walk and closeToPlayer():
+	if !attackCooldown and state == State.walk and (closeToPlayer() or closeToSheild()):
 		attackCooldown = true
 		setState(State.attack)
 		get_tree().create_timer(0.2).timeout.connect(attemptAttack)
@@ -46,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("default")
 
 func _on_timer_timeout() -> void:
-	if state == State.walk:
+	if state == State.walk and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 func _on_body_entered(body: Node2D) -> void:

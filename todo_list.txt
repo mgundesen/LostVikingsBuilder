@@ -1,7 +1,7 @@
 Features:
 Balerog second sword swing
 Improved graphic tredmill
-More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Egypt Guard, Mummy, Flying dropper, Evil Balerog)
+More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Mummy, Flying dropper, Evil Balerog)
 Slow falling wall
 
 Bugs:
@@ -10,6 +10,7 @@ heck is circular platform physics doing?
 Jumping down antigrav
 Fix olaf selected image
 Sheild pushing block
+Sheild active while inflated
 
 Features Low Priority:
 Wind item
