@@ -293,10 +293,10 @@ func _takeDamage(stunState, deathState, amount = 1):
 	playerHealth -= amount
 	if playerHealth > 0:
 		play_sfx("hurt")
-		state = stunState
+		setState(stunState)
 		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free))
 	else:
-		state = deathState
+		setState(deathState)
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
 
 func stopForce():
@@ -424,11 +424,11 @@ func _physics_process(delta):
 			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))
 	
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
-		state = State.Ladder
+		setState(State.Ladder)
 		velocity = Vector2.ZERO
 	elif state == State.Ladder and abs(yInput) < 0.1:
 		if abs(xInput) > 0 or triggerJump:
-			state = State.Free
+			setState(State.Free)
 			
 	if springJump:
 		setState(State.Free)
@@ -454,7 +454,7 @@ func _physics_process(delta):
 		if !touchingTiles or yInput > 0:
 			position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or (yInput > 0 and touchingTiles):
-			state = State.Free
+			setState(State.Free)
 	if onTredmill:
 		position.x += tredmillSpeed
 

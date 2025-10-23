@@ -14,8 +14,8 @@ func _ready():
 	super._ready()
 	
 func setState(targetState):
-	updateSheildCollision()
 	super.setState(targetState)
+	updateSheildCollision()
 
 func maybeLimitFall():
 	if raisedSheild:
