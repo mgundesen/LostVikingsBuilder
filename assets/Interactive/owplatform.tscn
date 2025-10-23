@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ml7ku4nhu3g0" path="res://assets/Interactive/owplatform.gd" id="1_fw2hx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfc7h"]
+resource_local_to_scene = true
 size = Vector2(137, 5)
 
 [node name="owplatform" type="CharacterBody2D"]
