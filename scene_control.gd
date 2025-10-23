@@ -23,7 +23,7 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 ]
 
 var currentScene = 0
-var musicEnabled = true
+var musicEnabled = false
 var soundEnabled = true
 
 enum PauseType {Regular, Item, Dialog, None}

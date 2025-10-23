@@ -8,7 +8,6 @@ Bugs:
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav
-Fix olaf selected image
 Sheild pushing block
 Sheild active while inflated
 
