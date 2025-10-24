@@ -65,7 +65,7 @@ func stateWithPhysics():
 func _physics_process(delta):
 	if controlActive and state == State.Free and is_on_floor():
 		if Input.is_action_just_pressed(&"Y") and abs(velocity.x) > 200:
-			state = State.AttackMove2
+			setState(State.AttackMove2)
 			subState = Substate.bash
 			get_tree().create_timer(1.2).timeout.connect(func(): setState(State.Free))
 	if controlActive and state == State.AttackMove2 and is_on_floor():
@@ -76,7 +76,7 @@ func _physics_process(delta):
 			
 	if state == State.AttackMove2: 
 		if !is_on_floor() and subState == Substate.bash:
-			state = State.Free
+			setState(State.Free)
 		elif subState == Substate.bash and is_on_wall():
 			wallBonk()
 		elif subState == Substate.tumble or subState == Substate.tumble2:
@@ -95,7 +95,7 @@ func wallBonk():
 	velocity.y = -220
 	get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
 	# intentional skip of setState to allow exit
-	get_tree().create_timer(2.0).timeout.connect(func(): state = State.Free)
+	get_tree().create_timer(2.0).timeout.connect(func(): setState(State.Free))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if state == State.AttackMove2 and area is BreakBlock:

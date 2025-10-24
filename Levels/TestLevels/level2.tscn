@@ -352,12 +352,10 @@ position = Vector2(909, 74)
 
 [node name="Door" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(575, 483)
-scale = Vector2(1, 1)
 operationMode = 0
 
 [node name="Door2" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(1173.21, 483.654)
-scale = Vector2(1, 1)
 operationMode = 0
 
 [node name="Barrier3" parent="SceneObjects" instance=ExtResource("2_dpe6j")]
@@ -425,12 +423,10 @@ ladderHeight = 9.98
 
 [node name="Door3" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(207, 1863)
-scale = Vector2(1, 1)
 operationMode = 0
 
 [node name="Door4" parent="SceneObjects" instance=ExtResource("4_odihm")]
 position = Vector2(576, 2092)
-scale = Vector2(1, 1)
 operationMode = 0
 
 [node name="Ladder6" parent="SceneObjects" instance=ExtResource("3_m8ou3")]

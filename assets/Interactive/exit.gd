@@ -3,13 +3,26 @@ extends Sprite2D
 signal won
 var transition = false
 
+enum endState {notDone, won, wonButMissing}
+func isDone():
+	var state = endState.won
+	for player in PlayerUtil.getPlayers():
+		if player.playerHealth < 1 and state == endState.won:
+			state = endState.wonButMissing
+		elif player.position.distance_to(position) > 150:
+			state = endState.notDone
+	return state
+
 func _process(_delta):
 	if transition:
 		return
-	for player in PlayerUtil.getPlayers():
-		if player.position.distance_to(position) > 150:
-			return
+	var winState = isDone()
+	if winState == endState.notDone:
+		return
 	transition = true
-	won.emit()
 	get_parent().get_parent().get_node("FadeScene").fadeout()
-	get_tree().create_timer(0.5, false).timeout.connect(func(): SceneControl.nextScene())
+	if winState == endState.won:
+		won.emit()
+		get_tree().create_timer(0.5, false).timeout.connect(func(): SceneControl.nextScene())
+	else:
+		get_tree().create_timer(0.5, false).timeout.connect(func(): SceneControl.deathScene())
