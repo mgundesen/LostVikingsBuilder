@@ -11,7 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase:
 		var index = PlayerUtil.indexForPlayer(body)
 		if !appliedSpring[index]:
-			body.set("springJump", true)
+			body.velocity.y = PlayerBase.SPRING_FORCE
 			appliedSpring[index] = true
 			SceneControl.playSound($AudioStreamPlayer2D)
 			get_tree().create_timer(0.07).timeout.connect(func(): unspring(index))

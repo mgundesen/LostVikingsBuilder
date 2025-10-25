@@ -6,7 +6,7 @@ var active = Active.Left
 func bounce(otherArea, body, newState):
 	for otherBody in otherArea.get_overlapping_bodies():
 		if otherBody is PlayerBase and otherBody != body:
-			otherBody.set("springJump", true)
+			otherBody.velocity.y = PlayerBase.SPRING_FORCE
 	active = newState
 	SceneControl.playSound($AudioStreamPlayer2D)
 	# collision area is just left always high as it works fine without being correct

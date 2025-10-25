@@ -6,7 +6,7 @@ const WALK_FORCE = 1000
 const WALK_MAX_SPEED = 250
 const JUMP_SPEED = 550
 const ANTIGRAV_BOUNCE = 100
-const SPRING_FORCE = 850
+const SPRING_FORCE = -850
 const FALL_DAMAGE_LIMIT = 900
 const SOUND_FALL_LIMIT = 200
 const CLIMB_SPEED = 3
@@ -31,9 +31,6 @@ var tredmillSpeed = -1
 
 # Control active interface
 var controlActive = false
-
-# Control apply spring jump
-var springJump = false
 
 var inAntigrav = false
 var imuneAntigrav = false
@@ -376,10 +373,6 @@ func applyPhysics(xInput, triggerJump, delta):
 		velocity.y += gravity() * delta
 		maybeLimitFall()
 
-	if springJump:
-		springJump = false
-		velocity.y = -SPRING_FORCE
-
 	# Move based on the velocity and snap to the ground.
 	var yBeforeMove = velocity.y
 	move_and_slide()
@@ -429,9 +422,6 @@ func _physics_process(delta):
 	elif state == State.Ladder and abs(yInput) < 0.1:
 		if abs(xInput) > 0 or triggerJump:
 			setState(State.Free)
-			
-	if springJump:
-		setState(State.Free)
 
 	if state == State.HitStun:
 		velocity.x = facingDirected(-40)
