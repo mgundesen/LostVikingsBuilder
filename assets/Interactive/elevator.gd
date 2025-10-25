@@ -14,9 +14,13 @@ func _ready():
 	var target = nodes[targetIndex]
 	position = target
 
+func isAtTarget():
+	var target = nodes[targetIndex]
+	return position.distance_to(target) < speed
+
 func _physics_process(_delta):
 	var target = nodes[targetIndex]
-	var atTarget = position.distance_to(target) < speed
+	var atTarget = isAtTarget()
 	if atTarget:
 		position = target
 		$AudioStreamPlayer2D.stop()
@@ -35,3 +39,12 @@ func _physics_process(_delta):
 				previousTarget = targetIndex
 				targetIndex += 1
 				SceneControl.playSound($AudioStreamPlayer2D)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBase:
+		body.onElevator = self
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is PlayerBase:
+		body.onElevator = null

@@ -25,6 +25,9 @@ var ladderHeight = 0
 var teleportAllowed = false
 var teleportTarget = Vector2()
 
+# Elevator interface
+var onElevator
+
 # Tredmill interface
 var onTredmill = false
 var tredmillSpeed = -1
@@ -420,6 +423,15 @@ func checkSpikeCollision():
 		if body is Spikes:
 			kill(KillArea.Type.Spikes)
 
+func elevatorBonkHandling():
+	if onElevator:
+		for body in $Area2D.get_overlapping_bodies():
+			if body is Tiles and !onElevator.isAtTarget():
+				var offset = 14 if position.x > onElevator.position.x else -14
+				position = onElevator.position
+				position.y -= size().y / 2.0 + 1
+				position.x += offset
+
 func _physics_process(delta):
 	var yInput = 0
 	var xInput = 0
@@ -441,6 +453,8 @@ func _physics_process(delta):
 			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))
 	
 	checkSpikeCollision()
+	# This still does not work well but probably better than being unfair to the player
+	elevatorBonkHandling()
 	if state == State.Free and validLadderInput(yInput):
 		setState(State.Ladder)
 		velocity = Vector2.ZERO
