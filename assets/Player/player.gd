@@ -218,6 +218,10 @@ func enterAntigrav():
 		play_sfx("antigrav")
 
 func decideAnimation(yInput, vel):
+	if velocity.x > 0:
+		direction = FacingDirection.Right
+	elif velocity.x < 0:
+		direction = FacingDirection.Left
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if state == State.FallDeath:
 		$AnimatedSprite2D.play("Death_Fall")
@@ -368,7 +372,7 @@ func handleLadderInput(xInput, yInput, triggerJump):
 		setState(State.Free)
 
 func applyPhysics(xInput, triggerJump, delta):
-	# Horizontal movement code. First, get the player's input.
+	# Horizontal movement code
 	var appliedWalk = walkForce()
 	var walk = appliedWalk * xInput
 	# Slow down the player if they're not trying to move.
@@ -381,10 +385,9 @@ func applyPhysics(xInput, triggerJump, delta):
 		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
 	else:
 		velocity.x += walk * delta
-	# Clamp to the maximum horizontal movement speed.
 	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
 
-	# Vertical movement code. Apply gravity.
+	# Vertical movement code
 	if inAntigrav and !imuneAntigrav:
 		velocity.y -= gravity() * 0.1 * delta
 	elif state == State.Inflated:
@@ -392,6 +395,11 @@ func applyPhysics(xInput, triggerJump, delta):
 	else:
 		velocity.y += gravity() * delta
 		maybeLimitFall()
+	if triggerJump:
+		velocity.y = -JUMP_SPEED
+		if abs(velocity.x) > walkSpeed() - 70:
+			const jumpMultiplier = 1.15
+			velocity.y *= jumpMultiplier
 
 	# Move based on the velocity and snap to the ground.
 	var yBeforeMove = velocity.y
@@ -406,17 +414,6 @@ func applyPhysics(xInput, triggerJump, delta):
 			play_sfx("bonk")
 		elif yBeforeMove > SOUND_FALL_LIMIT and is_on_floor():
 			play_sfx("landing")
-
-	if triggerJump:
-		velocity.y = -JUMP_SPEED
-		if abs(velocity.x) > walkSpeed() - 70:
-			const jumpMultiplier = 1.15
-			velocity.y *= jumpMultiplier
-			
-	if velocity.x > 0:
-		direction = FacingDirection.Right
-	elif velocity.x < 0:
-		direction = FacingDirection.Left
 
 func checkSpikeCollision():
 	for body in $Area2D.get_overlapping_bodies():
