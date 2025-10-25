@@ -121,14 +121,23 @@ func spawnHitboxSmartbomb():
 	add_child(hitbox)
 	hitbox.call("despawn", 0.1)
 
+func keyholeForItem(type):
+	match items[itemSlot]:
+		ItemUtil.Item.keyBlue:
+			return ItemUtil.Keyhole.blue
+		ItemUtil.Item.keyYellow:
+			return ItemUtil.Keyhole.yellow
+		ItemUtil.Item.keyRed:
+			return ItemUtil.Keyhole.red
+
 func useKey(type):
 	for area in $Area2D.get_overlapping_areas():
-		if area is KeyHole and area.type == type:
+		if area is KeyHole and area.type == keyholeForItem(type):
 			area.call("open")
 			return true
 	return false
 
-func useItem():
+func useItemWithCheck():
 	var sound = "itemUse"
 	match items[itemSlot]:
 		ItemUtil.Item.none:
@@ -143,14 +152,8 @@ func useItem():
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
 			bomb.position = position
-		ItemUtil.Item.keyBlue:
-			if !useKey(ItemUtil.Keyhole.blue):
-				return false
-		ItemUtil.Item.keyYellow:
-			if !useKey(ItemUtil.Keyhole.yellow):
-				return false
-		ItemUtil.Item.keyRed:
-			if !useKey(ItemUtil.Keyhole.red):
+		ItemUtil.Item.keyBlue, ItemUtil.Item.keyYellow, ItemUtil.Item.keyRed:
+			if !useKey(items[itemSlot]):
 				return false
 		ItemUtil.Item.smartbomb:
 			spawnHitboxSmartbomb()
@@ -164,6 +167,10 @@ func useItem():
 	itemSlot = (itemSlot + 1) %4
 	play_sfx(sound)
 	return true
+	
+func useItem():
+	if !useItemWithCheck():
+		play_sfx("itemFail")
 
 func _implSpawnHitbox(offset, type):
 	var hitboxPos = position
@@ -426,8 +433,7 @@ func _physics_process(delta):
 			xInput = Input.get_axis(&"Left", &"Right")
 			triggerJump = allowJump()
 		if Input.is_action_just_pressed(&"X"):
-			if !useItem():
-				play_sfx("itemFail")
+			useItem()
 		if state == State.Inflated and Input.is_action_just_pressed(&"B"):
 			setState(State.Free)
 			inflateTimer.stop()
