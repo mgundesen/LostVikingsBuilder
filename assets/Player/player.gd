@@ -317,6 +317,8 @@ func validLadderInput(yInput):
 	if yInput > 0: #Going down
 		if position.y > ladderBottom():
 			return false
+	if abs(yInput) < 0.1:
+		return false
 	return true
 
 func getHit(sourcePosition, damageType, deathType):
@@ -345,6 +347,18 @@ func kill(type):
 				_takeDamage(State.SquashDeath, State.SquashDeath, 4)
 		KillArea.Type.Drown:
 			_takeDamage(State.DrownDeath, State.DrownDeath, 4)
+
+func handleLadderInput(xInput, yInput, triggerJump):
+	if abs(yInput) < 0.1 and (abs(xInput) > 0 or triggerJump):
+		setState(State.Free)
+	position.x = ladderPos.x
+	var touchingTiles = false
+	for body in $Area2D.get_overlapping_bodies():
+		if body is Tiles:
+			touchingTiles = true
+	position.y += yInput * CLIMB_SPEED
+	if position.y < ladderTop() or (yInput > 0 and touchingTiles):
+		setState(State.Free)
 
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code. First, get the player's input.
@@ -423,27 +437,16 @@ func _physics_process(delta):
 			get_tree().create_timer(0.7).timeout.connect(func(): position = teleportTarget)
 			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))
 	
-	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
+	checkSpikeCollision()
+	if state == State.Free and validLadderInput(yInput):
 		setState(State.Ladder)
 		velocity = Vector2.ZERO
-
 	if state == State.HitStun:
 		velocity.x = facingDirected(-40)
 		velocity.y += gravity() * delta
 		move_and_slide()
-	checkSpikeCollision()
-
 	if state == State.Ladder:
-		if abs(yInput) < 0.1 and (abs(xInput) > 0 or triggerJump):
-			setState(State.Free)
-		position.x = ladderPos.x
-		var touchingTiles = false
-		for body in $Area2D.get_overlapping_bodies():
-			if body is Tiles:
-				touchingTiles = true
-		position.y += yInput * CLIMB_SPEED
-		if position.y < ladderTop() or (yInput > 0 and touchingTiles):
-			setState(State.Free)
+		handleLadderInput(xInput, yInput, triggerJump)
 	if stateWithPhysics():
 		applyPhysics(xInput, triggerJump, delta)
 	if onTredmill:
