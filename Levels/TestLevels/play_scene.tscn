@@ -177,8 +177,8 @@ texture_region_size = Vector2i(23, 23)
 
 [sub_resource type="TileSet" id="TileSet_n8ij3"]
 tile_size = Vector2i(23, 23)
-physics_layer_0/collision_layer = 7
-physics_layer_0/collision_mask = 7
+physics_layer_0/collision_layer = 15
+physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_dlj8o")
 
 [node name="Node2D" type="Node2D"]
@@ -224,7 +224,7 @@ position = Vector2(601, 475)
 position = Vector2(164, 507)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(770, 765)
+position = Vector2(346, 375)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
@@ -258,7 +258,7 @@ position = Vector2(1174, 367)
 offset = Vector2(-12, -3)
 
 [node name="Spikes" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAgACUAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAgACUAAAABAAAAAAAVABMAAAAAAAEAAAAVABQAAAAAAAIAAAAVABUAAAAAAAMAAAAVABYAAAAAAAQAAAAVABcAAAAAAAUAAAAWABMAAAABAAEAAAAWABQAAAABAAIAAAAWABUAAAABAAMAAAAWABYAAAABAAQAAAAWABcAAAABAAUAAAA=")
 tile_set = SubResource("TileSet_n8ij3")
 use_kinematic_bodies = true
 script = ExtResource("32_44oio")

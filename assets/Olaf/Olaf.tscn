@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=76 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -70,6 +70,9 @@
 [ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
 [ext_resource type="Script" uid="uid://nmci1n1dkb3y" path="res://assets/Olaf/shield.gd" id="50_lpcfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
+size = Vector2(63, 84)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -410,13 +413,17 @@ size = Vector2(5.71426, 99)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opws"]
 size = Vector2(76.0001, 4.57142)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
-size = Vector2(63, 84.875)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6i3s"]
+size = Vector2(65, 86)
 
 [node name="Olaf" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_yuhhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.125)
+shape = SubResource("RectangleShape2D_yfthr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
@@ -449,15 +456,11 @@ one_way_collision = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2.125)
-shape = SubResource("RectangleShape2D_yfthr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.125)
-shape = SubResource("RectangleShape2D_yfthr")
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_j6i3s")
 
 [connection signal="area_entered" from="Area2D" to="." method="on_area_entered"]

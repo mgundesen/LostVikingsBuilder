@@ -122,8 +122,7 @@ func spawnHitboxSmartbomb():
 	hitbox.call("despawn", 0.1)
 
 func useKey(type):
-	var areaNode = find_child("Area2D", false)
-	for area in areaNode.get_overlapping_areas():
+	for area in $Area2D.get_overlapping_areas():
 		if area is KeyHole and area.type == type:
 			area.call("open")
 			return true
@@ -378,8 +377,6 @@ func applyPhysics(xInput, triggerJump, delta):
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		var col = get_slide_collision(0).get_collider()
-		if col is Spikes: 
-			kill(KillArea.Type.Spikes)
 		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
 			velocity.y = ANTIGRAV_BOUNCE
 		# fix some collision are ok
@@ -394,6 +391,16 @@ func applyPhysics(xInput, triggerJump, delta):
 		if abs(velocity.x) > walkSpeed() - 70:
 			const jumpMultiplier = 1.15
 			velocity.y *= jumpMultiplier
+			
+	if velocity.x > 0:
+		direction = FacingDirection.Right
+	elif velocity.x < 0:
+		direction = FacingDirection.Left
+
+func checkSpikeCollision():
+	for body in $Area2D.get_overlapping_bodies():
+		if body is Spikes:
+			kill(KillArea.Type.Spikes)
 
 func _physics_process(delta):
 	var yInput = 0
@@ -419,32 +426,26 @@ func _physics_process(delta):
 	if validLadderInput(yInput) and state == State.Free and abs(yInput) > 0:
 		setState(State.Ladder)
 		velocity = Vector2.ZERO
-	elif state == State.Ladder and abs(yInput) < 0.1:
-		if abs(xInput) > 0 or triggerJump:
-			setState(State.Free)
 
 	if state == State.HitStun:
 		velocity.x = facingDirected(-40)
 		velocity.y += gravity() * delta
 		move_and_slide()
-	if stateWithPhysics():
-		applyPhysics(xInput, triggerJump, delta)
-		if velocity.x > 0:
-			direction = FacingDirection.Right
-		elif velocity.x < 0:
-			direction = FacingDirection.Left
-	elif state == State.Ladder:
+	checkSpikeCollision()
+
+	if state == State.Ladder:
+		if abs(yInput) < 0.1 and (abs(xInput) > 0 or triggerJump):
+			setState(State.Free)
 		position.x = ladderPos.x
 		var touchingTiles = false
 		for body in $Area2D.get_overlapping_bodies():
 			if body is Tiles:
 				touchingTiles = true
-			if body is Spikes:
-				kill(KillArea.Type.Spikes)
-		if !touchingTiles or yInput > 0:
-			position.y += yInput * CLIMB_SPEED
+		position.y += yInput * CLIMB_SPEED
 		if position.y < ladderTop() or (yInput > 0 and touchingTiles):
 			setState(State.Free)
+	if stateWithPhysics():
+		applyPhysics(xInput, triggerJump, delta)
 	if onTredmill:
 		position.x += tredmillSpeed
 
