@@ -2,6 +2,10 @@ extends PlayerBase
 
 var arrowScene = load("res://assets/Balerog/arrow.tscn")
 
+enum SwingState {Overhead, Horizontal}
+var swingState
+var rng = RandomNumberGenerator.new()
+
 enum AttackState {Ready, Idle, Shoot}
 var subState = AttackState.Ready
 var arrowType = Arrow.ArrowType.basic
@@ -26,7 +30,10 @@ func canUseFireArrow():
 func decideAnimation(yInput, vel):
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if state == State.AttackMove:
-		$AnimatedSprite2D.play("Swing", 2.3)
+		if swingState == SwingState.Overhead:
+			$AnimatedSprite2D.play("Swing", 2.3)
+		else:
+			$AnimatedSprite2D.play("Swing2", 1.8)
 	elif state == State.AttackMove2:
 		if subState == AttackState.Ready:
 			$AnimatedSprite2D.play("Shoot_Ready", 2.3)
@@ -42,6 +49,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(&"B"):
 			velocity.x = 0
 			state = State.AttackMove
+			swingState = SwingState.Horizontal if rng.randi_range(0,1) == 0 else SwingState.Overhead
 			spawnHitbox(swordOffset)
 			play_sfx("sword1")
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=81 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -73,6 +73,10 @@
 [ext_resource type="Texture2D" uid="uid://bbr4w2ukisc8w" path="res://assets/Player/teleport3.png" id="50_y7d4l"]
 [ext_resource type="Texture2D" uid="uid://c8sakqkgr3lpo" path="res://assets/Player/teleport4.png" id="51_exxub"]
 [ext_resource type="Texture2D" uid="uid://c1e5126jfax88" path="res://assets/Player/teleport5.png" id="52_1fq2t"]
+[ext_resource type="Texture2D" uid="uid://duxyovxhsiyeq" path="res://assets/Balerog/sword_b1.png" id="61_tsw2y"]
+[ext_resource type="Texture2D" uid="uid://cedo4ef6view4" path="res://assets/Balerog/sword_b2.png" id="62_0idnl"]
+[ext_resource type="Texture2D" uid="uid://ry4wqxrju5p7" path="res://assets/Balerog/sword_b3.png" id="63_787iy"]
+[ext_resource type="Texture2D" uid="uid://beyskwyqrae14" path="res://assets/Balerog/sword_b4.png" id="64_d6666"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x56gs"]
 animations = [{
@@ -388,6 +392,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("61_tsw2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_0idnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_787iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_d6666")
+}],
+"loop": true,
+"name": &"Swing2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("48_lcnu8")
 }, {
 "duration": 1.0,
@@ -462,7 +483,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Death_Skeleton"
+animation = &"Swing2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")
