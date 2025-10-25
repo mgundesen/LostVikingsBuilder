@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 		position.y += 1
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is OlafShield and body != frontShield or body is Tiles:
 		disabled = true
 	if body is PlayerBase:

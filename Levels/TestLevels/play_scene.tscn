@@ -1,25 +1,19 @@
-[gd_scene load_steps=36 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=28 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="2_0tbyp"]
-[ext_resource type="PackedScene" uid="uid://bcdwryut4xt1l" path="res://assets/Hazards/shock_trap.tscn" id="2_e6jdp"]
 [ext_resource type="PackedScene" uid="uid://blj26f4u3g80s" path="res://assets/Interactive/ladder.tscn" id="3_1p5oe"]
 [ext_resource type="PackedScene" uid="uid://drf6bcs41yduw" path="res://assets/Interactive/moving_platform.tscn" id="3_5xdee"]
 [ext_resource type="PackedScene" uid="uid://cm60ftvu8lgtr" path="res://assets/Interactive/elevator.tscn" id="3_rfwu7"]
 [ext_resource type="PackedScene" uid="uid://bjbpdr3spjxcb" path="res://assets/Interactive/suger_water.tscn" id="3_vm1b5"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="5_5i074"]
-[ext_resource type="PackedScene" uid="uid://bk8mdl2fyespk" path="res://assets/Hazards/barrier.tscn" id="6_5hyrw"]
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="12_n8ij3"]
-[ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
-[ext_resource type="PackedScene" uid="uid://cls2b4bnl1rhl" path="res://assets/Interactive/dropwall.tscn" id="23_f0r7y"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
-[ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="25_148ay"]
-[ext_resource type="PackedScene" uid="uid://dtskge7x0ie2a" path="res://assets/Interactive/bubble.tscn" id="26_b4dte"]
 [ext_resource type="PackedScene" uid="uid://kmil4rsq6ek2" path="res://assets/Interactive/pounder.tscn" id="26_i2gka"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="27_i2gka"]
 [ext_resource type="PackedScene" uid="uid://dqnhpyxdnb3kl" path="res://assets/Interactive/block.tscn" id="29_jkops"]
@@ -29,8 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://jc67txbagsoy" path="res://assets/spikes.png" id="31_mlwme"]
 [ext_resource type="Script" uid="uid://c4ypmkniosifq" path="res://assets/Hitbox/spikes.gd" id="32_44oio"]
 [ext_resource type="PackedScene" uid="uid://dwugfhkhbyida" path="res://assets/Interactive/tredmill.tscn" id="33_44oio"]
-[ext_resource type="PackedScene" uid="uid://b1k7hvem7rnmy" path="res://assets/Enemies/Slicer/slicer.tscn" id="35_n8ij3"]
-[ext_resource type="PackedScene" uid="uid://b7mdy3pfohm3c" path="res://assets/Enemies/Guard/guard.tscn" id="36_vm1b5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnsmh"]
 texture = ExtResource("2_0tbyp")
@@ -195,9 +187,6 @@ sources/0 = SubResource("TileSetAtlasSource_dlj8o")
 position = Vector2(644, 552)
 nodes = PackedVector2Array(0, 0, 0, 6)
 
-[node name="ShockTrap" parent="." instance=ExtResource("2_e6jdp")]
-position = Vector2(1050, 383)
-
 [node name="SugerWater" parent="." instance=ExtResource("3_vm1b5")]
 position = Vector2(704, 987)
 Width = 14.0
@@ -217,9 +206,6 @@ position = Vector2(1334, 898)
 position = Vector2(1104, 684)
 startDelay = 3.0
 
-[node name="Barrier" parent="." instance=ExtResource("6_5hyrw")]
-position = Vector2(715, 460)
-
 [node name="MovingPlatform" parent="." instance=ExtResource("3_5xdee")]
 position = Vector2(491, 175)
 mode = 1
@@ -230,11 +216,6 @@ end = Vector2(300, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 script = ExtResource("1_a0jw4")
-
-[node name="Antigrav" parent="." instance=ExtResource("18_totdj")]
-position = Vector2(-279, 138)
-Height = 10
-Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
 position = Vector2(601, 475)
@@ -250,17 +231,8 @@ position = Vector2(782, 569)
 
 [node name="HUD" parent="." instance=ExtResource("8_0sylv")]
 
-[node name="Spring2" parent="." instance=ExtResource("6_5uqcj")]
-position = Vector2(-93, 233)
-
 [node name="Exit" parent="." instance=ExtResource("24_tixdq")]
 position = Vector2(-378, 463)
-
-[node name="Bubble" parent="." instance=ExtResource("26_b4dte")]
-position = Vector2(1163, 691)
-
-[node name="Seesaw" parent="." instance=ExtResource("25_148ay")]
-position = Vector2(109, 236)
 
 [node name="Inflater" parent="." instance=ExtResource("27_i2gka")]
 position = Vector2(361, 510)
@@ -271,9 +243,6 @@ operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
 position = Vector2(-173, 321)
-
-[node name="Dropwall" parent="." instance=ExtResource("23_f0r7y")]
-position = Vector2(438, 676)
 
 [node name="Block" parent="." instance=ExtResource("29_jkops")]
 position = Vector2(1165, 655)
@@ -298,11 +267,3 @@ script = ExtResource("32_44oio")
 position = Vector2(-543, 616)
 Width = 8.0
 reverse = false
-
-[node name="Slicer" parent="." instance=ExtResource("35_n8ij3")]
-position = Vector2(431, 790)
-
-[node name="Guard" parent="." instance=ExtResource("36_vm1b5")]
-position = Vector2(-237, 747)
-
-[connection signal="activated" from="PressurePlate" to="Barrier" method="_turn_off"]
