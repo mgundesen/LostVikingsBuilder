@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=36 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="12_n8ij3"]
 [ext_resource type="PackedScene" uid="uid://d3h0ham7celc4" path="res://assets/Interactive/antigrav.tscn" id="18_totdj"]
+[ext_resource type="PackedScene" uid="uid://cls2b4bnl1rhl" path="res://assets/Interactive/dropwall.tscn" id="23_f0r7y"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://cqmd2act4qvam" path="res://assets/Interactive/seesaw.tscn" id="25_148ay"]
@@ -236,10 +237,10 @@ Height = 10
 Width = 4
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(322, 365)
+position = Vector2(601, 475)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(358, 523)
+position = Vector2(164, 507)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
 position = Vector2(770, 765)
@@ -271,6 +272,9 @@ operationMode = 0
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
 position = Vector2(-173, 321)
 
+[node name="Dropwall" parent="." instance=ExtResource("23_f0r7y")]
+position = Vector2(438, 676)
+
 [node name="Block" parent="." instance=ExtResource("29_jkops")]
 position = Vector2(1165, 655)
 
@@ -296,9 +300,9 @@ Width = 8.0
 reverse = false
 
 [node name="Slicer" parent="." instance=ExtResource("35_n8ij3")]
-position = Vector2(239, 762)
+position = Vector2(431, 790)
 
 [node name="Guard" parent="." instance=ExtResource("36_vm1b5")]
-position = Vector2(21.5916, 770.312)
+position = Vector2(-237, 747)
 
 [connection signal="activated" from="PressurePlate" to="Barrier" method="_turn_off"]

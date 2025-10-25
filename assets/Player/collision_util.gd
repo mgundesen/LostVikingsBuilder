@@ -14,7 +14,8 @@ func isColliding(areaNode, types = []):
 	for area in areaNode.get_overlapping_areas():
 		if area is Hitbox:
 			if checkType(area.type, types):
-				area.queue_free()
+				if !area.isPersistent:
+					area.queue_free()
 				return area.type
 	return null
 

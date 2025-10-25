@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Hitbox
 
+@export var isPersistent = false
+
 enum Type {all, basic, colliding, breaking, explode, smartbomb, fireArrow}
 var type = Type.basic
 

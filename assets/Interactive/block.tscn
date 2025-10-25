@@ -24,6 +24,7 @@ polygon = PackedVector2Array(-44, -46, 44, -46, 44, 29, 40, 46, -40, 46, -44, 29
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("3_wajo4")
+isPersistent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 48)

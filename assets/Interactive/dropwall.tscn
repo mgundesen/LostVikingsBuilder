@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cls2b4bnl1rhl"]
+
+[ext_resource type="Script" uid="uid://b73j0ui5tx12m" path="res://assets/Interactive/dropwall.gd" id="1_j0bjq"]
+[ext_resource type="Texture2D" uid="uid://cd24rqranadgm" path="res://assets/Interactive/dropwall.png" id="2_kv5sm"]
+[ext_resource type="Script" uid="uid://bv2vbx0ioiur" path="res://assets/Interactive/block_area.gd" id="3_w8tjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3sob"]
+size = Vector2(46, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xb4w"]
+size = Vector2(38, 132)
+
+[node name="Dropwall" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_j0bjq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 1.96695e-06)
+scale = Vector2(0.69697, 0.700508)
+texture = ExtResource("2_kv5sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_y3sob")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("3_w8tjp")
+isPersistent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_4xb4w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
