@@ -236,7 +236,7 @@ position = Vector2(1062, 710)
 operationMode = 0
 
 [node name="Pounder" parent="." instance=ExtResource("26_i2gka")]
-position = Vector2(-268, 565)
+position = Vector2(-485, 205)
 
 [node name="Block" parent="." instance=ExtResource("29_jkops")]
 position = Vector2(1165, 655)
