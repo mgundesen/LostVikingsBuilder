@@ -2,7 +2,7 @@ extends PlayerBase
 
 const chargeCancelTime = 0.2
 
-const ERIK_MAX_SPEED = 375
+const ERIK_MAX_SPEED = 435
 const ERIK_WALK_FORCE = 1040
 
 enum Substate {bash, tumble, tumble2}

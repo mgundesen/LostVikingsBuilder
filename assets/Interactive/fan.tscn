@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvoexeklxx06j"]
+
+[ext_resource type="Texture2D" uid="uid://1exlnhvqok17" path="res://assets/Interactive/fan1.png" id="1_iokph"]
+[ext_resource type="Script" uid="uid://celkk7ucdf7eg" path="res://assets/Interactive/fan.gd" id="1_ku6o0"]
+[ext_resource type="Texture2D" uid="uid://bv8mfdd5le0q" path="res://assets/Interactive/fan2.png" id="2_ku6o0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kica1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iokph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ku6o0")
+}],
+"loop": true,
+"name": &"on",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6d82"]
+size = Vector2(45, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m230i"]
+size = Vector2(467, 184)
+
+[node name="Fan" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ku6o0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14.25, 0.499995)
+scale = Vector2(0.752174, 0.793991)
+sprite_frames = SubResource("SpriteFrames_kica1")
+animation = &"on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(35.5, 0)
+shape = SubResource("RectangleShape2D_v6d82")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-207.5, -0.5)
+shape = SubResource("RectangleShape2D_m230i")

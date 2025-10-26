@@ -3,7 +3,7 @@ class_name PlayerBase
 
 const STOP_FORCE = 1600
 const WALK_FORCE = 1000
-const WALK_MAX_SPEED = 250
+const WALK_MAX_SPEED = 340
 const JUMP_SPEED = 550
 const ANTIGRAV_BOUNCE = 100
 const SPRING_FORCE = -850
@@ -31,6 +31,9 @@ var onElevator
 # Tredmill interface
 var onTredmill = false
 var tredmillSpeed = -1
+
+# We are not a rigid body, maybe use this to implement the tredmill instead
+var externalForce = Vector2.ZERO
 
 # Control active interface
 var controlActive = false
@@ -293,6 +296,7 @@ func setState(targetState):
 		return
 	state = targetState
 	if targetState == State.Inflating:
+		velocity = Vector2.ZERO
 		get_tree().create_timer(0.3).timeout.connect(func(): setState(State.Inflated))
 	if targetState == State.Inflated:
 		inflateTimer.start()
@@ -374,6 +378,14 @@ func handleLadderInput(xInput, yInput, triggerJump):
 	if position.y < ladderTop() or (yInput > 0 and touchingTiles):
 		setState(State.Free)
 
+# Similar to move_toward but allows external forces to break limits
+# This has a known bug that if you go with the external force speed limit is now broken
+func moveWithLimitBreak(start, bound, diff):
+	if abs(start) > abs(bound):
+		return start + diff
+	else:
+		return clamp(start + diff, -bound, bound)
+
 func applyPhysics(xInput, triggerJump, delta):
 	# Horizontal movement code
 	var appliedWalk = walkForce()
@@ -387,14 +399,13 @@ func applyPhysics(xInput, triggerJump, delta):
 	elif noXInput or (oppositeInput and is_on_floor()):
 		velocity.x = move_toward(velocity.x, 0, stopForce() * delta)
 	else:
-		velocity.x += walk * delta
-	velocity.x = clamp(velocity.x, -walkSpeed(), walkSpeed())
+		velocity.x = moveWithLimitBreak(velocity.x, walkSpeed(), walk * delta)
 
 	# Vertical movement code
 	if inAntigrav and !imuneAntigrav:
 		velocity.y -= gravity() * 0.1 * delta
 	elif state == State.Inflated:
-		velocity.y = -115
+		velocity.y = moveWithLimitBreak(velocity.y, 100, -1000 * delta)
 	else:
 		velocity.y += gravity() * delta
 		maybeLimitFall()
@@ -403,6 +414,9 @@ func applyPhysics(xInput, triggerJump, delta):
 		if abs(velocity.x) > walkSpeed() - 70:
 			const jumpMultiplier = 1.15
 			velocity.y *= jumpMultiplier
+
+	velocity += externalForce
+	externalForce = Vector2.ZERO
 
 	# Move based on the velocity and snap to the ground.
 	var yBeforeMove = velocity.y
