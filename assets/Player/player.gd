@@ -224,11 +224,6 @@ func enterAntigrav():
 		play_sfx("antigrav")
 
 func decideAnimation(yInput, vel):
-	if state != State.HitStun:
-		if velocity.x > 0:
-			direction = FacingDirection.Right
-		elif velocity.x < 0:
-			direction = FacingDirection.Left
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if state == State.FallDeath:
 		$AnimatedSprite2D.play("Death_Fall")
@@ -486,6 +481,12 @@ func _physics_process(delta):
 	if onTredmill:
 		position.x += tredmillSpeed
 
+	#Not part of animation decision as inheritees are allowed early exit
+	if state != State.HitStun:
+		if velocity.x > 0:
+			direction = FacingDirection.Right
+		elif velocity.x < 0:
+			direction = FacingDirection.Left
 	decideAnimation(yInput, velocity)
 
 func on_area_entered(area: Area2D) -> void:
