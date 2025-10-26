@@ -200,6 +200,13 @@ func stateWithInput():
 		_:
 			return false
 
+func stateStunState():
+	match state:
+		State.HitStun:
+			return true
+		_:
+			return false
+
 func deathState(testState):
 	match testState:
 		State.FallDeath, State.ShockDeath, State.SpikesDeath, State.SquashDeath, State.DrownDeath, State.DeathSkeleton:
@@ -287,9 +294,9 @@ func stunTime():
 	else:
 		return 0.7
 
-func setState(targetState, forceFree = false):
+func setState(targetState, forceFree: bool = false):
 	# forcefree is so stunlogic can exit state again
-	var stunlocked = (state == State.HitStun and !deathState(targetState) and forceFree == false)
+	var stunlocked = (stateStunState() and !deathState(targetState) and forceFree == false)
 	if deathState(state) or stunlocked:
 		return
 	state = targetState
@@ -482,7 +489,7 @@ func _physics_process(delta):
 		position.x += tredmillSpeed
 
 	#Not part of animation decision as inheritees are allowed early exit
-	if state != State.HitStun:
+	if !stateStunState():
 		if velocity.x > 0:
 			direction = FacingDirection.Right
 		elif velocity.x < 0:

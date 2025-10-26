@@ -67,6 +67,12 @@ func stateWithPhysics():
 		_:
 			return super.stateWithPhysics()
 
+func stateStunState():
+	if state == State.AttackMove2 and subState != Substate.bash:
+		return true
+	else:
+		return super.stateStunState()
+
 func _physics_process(delta):
 	if controlActive and state == State.Free and is_on_floor():
 		if Input.is_action_just_pressed(&"Y") and abs(velocity.x) > 200:
@@ -100,13 +106,13 @@ func wallBonk():
 	play_sfx("bonk")
 	velocity.y = -220
 	get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
-	get_tree().create_timer(2.0).timeout.connect(func(): setState(State.Free))
+	get_tree().create_timer(2.0).timeout.connect(func(): setState(State.Free, true))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if state == State.AttackMove2 and area is BreakBlock:
+	if state == State.AttackMove2 and area is BreakBlock and subState == Substate.bash:
 		wallBonk()
 	super.on_area_entered(area)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if state == State.AttackMove2 and body is Enemy:
+	if state == State.AttackMove2 and body is Enemy and subState == Substate.bash:
 		wallBonk()
