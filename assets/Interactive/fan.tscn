@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvoexeklxx06j"]
+[gd_scene load_steps=8 format=3 uid="uid://dvoexeklxx06j"]
 
 [ext_resource type="Texture2D" uid="uid://1exlnhvqok17" path="res://assets/Interactive/fan1.png" id="1_iokph"]
 [ext_resource type="Script" uid="uid://celkk7ucdf7eg" path="res://assets/Interactive/fan.gd" id="1_ku6o0"]
+[ext_resource type="Texture2D" uid="uid://bwoanqu0tmppi" path="res://assets/Interactive/fan_off.png" id="2_kica1"]
 [ext_resource type="Texture2D" uid="uid://bv8mfdd5le0q" path="res://assets/Interactive/fan2.png" id="2_ku6o0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kica1"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kica1")
+}],
 "loop": true,
 "name": &"off",
 "speed": 5.0
@@ -38,7 +42,7 @@ script = ExtResource("1_ku6o0")
 position = Vector2(14.25, 0.499995)
 scale = Vector2(0.752174, 0.793991)
 sprite_frames = SubResource("SpriteFrames_kica1")
-animation = &"on"
+animation = &"off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(35.5, 0)
