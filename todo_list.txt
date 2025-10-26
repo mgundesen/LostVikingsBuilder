@@ -8,7 +8,6 @@ heck is circular platform physics doing?
 Jumping down antigrav
 
 Features Low Priority:
-Wind item
 Implement item trash slot
 Magnet/Crane system
 Large pounder
