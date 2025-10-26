@@ -265,3 +265,4 @@ reverse = false
 [node name="Fan" parent="." instance=ExtResource("24_4eymo")]
 position = Vector2(592, 178)
 pushForce = Vector2(0, 40)
+on = false

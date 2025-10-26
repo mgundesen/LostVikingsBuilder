@@ -224,10 +224,11 @@ func enterAntigrav():
 		play_sfx("antigrav")
 
 func decideAnimation(yInput, vel):
-	if velocity.x > 0:
-		direction = FacingDirection.Right
-	elif velocity.x < 0:
-		direction = FacingDirection.Left
+	if state != State.HitStun:
+		if velocity.x > 0:
+			direction = FacingDirection.Right
+		elif velocity.x < 0:
+			direction = FacingDirection.Left
 	$AnimatedSprite2D.flip_h = direction == FacingDirection.Left
 	if state == State.FallDeath:
 		$AnimatedSprite2D.play("Death_Fall")
