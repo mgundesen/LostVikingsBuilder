@@ -8,6 +8,16 @@ const ERIK_WALK_FORCE = 1040
 enum Substate {bash, tumble, tumble2}
 var subState = Substate.bash
 
+var headbashTimer
+
+func setupTimers():
+	headbashTimer = Timer.new()
+	add_child(headbashTimer)
+	headbashTimer.wait_time = 1.2
+	headbashTimer.one_shot = true
+	headbashTimer.timeout.connect(func(): setState(State.Free))
+	super.setupTimers()
+
 func walkForce():
 	return ERIK_WALK_FORCE * (1.0 if is_on_floor() else 1.22)
 
@@ -47,11 +57,6 @@ func decideAnimation(yInput, vel):
 	else:
 		super.decideAnimation(yInput, vel)
 
-func setState(targetState):
-	if state == State.AttackMove2 and (subState == Substate.tumble or subState == Substate.tumble2):
-		return
-	super.setState(targetState)
-
 func stateWithPhysics():
 	match state:
 		State.AttackMove2:
@@ -67,8 +72,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(&"Y") and abs(velocity.x) > 200:
 			setState(State.AttackMove2)
 			subState = Substate.bash
-			get_tree().create_timer(1.2).timeout.connect(func(): setState(State.Free))
-	if controlActive and state == State.AttackMove2 and is_on_floor():
+			headbashTimer.start()
+	if controlActive and state == State.AttackMove2  and subState == Substate.bash and is_on_floor():
 		var xInput = Input.get_axis(&"Left", &"Right")
 		if xInput < 0.8 and direction == FacingDirection.Right or \
 		   xInput > -0.8 and direction == FacingDirection.Left:
@@ -89,12 +94,12 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 func wallBonk():
+	headbashTimer.stop()
 	spawnHitbox(50, Hitbox.Type.breaking)
 	subState = Substate.tumble
 	play_sfx("bonk")
 	velocity.y = -220
 	get_tree().create_timer(0.7).timeout.connect(func(): subState = Substate.tumble2)
-	# intentional skip of setState to allow exit
 	get_tree().create_timer(2.0).timeout.connect(func(): setState(State.Free))
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

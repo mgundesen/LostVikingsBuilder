@@ -200,8 +200,8 @@ func stateWithInput():
 		_:
 			return false
 
-func deathState():
-	match state:
+func deathState(testState):
+	match testState:
 		State.FallDeath, State.ShockDeath, State.SpikesDeath, State.SquashDeath, State.DrownDeath, State.DeathSkeleton:
 			return true
 		_:
@@ -292,8 +292,10 @@ func stunTime():
 	else:
 		return 0.7
 
-func setState(targetState):
-	if deathState():
+func setState(targetState, forceFree = false):
+	# forcefree is so stunlogic can exit state again
+	var stunlocked = (state == State.HitStun and !deathState(targetState) and forceFree == false)
+	if deathState(state) or stunlocked:
 		return
 	state = targetState
 	if targetState == State.Inflating:
@@ -309,7 +311,7 @@ func _takeDamage(stunState, deathState, amount = 1):
 	if playerHealth > 0:
 		play_sfx("hurt")
 		setState(stunState)
-		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free))
+		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free, true))
 	else:
 		setState(deathState)
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())

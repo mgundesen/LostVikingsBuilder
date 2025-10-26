@@ -13,8 +13,8 @@ func _ready():
 	updateSheildCollision()
 	super._ready()
 	
-func setState(targetState):
-	super.setState(targetState)
+func setState(targetState, forceFree = false):
+	super.setState(targetState, forceFree)
 	updateSheildCollision()
 
 func maybeLimitFall():
