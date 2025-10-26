@@ -73,7 +73,7 @@ func swapItem(swapType):
 
 func setState(newState):
 	if state == State.holding:
-		swapOrigin.selectAnyItem()
+		swapOrigin.selectNextItem(0)
 	state = newState
 
 func _process(_delta):

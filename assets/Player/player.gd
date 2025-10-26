@@ -100,11 +100,13 @@ func spaceForItem():
 			return true
 	return false
 
-func selectAnyItem():
-	for index in range(4):
+func selectNextItem(startIndex):
+	var index = (startIndex + 1) %4
+	while index != startIndex:
 		if items[index] != 0:
 			itemSlot = index
 			return
+		index = (index + 1) %4
 
 func addItem(id, fromMenu = false):
 	if !fromMenu:
@@ -170,7 +172,7 @@ func useItemWithCheck():
 				return false
 	
 	items[itemSlot] = ItemUtil.Item.none
-	itemSlot = (itemSlot + 1) %4
+	selectNextItem(itemSlot)
 	play_sfx(sound)
 	return true
 	
