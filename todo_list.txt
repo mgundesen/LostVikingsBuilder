@@ -1,5 +1,4 @@
 Features:
-Improved graphic tredmill
 More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Mummy, Flying dropper, Evil Balerog)
 
 Bugs:
@@ -8,6 +7,7 @@ heck is circular platform physics doing?
 Jumping down antigrav
 
 Features Low Priority:
+Scrolling camera to view
 Implement item trash slot
 Magnet/Crane system
 Large pounder

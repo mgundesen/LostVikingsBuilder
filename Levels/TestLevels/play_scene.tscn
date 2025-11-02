@@ -258,7 +258,7 @@ use_kinematic_bodies = true
 script = ExtResource("32_44oio")
 
 [node name="Tredmill" parent="." instance=ExtResource("33_44oio")]
-position = Vector2(-543, 616)
+position = Vector2(42, 790)
 Width = 8.0
 reverse = false
 
