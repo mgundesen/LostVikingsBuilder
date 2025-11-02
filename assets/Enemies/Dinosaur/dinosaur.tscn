@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://dktu64fckn3o2"]
+
+[ext_resource type="Script" uid="uid://cq30yg68djx1n" path="res://assets/Enemies/Dinosaur/dinosaur.gd" id="1_elc6f"]
+[ext_resource type="Texture2D" uid="uid://dslva5dh0uuwy" path="res://assets/Enemies/Dinosaur/attack3.png" id="1_s7cee"]
+[ext_resource type="Texture2D" uid="uid://cy2unkhb72jfx" path="res://assets/Enemies/Dinosaur/attack4.png" id="2_elc6f"]
+[ext_resource type="Texture2D" uid="uid://eq3howfaorsp" path="res://assets/Enemies/Dinosaur/attack5.png" id="3_dmjlf"]
+[ext_resource type="Texture2D" uid="uid://c42ksteh6s5f7" path="res://assets/Enemies/Dinosaur/attack6.png" id="4_iufrg"]
+[ext_resource type="Texture2D" uid="uid://c8x6tkvkis5yi" path="res://assets/Enemies/Dinosaur/attack7.png" id="5_l22ey"]
+[ext_resource type="Texture2D" uid="uid://b2j64a3sj88h" path="res://assets/Enemies/Dinosaur/walk1.png" id="6_w7y3s"]
+[ext_resource type="Texture2D" uid="uid://bqe6u3hjt4p3" path="res://assets/Enemies/Dinosaur/walk2.png" id="7_qcvh5"]
+[ext_resource type="Texture2D" uid="uid://dllxw5yuk10y5" path="res://assets/Enemies/Dinosaur/walk3.png" id="8_2rv1b"]
+[ext_resource type="Texture2D" uid="uid://gqfpj1q4bm3" path="res://assets/Enemies/Dinosaur/walk4.png" id="9_t3f1n"]
+[ext_resource type="PackedScene" uid="uid://cffav8lls5m8j" path="res://assets/Enemies/edge_detect.tscn" id="10_5uj47"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sx6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s7cee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_elc6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dmjlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iufrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l22ey")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w7y3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qcvh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2rv1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t3f1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4h0r"]
+size = Vector2(70, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj6t8"]
+size = Vector2(67, 80)
+
+[node name="Dinosaur" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_elc6f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_1sx6i")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y4h0r")
+
+[node name="EdgeDetect" parent="." instance=ExtResource("10_5uj47")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rj6t8")
+
+[connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

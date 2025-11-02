@@ -13,8 +13,9 @@ func fire(origin, flip, yOffset = 0, type = Bullet.Type.laser):
 	var offset = -20 if flip else 20 # fix offset according to image?
 	bullet.position += Vector2(offset, yOffset)
 
-func hit(origin: Node2D, flip: bool, yOffset = 0):
+func hit(origin: Node2D, flip: bool, size = 20, yOffset = 0):
 	var hitbox = hitboxScene.instantiate()
+	hitbox.setSize(size)
 	origin.get_parent().add_child(hitbox)
 	hitbox.position = origin.position
 	var offset = -40 if flip else 40 # fix offset according to image?

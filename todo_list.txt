@@ -1,5 +1,5 @@
 Features:
-More enemies(Running Shooter, Dinosaur, Caveman, Snail, Scorpion, Mummy, Flying dropper, Evil Balerog)
+More levels
 
 Bugs:
 Hit in erik attack 2 state exits in a odd way
@@ -7,10 +7,12 @@ heck is circular platform physics doing?
 Jumping down antigrav
 
 Features Low Priority:
-Scrolling camera to view
 Implement item trash slot
 Magnet/Crane system
 Large pounder
+Runnning against a wall
+More enemies(Running Shooter, Caveman, Snail, Scorpion, Mummy, Flying dropper, Evil Balerog)
+Scrolling camera to view
 Acid drops
 Multiplayer
 Multiplayer online
@@ -18,5 +20,4 @@ Fang/Scorch
 damage cooldown
 Improve infaltion end
 Increased spring power high speed
-Runnning against a wall
 Breakable "camo" walls
