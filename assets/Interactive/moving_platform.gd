@@ -10,6 +10,8 @@ enum Mode {EndPoints, Circular}
 @export var radius = 200
 var center
 var angle = 0
+enum Style{Ship, Candyland}
+@export var style = Style.Ship
 
 @export var moving = true
 
@@ -22,6 +24,10 @@ func _ready():
 		nextTarget = start * 46 + position
 	else:
 		center = position
+	var path = "res://assets/Interactive/platform.png"
+	if style == Style.Ship:
+		path = "res://assets/Interactive/platform2.png"
+	$Sprite2D.texture = load(path)
 
 func _startMove():
 	moving = true

@@ -1,6 +1,7 @@
 extends Node2D
 
-const speed = 5
+@export var speed = 6
+@export var desync = 0.0
 var disabled = false
 
 var target = Vector2()
@@ -9,6 +10,7 @@ var nextTarget = Vector2()
 func _ready():
 	target = position
 	nextTarget = position + Vector2(0, 184)
+	position += (nextTarget - target) * desync
 
 func swapTarget():
 	# Why is swap not a thing in gd?

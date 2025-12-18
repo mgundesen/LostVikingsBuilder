@@ -2,6 +2,7 @@ extends Enemy
 
 func _ready() -> void:
 	health = 2
+	super._ready()
 
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 50, Vector2(-1,0) if flip else Vector2(1,0))

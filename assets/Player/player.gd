@@ -129,7 +129,7 @@ func spawnHitboxSmartbomb():
 	add_child(hitbox)
 	hitbox.call("despawn", 0.1)
 
-func keyholeForItem(type):
+func keyholeForItem():
 	match items[itemSlot]:
 		ItemUtil.Item.keyBlue:
 			return ItemUtil.Keyhole.blue
@@ -140,7 +140,7 @@ func keyholeForItem(type):
 
 func useKey(type):
 	for area in $Area2D.get_overlapping_areas():
-		if area is KeyHole and area.type == keyholeForItem(type):
+		if area is KeyHole and area.type == keyholeForItem():
 			area.call("open")
 			return true
 	return false
@@ -308,7 +308,7 @@ func setState(targetState, forceFree: bool = false):
 	if targetState == State.Inflated:
 		inflateTimer.start()
 
-func _takeDamage(stunState, deathState, amount = 1):
+func _takeDamage(stunState, targetDeathState, amount = 1):
 	if playerHealth < 1:
 		return
 	playerHealth -= amount
@@ -317,7 +317,7 @@ func _takeDamage(stunState, deathState, amount = 1):
 		setState(stunState)
 		get_tree().create_timer(stunTime()).timeout.connect(func(): setState(State.Free, true))
 	else:
-		setState(deathState)
+		setState(targetDeathState)
 		get_tree().create_timer(1.0).timeout.connect(func(): killPlayer())
 
 func stopForce():

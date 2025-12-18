@@ -7,6 +7,7 @@ var aggroCooldown = false
 
 func _ready() -> void:
 	health = 3
+	super._ready()
 
 func turnToPlayer():
 	if !aggroCooldown:

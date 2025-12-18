@@ -57,20 +57,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_jyokl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_b8tfi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_odu1m")
-}],
-"loop": true,
-"name": &"open",
-"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrrdk"]

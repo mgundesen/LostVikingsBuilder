@@ -4,6 +4,7 @@ var shootCooldown = 0.4
 
 func _ready():
 	idleCycle()
+	super._ready()
 
 func closeToPlayer():
 	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))

@@ -15,6 +15,13 @@ var flipCooldown = false
 var health = 1
 var hitTypes = []
 @export var itemType = ItemUtil.Item.none
+@export var bounds = 100000
+var xLimit = []
+
+func _ready() -> void:
+	xLimit.resize(2)
+	xLimit[0] = position.x - bounds
+	xLimit[1] = position.x + bounds
 
 func setState(newState):
 	if state != State.hurt:
@@ -40,6 +47,8 @@ func spawnDeathAnimation():
 func _process(_delta):
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
+	if xLimit[0] > position.x or xLimit[1] < position.x:
+		doFlip()
 	
 	var type = CollisionUtil.isColliding($Area2D, hitTypes)
 	if type:
@@ -65,7 +74,6 @@ func doFlip():
 		get_tree().create_timer(0.01).timeout.connect(func(): flipCooldown = false)
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is not PlayerBase and body is not OlafShield and body is not Enemy:
 		doFlip()
 

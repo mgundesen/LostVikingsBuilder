@@ -7,6 +7,7 @@ var longShotCooldown = false
 func _ready() -> void:
 	health = 2
 	hitTypes = [Hitbox.Type.breaking, Hitbox.Type.explode, Hitbox.Type.smartbomb, Hitbox.Type.fireArrow]
+	super._ready()
 
 func closeToPlayer():
 	var dist = 80 if longShotCooldown else 350
