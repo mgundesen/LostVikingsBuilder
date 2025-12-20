@@ -20,8 +20,8 @@ var xLimit = []
 
 func _ready() -> void:
 	xLimit.resize(2)
-	xLimit[0] = position.x - bounds
-	xLimit[1] = position.x + bounds
+	xLimit[0] = position.x - bounds * 46
+	xLimit[1] = position.x + bounds * 46
 
 func setState(newState):
 	if state != State.hurt:

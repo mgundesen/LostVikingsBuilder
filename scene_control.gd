@@ -18,8 +18,9 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 "text" : [],
 "endText" : []},
 {"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level6.tscn"}#,
-#{"level" : "res://Levels/Chansey_Levels/Level7.tscn"}
+{"level" : "res://Levels/Chansey_Levels/Level6.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level7.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level8.tscn"}
 ]
 
 var currentScene = 0

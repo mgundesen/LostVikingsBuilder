@@ -470,10 +470,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osywc"]
-size = Vector2(58, 85)
+size = Vector2(58, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyp50"]
-size = Vector2(60, 86)
+size = Vector2(60, 84)
 
 [node name="Balerog" type="CharacterBody2D"]
 collision_layer = 4
@@ -481,9 +481,9 @@ collision_mask = 4
 script = ExtResource("1_57fgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.72, 0.72)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Swing2"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

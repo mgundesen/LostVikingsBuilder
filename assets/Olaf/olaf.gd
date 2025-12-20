@@ -15,7 +15,7 @@ func _ready():
 	
 func setState(targetState, forceFree = false):
 	super.setState(targetState, forceFree)
-	updateSheildCollision()
+	updateSheildCollision.call_deferred()
 
 func maybeLimitFall():
 	if raisedSheild:

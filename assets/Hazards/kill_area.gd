@@ -10,3 +10,8 @@ var enabled = true
 func _on_body_entered(body: Node2D) -> void:
 	if enabled and body is PlayerBase:
 		body.kill(type)
+
+func killInArea():
+	for body in get_overlapping_bodies():
+		if enabled and body is PlayerBase:
+			body.kill(type)

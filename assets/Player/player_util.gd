@@ -45,7 +45,7 @@ func previousPlayer(player):
 	return playerForIndex(index)
 
 func closeToPosition(sourcePosition, testPosition, distance, searchDir):
-	if sourcePosition.distance_to(position) < distance:
+	if sourcePosition.distance_to(testPosition) < distance:
 			if searchDir.length() > 0:
 				if abs((testPosition-sourcePosition).angle_to(searchDir)) < PI/4:
 					return true

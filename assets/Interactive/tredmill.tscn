@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dlk3881gpn08s" path="res://assets/Interactive/treadmill_end4.png" id="9_5rwj2"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_0s4p3"]
+resource_local_to_scene = true
 frames = 4
 speed_scale = 5.0
 frame_0/texture = ExtResource("1_hyifo")
@@ -30,6 +31,7 @@ resource_local_to_scene = true
 size = Vector2(200, 9)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_u0t5u"]
+resource_local_to_scene = true
 frames = 4
 speed_scale = 5.0
 frame_0/texture = ExtResource("6_ojlhv")
