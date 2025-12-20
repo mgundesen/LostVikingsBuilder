@@ -42,7 +42,8 @@ func open():
 		play_sfx("open" if style == Style.Ship else "candylandDoor")
 		state = State.Opening
 		var openTime = 0.07 if style == Style.Ship else 0.8
-		get_tree().create_timer(openTime).timeout.connect(func(): state = State.Open)
+		if is_inside_tree():
+			get_tree().create_timer(openTime).timeout.connect(func(): state = State.Open)
 		setCollision(false)
 
 func close():
@@ -51,7 +52,8 @@ func close():
 		play_sfx("close" if style == Style.Ship else "candylandDoor")
 		state = State.Closing
 		var openTime = 0.07 if style == Style.Ship else 0.8
-		get_tree().create_timer(openTime).timeout.connect(func(): state = State.Closed)
+		if is_inside_tree(): # This can happen while scene is swapping
+			get_tree().create_timer(openTime).timeout.connect(func(): state = State.Closed)
 		setCollision(true)
 
 func toggle():
