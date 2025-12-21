@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var pushForce = Vector2(-40, 0)
+@export var pushForce = Vector2(-5, 0)
 @export var on = true
 
 func _process(_delta: float) -> void:

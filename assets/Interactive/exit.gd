@@ -9,7 +9,7 @@ func isDone():
 	for player in PlayerUtil.getPlayers():
 		if player.playerHealth < 1 and state == endState.won:
 			state = endState.wonButMissing
-		elif player.position.distance_to(position) > 150:
+		elif player.position.distance_to(position) > 120:
 			state = endState.notDone
 	return state
 
