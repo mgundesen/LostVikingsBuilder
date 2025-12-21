@@ -72,7 +72,7 @@
 [ext_resource type="Script" uid="uid://nmci1n1dkb3y" path="res://assets/Olaf/shield.gd" id="50_lpcfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
-size = Vector2(63, 82)
+size = Vector2(58, 82)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywefy"]
 animations = [{
@@ -414,7 +414,7 @@ size = Vector2(5.71426, 99)
 size = Vector2(76.0001, 4.57142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6i3s"]
-size = Vector2(65, 84)
+size = Vector2(60, 84)
 
 [node name="Olaf" type="CharacterBody2D"]
 collision_layer = 2

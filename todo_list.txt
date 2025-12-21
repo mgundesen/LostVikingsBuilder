@@ -2,12 +2,14 @@ Features:
 More levels
 
 Bugs:
+Slicer wallbreak
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav
 
 Features Low Priority:
 Implement item trash slot
+Walk on slopes
 Magnet/Crane system
 Large pounder
 Runnning against a wall

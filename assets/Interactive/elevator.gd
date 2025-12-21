@@ -27,6 +27,7 @@ func _physics_process(_delta):
 		$AudioStreamPlayer2D.stop()
 	else:
 		position += position.direction_to(target) * speed
+
 	# Maybe force move the player for more LV1 experience?
 
 	if enabled and PlayerUtil.getOverlappingActive($Area2D):

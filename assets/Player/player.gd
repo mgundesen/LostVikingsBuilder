@@ -448,9 +448,9 @@ func elevatorBonkHandling():
 	if onElevator:
 		for body in $Area2D.get_overlapping_bodies():
 			if body is Tiles and !onElevator.isAtTarget():
-				var offset = 14 if position.x > onElevator.position.x else -14
+				var offset = 10 if position.x > onElevator.position.x else -10
 				position = onElevator.position
-				position.y -= size().y / 2.0 + 1
+				position.y -= size().y / 2.0 + 3
 				position.x += offset
 
 func _physics_process(delta):
