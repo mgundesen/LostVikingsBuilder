@@ -1,7 +1,9 @@
 extends Node
 
-const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
+const sceneList = [
+{"level" : "res://assets/Menu/main_menu.tscn"},
 {"level" : "res://Levels/Chansey_Levels/Level1.tscn",
+ "name" : "ESCP",
 "text" : [[bColor, "Waking up in a cell again... this is starting to feel like a tradition."],
 		 [eColor, "Tradition? Feels more like a recurring side quest at this point."],
 		 [bColor, "Well, the guards actually remembered to lock our cell this time."],
@@ -12,15 +14,24 @@ const sceneList = [{"level" : "res://assets/Menu/main_menu.tscn"},
 			[eColor, "Since when have that started bothering you?"],
 			[oColor, "Dunno, maybe him yet again being alive to do his tricks."],
 			[bColor, "I'm betting this is someone else pulling the strings!"]]},
-{"level" : "res://Levels/Chansey_Levels/Level2.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level3.tscn"},
+{"level" : "res://Levels/Chansey_Levels/Level2.tscn",
+ "name" : "LOOP"},
+{"level" : "res://Levels/Chansey_Levels/Level3.tscn",
+ "name" : "ELVT"},
 {"level" : "res://Levels/Chansey_Levels/Level4.tscn",
+ "name" : "MIXD",
 "text" : [],
 "endText" : []},
-{"level" : "res://Levels/Chansey_Levels/Level5.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level6.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level7.tscn"},
-{"level" : "res://Levels/Chansey_Levels/Level8.tscn"}
+{"level" : "res://Levels/Chansey_Levels/Level5.tscn",
+ "name" : "CHAI"},
+{"level" : "res://Levels/Chansey_Levels/Level6.tscn",
+ "name" : "CLSE"},
+{"level" : "res://Levels/Chansey_Levels/Level7.tscn",
+ "name" : "SENS"},
+{"level" : "res://Levels/Chansey_Levels/Level8.tscn",
+ "name" : "BONK"},
+{"level" : "res://Levels/Chansey_Levels/Level9.tscn",
+ "name" : "FANS"}
 ]
 
 var currentScene = 0
