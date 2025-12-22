@@ -1820,7 +1820,7 @@ visible = false
 position = Vector2(98, 503)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(173, 505)
+position = Vector2(178, 504)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(6, 505)
