@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var textIndex = 0
 var endDialog = false
+var textInfo = []
 
 func _startDialog():
 	SceneControl.setPause(SceneControl.PauseType.Dialog)
@@ -9,6 +10,8 @@ func _startDialog():
 
 func _ready():
 	visible = true
+	var type = SceneControl.Dialog.End if endDialog else SceneControl.Dialog.Start
+	textInfo = SceneControl.textForScene(type)
 	_startDialog()
 
 func setText(color, text):
@@ -19,8 +22,6 @@ func setText(color, text):
 	$MarginContainer/MarginContainer/HBoxContainer/RichTextLabel.text = text
 
 func updateTextbox():
-	var type = SceneControl.Dialog.End if endDialog else SceneControl.Dialog.Start
-	var textInfo = SceneControl.textForScene(type)
 	if len(textInfo) <= textIndex:
 		visible = false
 		SceneControl.unpause()

@@ -37,6 +37,7 @@ const sceneList = [
 var currentScene = 0
 var musicEnabled = false
 var soundEnabled = true
+var startTextAllowed = false;
 
 enum PauseType {Regular, Item, Dialog, None}
 var pauseState = PauseType.None
@@ -68,6 +69,7 @@ var textBoxEnabled = true
 
 func nextScene():
 	currentScene += 1
+	startTextAllowed = true
 	if sceneList.size() == currentScene:
 		currentScene = 0
 	get_tree().change_scene_to_file(sceneList[currentScene]["level"])
@@ -84,8 +86,9 @@ func deathScene():
 	
 func textForScene(type):
 	if textBoxEnabled:
-		if type == Dialog.Start:
+		if type == Dialog.Start and startTextAllowed:
 			if "text" in sceneList[currentScene]:
+				startTextAllowed = false
 				return sceneList[currentScene]["text"]
 		elif type == Dialog.End:
 			if "endText" in sceneList[currentScene]:
