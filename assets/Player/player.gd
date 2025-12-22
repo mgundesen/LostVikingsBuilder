@@ -445,7 +445,7 @@ func checkSpikeCollision():
 			kill(KillArea.Type.Spikes)
 
 func elevatorBonkHandling():
-	if onElevator:
+	if onElevator and is_on_ceiling():
 		for body in $Area2D.get_overlapping_bodies():
 			if body is Tiles and !onElevator.isAtTarget():
 				var offset = 10 if position.x > onElevator.position.x else -10
