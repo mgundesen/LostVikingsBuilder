@@ -381,8 +381,12 @@ func handleLadderInput(xInput, yInput, triggerJump):
 	for body in $Area2D.get_overlapping_bodies():
 		if body is Tiles:
 			touchingTiles = true
+	if yInput < 0 and touchingTiles: # Don't climb into a ceiling
+		return
 	position.y += yInput * CLIMB_SPEED
-	if position.y < ladderTop() or (yInput > 0 and touchingTiles):
+	var aboveLadder = position.y < ladderTop()
+	var belowLadder = position.y > ladderBottom() + size().y / 2.0
+	if aboveLadder or belowLadder or (yInput > 0 and touchingTiles):
 		setState(State.Free)
 
 # Similar to move_toward but allows external forces to break limits

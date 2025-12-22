@@ -3,12 +3,10 @@ Improve Guard behaviour
 More levels
 
 Bugs:
-Climbing down ladders into air
-Ladders respect colision top
 Slicer wallbreak
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
-Jumping down antigrav
+Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
 Implement item trash slot
