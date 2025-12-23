@@ -9,7 +9,7 @@ enum Mode{Auto, Signals, Timed}
 @export var operationMode = Mode.Signals
 @export var timer = 2.0
 @export var openCount = 1
-enum Style{Ship, Candyland}
+enum Style{Ship, Candyland, Egypt}
 @export var style = Style.Ship
 
 @onready var sfx = $AudioStreamPlayer2D
@@ -70,7 +70,15 @@ func _process(_delta):
 		if state == State.Open and !isClose:
 			close()
 	
-	var sprite = "default" if style == Style.Ship else "candydefault"
+	var sprite
+	match style:
+		Style.Ship:
+			sprite = "default"
+		Style.Candyland:
+			sprite = "candydefault"
+		Style.Egypt:
+			sprite = "egyptdefault"
+	
 	var count = $AnimatedSprite2D.sprite_frames.get_frame_count(sprite) - 1
 	
 	if state == State.Closed:

@@ -31,7 +31,9 @@ const sceneList = [
 {"level" : "res://Levels/Chansey_Levels/Level8.tscn",
  "name" : "BONK"},
 {"level" : "res://Levels/Chansey_Levels/Level9.tscn",
- "name" : "FANS"}
+ "name" : "FANS"},
+{"level" : "res://Levels/Chansey_Levels/Level10.tscn",
+ "name" : "TODO"}
 ]
 
 var currentScene = 0

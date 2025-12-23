@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm1fm0fxl42t2"]
+[gd_scene load_steps=22 format=3 uid="uid://cm1fm0fxl42t2"]
 
 [ext_resource type="Script" uid="uid://c5ewtigcvk5tv" path="res://assets/Interactive/door.gd" id="1_hrrdk"]
 [ext_resource type="Texture2D" uid="uid://cqq254lf0vkne" path="res://assets/Interactive/door.png" id="2_k1saq"]
@@ -12,6 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://b8j3kk6y4aj6s" path="res://assets/Interactive/cdoor_open4.png" id="6_p6xvn"]
 [ext_resource type="Texture2D" uid="uid://b4xum2kaivojd" path="res://assets/Interactive/cdoor_open6.png" id="7_nshuf"]
 [ext_resource type="Texture2D" uid="uid://dhkuvnwd0w1f3" path="res://assets/Interactive/cdoor_open5.png" id="8_q0n8i"]
+[ext_resource type="Texture2D" uid="uid://cv5qriju8b77j" path="res://assets/Interactive/edoor.png" id="13_q7ed6"]
+[ext_resource type="Texture2D" uid="uid://b2oqsbyxcowby" path="res://assets/Interactive/edoor2.png" id="14_35ecf"]
+[ext_resource type="Texture2D" uid="uid://bc2akq454tvpt" path="res://assets/Interactive/edoor3.png" id="15_0jgvm"]
+[ext_resource type="Texture2D" uid="uid://ca4blyktgxu4a" path="res://assets/Interactive/edoor4.png" id="16_2iy5g"]
+[ext_resource type="Texture2D" uid="uid://cpquh5jl18b0o" path="res://assets/Interactive/edoor5.png" id="17_7tvpd"]
+[ext_resource type="Texture2D" uid="uid://ci32gwd4q6uxx" path="res://assets/Interactive/edoor6.png" id="18_gtq77"]
+[ext_resource type="Texture2D" uid="uid://bwkl6hl1flh13" path="res://assets/Interactive/edoor7.png" id="19_c1dpn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7kuw"]
 animations = [{
@@ -56,6 +63,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_q7ed6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_35ecf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0jgvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2iy5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7tvpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gtq77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_c1dpn")
+}],
+"loop": true,
+"name": &"egyptdefault",
 "speed": 5.0
 }]
 

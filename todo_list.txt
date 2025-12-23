@@ -1,6 +1,8 @@
 Features:
 Improve Guard behaviour
 More levels
+End Credits
+Controller Support
 
 Bugs:
 Slicer wallbreak
