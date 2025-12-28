@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://d0henq3qjtf0r"]
+
+[ext_resource type="Script" uid="uid://clwy12y7waeqc" path="res://assets/Enemies/Mummy/mummy.gd" id="1_514kb"]
+[ext_resource type="Texture2D" uid="uid://bl3268oxl54hx" path="res://assets/Enemies/Mummy/attack1.png" id="2_8yecn"]
+[ext_resource type="Texture2D" uid="uid://blxwf5e7aesxc" path="res://assets/Enemies/Mummy/attack2.png" id="3_b41m1"]
+[ext_resource type="Texture2D" uid="uid://b1fqe18djfdmg" path="res://assets/Enemies/Mummy/attack3.png" id="4_lvpp6"]
+[ext_resource type="Texture2D" uid="uid://bbs33trqvymiw" path="res://assets/Enemies/Mummy/walk1.png" id="5_mlb68"]
+[ext_resource type="Texture2D" uid="uid://c6iw8o7s8nb8a" path="res://assets/Enemies/Mummy/walk2.png" id="6_uog8e"]
+[ext_resource type="Texture2D" uid="uid://xm2jtw3f3033" path="res://assets/Enemies/Mummy/walk3.png" id="7_1wvs7"]
+[ext_resource type="Texture2D" uid="uid://bedcg32lqivrb" path="res://assets/Enemies/Mummy/walk4.png" id="8_weybh"]
+[ext_resource type="Texture2D" uid="uid://cb7y4oxhctc5e" path="res://assets/Enemies/Mummy/walk5.png" id="9_rite1"]
+[ext_resource type="PackedScene" uid="uid://cffav8lls5m8j" path="res://assets/Enemies/edge_detect.tscn" id="10_5uj47"]
+[ext_resource type="Texture2D" uid="uid://dgnedreeyvbfp" path="res://assets/Enemies/Mummy/walk6.png" id="10_yadms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4h0r"]
+size = Vector2(70, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_514kb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8yecn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b41m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lvpp6")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mlb68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uog8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1wvs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_weybh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rite1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yadms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj6t8"]
+size = Vector2(67, 80)
+
+[node name="Mummy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_514kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y4h0r")
+
+[node name="EdgeDetect" parent="." instance=ExtResource("10_5uj47")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_514kb")
+animation = &"attack"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rj6t8")
+
+[connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

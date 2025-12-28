@@ -16,7 +16,7 @@ Walk on slopes
 Magnet/Crane system
 Large pounder
 Runnning against a wall
-More enemies(Running Shooter, Caveman, Snail, Scorpion, Mummy, Flying dropper, Evil Balerog)
+More enemies(Running Shooter, Caveman, Snail, Scorpion, Flying dropper, Evil Balerog)
 Scrolling camera to view
 Acid drops
 Multiplayer

@@ -86,10 +86,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_c1dpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nshuf")
 }],
 "loop": true,
 "name": &"egyptdefault",
-"speed": 5.0
+"speed": 2.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrrdk"]
@@ -102,7 +105,7 @@ script = ExtResource("1_hrrdk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k7kuw")
-animation = &"candydefault"
+animation = &"egyptdefault"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.76837e-06)

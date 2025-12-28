@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var fallSpeed = 1.0
 var disabled = false
 var frontShield
 enum Style{Ship, Candyland, Egypt}
@@ -15,7 +16,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if !disabled:
-		position.y += 1
+		position.y += fallSpeed
+		velocity = Vector2()
 		move_and_slide()
 
 func _on_body_entered(body: Node2D) -> void:
