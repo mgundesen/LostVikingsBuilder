@@ -2085,6 +2085,7 @@ position = Vector2(-23, 54)
 [node name="Ladder" parent="Left" instance=ExtResource("7_53apw")]
 position = Vector2(-690, -399)
 ladderHeight = 10.0
+style = 1
 
 [node name="Elevator" parent="Left" instance=ExtResource("8_f1gkh")]
 position = Vector2(-803.256, 552)

@@ -2,8 +2,14 @@ extends CharacterBody2D
 
 var disabled = false
 var frontShield
+enum Style{Ship, Candyland, Egypt}
+@export var style = Style.Ship
 
 func _ready() -> void:
+	var path = "res://assets/Interactive/dropwall.png"
+	if style == Style.Egypt:
+		path = "res://assets/Interactive/edoor.png"
+	$Sprite2D.texture = load(path)
 	set_max_slides(0)
 	frontShield = PlayerUtil.frontShield()
 	add_collision_exception_with(frontShield)

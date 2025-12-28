@@ -1778,14 +1778,17 @@ position = Vector2(645, 253)
 [node name="Ladder" parent="Erik Path" instance=ExtResource("16_147pn")]
 position = Vector2(1542, -270)
 ladderHeight = 10.0
+style = 1
 
 [node name="Ladder2" parent="Erik Path" instance=ExtResource("16_147pn")]
 position = Vector2(1412, -595)
 ladderHeight = 6.0
+style = 1
 
 [node name="Ladder3" parent="Erik Path" instance=ExtResource("16_147pn")]
 position = Vector2(1233, -594)
 ladderHeight = 6.0
+style = 1
 
 [node name="Teleporter" parent="Erik Path" instance=ExtResource("17_fmmdy")]
 position = Vector2(162, -274)

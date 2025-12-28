@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyyiordg1xyas"]
+
+[ext_resource type="Texture2D" uid="uid://dcak6lh217lk4" path="res://assets/Interactive/floor_egypt.png" id="1_6c3bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyfo1"]
+size = Vector2(46, 46)
+
+[node name="Floor" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6c3bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wyfo1")

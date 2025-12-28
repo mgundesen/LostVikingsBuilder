@@ -2189,6 +2189,7 @@ position = Vector2(648, 1186)
 [node name="Ladder" parent="RightSide" instance=ExtResource("8_bfh1h")]
 position = Vector2(2230, 851)
 ladderHeight = 13.0
+style = 1
 
 [node name="Inflater" parent="RightSide" instance=ExtResource("23_4lmr8")]
 position = Vector2(2071, 1412)

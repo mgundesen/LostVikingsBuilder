@@ -2131,6 +2131,7 @@ position = Vector2(989, 0)
 [node name="Ladder" parent="Mid" instance=ExtResource("6_0nkiu")]
 position = Vector2(806, 414)
 ladderHeight = 6.0
+style = 1
 
 [node name="Item2" parent="Mid" instance=ExtResource("8_a3ssm")]
 position = Vector2(878, -3)

@@ -2087,12 +2087,14 @@ Width = 24.0
 [node name="Ladder" parent="Objects" instance=ExtResource("7_4vg0m")]
 position = Vector2(25, 736)
 ladderHeight = 8.0
+style = 1
 
 [node name="Keyhole" parent="Objects" instance=ExtResource("8_4b32m")]
 position = Vector2(6, 482)
 
 [node name="Door" parent="Objects" instance=ExtResource("9_q4r5m")]
 position = Vector2(-69, 483)
+style = 1
 
 [node name="Keyhole2" parent="Objects" instance=ExtResource("8_4b32m")]
 position = Vector2(-139, 152)

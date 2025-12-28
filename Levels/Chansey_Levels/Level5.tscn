@@ -1721,6 +1721,7 @@ offset = Vector2(16.5, 28)
 [node name="MovingPlatform" parent="Top" instance=ExtResource("7_nvdn0")]
 position = Vector2(1290.23, -506.154)
 end = Vector2(0, 0)
+style = 1
 
 [node name="ShockTrap" parent="Top" instance=ExtResource("8_g3wji")]
 position = Vector2(1887, -298)
@@ -1825,7 +1826,7 @@ visible = false
 position = Vector2(340, 500)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(410, 501)
+position = Vector2(415, 501)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(252, 499)
