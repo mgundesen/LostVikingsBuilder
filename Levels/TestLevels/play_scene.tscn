@@ -187,6 +187,7 @@ sources/0 = SubResource("TileSetAtlasSource_dlj8o")
 [node name="Elevator" parent="." instance=ExtResource("3_rfwu7")]
 position = Vector2(644, 552)
 nodes = PackedVector2Array(0, 0, 0, 6)
+style = 2
 
 [node name="SugerWater" parent="." instance=ExtResource("3_vm1b5")]
 position = Vector2(704, 987)
@@ -195,6 +196,7 @@ Width = 14.0
 [node name="Ladder" parent="." instance=ExtResource("3_1p5oe")]
 position = Vector2(87, 483)
 ladderHeight = 3.0
+style = 2
 
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
 position = Vector2(510, 367)
@@ -213,7 +215,7 @@ position_smoothing_speed = 20.0
 script = ExtResource("1_a0jw4")
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(464, 763)
+position = Vector2(544, 484)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
 position = Vector2(157, 446)

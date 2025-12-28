@@ -4,6 +4,8 @@ extends Node2D
 @export var startNode = 0
 @export var speed = 3
 @export var enabled = true
+enum Style{Ship, Candyland, Egypt}
+@export var style = Style.Ship
 
 var previousTarget = 0
 var targetIndex = 0
@@ -14,6 +16,10 @@ func _ready():
 	targetIndex = startNode
 	var target = nodes[targetIndex]
 	position = target
+	var path = "res://assets/Interactive/elevator.png" # Candyland elevator is ugly as heck
+	if style == Style.Egypt:
+		path = "res://assets/Interactive/elevator_egypt.png"
+	$Sprite2D.texture = load(path)
 
 func isAtTarget():
 	var target = nodes[targetIndex]
