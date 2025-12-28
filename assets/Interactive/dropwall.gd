@@ -10,16 +10,16 @@ func _ready() -> void:
 	if style == Style.Egypt:
 		path = "res://assets/Interactive/edoor.png"
 	$Sprite2D.texture = load(path)
-	set_max_slides(0)
 	frontShield = PlayerUtil.frontShield()
 	add_collision_exception_with(frontShield)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !disabled:
 		position.y += 1
+		move_and_slide()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is OlafShield and body != frontShield or body is Tiles:
+	if body is OlafShield and body != frontShield:
 		disabled = true
 	if body is PlayerBase:
 		body.kill(KillArea.Type.Squash)

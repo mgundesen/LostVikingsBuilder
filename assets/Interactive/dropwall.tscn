@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bv2vbx0ioiur" path="res://assets/Interactive/block_area.gd" id="3_w8tjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3sob"]
-size = Vector2(46, 136)
+size = Vector2(46, 137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xb4w"]
 size = Vector2(38, 132)
@@ -20,7 +20,7 @@ position = Vector2(2.38419e-07, 1.96695e-06)
 texture = ExtResource("2_kv5sm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_y3sob")
 
 [node name="Area2D" type="Area2D" parent="."]
