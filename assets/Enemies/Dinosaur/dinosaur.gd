@@ -32,4 +32,3 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("default")
 	
-	super._process(delta)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0henq3qjtf0r"]
+[gd_scene load_steps=15 format=3 uid="uid://s67cmsq2q167"]
 
-[ext_resource type="Script" uid="uid://clwy12y7waeqc" path="res://assets/Enemies/Mummy/mummy.gd" id="1_514kb"]
+[ext_resource type="Script" uid="uid://bfrfg30c6xfvv" path="res://assets/Enemies/Mummy/mummy.gd" id="1_514kb"]
 [ext_resource type="Texture2D" uid="uid://bl3268oxl54hx" path="res://assets/Enemies/Mummy/attack1.png" id="2_8yecn"]
 [ext_resource type="Texture2D" uid="uid://blxwf5e7aesxc" path="res://assets/Enemies/Mummy/attack2.png" id="3_b41m1"]
 [ext_resource type="Texture2D" uid="uid://b1fqe18djfdmg" path="res://assets/Enemies/Mummy/attack3.png" id="4_lvpp6"]
@@ -71,7 +71,6 @@ shape = SubResource("RectangleShape2D_y4h0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_514kb")
-animation = &"attack"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8

@@ -18,7 +18,7 @@ func attemptAttack():
 	if state == State.attack:
 		EnemyUtil.hit(self, flip, 10, 0, 4)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if state == State.walk and (closeToPlayer() or closeToShield()):
 		setState(State.attack)
 		get_tree().create_timer(0.2).timeout.connect(attemptAttack)
@@ -32,5 +32,4 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("attack")
 	else:
 		$AnimatedSprite2D.play("default")
-	
-	super._process(delta)
+		
