@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="12_n8ij3"]
 [ext_resource type="PackedScene" uid="uid://cm1fm0fxl42t2" path="res://assets/Interactive/door.tscn" id="23_vi0nd"]
-[ext_resource type="PackedScene" uid="uid://dvoexeklxx06j" path="res://assets/Interactive/fan.tscn" id="24_4eymo"]
+[ext_resource type="PackedScene" uid="uid://t82towpapc4a" path="res://assets/Interactive/button_single.tscn" id="24_4eymo"]
 [ext_resource type="PackedScene" uid="uid://s67cmsq2q167" path="res://assets/Enemies/Mummy/mummy.tscn" id="24_svw1t"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://kmil4rsq6ek2" path="res://assets/Interactive/pounder.tscn" id="26_i2gka"]
@@ -199,8 +199,8 @@ ladderHeight = 3.0
 style = 2
 
 [node name="Ladder2" parent="." instance=ExtResource("3_1p5oe")]
-position = Vector2(510, 367)
-ladderHeight = 8.0
+position = Vector2(509, 321)
+ladderHeight = 10.0
 
 [node name="PressurePlate" parent="." instance=ExtResource("29_jl8yd")]
 position = Vector2(1334, 898)
@@ -218,7 +218,7 @@ script = ExtResource("1_a0jw4")
 position = Vector2(438, 783)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(157, 446)
+position = Vector2(279, 242)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
 position = Vector2(333, 489)
@@ -265,10 +265,8 @@ position = Vector2(252, 1095)
 Width = 8.0
 reverse = false
 
-[node name="Fan" parent="." instance=ExtResource("24_4eymo")]
-position = Vector2(592, 178)
-pushForce = Vector2(0, 40)
-on = false
-
 [node name="Mummy" parent="." instance=ExtResource("24_svw1t")]
 position = Vector2(232, 789)
+
+[node name="ButtonSingle" parent="." instance=ExtResource("24_4eymo")]
+position = Vector2(-40.54, 491.856)

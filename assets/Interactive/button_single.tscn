@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://t82towpapc4a"]
+
+[ext_resource type="Script" uid="uid://bhxs5rns8vt3u" path="res://assets/Interactive/button_single.gd" id="1_48fd4"]
+[ext_resource type="Texture2D" uid="uid://dnxw58gdbljm6" path="res://assets/Interactive/button_single.png" id="1_t4tmq"]
+[ext_resource type="AudioStream" uid="uid://bsbm31ufsbf5p" path="res://assets/Sounds/button_press.mp3" id="3_5mvif"]
+[ext_resource type="Texture2D" uid="uid://blnysdgkdv1t8" path="res://assets/Interactive/button_single2.png" id="4_scnls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48fd4"]
+size = Vector2(46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48fd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t4tmq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_scnls")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[node name="ButtonSingle" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_48fd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_48fd4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5mvif")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_48fd4")

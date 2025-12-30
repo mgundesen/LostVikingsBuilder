@@ -24,6 +24,7 @@ const sounds = {
 func _ready() -> void:
 	if state == State.Open:
 		setCollision(false)
+	_process(0) # To update door visuals when having text boxes
 
 func play_sfx(soundName: String):
 	sfx.stream = sounds[soundName]

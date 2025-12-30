@@ -33,11 +33,11 @@ const sceneList = [
 {"level" : "res://Levels/Chansey_Levels/Level9.tscn",
  "name" : "FANS"},
 {"level" : "res://Levels/Chansey_Levels/Level10.tscn",
- "name" : "TODO"}
+ "name" : "DROP"}
 ]
 
 var currentScene = 0
-var musicEnabled = true
+var musicEnabled = false
 var soundEnabled = true
 var startTextAllowed = false;
 

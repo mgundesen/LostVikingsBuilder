@@ -4,7 +4,7 @@ var wallBlockScene = load("res://assets/Interactive/break_block.tscn")
 var breakBlockScene = load("res://assets/Interactive/break_block_2.tscn")
 var solidBlockScene = load("res://assets/Interactive/floor.tscn")
 
-enum Type {WallBlock, BreakBlock, BreakBlockWalk, Floor}
+enum Type {WallBlock, BreakBlock, BreakBlockWalk, Floor, WallBlockHidden}
 @export var type = Type.WallBlock
 
 @export var nodes = PackedVector2Array()
@@ -15,7 +15,7 @@ var spawned = false
 func spawnBlock(node):
 	var block
 	match type:
-		Type.WallBlock:
+		Type.WallBlock, Type.WallBlockHidden:
 			block = wallBlockScene.instantiate()
 		Type.BreakBlock, Type.BreakBlockWalk:
 			block = breakBlockScene.instantiate()
@@ -24,6 +24,8 @@ func spawnBlock(node):
 	add_child(block)
 	if type == Type.BreakBlockWalk:
 		block.mode = BreakBlock2.Mode.Stand
+	if type == Type.WallBlockHidden:
+		block.hideOnBreak = true
 	block.position += node * 46
 
 func _ready():

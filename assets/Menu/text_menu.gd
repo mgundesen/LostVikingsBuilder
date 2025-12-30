@@ -39,10 +39,16 @@ func _process(_delta):
 	if !isActive:
 		return
 	
-	if Input.is_action_just_pressed(&"Up") and currentIndex > 0:
-		currentIndex -= 1
-	if Input.is_action_just_pressed(&"Down") and currentIndex < textLabels.size() -1:
-		currentIndex += 1
+	if Input.is_action_just_pressed(&"Up"):
+		if currentIndex == 0:
+			currentIndex = textLabels.size() -1
+		else:
+			currentIndex -= 1
+	if Input.is_action_just_pressed(&"Down"):
+		if currentIndex == textLabels.size() -1:
+			currentIndex = 0
+		else:
+			currentIndex += 1
 
 func setActive(active):
 	isActive = active

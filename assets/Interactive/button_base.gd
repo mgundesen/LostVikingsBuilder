@@ -4,6 +4,7 @@ class_name ButtonBase
 
 @export var buttonCooldown = 0.0
 var isOnCooldown = false
+var pressAllowed = true
 signal activated
 
 func buttonPress():
@@ -13,7 +14,7 @@ func buttonPress():
 		activated.emit()
 
 func _process(_delta):
-	if PlayerUtil.getOverlappingActive(self) and Input.is_action_just_pressed(&"A"):
+	if pressAllowed and PlayerUtil.getOverlappingActive(self) and Input.is_action_just_pressed(&"A"):
 		buttonPress()
 	#for area in get_overlapping_areas():
 	#	if area is Hitbox and area.type == Hitbox.Type.colliding:

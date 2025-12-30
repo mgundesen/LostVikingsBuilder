@@ -21,7 +21,8 @@ func spawnArrow():
 	owner.add_child(arrow)
 	arrow.transform = transform
 	var offset = -arrowOffset if direction == FacingDirection.Left else arrowOffset
-	arrow.position += Vector2(offset, -5)
+	#-7 is not visually pleasing with the bow position but allows the shot to go over a single block
+	arrow.position += Vector2(offset, -7)
 
 func canUseFireArrow():
 	arrowType = Arrow.ArrowType.fire

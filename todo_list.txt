@@ -6,6 +6,7 @@ Controller Support
 
 Bugs:
 Slicer wallbreak
+Enemy turnaround on damage
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)

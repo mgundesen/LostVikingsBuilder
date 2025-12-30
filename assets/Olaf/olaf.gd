@@ -1,6 +1,6 @@
 extends PlayerBase
 
-const SHEILD_FALL_SPEED = 100
+const SHEILD_FALL_SPEED = 140 # 160-165 is roughly fallspeed in original, slight buff
 
 var raisedSheild = false
 
