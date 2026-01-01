@@ -12,11 +12,12 @@ heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
+Wall Shooter
 Implement item trash slot
 Walk on slopes
 Magnet/Crane system
 Large pounder
-Runnning against a wall
+Runnning against a wall (animation)
 More enemies(Running Shooter, Caveman, Snail, Scorpion, Flying dropper, Evil Balerog)
 Scrolling camera to view
 Acid drops
@@ -27,3 +28,4 @@ damage cooldown
 Improve infaltion end
 Increased spring power high speed
 Breakable "camo" walls
+Idle Animation
