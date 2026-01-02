@@ -334,7 +334,8 @@ func ladderBottom():
 	return ladderPos.y + ladderHeight / 2.0 - size().y / 2.0
 
 func validLadderInput(yInput):
-	if !ladderAllowed or abs(yInput) < 0.1:
+	const deadzone = 0.3
+	if !ladderAllowed or abs(yInput) < deadzone:
 		return false
 	if yInput < 0: #Going up
 		if position.y < ladderTop():
@@ -342,7 +343,7 @@ func validLadderInput(yInput):
 	if yInput > 0: #Going down
 		if position.y > ladderBottom():
 			return false
-	if abs(yInput) < 0.1:
+	if abs(yInput) < deadzone:
 		return false
 	return true
 

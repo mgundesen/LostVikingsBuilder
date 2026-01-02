@@ -91,7 +91,7 @@ func _process(_delta):
 		if state == State.selecting:
 			var ap = PlayerUtil.activePlayer()
 			itemSlotChangeCheck(ap)
-			if Input.is_action_just_pressed(&"B"):
+			if Input.is_action_just_pressed(&"A") or Input.is_action_just_pressed(&"B"):
 				var item = ap.items[ap.itemSlot]
 				if item != ItemUtil.Item.none:
 					SceneControl.menuSoundNode().play_sfx("select")
@@ -104,7 +104,7 @@ func _process(_delta):
 				swapItem(SwapType.next)
 			if Input.is_action_just_pressed(&"Left"):
 				swapItem(SwapType.previous)
-			if Input.is_action_just_pressed(&"B"):
+			if Input.is_action_just_pressed(&"A") or Input.is_action_just_pressed(&"B"):
 				setState(State.selecting)
 				currentItem = ItemUtil.Item.none
 				SceneControl.menuSoundNode().play_sfx("select")

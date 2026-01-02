@@ -37,12 +37,13 @@ func _physics_process(_delta):
 	# Maybe force move the player for more LV1 experience?
 
 	if enabled and PlayerUtil.getOverlappingActive($Area2D):
-		if targetIndex > 0 and Input.is_action_pressed(&"Up") :
+		var yInput = Input.get_axis(&"Up", &"Down")
+		if targetIndex > 0 and yInput < -0.5 :
 			if atTarget or previousTarget == targetIndex - 1:
 				previousTarget = targetIndex
 				targetIndex -= 1
 				SceneControl.playSound($AudioStreamPlayer2D)
-		if targetIndex < nodes.size() - 1 and Input.is_action_pressed(&"Down"):
+		if targetIndex < nodes.size() - 1 and yInput > 0.5:
 			if atTarget or previousTarget == targetIndex + 1:
 				previousTarget = targetIndex
 				targetIndex += 1

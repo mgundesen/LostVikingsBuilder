@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	$Settings.setActive(state == Menu.Settings)
 	$LevelSelect.setActive(state == Menu.LevelSelect)
 	
-	var hasInput = Input.is_action_just_pressed(&"B") or Input.is_action_just_pressed(&"Start")
+	var hasInput = Input.is_action_just_pressed(&"A") or Input.is_action_just_pressed(&"B") or Input.is_action_just_pressed(&"Start")
 	if !hasInput:
 		return
 	

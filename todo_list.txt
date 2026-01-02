@@ -2,7 +2,6 @@ Features:
 Improve Guard behaviour
 More levels
 End Credits
-Controller Support
 
 Bugs:
 Slicer wallbreak
@@ -12,6 +11,7 @@ heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
+bullet on sheild/wall animation
 Wall Shooter
 Implement item trash slot
 Walk on slopes

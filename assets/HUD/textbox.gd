@@ -36,6 +36,6 @@ func triggerEndDialog():
 	_startDialog()
 
 func _process(_delta):
-	if SceneControl.pauseType() == SceneControl.PauseType.Dialog && Input.is_action_just_pressed(&"B"):
+	if SceneControl.pauseType() == SceneControl.PauseType.Dialog && (Input.is_action_just_pressed(&"A") or Input.is_action_just_pressed(&"B")):
 		textIndex += 1
 		updateTextbox()

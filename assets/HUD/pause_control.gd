@@ -4,7 +4,7 @@ var selectYes = false
 
 func _process(_delta):
 	var relatedPause = SceneControl.pauseType() == SceneControl.PauseType.Regular
-	if Input.is_action_just_pressed(&"Start") or (Input.is_action_just_pressed(&"B") and relatedPause):
+	if Input.is_action_just_pressed(&"Start") or ((Input.is_action_just_pressed(&"A") or Input.is_action_just_pressed(&"B")) and relatedPause):
 		if relatedPause:
 			SceneControl.unpause()
 			if selectYes:
