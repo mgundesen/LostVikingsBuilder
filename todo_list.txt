@@ -6,6 +6,7 @@ End Credits
 Bugs:
 Slicer wallbreak
 Enemy turnaround on damage
+Headbash over a breakwall
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)

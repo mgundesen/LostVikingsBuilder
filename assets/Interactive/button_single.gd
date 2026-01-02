@@ -2,6 +2,9 @@ extends ButtonBase
 
 var pressed = false
 
+func _ready():
+	pressAllowed = false
+
 func buttonPress():
 	pressed = true
 	SceneControl.playSound($AudioStreamPlayer2D)

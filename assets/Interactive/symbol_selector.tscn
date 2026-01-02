@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dem4knhf134m7"]
+
+[ext_resource type="PackedScene" uid="uid://cuetx4otsij7c" path="res://assets/Interactive/symbol_shower.tscn" id="1_plexg"]
+[ext_resource type="PackedScene" uid="uid://dodve0otylnrn" path="res://assets/Interactive/button.tscn" id="2_rcf7r"]
+
+[node name="SymbolSelector" instance=ExtResource("1_plexg")]
+
+[node name="Button" parent="." index="1" instance=ExtResource("2_rcf7r")]
+position = Vector2(-1.1920929e-07, 51)
+
+[connection signal="activated" from="Button" to="." method="increaseSymbol"]

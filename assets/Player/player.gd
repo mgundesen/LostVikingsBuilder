@@ -4,7 +4,7 @@ class_name PlayerBase
 const STOP_FORCE = 1600
 const WALK_FORCE = 1000
 const WALK_MAX_SPEED = 340
-const JUMP_SPEED = 550
+const JUMP_SPEED = 540
 const ANTIGRAV_BOUNCE = 100
 const SPRING_FORCE = -850
 const FALL_DAMAGE_LIMIT = 900
@@ -20,6 +20,7 @@ const hitboxScene = preload("res://assets/Hitbox/hitbox.tscn")
 var ladderAllowed = false
 var ladderPos = Vector2()
 var ladderHeight = 0
+const ladderDeadzone = 0.3
 
 # Teleport interface
 var teleportAllowed = false
@@ -334,8 +335,7 @@ func ladderBottom():
 	return ladderPos.y + ladderHeight / 2.0 - size().y / 2.0
 
 func validLadderInput(yInput):
-	const deadzone = 0.3
-	if !ladderAllowed or abs(yInput) < deadzone:
+	if !ladderAllowed or abs(yInput) < ladderDeadzone:
 		return false
 	if yInput < 0: #Going up
 		if position.y < ladderTop():
@@ -343,7 +343,7 @@ func validLadderInput(yInput):
 	if yInput > 0: #Going down
 		if position.y > ladderBottom():
 			return false
-	if abs(yInput) < deadzone:
+	if abs(yInput) < ladderDeadzone:
 		return false
 	return true
 
@@ -375,7 +375,7 @@ func kill(type):
 			_takeDamage(State.DrownDeath, State.DrownDeath, 4)
 
 func handleLadderInput(xInput, yInput, triggerJump):
-	if abs(yInput) < 0.1 and (abs(xInput) > 0 or triggerJump):
+	if abs(yInput) < ladderDeadzone and (abs(xInput) > 0 or triggerJump):
 		setState(State.Free)
 	position.x = ladderPos.x
 	move_and_slide() # Call to detect floor/ceiling, not actually for movement
@@ -471,6 +471,7 @@ func _physics_process(delta):
 			inflateTimer.stop()
 		if teleportAllowed == true and Input.is_action_just_pressed(&"A") and is_on_floor() and state == State.Free:
 			setState(State.Teleport)
+			teleportAllowed = false
 			play_sfx("teleport")
 			get_tree().create_timer(0.7).timeout.connect(func(): position = teleportTarget)
 			get_tree().create_timer(1.6).timeout.connect(func(): setState(State.Free))
