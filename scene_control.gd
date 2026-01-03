@@ -37,7 +37,9 @@ const sceneList = [
 {"level" : "res://Levels/Chansey_Levels/Level11.tscn",
  "name" : "PRMD"},
 {"level" : "res://Levels/Chansey_Levels/Level12.tscn",
- "name" : "SYMB"}
+ "name" : "SYMB"},
+{"level" : "res://assets/Menu/end_credit.tscn",
+ "name" : "Credit"}
 ]
 
 var currentScene = 0

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://ru6itcw06msr"]
+
+[ext_resource type="Script" uid="uid://dhuc63qs8g1bx" path="res://assets/Menu/end_credit.gd" id="1_fkphm"]
+[ext_resource type="FontFile" uid="uid://cqrs2c1gxx6dy" path="res://assets/Font/troika.otf" id="1_ouoks"]
+[ext_resource type="PackedScene" uid="uid://d2fagiejvliv3" path="res://assets/HUD/discord.tscn" id="2_fkphm"]
+[ext_resource type="AudioStream" uid="uid://dp6biki7n0jun" path="res://assets/Music/rock-concert-credits.mp3" id="4_75ksq"]
+[ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="5_g6jvu"]
+
+[node name="EndCredit" type="Node2D"]
+script = ExtResource("1_fkphm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -800.0
+offset_right = 1002.0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CreditText" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ouoks")
+theme_override_font_sizes/font_size = 32
+text = "Thanks You For playing my Game
+
+If you Have Interest In
+ Making your Own Levels
+Click the Following Link
+
+"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Discord" parent="CanvasLayer/MarginContainer/VBoxContainer/Control" instance=ExtResource("2_fkphm")]
+layout_mode = 1
+offset_left = -36.0
+offset_top = -73.0
+offset_right = 36.0
+offset_bottom = -1.0
+
+[node name="ThanksTo" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("1_ouoks")
+theme_override_font_sizes/font_size = 18
+text = "Developer: 
+Chansey
+..."
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_75ksq")
+volume_db = -9.0
+parameters/looping = true
+script = ExtResource("5_g6jvu")

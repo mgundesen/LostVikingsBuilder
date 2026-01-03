@@ -13,7 +13,7 @@ func updateLevelText():
 		if i > 0:
 			$LevelSelect.textLabels.append("Level {index}: {name}".format({"index": i, "name": SceneControl.sceneList[i]["name"]}))
 	$LevelSelect.textLabels.append("Exit")
-	$LevelSelect.updateLabels(34)
+	$LevelSelect.updateLabels(28)
 
 func _ready() -> void:
 	updateSettingText()

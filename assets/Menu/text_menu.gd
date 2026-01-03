@@ -4,6 +4,7 @@ extends CanvasLayer
 
 var currentIndex = 0
 var isActive = true
+var scaleFactor = 1
 
 func labelForIndex(index):
 	return find_child(nameForIndex(index), true, false)
@@ -24,6 +25,8 @@ func updateLabels(fontSize = 52):
 		newLabel.add_theme_font_override("font",load("res://assets/Font/troika.otf"))
 		newLabel.set_text(label)
 		$MarginContainer/VBoxContainer.add_child(newLabel)
+	scaleFactor = fontSize / 62.0
+	$Icon.scale = Vector2(scaleFactor, scaleFactor)
 
 func _ready() -> void:
 	updateLabels()
@@ -34,7 +37,7 @@ func toggle(index, on):
 
 func _process(_delta):
 	var labelPos = find_child(nameForIndex(currentIndex), true, false).position
-	$Icon.position = $MarginContainer.position + labelPos + Vector2(-40, 20)
+	$Icon.position = $MarginContainer.position + labelPos + Vector2(-40 * scaleFactor, 20 * scaleFactor)
 	
 	if !isActive:
 		return
