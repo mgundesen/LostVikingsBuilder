@@ -1,12 +1,11 @@
 Features:
 Improve Guard behaviour
 More levels
-End Credits
 
 Bugs:
 Slicer wallbreak
-Enemy turnaround on damage
 Headbash over a breakwall
+Slowfall down wall from elevator
 Hit in erik attack 2 state exits in a odd way
 heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)

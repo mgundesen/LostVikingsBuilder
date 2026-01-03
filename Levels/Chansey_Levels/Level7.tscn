@@ -1802,10 +1802,10 @@ style = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
 position = Vector2(375, 341)
-limit_left = -2000
-limit_top = -2016
-limit_right = 4000
-limit_bottom = 2128
+limit_left = -920
+limit_top = -1150
+limit_right = 1748
+limit_bottom = 1334
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0

@@ -50,9 +50,11 @@ func _process(_delta):
 	if xLimit[0] > position.x or xLimit[1] < position.x:
 		doFlip()
 	
-	var type = CollisionUtil.isColliding($Area2D, hitTypes)
-	if type:
-		if type == Hitbox.Type.explode or type == Hitbox.Type.smartbomb or type == Hitbox.Type.fireArrow:
+	var area = CollisionUtil.isColliding($Area2D, hitTypes)
+	if area:
+		if area.position.x > position.x and flip or area.position.x < position.x and !flip:
+			doFlip()
+		if area.type == Hitbox.Type.explode or area.type == Hitbox.Type.smartbomb or area.type == Hitbox.Type.fireArrow:
 			health -= 3
 		else:
 			health -= 1

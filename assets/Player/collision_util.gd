@@ -16,7 +16,7 @@ func isColliding(areaNode, types = []):
 			if checkType(area.type, types):
 				if !area.isPersistent:
 					area.queue_free()
-				return area.type
+				return area
 	return null
 
 func spawnHitbox(source, pos, type):
