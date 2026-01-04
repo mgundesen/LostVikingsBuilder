@@ -43,7 +43,7 @@ const sceneList = [
 ]
 
 var currentScene = 0
-var musicEnabled = true
+var musicEnabled = false
 var soundEnabled = true
 var startTextAllowed = false;
 

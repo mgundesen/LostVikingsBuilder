@@ -26,7 +26,7 @@ func _physics_process(_delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase and disabled == false:
 		body.kill(KillArea.Type.Squash)
-	if body is OlafShield:
+	if body is OlafShield and body != PlayerUtil.frontShield():
 		swapTarget()
 		disabled = true
 

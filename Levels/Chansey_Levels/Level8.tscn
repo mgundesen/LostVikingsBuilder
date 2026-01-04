@@ -2142,7 +2142,7 @@ itemID = 2
 [node name="MovingPlatform" parent="Midsection" instance=ExtResource("7_jhu6s")]
 position = Vector2(1221, 64)
 speed = 3.0
-end = Vector2(0, -12)
+end = Vector2(0, -13)
 style = 1
 
 [node name="RobotShooter" parent="Midsection" instance=ExtResource("5_tu5eo")]

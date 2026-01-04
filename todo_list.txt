@@ -3,6 +3,8 @@ Improve Guard behaviour
 More levels
 
 Bugs:
+egypt guard jumping out of cage area level 6?
+Make fan a switch instead
 Slicer wallbreak
 Headbash over a breakwall
 Slowfall down wall from elevator

@@ -5,7 +5,7 @@ const SHEILD_FALL_SPEED = 140 # 160-165 is roughly fallspeed in original, slight
 var raisedSheild = false
 
 func updateSheildCollision():
-	var inflatedState = state == State.Inflating or state == State.Inflated
+	var inflatedState = state == State.Inflating or state == State.Inflated or state == State.Ladder
 	$Shield/front/CollisionShape2D.disabled = raisedSheild or inflatedState
 	$Shield/top/CollisionShape2D.disabled = !raisedSheild or inflatedState
 
