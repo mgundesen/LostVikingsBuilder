@@ -7,9 +7,9 @@ enum endState {notDone, won, wonButMissing}
 func isDone():
 	var state = endState.won
 	for player in PlayerUtil.getPlayers():
-		if player.playerHealth < 1 and state == endState.won or state == endState.wonButMissing:
+		if player.playerHealth < 1:
 			state = endState.wonButMissing
-		elif player.position.distance_to(position) > 120:
+		if player.playerHealth > 0 and player.position.distance_to(position) > 120:
 			state = endState.notDone
 	return state
 
