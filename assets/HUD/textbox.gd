@@ -10,8 +10,7 @@ func _startDialog():
 
 func _ready():
 	visible = true
-	var type = SceneControl.Dialog.End if endDialog else SceneControl.Dialog.Start
-	textInfo = SceneControl.textForScene(type)
+	textInfo = SceneControl.textForScene(SceneControl.Dialog.Start)
 	_startDialog()
 
 func setText(color, text):
@@ -33,6 +32,7 @@ func triggerEndDialog():
 	textIndex = 0
 	endDialog = true
 	visible = true
+	textInfo = SceneControl.textForScene(SceneControl.Dialog.End)
 	_startDialog()
 
 func _process(_delta):
