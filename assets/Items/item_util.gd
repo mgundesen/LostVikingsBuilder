@@ -1,8 +1,8 @@
 extends Node2D
 
 enum Item {none, raddish, tomato, bomb, keyBlue, keyRed, keyYellow, 
-		   beef, smartbomb, fireArrow, gravboots}
-enum Keyhole{red, blue, yellow}
+		   beef, smartbomb, fireArrow, gravboots, tools}
+enum Keyhole{red, blue, yellow, machine}
 
 func imagePath(id):
 	match id:
@@ -28,3 +28,5 @@ func imagePath(id):
 			return "fire_arrow"
 		Item.gravboots:
 			return "gravboots"
+		Item.tools:
+			return "tools"

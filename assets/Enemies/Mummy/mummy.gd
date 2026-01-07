@@ -2,7 +2,7 @@ extends Enemy
 
 func _ready() -> void:
 	health = 3
-	
+	hitTypes = [Hitbox.Type.breaking, Hitbox.Type.explode, Hitbox.Type.smartbomb, Hitbox.Type.fireArrow, Hitbox.Type.sword]
 	super._ready()
 
 func closeToPlayer():

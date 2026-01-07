@@ -138,6 +138,8 @@ func keyholeForItem():
 			return ItemUtil.Keyhole.yellow
 		ItemUtil.Item.keyRed:
 			return ItemUtil.Keyhole.red
+		ItemUtil.Item.tools:
+			return ItemUtil.Keyhole.machine
 
 func useKey(type):
 	for area in $Area2D.get_overlapping_areas():
@@ -161,7 +163,7 @@ func useItemWithCheck():
 			var bomb = bombScene.instantiate()
 			owner.add_child(bomb)
 			bomb.position = position
-		ItemUtil.Item.keyBlue, ItemUtil.Item.keyYellow, ItemUtil.Item.keyRed:
+		ItemUtil.Item.keyBlue, ItemUtil.Item.keyYellow, ItemUtil.Item.keyRed, ItemUtil.Item.tools:
 			if !useKey(items[itemSlot]):
 				return false
 		ItemUtil.Item.smartbomb:

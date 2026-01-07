@@ -1,10 +1,9 @@
 Features:
 Improve Guard behaviour
-More levels
+Rework level 6 and ending of 11
 
 Bugs:
 egypt guard jumping out of cage area level 6?
-Make fan a switch instead
 Slicer wallbreak
 Headbash over a breakwall
 Slowfall down wall from elevator
@@ -13,6 +12,7 @@ heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
+Improve infaltion end
 bullet on sheild/wall animation
 Wall Shooter
 Implement item trash slot
@@ -27,7 +27,6 @@ Multiplayer
 Multiplayer online
 Fang/Scorch
 damage cooldown
-Improve infaltion end
 Increased spring power high speed
 Breakable "camo" walls
 Idle Animation

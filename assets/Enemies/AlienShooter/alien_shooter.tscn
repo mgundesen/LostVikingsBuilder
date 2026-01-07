@@ -70,8 +70,8 @@ shape = SubResource("RectangleShape2D_ck1l7")
 [node name="EdgeDetect" parent="." instance=ExtResource("8_peamy")]
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 24
-collision_mask = 24
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_6snvm")

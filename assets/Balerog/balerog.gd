@@ -51,7 +51,7 @@ func _physics_process(delta):
 			velocity.x = 0
 			state = State.AttackMove
 			swingState = SwingState.Horizontal if rng.randi_range(0,1) == 0 else SwingState.Overhead
-			spawnHitbox(swordOffset)
+			spawnHitbox(swordOffset, Hitbox.Type.sword)
 			play_sfx("sword1")
 			get_tree().create_timer(0.5).timeout.connect(func(): state = State.Free)
 		if Input.is_action_pressed(&"Y"):

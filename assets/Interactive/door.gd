@@ -5,7 +5,7 @@ class_name Door
 enum State{Open, Closed, Opening, Closing}
 @export var state = State.Closed
 
-enum Mode{Auto, Signals, Timed}
+enum Mode{Auto, Signals, Timed, TimedPersist}
 @export var operationMode = Mode.Signals
 @export var timer = 2.0
 @export var openCount = 1
@@ -37,7 +37,8 @@ func setCollision(on):
 
 func open():
 	openCount -= 1
-	if operationMode == Mode.Timed:
+	print(openCount)
+	if operationMode == Mode.Timed or operationMode == Mode.TimedPersist:
 		get_tree().create_timer(timer).timeout.connect(close)
 	if openCount == 0:
 		play_sfx("open" if style == Style.Ship else "candylandDoor")
@@ -49,6 +50,8 @@ func open():
 
 func close():
 	openCount += 1
+	if operationMode == Mode.TimedPersist:
+		return
 	if openCount == 1:
 		play_sfx("close" if style == Style.Ship else "candylandDoor")
 		state = State.Closing

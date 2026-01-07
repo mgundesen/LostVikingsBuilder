@@ -4,7 +4,7 @@ class_name Hitbox
 
 @export var isPersistent = false
 
-enum Type {all, basic, colliding, breaking, explode, smartbomb, fireArrow}
+enum Type {all, basic, colliding, breaking, explode, smartbomb, fireArrow, sword}
 var type = Type.basic
 
 func despawn(time):
