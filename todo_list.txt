@@ -1,6 +1,8 @@
 Features:
 Improve Guard behaviour
-Rework level 6 and ending of 11
+Rework level 6
+Improve infaltion end
+Text for level
 
 Bugs:
 egypt guard jumping out of cage area level 6?
@@ -12,7 +14,6 @@ heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
-Improve infaltion end
 bullet on sheild/wall animation
 Wall Shooter
 Implement item trash slot

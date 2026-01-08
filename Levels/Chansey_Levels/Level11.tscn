@@ -2446,30 +2446,24 @@ nodes = PackedVector2Array(0, 0, 0, -1, 0, -2, 0, -3)
 [node name="Button" parent="MidSection" instance=ExtResource("9_c6amg")]
 position = Vector2(1546.0001, -390.00003)
 
+[node name="Item2" parent="MidSection" instance=ExtResource("14_jk1ob")]
+position = Vector2(904, -59)
+itemID = 3
+
 [node name="FloorSpawner" parent="MidSection" instance=ExtResource("5_54l5k")]
 position = Vector2(1722, -529)
 type = 3
 nodes = PackedVector2Array(0, 0, 1, 0, 2, 0, 3, 0)
 spawnMethod = 1
 
-[node name="Top" type="Node2D" parent="."]
-
-[node name="Spring" parent="Top" instance=ExtResource("13_l4uy3")]
+[node name="Spring" parent="MidSection" instance=ExtResource("13_l4uy3")]
 position = Vector2(920, -278.00003)
 
-[node name="Mummy" parent="Top" instance=ExtResource("14_btp8a")]
-position = Vector2(2380, -225)
-itemType = 4
-
-[node name="Item2" parent="Top" instance=ExtResource("14_jk1ob")]
-position = Vector2(904, -59)
-itemID = 3
-
-[node name="Item3" parent="Top" instance=ExtResource("14_jk1ob")]
+[node name="Item3" parent="MidSection" instance=ExtResource("14_jk1ob")]
 position = Vector2(1576, -894)
 itemID = 3
 
-[node name="Door" parent="Top" instance=ExtResource("10_eaj8w")]
+[node name="Door" parent="MidSection" instance=ExtResource("10_eaj8w")]
 position = Vector2(1403, -345)
 style = 2
 
@@ -2477,6 +2471,10 @@ style = 2
 
 [node name="Exit" parent="Objects" instance=ExtResource("2_x47i1")]
 position = Vector2(3073, 499)
+
+[node name="Mummy" parent="Objects" instance=ExtResource("14_btp8a")]
+position = Vector2(2380, -225)
+itemType = 4
 
 [node name="Door" parent="Objects" instance=ExtResource("10_eaj8w")]
 position = Vector2(1311, 483)
@@ -2597,7 +2595,7 @@ script = ExtResource("9_7m2du")
 [connection signal="entered" from="Opening/Sensor" to="Opening/TrapSpawner" method="activate"]
 [connection signal="activated" from="Opening/Button" to="Opening/MovingPlatform" method="_startMove"]
 [connection signal="activated" from="MidSection/Button" to="MidSection/FloorSpawner" method="activate"]
-[connection signal="activated" from="MidSection/Button" to="Top/Door" method="open"]
+[connection signal="activated" from="MidSection/Button" to="MidSection/Door" method="open"]
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
 [connection signal="opened" from="Objects/Keyhole" to="Objects/Door" method="open"]
 [connection signal="opened" from="Objects/Keyhole2" to="Objects/Door2" method="open"]

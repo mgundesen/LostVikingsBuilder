@@ -25,4 +25,4 @@ func checkCode():
 	if solved:
 		$Objects/Door.open()
 	else:
-		EnemyUtil.hit($Objects/Button, false, 110)
+		EnemyUtil.simpleHit($Objects/Button)
