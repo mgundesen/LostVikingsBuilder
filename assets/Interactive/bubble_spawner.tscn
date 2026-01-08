@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://dt17g1bweiukd" path="res://assets/Interactive/bubble_spawner.gd" id="1_gvjsd"]
 
-[node name="BubbleSpawner" type="Node2D"]
+[node name="Spawner" type="Node2D"]
 script = ExtResource("1_gvjsd")

@@ -13,11 +13,17 @@ func fire(origin, flip, yOffset = 0, type = Bullet.Type.laser):
 	var offset = -20 if flip else 20 # fix offset according to image?
 	bullet.position += Vector2(offset, yOffset)
 
-func hit(origin: Node2D, flip: bool, size = 20, yOffset = 0, damage = 1):
+func hitImpl(origin: Node2D, size, xOffset, yOffset, damage):
 	var hitbox = hitboxScene.instantiate()
 	hitbox.damage = damage
 	hitbox.setSize(size)
-	origin.get_parent().add_child(hitbox)
 	hitbox.position = origin.position
+	hitbox.position += Vector2(xOffset, yOffset)
+	origin.get_parent().call_deferred("add_child", hitbox)
+
+func hit(origin: Node2D, flip: bool, size = 20, yOffset = 0, damage = 1):
 	var offset = -40 if flip else 40 # fix offset according to image?
-	hitbox.position += Vector2(offset, yOffset)
+	hitImpl(origin, size, offset, yOffset, damage)
+
+func simpleHit(origin: Node2D):
+	hitImpl(origin, 50, 0, 0, 1)

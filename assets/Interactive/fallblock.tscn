@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://k45l3ljvymg2"]
+
+[ext_resource type="Texture2D" uid="uid://c6rd0f1chch85" path="res://assets/Interactive/fallblock.png" id="1_53p1a"]
+[ext_resource type="Script" uid="uid://db7hhjnvurg2w" path="res://assets/Interactive/fallblock.gd" id="1_nacjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nacjl"]
+size = Vector2(46, 46)
+
+[node name="Fallblock" type="Area2D"]
+script = ExtResource("1_nacjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_53p1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nacjl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

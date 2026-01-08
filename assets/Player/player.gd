@@ -189,7 +189,7 @@ func _implSpawnHitbox(offset, type):
 	CollisionUtil.spawnHitbox(owner, hitboxPos, type)
 	
 func spawnHitbox(offset, type = Hitbox.Type.basic):
-	call_deferred("_implSpawnHitbox", offset, type)	
+	call_deferred("_implSpawnHitbox", offset, type)
 
 func stateWithPhysics():
 	match state:
@@ -377,7 +377,7 @@ func kill(type):
 			_takeDamage(State.DrownDeath, State.DrownDeath, 4)
 
 func handleLadderInput(xInput, yInput, triggerJump):
-	if abs(yInput) < ladderDeadzone and (abs(xInput) > 0 or triggerJump):
+	if abs(yInput) < ladderDeadzone and (abs(xInput) > ladderDeadzone or triggerJump):
 		setState(State.Free)
 	position.x = ladderPos.x
 	move_and_slide() # Call to detect floor/ceiling, not actually for movement
