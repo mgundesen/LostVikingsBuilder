@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://iobfo8uqlxcw"]
+[gd_scene load_steps=85 format=3 uid="uid://iobfo8uqlxcw"]
 
 [ext_resource type="Script" uid="uid://dkqr8g71mfo66" path="res://assets/Erik/erik.gd" id="1_d55dm"]
 [ext_resource type="Texture2D" uid="uid://yoj1h0xib5os" path="res://assets/Erik/FallFull.png" id="2_bwjto"]
@@ -78,6 +78,8 @@
 [ext_resource type="Texture2D" uid="uid://bbr4w2ukisc8w" path="res://assets/Player/teleport3.png" id="52_kkqim"]
 [ext_resource type="Texture2D" uid="uid://c8sakqkgr3lpo" path="res://assets/Player/teleport4.png" id="53_yt5oe"]
 [ext_resource type="Texture2D" uid="uid://c1e5126jfax88" path="res://assets/Player/teleport5.png" id="54_smio2"]
+[ext_resource type="Texture2D" uid="uid://fhfqirtgf86h" path="res://assets/Erik/inflate4.png" id="59_ptpnr"]
+[ext_resource type="Texture2D" uid="uid://ctj7641ujklek" path="res://assets/Erik/inflate5.png" id="60_wxrvm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -323,12 +325,30 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 4.8,
 "texture": ExtResource("44_oagj1")
+}, {
+"duration": 0.2,
+"texture": ExtResource("59_ptpnr")
+}, {
+"duration": 0.2,
+"texture": ExtResource("44_oagj1")
+}, {
+"duration": 0.2,
+"texture": ExtResource("59_ptpnr")
+}, {
+"duration": 0.2,
+"texture": ExtResource("44_oagj1")
+}, {
+"duration": 0.2,
+"texture": ExtResource("59_ptpnr")
+}, {
+"duration": 0.2,
+"texture": ExtResource("60_wxrvm")
 }],
 "loop": true,
 "name": &"Inflated",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -475,7 +495,7 @@ script = ExtResource("1_d55dm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.83399e-07, 0)

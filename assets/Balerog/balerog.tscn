@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://drbbwvd4uowyl"]
+[gd_scene load_steps=83 format=3 uid="uid://drbbwvd4uowyl"]
 
 [ext_resource type="Script" uid="uid://da485gv1st3v" path="res://assets/Balerog/balerog.gd" id="1_57fgc"]
 [ext_resource type="Texture2D" uid="uid://c5f4kquy3ew88" path="res://assets/Balerog/Climb1.png" id="1_pf52p"]
@@ -64,7 +64,9 @@
 [ext_resource type="Texture2D" uid="uid://cf4v1ixs1eiga" path="res://assets/Balerog/squash1.png" id="38_skl0i"]
 [ext_resource type="Texture2D" uid="uid://ci4xnadbup2bd" path="res://assets/Balerog/sword4.png" id="38_y7aal"]
 [ext_resource type="Texture2D" uid="uid://dks1rud6vx13p" path="res://assets/Balerog/squash2.png" id="39_1hd84"]
+[ext_resource type="Texture2D" uid="uid://dvt3c40lc37m0" path="res://assets/Balerog/inflate4.png" id="39_787iy"]
 [ext_resource type="Texture2D" uid="uid://c40mt3u7cjlde" path="res://assets/Balerog/sword5.png" id="39_mav3b"]
+[ext_resource type="Texture2D" uid="uid://dsgww00ubsqao" path="res://assets/Balerog/inflate5.png" id="40_d6666"]
 [ext_resource type="Texture2D" uid="uid://d3gwtb2y33oec" path="res://assets/Balerog/squash3.png" id="40_l7wqj"]
 [ext_resource type="Texture2D" uid="uid://cb84hjbc72eha" path="res://assets/Balerog/sword6.png" id="40_y7aal"]
 [ext_resource type="Texture2D" uid="uid://c210owbyip5ne" path="res://assets/Balerog/squash4.png" id="41_jpriv"]
@@ -278,12 +280,30 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 4.8,
 "texture": ExtResource("25_4q5u8")
+}, {
+"duration": 0.2,
+"texture": ExtResource("39_787iy")
+}, {
+"duration": 0.2,
+"texture": ExtResource("25_4q5u8")
+}, {
+"duration": 0.2,
+"texture": ExtResource("39_787iy")
+}, {
+"duration": 0.2,
+"texture": ExtResource("25_4q5u8")
+}, {
+"duration": 0.2,
+"texture": ExtResource("39_787iy")
+}, {
+"duration": 0.2,
+"texture": ExtResource("40_d6666")
 }],
 "loop": true,
 "name": &"Inflated",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -483,7 +503,7 @@ script = ExtResource("1_57fgc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.72, 0.72)
 sprite_frames = SubResource("SpriteFrames_x56gs")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_osywc")

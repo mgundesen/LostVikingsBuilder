@@ -310,6 +310,8 @@ func setState(targetState, forceFree: bool = false):
 		get_tree().create_timer(0.3).timeout.connect(func(): setState(State.Inflated))
 	if targetState == State.Inflated:
 		inflateTimer.start()
+		$AnimatedSprite2D.play("Inflated")
+		$AnimatedSprite2D.set_frame_and_progress(0,0)
 
 func _takeDamage(stunState, targetDeathState, amount = 1):
 	if playerHealth < 1:

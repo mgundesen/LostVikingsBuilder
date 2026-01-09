@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://br8a76iig5bol"]
+[gd_scene load_steps=78 format=3 uid="uid://br8a76iig5bol"]
 
 [ext_resource type="Texture2D" uid="uid://cbliqb5t3yoym" path="res://assets/Olaf/climb1.png" id="1_vauuu"]
 [ext_resource type="Script" uid="uid://cgtxf8wvbwitg" path="res://assets/Olaf/olaf.gd" id="1_yuhhw"]
@@ -69,6 +69,8 @@
 [ext_resource type="Texture2D" uid="uid://c1e5126jfax88" path="res://assets/Player/teleport5.png" id="43_lo7bn"]
 [ext_resource type="Texture2D" uid="uid://bvrdhklqqilj4" path="res://assets/Olaf/Walk_Sheild7.png" id="43_wi2ut"]
 [ext_resource type="Texture2D" uid="uid://psquouvcnsfw" path="res://assets/Olaf/Walk_Sheild8.png" id="44_lpcfc"]
+[ext_resource type="Texture2D" uid="uid://81xdb6xwh506" path="res://assets/Olaf/inflate4.png" id="46_8y300"]
+[ext_resource type="Texture2D" uid="uid://deg6mok1smvsb" path="res://assets/Olaf/inflate5.png" id="47_jr432"]
 [ext_resource type="Script" uid="uid://nmci1n1dkb3y" path="res://assets/Olaf/shield.gd" id="50_lpcfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfthr"]
@@ -287,12 +289,30 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 4.8,
 "texture": ExtResource("34_ykl1j")
+}, {
+"duration": 0.2,
+"texture": ExtResource("46_8y300")
+}, {
+"duration": 0.2,
+"texture": ExtResource("34_ykl1j")
+}, {
+"duration": 0.2,
+"texture": ExtResource("46_8y300")
+}, {
+"duration": 0.2,
+"texture": ExtResource("34_ykl1j")
+}, {
+"duration": 0.2,
+"texture": ExtResource("46_8y300")
+}, {
+"duration": 0.2,
+"texture": ExtResource("47_jr432")
 }],
 "loop": true,
 "name": &"Inflated",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -428,7 +448,7 @@ shape = SubResource("RectangleShape2D_yfthr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Idle"
+animation = &"Inflated"
 
 [node name="Shield" type="Node2D" parent="."]
 

@@ -799,13 +799,13 @@ position_smoothing_speed = 20.0
 script = ExtResource("1_a0jw4")
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(181, 456)
+position = Vector2(299, 483)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(451, 430)
+position = Vector2(211, 485)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(430, 786)
+position = Vector2(359, 475)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
