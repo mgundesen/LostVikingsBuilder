@@ -45,6 +45,7 @@ const sceneList = [
 var currentScene = 0
 var musicEnabled = false
 var soundEnabled = true
+var textboxEnabled = true
 var startTextAllowed = false;
 
 enum PauseType {Regular, Item, Dialog, None}
@@ -73,8 +74,6 @@ const eColor = Color8(148, 0, 0)
 const bColor = Color8(25, 121, 0)
 const oColor = Color8(107, 65, 33)
 
-var textBoxEnabled = true
-
 func nextScene():
 	currentScene += 1
 	startTextAllowed = true
@@ -93,7 +92,7 @@ func deathScene():
 	get_tree().change_scene_to_file("res://assets/Menu/death_scene.tscn")
 	
 func textForScene(type):
-	if textBoxEnabled:
+	if textboxEnabled:
 		if type == Dialog.Start and startTextAllowed:
 			if "text" in sceneList[currentScene]:
 				startTextAllowed = false

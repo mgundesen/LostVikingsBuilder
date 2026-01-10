@@ -448,7 +448,7 @@ shape = SubResource("RectangleShape2D_yfthr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
 sprite_frames = SubResource("SpriteFrames_ywefy")
-animation = &"Inflated"
+animation = &"Idle"
 
 [node name="Shield" type="Node2D" parent="."]
 

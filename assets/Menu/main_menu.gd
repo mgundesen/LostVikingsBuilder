@@ -6,6 +6,7 @@ var state = Menu.Main
 func updateSettingText():
 	$Settings.toggle(0, SceneControl.musicEnabled)
 	$Settings.toggle(1, SceneControl.soundEnabled)
+	$Settings.toggle(2, SceneControl.textboxEnabled)
 
 func updateLevelText():
 	$LevelSelect.textLabels.clear()
@@ -37,13 +38,16 @@ func _process(_delta: float) -> void:
 			state = Menu.LevelSelect
 	elif state == Menu.Settings:
 		if $Settings.currentIndex == 0:
-			SceneControl.musicEnabled = !SceneControl.musicEnabled 
+			SceneControl.musicEnabled = !SceneControl.musicEnabled
 			$AudioStreamPlayer.updateMusicState()
 			updateSettingText()
 		elif $Settings.currentIndex == 1:
-			SceneControl.soundEnabled = !SceneControl.soundEnabled 
+			SceneControl.soundEnabled = !SceneControl.soundEnabled
 			updateSettingText()
 		elif $Settings.currentIndex == 2:
+			SceneControl.textboxEnabled = !SceneControl.textboxEnabled
+			updateSettingText()
+		elif $Settings.currentIndex == 3:
 			$Settings.currentIndex = 0
 			state = Menu.Main
 	elif state == Menu.LevelSelect:

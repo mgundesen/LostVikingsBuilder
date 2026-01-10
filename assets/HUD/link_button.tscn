@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://8vhl54y4tyae"]
+
+[ext_resource type="Texture2D" uid="uid://bc7i2dmo0p48i" path="res://assets/Menu/discordicon.png" id="1_2gjee"]
+[ext_resource type="Script" uid="uid://dmnu8ylhsy7k2" path="res://assets/HUD/link_button.gd" id="2_2gjee"]
+
+[node name="LinkButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_constants/icon_max_width = 64
+icon = ExtResource("1_2gjee")
+script = ExtResource("2_2gjee")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

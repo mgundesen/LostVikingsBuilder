@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://nlxw7yg07rjc" path="res://assets/Menu/start_menu.png" id="1_mv4ud"]
 [ext_resource type="Script" uid="uid://b37a4421o3loa" path="res://assets/Menu/main_menu.gd" id="1_v1a7t"]
 [ext_resource type="FontFile" uid="uid://cqrs2c1gxx6dy" path="res://assets/Font/troika.otf" id="3_4smr7"]
-[ext_resource type="PackedScene" uid="uid://d2fagiejvliv3" path="res://assets/HUD/discord.tscn" id="3_08e64"]
+[ext_resource type="PackedScene" uid="uid://8vhl54y4tyae" path="res://assets/HUD/link_button.tscn" id="3_08e64"]
 [ext_resource type="AudioStream" uid="uid://cfvkxceb4i7fe" path="res://assets/Music/title_screen.mp3" id="4_om2qm"]
 [ext_resource type="PackedScene" uid="uid://ciis1vf6dfi27" path="res://assets/Menu/text_menu.tscn" id="4_q0kiu"]
 [ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="5_4smr7"]
@@ -35,13 +35,18 @@ size_flags_vertical = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2"]
 layout_mode = 2
 
-[node name="Discord" parent="CanvasLayer/MarginContainer2/VBoxContainer" instance=ExtResource("3_08e64")]
+[node name="LinkButton" parent="CanvasLayer/MarginContainer2/VBoxContainer" instance=ExtResource("3_08e64")]
 layout_mode = 2
 
-[node name="Discord2" parent="CanvasLayer/MarginContainer2/VBoxContainer" instance=ExtResource("3_08e64")]
+[node name="LinkButton2" parent="CanvasLayer/MarginContainer2/VBoxContainer" instance=ExtResource("3_08e64")]
 layout_mode = 2
 iconPath = "res://assets/Menu/godot_icon.png"
 link = "https://godotengine.org/"
+
+[node name="LinkButton3" parent="CanvasLayer/MarginContainer2/VBoxContainer" instance=ExtResource("3_08e64")]
+layout_mode = 2
+iconPath = "res://assets/Menu/github.png"
+link = "https://github.com/mgundesen/LostVikingsBuilder"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 2
@@ -66,7 +71,7 @@ text = " Beta Version 0.2"
 textLabels = ["New Game", "Options", "Level Select"]
 
 [node name="Settings" parent="." instance=ExtResource("4_q0kiu")]
-textLabels = ["Music", "Sound", "Exit"]
+textLabels = ["Music", "Sound", "Textbox", "Exit"]
 
 [node name="LevelSelect" parent="." instance=ExtResource("4_q0kiu")]
 offset = Vector2(0, 140)
