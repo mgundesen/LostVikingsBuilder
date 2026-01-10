@@ -1,7 +1,5 @@
 Features:
-Improve Guard behaviour
 Rework level 6
-Improve infaltion end
 Text for level
 
 Bugs:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7mdy3pfohm3c"]
+[gd_scene load_steps=16 format=3 uid="uid://b7mdy3pfohm3c"]
 
 [ext_resource type="Script" uid="uid://bqhihgvb5pgtc" path="res://assets/Enemies/Guard/guard.gd" id="1_5d5gr"]
 [ext_resource type="Texture2D" uid="uid://dcsd3qa0hi720" path="res://assets/Enemies/Guard/walk1.png" id="2_7q81w"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bdat3ls08r6pi" path="res://assets/Enemies/Guard/walk4.png" id="5_usf4t"]
 [ext_resource type="Texture2D" uid="uid://dfso3dicmffo4" path="res://assets/Enemies/Guard/attack5.png" id="6_xgidb"]
 [ext_resource type="Script" uid="uid://du85jy563u75b" path="res://download_assets/addons/random_timer/random_timer.gd" id="11_8pyw7"]
+[ext_resource type="AudioStream" uid="uid://cenr8e24ds3yr" path="res://assets/Sounds/guard_attack.mp3" id="11_of33b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ix45i"]
 animations = [{
@@ -86,6 +87,9 @@ animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8pyw7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_of33b")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8

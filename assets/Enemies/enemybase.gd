@@ -18,6 +18,12 @@ var hitTypes = []
 @export var bounds = 100000
 var xLimit = []
 
+#Note, can in theory break through a wall if flipCooldown and agroCooldown
+#hits a very specific timing
+var isAggro = false
+var aggroCooldown = false
+var aggroRange = 300
+
 func _ready() -> void:
 	xLimit.resize(2)
 	xLimit[0] = position.x - bounds * 46
@@ -44,10 +50,19 @@ func spawnDeathAnimation():
 	animation.position = position
 	animation.position.y -= 10 # This offset should use enemy height to be correct
 
+func turnToPlayer():
+	if !aggroCooldown:
+		aggroCooldown = true
+		get_tree().create_timer(0.3).timeout.connect(func(): aggroCooldown = false)
+		return PlayerUtil.closeToPlayer(position, aggroRange, Vector2(1,0) if flip else Vector2(-1,0))
+	return false
+
 func _process(_delta):
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
 	if xLimit[0] > position.x or xLimit[1] < position.x:
+		doFlip()
+	if isAggro and turnToPlayer():
 		doFlip()
 	
 	var area = CollisionUtil.isColliding($Area2D, hitTypes)

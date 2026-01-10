@@ -7,13 +7,14 @@ var attackCooldown = false
 
 func _ready() -> void:
 	health = 3
+	aggroRange = 700
 	super._ready()
 
 func closeToPlayer():
-	return PlayerUtil.closeToPlayer(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
+	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
 
 func closeToShield():
-	return PlayerUtil.closeToShield(position, 50, Vector2(-1,0) if flip else Vector2(1,0))
+	return PlayerUtil.closeToShield(position, 70, Vector2(-1,0) if flip else Vector2(1,0))
 
 func exitAttack():
 	setState(State.walk)
@@ -31,13 +32,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 	move_and_slide()
+	#Handling this here instead of using is agrro for more specific behaviour
+	if is_on_floor() and turnToPlayer(): 
+		doFlip()
 	
 	if !attackCooldown and state == State.walk and (closeToPlayer() or closeToShield()):
 		attackCooldown = true
 		setState(State.attack)
-		get_tree().create_timer(0.2).timeout.connect(attemptAttack)
+		SceneControl.playSound($AudioStreamPlayer2D)
+		get_tree().create_timer(0.15).timeout.connect(attemptAttack)
 		get_tree().create_timer(0.7).timeout.connect(exitAttack)
-		get_tree().create_timer(1.5).timeout.connect(func(): attackCooldown = false)
+		get_tree().create_timer(1.2).timeout.connect(func(): attackCooldown = false)
 	
 	$AnimatedSprite2D.flip_h = flip
 	if state == State.attack:
