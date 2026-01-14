@@ -37,7 +37,6 @@ func setCollision(on):
 
 func open():
 	openCount -= 1
-	print(openCount)
 	if operationMode == Mode.Timed or operationMode == Mode.TimedPersist:
 		get_tree().create_timer(timer).timeout.connect(close)
 	if openCount == 0:

@@ -1791,7 +1791,7 @@ style = 1
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Exit" parent="Objects" instance=ExtResource("2_x47i1")]
-position = Vector2(2411, 676)
+position = Vector2(453.00012, 466)
 
 [node name="WallSpawner" parent="Objects" instance=ExtResource("16_0pgnk")]
 position = Vector2(575, 576)
