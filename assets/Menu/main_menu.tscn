@@ -65,7 +65,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("3_4smr7")
-text = " Beta Version 0.2"
+text = " Beta Version 0.3"
 
 [node name="GeneralChoices" parent="." instance=ExtResource("4_q0kiu")]
 textLabels = ["New Game", "Options", "Level Select"]

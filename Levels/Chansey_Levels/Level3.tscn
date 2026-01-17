@@ -2193,8 +2193,8 @@ script = ExtResource("9_7m2du")
 
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
 [connection signal="activated" from="Objects/PlatformButton" to="Objects/MovingPlatform" method="toggleMove"]
-[connection signal="activated" from="Objects/Button" to="Objects/Barrier" method="_turn_off"]
+[connection signal="activated" from="Objects/Button" to="Objects/Barrier" method="turnOff"]
 [connection signal="activated" from="Objects/PlatformButton2" to="Objects/MovingPlatform" method="swapTarget"]
-[connection signal="opened" from="Objects/YellowKeyhole" to="Objects/Barrier2" method="_turn_off"]
+[connection signal="opened" from="Objects/YellowKeyhole" to="Objects/Barrier2" method="turnOff"]
 [connection signal="opened" from="Objects/BlueKeyhole" to="Objects/Door" method="open"]
 [connection signal="opened" from="Objects/RedKeyhole" to="Objects/Door2" method="open"]

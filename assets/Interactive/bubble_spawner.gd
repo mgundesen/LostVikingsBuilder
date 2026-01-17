@@ -8,6 +8,7 @@ var block = load("res://assets/Interactive/fallblock.tscn")
 @export var enabled = true
 enum Type {bubble, fallblock}
 @export var type = Type.bubble
+@export var soundOnSpawn = false
 
 func spawnItem():
 	var item
@@ -15,6 +16,8 @@ func spawnItem():
 		item = bubble.instantiate()
 	elif type == Type.fallblock:
 		item = block.instantiate()
+	if soundOnSpawn:
+		SceneControl.playSound($AudioStreamPlayer2D)
 	add_child(item)
 
 func withRespawn():

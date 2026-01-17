@@ -2153,7 +2153,7 @@ script = ExtResource("9_7m2du")
 
 [connection signal="activated" from="ErikBlock/Button" to="ErikBlock/Door" method="open"]
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
-[connection signal="activated" from="Objects/Machine" to="Objects/Barrier2" method="_turn_off"]
-[connection signal="activated" from="LeftPath/Button" to="LeftPath/Barrier" method="_turn_off"]
+[connection signal="activated" from="Objects/Machine" to="Objects/Barrier2" method="turnOff"]
+[connection signal="activated" from="LeftPath/Button" to="LeftPath/Barrier" method="turnOff"]
 [connection signal="opened" from="RightSide/Keyhole" to="RightSide/Door" method="open"]
 [connection signal="opened" from="RightSide/Keyhole2" to="RightSide/Door" method="open"]

@@ -1,0 +1,18 @@
+- Stuff offscreen always exist so no door breaks
+- No key dupes
+- Screen size is different
+- Art is not pixel perfect like the original as the art is scaled
+- Olaf float is slightly buffed
+- Slightly buffed range on balerog sword
+- Some character state handling is still not correct regarding hitstun, though fairly close
+- Character height is slightly wrong (olaf+shield should be exactly 2 blocks)
+- Springs start at max height
+- Robot shooter health changed from 3->2
+- Many menu elements does not contain animation and timers
+- Password system is swapped to a level select system
+- Trashcan system not supported
+- Walking with olaf with other on shield carries them
+- Slight changes in item index updates after item swaps
+- No walk over gaps abuse
+
+- Probably much more I forgot

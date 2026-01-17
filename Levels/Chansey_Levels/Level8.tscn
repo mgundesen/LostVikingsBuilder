@@ -2233,6 +2233,6 @@ parameters/looping = true
 script = ExtResource("9_7m2du")
 
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
-[connection signal="activated" from="Start/Button" to="Start/Barrier" method="_turn_off"]
-[connection signal="activated" from="Start/Button2" to="Start/Barrier2" method="_turn_off"]
+[connection signal="activated" from="Start/Button" to="Start/Barrier" method="turnOff"]
+[connection signal="activated" from="Start/Button2" to="Start/Barrier2" method="turnOff"]
 [connection signal="activated" from="Midsection/Machine" to="Objects/Elevator" method="enable"]
