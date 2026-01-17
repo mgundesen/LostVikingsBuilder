@@ -23,6 +23,6 @@ func _process(_delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("off")
 
-func _turn_off():
-	enabled = false
-	get_tree().create_timer(0.1).timeout.connect(func(): visible = false)
+
+func _on_button_single_activated() -> void:
+	pass # Replace with function body.
