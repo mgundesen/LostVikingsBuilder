@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cwlovvlrxtsnf" path="res://assets/background_candyland.png" id="1_7k3ji"]
 [ext_resource type="Texture2D" uid="uid://r80l8dgke2a0" path="res://assets/BlockBackground.png" id="1_wtqwx"]
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="2_igp3g"]
-[ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="2_p8uw6"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="2_x47i1"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="3_3qx3l"]
 [ext_resource type="PackedScene" uid="uid://dodve0otylnrn" path="res://assets/Interactive/button.tscn" id="3_qajmx"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dqnhpyxdnb3kl" path="res://assets/Interactive/block.tscn" id="9_0afcl"]
 [ext_resource type="Script" uid="uid://drcie5w7ym8hc" path="res://assets/Music/audio_stream_player.gd" id="9_7m2du"]
 [ext_resource type="Script" uid="uid://b0s5p8ml0e4jt" path="res://assets/Hitbox/tile_map_layer.gd" id="10_8h4jd"]
+[ext_resource type="PackedScene" uid="uid://benvb1w7kh6ia" path="res://assets/Interactive/spawner.tscn" id="11_bnllg"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="12_0afcl"]
 [ext_resource type="PackedScene" uid="uid://dnkhm086cejgp" path="res://assets/HUD/fade_scene.tscn" id="13_h8l50"]
 [ext_resource type="PackedScene" uid="uid://bk7t6s0r6bhod" path="res://assets/Interactive/pressure_plate.tscn" id="13_v5f6f"]
@@ -1698,18 +1698,8 @@ tile_set = SubResource("TileSet_16ayd")
 
 [node name="Top" type="Node2D" parent="."]
 
-[node name="BubbleSpawner" parent="Top" instance=ExtResource("2_p8uw6")]
-position = Vector2(1057, 94)
-enabled = false
-soundOnSpawn = true
-
-[node name="BubbleSpawner2" parent="Top" instance=ExtResource("2_p8uw6")]
-position = Vector2(1312, -92)
-enabled = false
-soundOnSpawn = true
-
 [node name="Button2" parent="Top" instance=ExtResource("3_qajmx")]
-position = Vector2(1061, -574)
+position = Vector2(1124.0001, -574.00006)
 buttonCooldown = 1.0
 
 [node name="AlienShooter" parent="Top" instance=ExtResource("5_7k3ji")]
@@ -1736,12 +1726,17 @@ Width = 3.0
 [node name="Block" parent="Top" instance=ExtResource("9_0afcl")]
 position = Vector2(1990, -199)
 
-[node name="Mid" type="Node2D" parent="."]
-
-[node name="BubbleSpawner" parent="Mid" instance=ExtResource("2_p8uw6")]
-position = Vector2(1310, 645)
+[node name="Spawner" parent="Top" instance=ExtResource("11_bnllg")]
+position = Vector2(1058, 93)
 enabled = false
 soundOnSpawn = true
+
+[node name="Spawner2" parent="Top" instance=ExtResource("11_bnllg")]
+position = Vector2(1311.9164, -96.91153)
+enabled = false
+soundOnSpawn = true
+
+[node name="Mid" type="Node2D" parent="."]
 
 [node name="Button" parent="Mid" instance=ExtResource("3_qajmx")]
 position = Vector2(1059, 396)
@@ -1760,16 +1755,16 @@ position = Vector2(1514, 357)
 [node name="ShockTrap2" parent="Mid" instance=ExtResource("8_g3wji")]
 position = Vector2(1932, 162)
 
+[node name="Spawner" parent="Mid" instance=ExtResource("11_bnllg")]
+position = Vector2(1310, 645)
+enabled = false
+soundOnSpawn = true
+
 [node name="Bottom" type="Node2D" parent="."]
 
 [node name="Button" parent="Bottom" instance=ExtResource("3_qajmx")]
 position = Vector2(1311, 860)
 buttonCooldown = 3.0
-
-[node name="BubbleSpawner" parent="Bottom" instance=ExtResource("2_p8uw6")]
-position = Vector2(1470, 990)
-enabled = false
-soundOnSpawn = true
 
 [node name="Item" parent="Bottom" instance=ExtResource("8_ead10")]
 position = Vector2(1638, 862)
@@ -1791,6 +1786,11 @@ position = Vector2(1978, 832)
 [node name="Door" parent="Bottom" instance=ExtResource("14_bnllg")]
 position = Vector2(2323, 688)
 style = 1
+
+[node name="Spawner" parent="Bottom" instance=ExtResource("11_bnllg")]
+position = Vector2(1470, 990)
+enabled = false
+soundOnSpawn = true
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -1858,9 +1858,9 @@ volume_db = -9.0
 parameters/looping = true
 script = ExtResource("9_7m2du")
 
-[connection signal="activated" from="Top/Button2" to="Bottom/BubbleSpawner" method="spawnItem"]
-[connection signal="activated" from="Mid/Button" to="Top/BubbleSpawner" method="spawnItem"]
-[connection signal="activated" from="Mid/Button2" to="Top/BubbleSpawner2" method="spawnItem"]
-[connection signal="activated" from="Bottom/Button" to="Mid/BubbleSpawner" method="spawnItem"]
+[connection signal="activated" from="Top/Button2" to="Bottom/Spawner" method="spawnItem"]
+[connection signal="activated" from="Mid/Button" to="Top/Spawner" method="spawnItem"]
+[connection signal="activated" from="Mid/Button2" to="Top/Spawner2" method="spawnItem"]
+[connection signal="activated" from="Bottom/Button" to="Mid/Spawner" method="spawnItem"]
 [connection signal="activated" from="Bottom/PressurePlate" to="Bottom/Door" method="open"]
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]

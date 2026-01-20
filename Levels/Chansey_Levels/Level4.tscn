@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="2_igp3g"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="2_x47i1"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="3_3qx3l"]
-[ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="3_632hq"]
 [ext_resource type="PackedScene" uid="uid://bkvfnimgr3sl4" path="res://assets/Interactive/keyhole.tscn" id="4_4p7wq"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="4_8h4jd"]
 [ext_resource type="PackedScene" uid="uid://bulfsssw4vnng" path="res://assets/Items/item.tscn" id="5_0gqhc"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cow2rn3usyccv" path="res://assets/Items/tool_machine_head.png" id="6_7uxlr"]
 [ext_resource type="PackedScene" uid="uid://b5y46p400ksns" path="res://assets/HUD/textbox.tscn" id="6_85dei"]
 [ext_resource type="PackedScene" uid="uid://br8a76iig5bol" path="res://assets/Olaf/Olaf.tscn" id="6_x47i1"]
+[ext_resource type="PackedScene" uid="uid://benvb1w7kh6ia" path="res://assets/Interactive/spawner.tscn" id="7_7mm6x"]
 [ext_resource type="Texture2D" uid="uid://dr02p1u8uskc0" path="res://assets/Block.png" id="7_85dei"]
 [ext_resource type="Texture2D" uid="uid://jc67txbagsoy" path="res://assets/spikes.png" id="7_igp3g"]
 [ext_resource type="PackedScene" uid="uid://c1ny4ndeihgsh" path="res://assets/Interactive/wall_spawner.tscn" id="8_0lobx"]
@@ -2098,36 +2098,6 @@ position = Vector2(0, -92)
 position = Vector2(1100, 859)
 Width = 23.0
 
-[node name="BubbleSpawner" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(650, 850)
-
-[node name="BubbleSpawner2" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(800, 850)
-startDelay = 3.0
-enabled = false
-
-[node name="BubbleSpawner3" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(950, 850)
-startDelay = 6.0
-
-[node name="BubbleSpawner4" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(1100, 850)
-startDelay = 4.0
-enabled = false
-
-[node name="BubbleSpawner5" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(1250, 850)
-startDelay = 1.0
-
-[node name="BubbleSpawner6" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(1400, 850)
-startDelay = 3.5
-enabled = false
-
-[node name="BubbleSpawner7" parent="Water" instance=ExtResource("3_632hq")]
-position = Vector2(1550, 850)
-startDelay = 1.0
-
 [node name="Keyhole" parent="Water" instance=ExtResource("4_4p7wq")]
 position = Vector2(459, 955)
 type = 3
@@ -2137,6 +2107,36 @@ position = Vector2(495, 855.99994)
 rotation = -1.5707964
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_7uxlr")
+
+[node name="Spawner" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(650, 850)
+
+[node name="Spawner2" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(800, 850)
+startDelay = 3.0
+enabled = false
+
+[node name="Spawner3" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(950, 850)
+startDelay = 6.0
+
+[node name="Spawner4" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(1100, 850)
+startDelay = 4.0
+enabled = false
+
+[node name="Spawner5" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(1250, 850)
+startDelay = 1.0
+
+[node name="Spawner6" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(1400, 850)
+startDelay = 3.5
+enabled = false
+
+[node name="Spawner7" parent="Water" instance=ExtResource("7_7mm6x")]
+position = Vector2(1550, 850)
+startDelay = 1.0
 
 [node name="LeftSide" type="Node2D" parent="."]
 
@@ -2261,10 +2261,10 @@ script = ExtResource("2_igp3g")
 visible = false
 
 [node name="Balerog" parent="." instance=ExtResource("4_8h4jd")]
-position = Vector2(-196, 877)
+position = Vector2(-196, 878)
 
 [node name="Erik" parent="." instance=ExtResource("5_h8l50")]
-position = Vector2(-128, 878)
+position = Vector2(-124, 879)
 
 [node name="Olaf" parent="." instance=ExtResource("6_x47i1")]
 position = Vector2(-285, 875)
@@ -2292,7 +2292,7 @@ volume_db = -9.0
 parameters/looping = true
 script = ExtResource("9_7m2du")
 
-[connection signal="opened" from="Water/Keyhole" to="Water/BubbleSpawner2" method="enable"]
-[connection signal="opened" from="Water/Keyhole" to="Water/BubbleSpawner4" method="enable"]
-[connection signal="opened" from="Water/Keyhole" to="Water/BubbleSpawner6" method="enable"]
+[connection signal="opened" from="Water/Keyhole" to="Water/Spawner2" method="enable"]
+[connection signal="opened" from="Water/Keyhole" to="Water/Spawner4" method="enable"]
+[connection signal="opened" from="Water/Keyhole" to="Water/Spawner6" method="enable"]
 [connection signal="won" from="Objects/Exit" to="Textbox" method="triggerEndDialog"]
