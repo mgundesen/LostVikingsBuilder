@@ -8,6 +8,8 @@ var attackCooldown = false
 func _ready() -> void:
 	health = 3
 	aggroRange = 700
+	var frontShield = PlayerUtil.frontShield()
+	add_collision_exception_with(frontShield)
 	super._ready()
 
 func closeToPlayer():
