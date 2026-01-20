@@ -1,9 +1,7 @@
-Features:
-Rework level 6
-Text for level
+Todo:
+
 
 Bugs:
-egypt guard jumping out of cage area level 6?
 Slicer wallbreak
 Headbash over a breakwall
 Slowfall down wall from elevator
@@ -12,6 +10,7 @@ heck is circular platform physics doing?
 Jumping down antigrav (sticking to floor)
 
 Features Low Priority:
+Better collision system for olaf sheild
 bullet on sheild/wall animation
 Wall Shooter
 Implement item trash slot

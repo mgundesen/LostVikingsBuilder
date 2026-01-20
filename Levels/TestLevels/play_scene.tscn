@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=21 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://w4xevbyvrn1w" path="res://assets/Interactive/spring.tscn" id="6_5uqcj"]
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
-[ext_resource type="PackedScene" uid="uid://bufdw6k81jqby" path="res://assets/Interactive/bubble_spawner.tscn" id="12_n8ij3"]
 [ext_resource type="PackedScene" uid="uid://b7mdy3pfohm3c" path="res://assets/Enemies/Guard/guard.tscn" id="17_qjjtq"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="27_i2gka"]
@@ -775,23 +774,19 @@ style = 2
 position = Vector2(509, 321)
 ladderHeight = 10.0
 
-[node name="BubbleSpawner2" parent="." instance=ExtResource("12_n8ij3")]
-position = Vector2(1104, 684)
-startDelay = 3.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 script = ExtResource("1_a0jw4")
 
 [node name="Erik" parent="." instance=ExtResource("1_memhf")]
-position = Vector2(687, 734)
+position = Vector2(505, 464)
 
 [node name="Olaf" parent="." instance=ExtResource("5_5i074")]
-position = Vector2(211, 485)
+position = Vector2(631, 714)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(359, 475)
+position = Vector2(450, 389)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)

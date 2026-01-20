@@ -11,10 +11,10 @@ func _ready() -> void:
 	super._ready()
 
 func closeToPlayer():
-	return PlayerUtil.closeToPlayer(position, 80, Vector2(-1,0) if flip else Vector2(1,0))
+	return PlayerUtil.closeToPlayer(position, 70, Vector2(-1,0) if flip else Vector2(1,0))
 
 func closeToShield():
-	return PlayerUtil.closeToShield(position, 70, Vector2(-1,0) if flip else Vector2(1,0))
+	return PlayerUtil.closeToShield(position, 40, Vector2(-1,0) if flip else Vector2(1,0))
 
 func exitAttack():
 	setState(State.walk)
