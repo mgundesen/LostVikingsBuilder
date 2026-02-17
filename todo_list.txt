@@ -2,6 +2,7 @@ Todo:
 
 
 Bugs:
+Bomb kill has wrong animation
 Slicer wallbreak
 Headbash over a breakwall
 Slowfall down wall from elevator

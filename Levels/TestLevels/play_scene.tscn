@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c6st53ijcsi3s"]
+[gd_scene load_steps=22 format=4 uid="uid://c6st53ijcsi3s"]
 
 [ext_resource type="Script" uid="uid://b6t5fkyy7eeyy" path="res://assets/Player/camera.gd" id="1_a0jw4"]
 [ext_resource type="PackedScene" uid="uid://iobfo8uqlxcw" path="res://assets/Erik/Erik.tscn" id="1_memhf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bn35ca1qeyuc1" path="res://assets/HUD/HUD.tscn" id="8_0sylv"]
 [ext_resource type="PackedScene" uid="uid://drbbwvd4uowyl" path="res://assets/Balerog/balerog.tscn" id="9_5xdee"]
 [ext_resource type="PackedScene" uid="uid://b7mdy3pfohm3c" path="res://assets/Enemies/Guard/guard.tscn" id="17_qjjtq"]
+[ext_resource type="PackedScene" uid="uid://cls2b4bnl1rhl" path="res://assets/Interactive/dropwall.tscn" id="17_ybtsf"]
 [ext_resource type="PackedScene" uid="uid://dh0fvel8krld5" path="res://assets/Interactive/exit.tscn" id="24_tixdq"]
 [ext_resource type="PackedScene" uid="uid://6bruk7ogjej6" path="res://assets/Interactive/inflater.tscn" id="27_i2gka"]
 [ext_resource type="Script" uid="uid://b0s5p8ml0e4jt" path="res://assets/Hitbox/tile_map_layer.gd" id="30_dlj8o"]
@@ -786,7 +787,7 @@ position = Vector2(505, 464)
 position = Vector2(631, 714)
 
 [node name="Balerog" parent="." instance=ExtResource("9_5xdee")]
-position = Vector2(450, 389)
+position = Vector2(1407, 281)
 
 [node name="Spring" parent="." instance=ExtResource("6_5uqcj")]
 position = Vector2(782, 569)
@@ -818,3 +819,6 @@ script = ExtResource("32_44oio")
 [node name="Guard" parent="." instance=ExtResource("17_qjjtq")]
 position = Vector2(209, 791)
 bounds = 12
+
+[node name="Dropwall" parent="." instance=ExtResource("17_ybtsf")]
+position = Vector2(918.5586, 432.88724)

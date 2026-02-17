@@ -436,7 +436,7 @@ func applyPhysics(xInput, triggerJump, delta):
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		var col = get_slide_collision(0).get_collider()
-		if inAntigrav and col is TileMapLayer and abs(velocity.y) < 1:
+		if inAntigrav and col is TileMapLayer and is_on_ceiling():
 			velocity.y = ANTIGRAV_BOUNCE
 		# fix some collision are ok
 		if yBeforeMove > FALL_DAMAGE_LIMIT and is_on_floor():
