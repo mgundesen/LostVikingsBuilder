@@ -2,6 +2,7 @@ Todo:
 
 
 Bugs:
+Holding jump with erik does not help in antigrav
 Bomb kill has wrong animation
 Slicer wallbreak
 Headbash over a breakwall
