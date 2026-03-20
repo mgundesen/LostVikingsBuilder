@@ -5,6 +5,6 @@ The currently released binaries are my own level pack using the level building c
 In case you want to create your own levels using the system you will need :
 - Godot, currently 4.5.1 the current stable at time of writing (https://godotengine.org/)
 - Source code in this repository
-- TODO: make youtube guide as introduction
+- Small introduction https://www.youtube.com/watch?v=oVAFtBkoZa0
 
 Note: Attached license applies only to the source code, with download_assets excluded. It does not apply to any images, audio, fonts, or other assets included in this repository
