@@ -7,13 +7,13 @@ func _ready() -> void:
 	isAggro = true
 	super._ready()
 
-func _process(delta):
+func _physics_process(delta):
 	if state == State.hurt:
 		position.x += 1 if flip else -1
 	if !onCooldown:
 		position.x += -2 if flip else 2
 	$Sprite2D.flip_h = flip
-	super._process(delta)
+	super._physics_process(delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerBase:

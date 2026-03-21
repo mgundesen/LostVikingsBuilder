@@ -57,7 +57,7 @@ func turnToPlayer():
 		return PlayerUtil.closeToPlayer(position, aggroRange, Vector2(1,0) if flip else Vector2(-1,0))
 	return false
 
-func _process(_delta):
+func _physics_process(_delta):
 	move_and_slide()
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5

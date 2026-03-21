@@ -16,7 +16,7 @@ frame_1/duration = 1.0
 size = Vector2(65, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wu5u"]
-size = Vector2(88, 70)
+size = Vector2(75, 70)
 
 [node name="Slicer" type="CharacterBody2D"]
 collision_layer = 8
@@ -24,11 +24,11 @@ collision_mask = 8
 script = ExtResource("1_6wu5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.9999998)
 scale = Vector2(0.7, 0.7)
 texture = SubResource("AnimatedTexture_dimev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_lgfra")
 
 [node name="EdgeDetect" parent="." instance=ExtResource("3_8kwu3")]
@@ -38,7 +38,6 @@ collision_layer = 31
 collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6wu5u")
 
 [connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]

@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("jump_up")
 	else:
 		$AnimatedSprite2D.play("default")
+	super._physics_process(delta)
 
 func _on_timer_timeout() -> void:
 	if state == State.walk and is_on_floor():

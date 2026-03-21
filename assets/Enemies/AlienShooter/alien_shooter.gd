@@ -28,7 +28,7 @@ func walkCycle():
 	if !shouldAttack():
 		get_tree().create_timer(0.4).timeout.connect(func(): idleCycle())
 
-func _process(delta):
+func _physics_process(delta):
 	if state == State.walk and !closeToPlayer():
 		position.x += -2 if flip else 2
 
@@ -40,4 +40,4 @@ func _process(delta):
 	elif state == State.attack:
 		$AnimatedSprite2D.play("attack", 0.7)
 
-	super._process(delta)
+	super._physics_process(delta)

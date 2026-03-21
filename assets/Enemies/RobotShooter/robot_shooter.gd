@@ -29,7 +29,7 @@ func shouldAttack():
 		return true
 	return false
 
-func _process(delta):
+func _physics_process(delta):
 	if state == State.walk:
 		if !shouldAttack():
 			position.x += -3 if flip else 3
@@ -40,4 +40,4 @@ func _process(delta):
 	elif state == State.attack:
 		$AnimatedSprite2D.play("shoot", 0.7)
 
-	super._process(delta)
+	super._physics_process(delta)

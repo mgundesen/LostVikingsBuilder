@@ -53,10 +53,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4h0r"]
-size = Vector2(70, 80)
+size = Vector2(68, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rj6t8"]
-size = Vector2(67, 80)
+size = Vector2(70, 80)
 
 [node name="Dinosaur" type="CharacterBody2D"]
 collision_layer = 8
@@ -78,7 +78,6 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rj6t8")
 
 [connection signal="hitEdge" from="EdgeDetect" to="." method="_on_edge_detect_hit_edge"]
