@@ -58,6 +58,7 @@ func turnToPlayer():
 	return false
 
 func _process(_delta):
+	move_and_slide()
 	if state == State.hurt:
 		position.x += 1.5 if flip else -1.5
 	if xLimit[0] > position.x or xLimit[1] < position.x:

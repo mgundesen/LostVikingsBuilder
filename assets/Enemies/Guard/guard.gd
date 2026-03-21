@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = SPEED * (-1.0 if flip else 1.0)
 	else:
 		velocity.x = 0
-	move_and_slide()
 	#Handling this here instead of using is agrro for more specific behaviour
 	if is_on_floor() and turnToPlayer(): 
 		doFlip()
